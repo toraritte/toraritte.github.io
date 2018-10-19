@@ -17,7 +17,7 @@ From Medium
   <br />
   To the extent possible under law,
   <a rel="dct:publisher"
-     href="https://toraritte.github.io">
+     href="https://github.com/toraritte">
     <span property="dct:title">Attila Gulyas</span></a>
   has waived all copyright and related or neighboring rights to
   this work, including all articles and other content.
