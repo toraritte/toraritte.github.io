@@ -1,6 +1,11 @@
+Projects
+========
 + [Software Licensing Primer](https://toraritte.github.io/software-licensing-a-primer/)
-+ [Add Share Extension to iOS project](add-share-extension-to-ios-project.md)
 
+Posts
+=====
++ [Add Share Extension to iOS project](add-share-extension-to-ios-project.md)
+---
 <p xmlns:dct="http://purl.org/dc/terms/">
   <a rel="license"
      href="http://creativecommons.org/publicdomain/zero/1.0/">
