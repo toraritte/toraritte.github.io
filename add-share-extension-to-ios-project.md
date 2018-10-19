@@ -18,3 +18,4 @@ Step 2: Edit `Info.plist`
 [Declaring Supported Data Types for a Share or Action Extension](https://developer.apple.com/library/archive/documentation/General/Conceptual/ExtensibilityPG/ExtensionScenarios.html#//apple_ref/doc/uid/TP40014214-CH21-SW8) section is helpful but the predicate thing did not work for me.
 
 ### Example: Restrict Share Extension to audio files only
+
