@@ -1,7 +1,9 @@
-Add Share Extension to an iOS project (Living Document)
-=====================================
+Add Share Extension with a custom view to an iOS project (Living Document)
+==========================================================================
 
-Adding a share extension to a project a second time around and would hate to do the research again the next time.
+Simply adding a share extension via Step 1 below makes a `SLComposeServiceViewController` subclass by default, with a text view and a configuration item below it. The only way to get rid of the text view is to make a custom view controller, therefore the same look will be recreated here without the text view.
+
+Also see ["Share Extension - Remove Textfield"](https://stackoverflow.com/questions/46606221/share-extension-remove-textfield) Stackoverflow question.
 
 Resources used
 --------------
