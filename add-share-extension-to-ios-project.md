@@ -11,6 +11,7 @@ Resources used
 
 Step 1: Add Share Extension target in Xcode
 -------------------------------------------
+
 **File > New > Target**, then choose "**Share Extension**".  
 <sup>Wrote <a href="https://animationreview.files.wordpress.com/2012/11/mouse-cleaning-c2a9-mgm.jpg" >"Stare Extension"</a> first. 
   
@@ -21,6 +22,42 @@ Step 2: Edit `Info.plist`
 
 ### Example: Restrict Share Extension to audio files only
 
+Step 3: Custom view controller
+------------------------------
+
+```swift
+/*
+class ShareViewController: SLComposeServiceViewController { */
+class ShareViewController: UIViewController {
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        /* This could've been done from the Object Library but for some reason
+           the blurred view kept being deallocated. Doing it programmatically
+           resulted in the same behaviour, but after a couple retries it seems
+           that it is ok. Weird.
+        */
+        // https://stackoverflow.com/questions/17041669/creating-a-blurring-overlay-view/25706250
+        // only apply the blur if the user hasn't disabled transparency effects
+        if !UIAccessibilityIsReduceTransparencyEnabled() {
+            view.backgroundColor = .clear
+
+            let blurEffect = UIBlurEffect(style: .dark)
+            let blurEffectView = UIVisualEffectView(effect: blurEffect)
+            //always fill the view
+            blurEffectView.frame = self.view.bounds
+            blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+
+            view.insertSubview(blurEffectView, at: 0)
+        } else {
+            view.backgroundColor = .black
+        }
+        // Do any additional setup after loading the view.
+    }
+    // (...)
+}
+```
 ---
 <p xmlns:dct="http://purl.org/dc/terms/">
   <a rel="license"
