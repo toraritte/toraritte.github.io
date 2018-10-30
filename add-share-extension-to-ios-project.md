@@ -25,6 +25,8 @@ Step 2: Edit `Info.plist`
 Step 3: Custom view controller
 ------------------------------
 
+Adding a custom view controller with a blurred background, just as it is with `SLComposeServiceViewController`.
+
 ```swift
 /*
 class ShareViewController: SLComposeServiceViewController { */
@@ -58,6 +60,12 @@ class ShareViewController: UIViewController {
     // (...)
 }
 ```
+
+Step 4: Embed a navigation controller
+-------------------------------------
+
+Drag a Navigation Controller to the storyboard from the object library, CTRL drag the Share View Controller to the Navigation Controller and select "Embed". 
+
 ---
 <p xmlns:dct="http://purl.org/dc/terms/">
   <a rel="license"
