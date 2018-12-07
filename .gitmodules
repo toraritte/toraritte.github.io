@@ -1,0 +1,3 @@
+[submodule "purescript-numeric-hierarchy-guide"]
+	path = purescript-numeric-hierarchy-guide
+	url = https://github.com/toraritte/purescript-numeric-hierarchy-guide
