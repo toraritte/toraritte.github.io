@@ -1,7 +1,7 @@
 Long
 ====
 + [Software Licensing Primer](https://toraritte.github.io/software-licensing-a-primer/)
-+ [ Notes to Harry Garrood's A Guide to the PureScript Numeric Hierarchy](long/purescript-numeric-hierarchy-guide_out/index.html)
++ [ Notes to Harry Garrood's A Guide to the PureScript Numeric Hierarchy](https://annotated-a-guide-to-the-purescript-numeric-hierarchy.readthedocs.io/en/latest/)
 
 Short
 =====
