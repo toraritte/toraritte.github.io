@@ -1,8 +1,9 @@
-Projects
-========
+Long
+====
 + [Software Licensing Primer](https://toraritte.github.io/software-licensing-a-primer/)
++ [ Notes to Harry Garrood's [*A Guide to the PureScript Numeric Hierarchy*](https://a-guide-to-the-purescript-numeric-hierarchy.read thedocs.io/en/latest/) ](long/purescript-numeric-hierarchy-guide_out/index.html)
 
-Posts
+Short
 =====
 + [Add Share Extension to iOS project](add-share-extension-to-ios-project.md)
 + [Adapter design patterns in Elixir](adapter-design-patterns-in-elixir.md)
