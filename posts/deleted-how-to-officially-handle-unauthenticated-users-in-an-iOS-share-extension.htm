@@ -1,93 +1,8 @@
-<!DOCTYPE html>
-
-
-    <html itemscope itemtype="http://schema.org/QAPage" class="html__responsive">
-
-    <head>
+<html itemscope="" itemtype="http://schema.org/QAPage" class="html__responsive"><head>
 
         <title>swift - How to officially handle unauthenticated users in an iOS share extension? - Stack Overflow</title>
-        <link rel="shortcut icon" href="https://cdn.sstatic.net/Sites/stackoverflow/img/favicon.ico?v=4f32ecc8f43d">
-        <link rel="apple-touch-icon image_src" href="https://cdn.sstatic.net/Sites/stackoverflow/img/apple-touch-icon.png?v=c78bd457575a">
-        <link rel="search" type="application/opensearchdescription+xml" title="Stack Overflow" href="/opensearch.xml">
-        <meta name="referrer" content="origin" />
-        <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0">
-
-
-        <meta property="og:type" content= "website" />
-        <meta property="og:url" content="https://stackoverflow.com/questions/49134868/how-to-officially-handle-unauthenticated-users-in-an-ios-share-extension/53529101"/>
-        <meta property="og:site_name" content="Stack Overflow" />
-        <meta property="og:image" itemprop="image primaryImageOfPage" content="https://cdn.sstatic.net/Sites/stackoverflow/img/apple-touch-icon@2.png?v=73d79a89bded" />
-        <meta name="twitter:card" content="summary"/>
-        <meta name="twitter:domain" content="stackoverflow.com"/>
-        <meta name="twitter:title" property="og:title" itemprop="title name" content="How to officially handle unauthenticated users in an iOS share extension?" />
-        <meta name="twitter:description" property="og:description" itemprop="description" content="The steps that worked for me:
-Add Firebase to app extension
-Set up shared container via App Group
-(or registered URL scheme etc., not going in details here about those)
-Sync login information (or ..." />
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-        <script src="https://cdn.sstatic.net/Js/stub.en.js?v=4a06db321221"></script>
-    
     <link rel="stylesheet" type="text/css" href="https://cdn.sstatic.net/Shared/stacks.css?v=5023e4724ed5">
     <link rel="stylesheet" type="text/css" href="https://cdn.sstatic.net/Sites/stackoverflow/primary-unified.css?v=67f665a197c9">
-
-    
-            <link rel="alternate" type="application/atom+xml" title="Feed for question &#39;How to officially handle unauthenticated users in an iOS share extension?&#39;" href="/feeds/question/49134868">
-            <meta name="twitter:app:country" content="US" />
-            <meta name="twitter:app:name:iphone" content="Stack Exchange iOS" />
-            <meta name="twitter:app:id:iphone" content="871299723" />
-            <meta name="twitter:app:url:iphone" content="se-zaphod://stackoverflow.com/questions/49134868/how-to-officially-handle-unauthenticated-users-in-an-ios-share-extension/53529101" />
-            <meta name="twitter:app:name:ipad" content="Stack Exchange iOS" />
-            <meta name="twitter:app:id:ipad" content="871299723" />
-            <meta name="twitter:app:url:ipad" content="se-zaphod://stackoverflow.com/questions/49134868/how-to-officially-handle-unauthenticated-users-in-an-ios-share-extension/53529101" />
-            <meta name="twitter:app:name:googleplay" content="Stack Exchange Android">
-            <meta name="twitter:app:url:googleplay" content="http://stackoverflow.com/questions/49134868/how-to-officially-handle-unauthenticated-users-in-an-ios-share-extension/53529101">
-            <meta name="twitter:app:id:googleplay" content="com.stackexchange.marvin">
-        <script>
-
-            StackExchange.ready(function () {
-                                    
-                    StackExchange.using("snippets", function () {
-                        StackExchange.snippets.initSnippetRenderer();
-                    });
-                    
-
-                StackExchange.using("postValidation", function () {
-                    StackExchange.postValidation.initOnBlurAndSubmit($('#post-form'), 2, 'answer');
-                });
-
-                
-                StackExchange.question.init({canOpenBounty:true,votesCast:[],canViewVoteCounts:true,totalCommentCount:4,shownCommentCount:4,highlightColor:'#F4A83D',backgroundColor:'#FFF',questionId:49134868});
-
-                styleCode();
-
-                    StackExchange.realtime.subscribeToQuestion('1', '49134868');
-                                                    StackExchange.using("gps", function () { StackExchange.gps.trackOutboundClicks('#content', '.post-text'); });
-
-            });
-        </script>
-
-        
-        
-        
-        
-        
-        
-                <script>
-        StackExchange.ready(function () {
-            StackExchange.realtime.init('wss://qa.sockets.stackexchange.com');
-            StackExchange.realtime.subscribeToReputationNotifications('1');
-                StackExchange.realtime.subscribeToTopBarNotifications('1');
-        });
-    </script>
-    <script>
-        StackExchange.init({"locale":"en","serverTime":1544211108,"routeName":"Questions/Show","stackAuthUrl":"https://stackauth.com","networkMetaHostname":"meta.stackexchange.com","site":{"name":"Stack Overflow","description":"Q&A for professional and enthusiast programmers","isNoticesTabEnabled":true,"enableNewTagCreationWarning":true,"insertSpaceAfterNameTabCompletion":false,"id":1,"childUrl":"https://meta.stackoverflow.com","enableSocialMediaInSharePopup":true,"protocol":"https"},"user":{"fkey":"7ac4be8363c7894090be12c6bec1008bc0001329b9711e8e5c9aab3baa32070a","tid":"efab82c5-c90d-8dcc-6e74-1b475adbaafa","rep":1002,"isRegistered":true,"userType":3,"userId":1498178,"accountId":1621787,"gravatar":"<div class=\"gravatar-wrapper-32\"><img src=\"https://www.gravatar.com/avatar/2a7f53f1d991f2ab18a4957a1f192960?s=32&amp;d=identicon&amp;r=PG\" alt=\"\" width=\"32\" height=\"32\"></div>","profileUrl":"https://stackoverflow.com/users/1498178/toraritte","canSeeDeletedPosts":false,"ab":{"inline_signup_hero":{"v":"d","g":1}}},"realtime":{"newest":false,"active":false,"tagged":true,"staleDisconnectIntervalInHours":0,"workerIframeDomain":"https://cdn.sstatic.net"},"events":{"postType":{"question":1},"postEditionSection":{"title":1,"body":2,"tags":3}},"story":{"minCompleteBodyLength":75,"likedTagsMaxLength":300,"dislikedTagsMaxLength":300},"jobPreferences":{"maxNumDeveloperRoles":2,"maxNumIndustries":4},"svgIconPath":"https://cdn.sstatic.net/Img/svg-icons","svgIconHash":"38192da1e2db"}, {"site":{"allowImageUploads":true,"enableUserHovercards":true,"styleCode":true,"enableImgurHttps":true,"forceHttpsImages":true,"stacksValidation":true},"userMessaging":{},"comments":{},"userProfile":{"openGraphAPIKey":"58740831ad23540e00c58987"},"tags":{},"accounts":{"currentPasswordRequiredForChangingStackIdPassword":true},"flags":{"allowRetractingFlags":true},"snippets":{"snippetsEnabled":true,"renderDomain":"stacksnippets.net"},"paths":{},"markdown":{"asteriskIntraWordEmphasis":true},"monitoring":{"clientTimingsAbsoluteTimeout":30000,"clientTimingsDebounceTimeout":1000},"mentions":{"maxNumUsersInDropdown":50},"slack":{"sidebarAdDismissCookie":"slack-sidebar-ad"}});
-        StackExchange.using.setCacheBreakers({"js/prettify-full.en.js":"d4cebec4dee6","js/moderator.en.js":"c48addfbc3c8","js/full-anon.en.js":"9186c2f99d56","js/full.en.js":"5f54d73692dd","js/wmd.en.js":"137e975b43fe","js/mobile.en.js":"485a932a3088","js/help.en.js":"a1c2d4ed1321","js/tageditor.en.js":"8fc88803d94e","js/tageditornew.en.js":"1f9a6756cbd4","js/inline-tag-editing.en.js":"7820c03c6843","js/revisions.en.js":"8f22ba768cac","js/review.en.js":"c4921de627c3","js/tagsuggestions.en.js":"78eee7c19ab2","js/post-validation.en.js":"d4e9f25d6ecc","js/explore-qlist.en.js":"13036a5f10ad","js/events.en.js":"2d348060df5a","js/keyboard-shortcuts.en.js":"06387d9eaf33","js/external-editor.en.js":"6db0df3b3951","js/adops.en.js":"22a9bd59b1e9","js/begin-edit-event.en.js":"9dd9c799d430","js/external-editor.en.js":"6db0df3b3951","js/snippet-javascript.en.js":"453ad6a31ef4","js/snippet-javascript-codemirror.en.js":"bd6888ae9d99"});
-        StackExchange.using("gps", function() {
-             StackExchange.gps.init(true);
-        });
-    </script>
-    <noscript id="noscript-css"><style>body,.top-bar{margin-top:1.9em}</style></noscript>
     </head>
         <body class="question-page unified-theme">
     <div id="notify-container"></div>
@@ -96,280 +11,7 @@ Sync login information (or ..." />
 
 
 
-<header class="top-bar js-top-bar _fixed top-bar__network">
-    <div class="-container">
-        <div class="-main">
-                <a href="#" class="left-sidebar-toggle p0 ai-center jc-center js-left-sidebar-toggle"><span class="ps-relative"></span></a>
-                                <a href="https://stackoverflow.com" class="-logo js-gps-track"
-                        data-gps-track="top_nav.click({is_current:false, location:2, destination:8})">
-                        <span class="-img _glyph">Stack Overflow</span>
-                    </a>
 
-
-
-        </div>
-
-            <form id="search" action=/search method="get" class="searchbar js-searchbar " autocomplete="off" role="search">
-                    <div class="ps-relative">
-                        <input name="q" type="text" placeholder="Search…" value="" autocomplete="off" maxlength="240" class="f-input js-search-field " />
-                        <button type="submit" aria-label="Search..." class="s-btn s-btn__primary btn-topbar-primary js-search-submit"><svg aria-hidden="true" class="svg-icon iconSearch" width="18" height="18" viewBox="0 0 18 18"><path d="M12.86 11.32L18 16.5 16.5 18l-5.18-5.14v-.35a7 7 0 1 1 1.19-1.19h.35zM7 12A5 5 0 1 0 7 2a5 5 0 0 0 0 10z"/></svg></button>
-                    </div>
-            </form>
-
-        
-
-
-
-
-
-<ol class="-secondary js-secondary-topbar-links drop-icons-responsively">
-        <li class="-item searchbar-trigger js-searchbar-trigger"><a href="#" class="-link"><svg aria-hidden="true" class="svg-icon iconSearch" width="18" height="18" viewBox="0 0 18 18"><path d="M12.86 11.32L18 16.5 16.5 18l-5.18-5.14v-.35a7 7 0 1 1 1.19-1.19h.35zM7 12A5 5 0 1 0 7 2a5 5 0 0 0 0 10z"/></svg></a></li>
-                <li class="-item">
-                <a href="/users/1498178/toraritte" class="my-profile js-gps-track" data-gps-track="profile_summary.click()">
-                <div class="gravatar-wrapper-24" title="toraritte"><img src="https://www.gravatar.com/avatar/2a7f53f1d991f2ab18a4957a1f192960?s=48&amp;d=identicon&amp;r=PG" alt="" width="24" height="24" class="-avatar js-avatar-me"></div>
-                    <div class="-rep js-header-rep" title="your reputation: 1,002">1,002</div>
-                        <div class="-badges">
-<span title="1 gold badge"><span class="badge1">&#9679;</span><span class="badgecount">1</span></span><span title="12 silver badges"><span class="badge2">&#9679;</span><span class="badgecount">12</span></span><span title="23 bronze badges"><span class="badge3">&#9679;</span><span class="badgecount">23</span></span>                        </div>
-                </a>
-            </li>
-        <li class="-item">
-        <a href="https://stackexchange.com/users/1621787?tab=inbox" class="-link js-inbox-button" title="Recent inbox messages">
-            <svg aria-hidden="true" class="svg-icon iconInbox" width="20" height="18" viewBox="0 0 20 18"><path d="M15.19 1H4.63c-.85 0-1.6.54-1.85 1.35L0 10.79V15c0 1.1.9 2 2 2h16a2 2 0 0 0 2-2v-4.21l-2.87-8.44A2 2 0 0 0 15.19 1zm-.28 10l-2 2h-6l-2-2H1.96L4.4 3.68A1 1 0 0 1 5.35 3h9.12a1 1 0 0 1 .95.68L17.86 11h-2.95z"/></svg>
-            <span class="indicator-badge js-unread-count _important" style="display: none;"></span>
-        </a>
-    </li>
-    <li class="-item">
-        <a href="https://stackexchange.com/users/1621787?tab=reputation" class="-link js-achievements-button" title="Recent achievements: reputation, badges, and privileges earned" data-unread-class="_highlighted-positive">
-            <svg aria-hidden="true" class="svg-icon iconAchievements" width="18" height="18" viewBox="0 0 18 18"><path d="M15 2V1H3v1H0v4c0 1.6 1.4 3 3 3v1c.4 1.5 3 2.6 5 3v2H5s-1 1.5-1 2h10c0-.4-1-2-1-2h-3v-2c2-.4 4.6-1.5 5-3V9c1.6-.2 3-1.4 3-3V2h-3zM3 7c-.5 0-1-.5-1-1V4h1v3zm8.4 2.5L9 8 6.6 9.4l1-2.7L5 5h3l1-2.7L10 5h2.8l-2.3 1.8 1 2.7h-.1zM16 6c0 .5-.5 1-1 1V4h1v2z"/></svg>
-            <span class="indicator-badge js-unread-count _positive" style="display: none;"></span>
-        </a>
-    </li>
-
-    <li class="-item review-button-item" data-remove-order="2">
-        <a href="/review" class="-link js-gps-track js-review-button" title="Review queues - help improve the site" data-gps-track="review_popup.click({ in_danger: false })">
-            <svg aria-hidden="true" class="svg-icon iconReviewQueue" width="18" height="18" viewBox="0 0 18 18"><path d="M16 7.5l-5 4.97-1.79-1.77a1 1 0 0 0-1.4 0l-2.1 2.1a1 1 0 0 0 0 1.4L8.5 17H2a2 2 0 0 1-2-2V3c0-1.1.9-2 2-2h12a2 2 0 0 1 2 2v4.5zM12 7H2v2h10V7zm2-4H2v2h12V3zM2 11v2h3v-2H2zm16-.5l-7 7-4-4L8.5 12l2.5 2.5L16.5 9l1.5 1.5z"/></svg>
-        </a>
-        
-    </li>
-    <li class="-item help-button-item" data-remove-order="1"><a href="#" class="-link js-help-button" title="Help Center and other resources">
-        <svg aria-hidden="true" class="svg-icon iconHelp" width="18" height="18" viewBox="0 0 18 18"><path d="M9 1a8 8 0 1 0 0 16A8 8 0 0 0 9 1zm.81 12.13c-.02.71-.55 1.15-1.24 1.13-.66-.02-1.17-.49-1.15-1.2.02-.72.56-1.18 1.22-1.16.7.03 1.2.51 1.17 1.23zM11.77 8a5.8 5.8 0 0 1-1.02.91l-.53.37c-.26.2-.42.43-.5.69a4 4 0 0 0-.09.75c0 .05-.03.16-.18.16H7.88c-.16 0-.18-.1-.18-.15.03-.66.12-1.21.4-1.66a5.29 5.29 0 0 1 1.43-1.22c.16-.12.28-.25.38-.39a1.34 1.34 0 0 0 .02-1.71c-.24-.31-.51-.46-1.03-.46-.51 0-.8.26-1.02.6-.21.33-.18.73-.18 1.1H5.75c0-1.38.35-2.25 1.1-2.76.52-.35 1.17-.5 1.93-.5 1 0 1.79.18 2.49.71.64.5.98 1.18.98 2.12 0 .57-.2 1.05-.48 1.44z"/></svg>
-    </a></li>
-
-    <li class="-item">
-        <a href="https://stackexchange.com" class="-link js-site-switcher-button js-gps-track" data-gps-track="site_switcher.show" title="A list of all 174 Stack Exchange sites">
-            <svg aria-hidden="true" class="svg-icon iconStackExchange" width="18" height="18" viewBox="0 0 18 18"><path d="M1 13c0 1.1.9 2 2 2h8v3l3-3h1a2 2 0 0 0 2-2v-2H1v2zM15 1H3a2 2 0 0 0-2 2v2h16V3a2 2 0 0 0-2-2zM1 6h16v4H1V6z"/></svg>
-        </a>
-    </li>
-
-
-    <li class="-dialog-container js-topbar-dialog-corral">
-
-
-    <div class="topbar-dialog siteSwitcher-dialog dno">
-        <div class="header">
-            <h3><a href="https://stackoverflow.com">current community</a>
-            </h3>
-        </div>
-        <div class="modal-content current-site-container">
-            <ul class="current-site">
-                    <li class="grid">
-                            <div class="fl1">
-            <a href="https://stackoverflow.com"
-       class="current-site-link site-link js-gps-track grid gs8 gsx"
-       data-id="1"
-       data-gps-track="site_switcher.click({ item_type:3 })">
-        <div class="favicon favicon-stackoverflow site-icon grid--cell" title="Stack Overflow"></div>
-        <span class="grid--cell fl1">
-            Stack Overflow
-        </span>
-    </a>
-
-    </div>
-    <div class="related-links">
-            <a href="https://stackoverflow.com/help" class="js-gps-track"     data-gps-track="site_switcher.click({ item_type:14 })"
->help</a>
-                    <a href="https://chat.stackoverflow.com" class="js-gps-track"     data-gps-track="site_switcher.click({ item_type:6 })"
->chat</a>
-                    <a href="https://stackoverflow.com/users/logout" class="js-gps-track"     data-gps-track="site_switcher.click({ item_type:8 })"
->log out</a>
-    </div>
-
-                    </li>
-                    <li class="related-site grid">
-                            <div class="L-shaped-icon-container">
-        <span class="L-shaped-icon"></span>
-    </div>
-
-                            <a href="https://meta.stackoverflow.com"
-       class="site-link js-gps-track grid gs8 gsx"
-       data-id="552"
-       data-gps-track="site.switch({ target_site:552, item_type:3 }),site_switcher.click({ item_type:4 })">
-        <div class="favicon favicon-stackoverflowmeta site-icon grid--cell" title="Meta Stack Overflow"></div>
-        <span class="grid--cell fl1">
-            Meta Stack Overflow
-        </span>
-    </a>
-
-                    </li>
-            </ul>
-        </div>
-
-        <div class="header" id="your-communities-header">
-            <h3>
-                    <a href="https://stackexchange.com/users/1621787/?tab=accounts">your communities</a>
-            </h3>
-
-                <a href="#" id="edit-pinned-sites">edit</a>
-                <a href="#" id="cancel-pinned-sites" style="display: none;">cancel</a>
-        </div>
-        <div class="modal-content" id="your-communities-section">
-
-                <ul class="my-sites">
-                        <li>
-                                <a href="https://stackoverflow.com"
-       class="site-link js-gps-track grid gs8 gsx"
-       data-id="1"
-       data-gps-track="site.switch({ target_site:1, item_type:3 }),site_switcher.click({ item_type:1 })">
-        <div class="favicon favicon-stackoverflow site-icon grid--cell" title="Stack Overflow"></div>
-        <span class="grid--cell fl1">
-            Stack Overflow
-        </span>
-            <span class="rep-score grid--cell">1,002</span>
-    </a>
-
-                        </li>
-                        <li>
-                                <a href="https://unix.stackexchange.com"
-       class="site-link js-gps-track grid gs8 gsx"
-       data-id="106"
-       data-gps-track="site.switch({ target_site:106, item_type:3 }),site_switcher.click({ item_type:1 })">
-        <div class="favicon favicon-unix site-icon grid--cell" title="Unix &amp; Linux"></div>
-        <span class="grid--cell fl1">
-            Unix &amp; Linux
-        </span>
-            <span class="rep-score grid--cell">173</span>
-    </a>
-
-                        </li>
-                        <li>
-                                <a href="https://vi.stackexchange.com"
-       class="site-link js-gps-track grid gs8 gsx"
-       data-id="599"
-       data-gps-track="site.switch({ target_site:599, item_type:3 }),site_switcher.click({ item_type:1 })">
-        <div class="favicon favicon-vi site-icon grid--cell" title="Vi and Vim"></div>
-        <span class="grid--cell fl1">
-            Vi and Vim
-        </span>
-            <span class="rep-score grid--cell">151</span>
-    </a>
-
-                        </li>
-                        <li>
-                                <a href="https://salesforce.stackexchange.com"
-       class="site-link js-gps-track grid gs8 gsx"
-       data-id="459"
-       data-gps-track="site.switch({ target_site:459, item_type:3 }),site_switcher.click({ item_type:1 })">
-        <div class="favicon favicon-salesforce site-icon grid--cell" title="Salesforce"></div>
-        <span class="grid--cell fl1">
-            Salesforce
-        </span>
-            <span class="rep-score grid--cell">123</span>
-    </a>
-
-                        </li>
-                        <li>
-                                <a href="https://math.stackexchange.com"
-       class="site-link js-gps-track grid gs8 gsx"
-       data-id="69"
-       data-gps-track="site.switch({ target_site:69, item_type:3 }),site_switcher.click({ item_type:1 })">
-        <div class="favicon favicon-math site-icon grid--cell" title="Mathematics"></div>
-        <span class="grid--cell fl1">
-            Mathematics
-        </span>
-            <span class="rep-score grid--cell">115</span>
-    </a>
-
-                        </li>
-                </ul>
-                    <div class="pinned-site-editor-container" style="display: none;">
-                        <input type="hidden" name="fkey" value="7ac4be8363c7894090be12c6bec1008bc0001329b9711e8e5c9aab3baa32070a">
-                        <input id="js-site-search-txt"
-                                type="text"
-                                class="site-filter-input"
-                                value=""
-                                placeholder="Add a Stack Exchange community"/>
-                        <input type="submit" id="pin-site-btn" value="Add" disabled="disabled"/>
-                        <ul class="js-found-sites found-sites"></ul>
-                        <ul class="pinned-site-list sortable" data-custom-list="False">
-                        </ul>
-                        <input type="submit" value="Save" id="save-pinned-sites-btn" disabled="disabled"/>
-                        <a href="#" id="reset-pinned-sites">reset to default list</a>
-                    </div>
-        </div>
-
-        <div class="header">
-            <h3><a href="https://stackexchange.com/sites">more stack exchange communities</a>
-            </h3>
-            <a href="https://stackoverflow.blog" class="fr">company blog</a>
-        </div>
-        <div class="modal-content">
-                <div class="child-content"></div>
-        </div>        
-    </div>
-            <div class="topbar-dialog help-dialog js-help-dialog dno">
-        <div class="modal-content">
-            <ul>
-                                    <li>
-                        <a href="/tour" class="js-gps-track" data-gps-track="help_popup.click({ item_type:1 })">
-                            Tour
-                            <span class="item-summary">
-                                Start here for a quick overview of the site
-                            </span>
-                        </a>
-                    </li>
-                <li>
-                    <a href="/help" class="js-gps-track" data-gps-track="help_popup.click({ item_type:4 })">
-                        Help Center
-                        <span class="item-summary">
-                            Detailed answers to any questions you might have
-                        </span>
-                    </a>
-                </li>
-                        <li>
-                            <a href="https://meta.stackoverflow.com" class="js-gps-track" data-gps-track="help_popup.click({ item_type:2 })">
-                                Meta
-                                <span class="item-summary">
-                                    Discuss the workings and policies of this site
-                                </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://stackoverflow.com/company/about" class="js-gps-track" data-gps-track="help_popup.click({ item_type:6 })">
-                                About Us
-                                <span class="item-summary">
-                                    Learn more about Stack Overflow the company
-                                </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://www.stackoverflowbusiness.com/?ref=topbar_help" class="js-gps-track" data-gps-track="help_popup.click({ item_type:7 })">
-                                Business
-                                <span class="item-summary">
-                                    Learn more about hiring developers or posting ads with us
-                                </span>
-                            </a>
-                        </li>
-            </ul>
-        </div>
-    </div>
-                    <div class="topbar-dialog leftnav-dialog js-leftnav-dialog dno">
-                <div class="left-sidebar js-unpinned-left-sidebar" data-can-be="left-sidebar" data-is-here-when="sm"></div>
-            </div>
-    </li>
-</ol>
-
-    </div>
-</header>
 
     <script>
         StackExchange.ready(function () { StackExchange.topbar.init({ observeSize: true }); });
@@ -385,89 +27,14 @@ Sync login information (or ..." />
 
 
 
-<div id="left-sidebar" data-is-here-when="md lg" class="left-sidebar js-pinned-left-sidebar">
-    <div class="left-sidebar--sticky-container js-sticky-leftnav">
-        <nav role="navigation">
-            <ol class="nav-links">
-                <li>    <li>
-        <a
-            href="/"
-            class="pl8 js-gps-track nav-links--link"
-            
-            data-gps-track="top_nav.click({is_current:false, location:2, destination:8})">
-Home        </a>
-    </li>
-</li>
-                <li>
-                    <ol class="nav-links">
-                            <li class="fs-fine tt-uppercase ml8 mt16 mb4 fc-light">Public</li>
-                            <li class=" youarehere">
-        <a id="nav-questions"
-            href="/questions"
-            class="pl8 js-gps-track nav-links--link -link__with-icon"
-            
-            data-gps-track="top_nav.click({is_current:true, location:2, destination:1})">
-<svg aria-hidden="true" class="svg-icon iconGlobe" width="18" height="18" viewBox="0 0 18 18"><path d="M9 1a8 8 0 1 0 0 16A8 8 0 0 0 9 1zM8 15.32a6.4 6.4 0 0 1-5.23-7.75L7 11.68v.8c0 .88.12 1.32 1 1.32v1.52zm5.72-2c-.2-.66-1-1.32-1.72-1.32h-1v-2c0-.44-.56-1-1-1H6V7h1c.44 0 1-.56 1-1V5h2c.88 0 1.4-.72 1.4-1.6v-.33a6.4 6.4 0 0 1 2.32 10.24z"/></svg>                <span class="-link--channel-name">Stack Overflow</span>
-        </a>
-    </li>
 
-    <li>
-        <a id="nav-tags"
-            href="/tags"
-            class=" js-gps-track nav-links--link"
-            
-            data-gps-track="top_nav.click({is_current:false, location:2, destination:2})">
-Tags        </a>
-    </li>
-    <li>
-        <a id="nav-users"
-            href="/users"
-            class=" js-gps-track nav-links--link"
-            
-            data-gps-track="top_nav.click({is_current:false, location:2, destination:3})">
-Users        </a>
-    </li>
-    <li>
-        <a id="nav-jobs"
-            href="/jobs?med=site-ui&amp;ref=jobs-tab"
-            class=" js-gps-track nav-links--link"
-            
-            data-gps-track="top_nav.click({is_current:false, location:2, destination:6})">
-Jobs        </a>
-    </li>
-                                            </ol>
-                </li>
-                    <li>
-                        <ol class="nav-links">
-                                    <li class="p6">
-                                        <div class="ba bc-black-2 bar-sm p16 grid fd-column ps-relative overflow-hidden">
-                                            <strong class="grid--cell">Teams</strong>
-                                            <span class="grid--cell mt2 fs-caption fc-medium">Q&amp;A for work </span>
-                                            <a href="https://stackoverflow.com/teams"
-                                               class="js-gps-track s-btn s-btn__outlined ta-center grid--cell mt12"
-                                               data-gps-track="teams.create.left-sidenav.click({ CampaignType: None})"
-                                               data-ga="[&quot;teams traffic&quot;,&quot;left nav cta&quot;,&quot;stackoverflow.com/teams&quot;,null,{&quot;dimension4&quot;:&quot;teams&quot;}]">
-                                                Learn More
-                                            </a>
-
-                                            <div class="ps-absolute t4 rn6">
-                                                <svg width="53" height="49" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M49 11l.2 31H18.9L9 49v-7H4V8h31" fill="#CCEAFF" /><path d="M44.5 19v-.3l-.2-.1-18-13-.1-.1H.5v33h4V46l.8-.6 9.9-6.9h29.3V19z" stroke="#1060E1" stroke-miterlimit="10" /><path d="M31 2l6-1.5 7 2V38H14.9L5 45v-7H1V6h25l5-4z" fill="#fff" /><path d="M7 16.5h13m-13 6h14m-14 6h18" stroke="#1060E1" stroke-miterlimit="10" /><path d="M39 30a14 14 0 1 0 0-28 14 14 0 0 0 0 28z" fill="#FFB935" /><path d="M50.5 14a13.5 13.5 0 1 1-27 0 13.5 13.5 0 0 1 27 0z" stroke="#F48024" stroke-miterlimit="10" /><path d="M32.5 21.5v-8h9v8h-9zm2-9.5V9.3A2.5 2.5 0 0 1 37 6.8a2.5 2.5 0 0 1 2.5 2.5V12h-5zm2 3v2m1-2v2" stroke="#fff" stroke-miterlimit="10" /></svg>
-                                            </div>
-                                        </div>
-                                    </li>
-                        </ol>
-                    </li>
-            </ol>
-        </nav>
-    </div>
-</div>
         <div id="content" class="snippet-hidden">
 
 
             
 
 
-<div itemscope itemtype="http://schema.org/Question">
+<div itemscope="" itemtype="http://schema.org/Question">
     <link itemprop="image" href="https://cdn.sstatic.net/Sites/stackoverflow/img/apple-touch-icon.png?v=c78bd457575a">
 
     <div class="inner-content clearfix">
@@ -481,18 +48,16 @@ Jobs        </a>
 
 
 
-<div class="pl8 aside-cta grid--cell" role="navigation" aria-label="ask new question">
-            <a href="/questions/ask" class="d-inline-flex ai-center ws-nowrap s-btn s-btn__primary" >Ask Question</a>
-</div>
+
 
         </div>
             <div id="mainbar" role="main" aria-label="question and answers">
 
             
 
-<div class="question" data-questionid="49134868"  id="question">
+<div class="question" data-questionid="49134868" id="question">
 
-        <input type="hidden" id="49134868-only-allow-inform-moderator-flagging" value="true" />
+        <input type="hidden" id="49134868-only-allow-inform-moderator-flagging" value="true">
     
     <div class="post-layout">
             <div class="votecell post-layout--left">
@@ -534,27 +99,14 @@ Jobs        </a>
 
         <div class="post-taglist grid gs4 gsy fd-column">
             <div class="grid ps-relative d-block">
-                <a href="/questions/tagged/ios" class="post-tag" title="show questions tagged &#39;ios&#39;" rel="tag">ios</a> <a href="/questions/tagged/swift" class="post-tag" title="show questions tagged &#39;swift&#39;" rel="tag">swift</a> <a href="/questions/tagged/authentication" class="post-tag" title="show questions tagged &#39;authentication&#39;" rel="tag">authentication</a> <a href="/questions/tagged/ios-app-extension" class="post-tag" title="show questions tagged &#39;ios-app-extension&#39;" rel="tag">ios-app-extension</a> <a href="/questions/tagged/share-extension" class="post-tag" title="show questions tagged &#39;share-extension&#39;" rel="tag">share-extension</a> 
+                <a href="/questions/tagged/ios" class="post-tag js-gps-track" title="show questions tagged 'ios'" rel="tag">ios</a> <a href="/questions/tagged/swift" class="post-tag js-gps-track" title="show questions tagged 'swift'" rel="tag">swift</a> <a href="/questions/tagged/authentication" class="post-tag js-gps-track" title="show questions tagged 'authentication'" rel="tag">authentication</a> <a href="/questions/tagged/ios-app-extension" class="post-tag js-gps-track" title="show questions tagged 'ios-app-extension'" rel="tag">ios-app-extension</a> <a href="/questions/tagged/share-extension" class="post-tag js-gps-track" title="show questions tagged 'share-extension'" rel="tag">share-extension</a> 
             </div>
         </div>
 
     <div class="mb0 ">
         <div class="mt16 pt4 grid gs8 gsy fw-wrap jc-end ai-start">
             <div class="grid--cell mr16" style="flex: 1 1 100px;">
-<div class="post-menu"><a href="/q/49134868/1498178" title="short permalink to this question" class="short-link" id="link-post-49134868">share</a><span class="lsep">|</span><a href="/posts/49134868/edit" class="edit-post" title="revise and improve this post">edit</a><span class="lsep">|</span><a href="#"
-       class="close-question-link"
-       title="vote to close this question (when closed, no new answers can be added)"
-       data-questionid="49134868"
-       data-isclosed="false">close</a><span class="lsep">|</span><a href="#"
-               id="delete-post-49134868" 
-               title="vote to delete this post" 
-               class=""
-               data-fancy-delete="true"
-               data-delete-prompt="Delete this post?"
-               data-undelete-prompt="Undelete this post?">delete</a><span class="lsep">|</span><a href="#"
-       class="flag-post-link"
-       title="flag this post for serious problems or moderator attention"
-       data-postid="49134868">flag</a></div>
+<div class="post-menu"><a href="/q/49134868/1498178" title="short permalink to this question" class="short-link" id="link-post-49134868">share</a><span class="lsep">|</span><a href="/posts/49134868/edit" class="edit-post" title="revise and improve this post">edit</a><span class="lsep">|</span><a href="#" class="close-question-link" title="vote to close this question (when closed, no new answers can be added)" data-questionid="49134868" data-isclosed="false">close</a><span class="lsep">|</span><a href="#" id="delete-post-49134868" title="vote to delete this post" class="" data-fancy-delete="true" data-delete-prompt="Delete this post?" data-undelete-prompt="Undelete this post?">delete</a><span class="lsep">|</span><a href="#" class="flag-post-link" title="flag this post for serious problems or moderator attention" data-postid="49134868">flag</a></div>
             </div>
 
                 <div class="post-signature grid--cell">
@@ -596,12 +148,7 @@ Jobs        </a>
                 
     <div class="post-layout--right">
 	    <div id="comments-49134868" class="comments js-comments-container ">
-            <ul class="comments-list js-comments-list"
-                    data-remaining-comments-count="0"
-                    data-canpost="true"
-                    data-cansee="false"
-                    data-comments-unavailable="false"
-                    data-addlink-disabled="false">
+            <ul class="comments-list js-comments-list" data-remaining-comments-count="0" data-canpost="true" data-cansee="false" data-comments-unavailable="false" data-addlink-disabled="false">
 
 
     <li id="comment-85274388" class="comment js-comment " data-comment-id="85274388">
@@ -610,12 +157,10 @@ Jobs        </a>
             </div>
                     </div>
         <div class="comment-text js-comment-text-and-form">
-            <div class="comment-body" style="display: block;" >
-                <span class="comment-copy">I specifically need this for an app and its share extension built atop Firebase, there is even a related <a href="https://groups.google.com/forum/#!topic/firebase-talk/OtbDoPGm4zg" rel="nofollow noreferrer">email thread</a>, but it seems like an overkill and I assume there is a standard way to do this that I wasn&#39;t able to find yet.</span>
-                    &ndash;&nbsp;<a href="/users/1498178/toraritte"
-                       title="1,002 reputation"
-                       class="comment-user owner">toraritte</a>
-                <span class="comment-date" dir="ltr"><span title="2018-03-06 15:51:07Z" class="relativetime-clean">Mar 6 at 15:51</span></span>
+            <div class="comment-body" style="display: block;">
+                <span class="comment-copy">I specifically need this for an app and its share extension built atop Firebase, there is even a related <a href="https://groups.google.com/forum/#!topic/firebase-talk/OtbDoPGm4zg" rel="nofollow noreferrer">email thread</a>, but it seems like an overkill and I assume there is a standard way to do this that I wasn't able to find yet.</span>
+                    –&nbsp;<a href="/users/1498178/toraritte" title="1,002 reputation" class="comment-user owner">toraritte</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="/q/49134868/#comment85274388_49134868"><span title="2018-03-06 15:51:07Z" class="relativetime-clean">Mar 6 at 15:51</span></a></span>
                                                                     &nbsp;
                         <a class="comment-delete delete-tag" title="delete this comment"></a>
                     <a class="comment-delete-empty" href="#" title="delete this comment"></a>                             </div>
@@ -627,22 +172,20 @@ Jobs        </a>
             </div>
                 <div class="comment-voting mtn2">
                         <a tabindex="0" role="button" href="#" class="comment-up comment-up-off" aria-label="Upvote Comment" title="This comment adds something useful to the post">
-                            <svg aria-hidden="true" class="svg-icon iconArrowUp" width="18" height="18" viewBox="0 0 18 18"><path d="M1 13h16L9 5z"/></svg>
+                            <svg aria-hidden="true" class="svg-icon iconArrowUp" width="18" height="18" viewBox="0 0 18 18"><path d="M1 13h16L9 5z"></path></svg>
                         </a>
                 </div>
                             <div class="comment-flagging">
                         <a tabindex="0" role="button" href="#" class="comment-flag" aria-label="Flag Comment" title="Flag this comment for serious problems or moderator attention">
-                            <svg aria-hidden="true" class="svg-icon iconFlag" width="18" height="18" viewBox="0 0 18 18"><path d="M3 2v14h2v-6h3.6l.4 1h6V3H9.5L9 2z"/></svg>
+                            <svg aria-hidden="true" class="svg-icon iconFlag" width="18" height="18" viewBox="0 0 18 18"><path d="M3 2v14h2v-6h3.6l.4 1h6V3H9.5L9 2z"></path></svg>
                         </a>
                 </div>
         </div>
         <div class="comment-text js-comment-text-and-form">
-            <div class="comment-body" style="display: block;" >
-                <span class="comment-copy">that os primarily opinion-based, but I would store the successful login details in keychain (e.g. <i>token</i>), what your extension can read as well – until the successful login has happened, the extension would show a login button (obscure the actual content for e.g.) which redirect the user into the app to log-in; after the login was a complete success, the extension&#39;s content can show the user-related information.</span>
-                    &ndash;&nbsp;<a href="/users/1214122/holex"
-                       title="21,255 reputation"
-                       class="comment-user">holex</a>
-                <span class="comment-date" dir="ltr"><span title="2018-03-06 16:17:02Z" class="relativetime-clean">Mar 6 at 16:17</span></span>
+            <div class="comment-body" style="display: block;">
+                <span class="comment-copy">that os primarily opinion-based, but I would store the successful login details in keychain (e.g. <i>token</i>), what your extension can read as well – until the successful login has happened, the extension would show a login button (obscure the actual content for e.g.) which redirect the user into the app to log-in; after the login was a complete success, the extension's content can show the user-related information.</span>
+                    –&nbsp;<a href="/users/1214122/holex" title="21,255 reputation" class="comment-user">holex</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="/q/49134868/#comment85275503_49134868"><span title="2018-03-06 16:17:02Z" class="relativetime-clean">Mar 6 at 16:17</span></a></span>
                                                                             </div>
         </div>
     </li>
@@ -652,12 +195,10 @@ Jobs        </a>
             </div>
                     </div>
         <div class="comment-text js-comment-text-and-form">
-            <div class="comment-body" style="display: block;" >
+            <div class="comment-body" style="display: block;">
                 <span class="comment-copy">@holex Thanks for the comment; it made me realize that the phrasing of my question was incorrect. Your suggestion would be item 3 in the question, but how would you implement it? Do you know of any official resources about it? This should be a common enough problem.</span>
-                    &ndash;&nbsp;<a href="/users/1498178/toraritte"
-                       title="1,002 reputation"
-                       class="comment-user owner">toraritte</a>
-                <span class="comment-date" dir="ltr"><span title="2018-03-06 16:35:09Z" class="relativetime-clean">Mar 6 at 16:35</span></span>
+                    –&nbsp;<a href="/users/1498178/toraritte" title="1,002 reputation" class="comment-user owner">toraritte</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="/q/49134868/#comment85276221_49134868"><span title="2018-03-06 16:35:09Z" class="relativetime-clean">Mar 6 at 16:35</span></a></span>
                                                                     &nbsp;
                         <a class="comment-delete delete-tag" title="delete this comment"></a>
                     <a class="comment-delete-empty" href="#" title="delete this comment"></a>                             </div>
@@ -669,39 +210,33 @@ Jobs        </a>
             </div>
                 <div class="comment-voting mtn2">
                         <a tabindex="0" role="button" href="#" class="comment-up comment-up-off" aria-label="Upvote Comment" title="This comment adds something useful to the post">
-                            <svg aria-hidden="true" class="svg-icon iconArrowUp" width="18" height="18" viewBox="0 0 18 18"><path d="M1 13h16L9 5z"/></svg>
+                            <svg aria-hidden="true" class="svg-icon iconArrowUp" width="18" height="18" viewBox="0 0 18 18"><path d="M1 13h16L9 5z"></path></svg>
                         </a>
                 </div>
                             <div class="comment-flagging">
                         <a tabindex="0" role="button" href="#" class="comment-flag" aria-label="Flag Comment" title="Flag this comment for serious problems or moderator attention">
-                            <svg aria-hidden="true" class="svg-icon iconFlag" width="18" height="18" viewBox="0 0 18 18"><path d="M3 2v14h2v-6h3.6l.4 1h6V3H9.5L9 2z"/></svg>
+                            <svg aria-hidden="true" class="svg-icon iconFlag" width="18" height="18" viewBox="0 0 18 18"><path d="M3 2v14h2v-6h3.6l.4 1h6V3H9.5L9 2z"></path></svg>
                         </a>
                 </div>
         </div>
         <div class="comment-text js-comment-text-and-form">
-            <div class="comment-body" style="display: block;" >
-                <span class="comment-copy">if you want to navigate from extension to the core app, just use URL schemes, quite standard protocol; however there may be no way to open the extension from the app directly, that is supposed to initiated by the user explicitly (by 3D touch on your app&#39;s icon) or implicitly (by opening widget page).</span>
-                    &ndash;&nbsp;<a href="/users/1214122/holex"
-                       title="21,255 reputation"
-                       class="comment-user">holex</a>
-                <span class="comment-date" dir="ltr"><span title="2018-03-06 16:43:07Z" class="relativetime-clean">Mar 6 at 16:43</span></span>
+            <div class="comment-body" style="display: block;">
+                <span class="comment-copy">if you want to navigate from extension to the core app, just use URL schemes, quite standard protocol; however there may be no way to open the extension from the app directly, that is supposed to initiated by the user explicitly (by 3D touch on your app's icon) or implicitly (by opening widget page).</span>
+                    –&nbsp;<a href="/users/1214122/holex" title="21,255 reputation" class="comment-user">holex</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="/q/49134868/#comment85276592_49134868"><span title="2018-03-06 16:43:07Z" class="relativetime-clean">Mar 6 at 16:43</span></a></span>
                                                                             </div>
         </div>
     </li>
             </ul>
 				<div class="comment-form">
-					<form id="add-comment-49134868" 
-							class="" 
-							data-placeholdertext="Use comments to reply to other users or notify them of changes. If you are adding new information, edit your post instead of commenting."></form>
+					<form id="add-comment-49134868" class="" data-placeholdertext="Use comments to reply to other users or notify them of changes. If you are adding new information, edit your post instead of commenting."></form>
 				</div>
 	    </div>
 
-        <div id="comments-link-49134868" >
+        <div id="comments-link-49134868">
 
-                <a class="js-add-link comments-link "
-                   title="Use comments to reply to other users or notify them of changes. If you are adding new information, edit your post instead of commenting."
-                   href=#>add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
-            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href=# onclick=""></a>
+                <a class="js-add-link comments-link " title="Use comments to reply to other users or notify them of changes. If you are adding new information, edit your post instead of commenting." href="#">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="#" onclick=""></a>
         </div>         
     </div>              <div class="bounty-notification post-layout--right">
           <div style="margin-top:20px">
@@ -744,8 +279,8 @@ Jobs        </a>
 
   
 <a name="53529101"></a>
-<div id="answer-53529101" class="answer accepted-answer" data-answerid="53529101"   itemprop="acceptedAnswer" itemscope itemtype="http://schema.org/Answer">
-        <input type="hidden" id="53529101-only-allow-inform-moderator-flagging" value="true"/>
+<div id="answer-53529101" class="answer accepted-answer" data-answerid="53529101" itemprop="acceptedAnswer" itemscope="" itemtype="http://schema.org/Answer">
+        <input type="hidden" id="53529101-only-allow-inform-moderator-flagging" value="true">
     <div class="post-layout">
             <div class="votecell post-layout--left">
                 
@@ -758,13 +293,7 @@ Jobs        </a>
 
 
 
-    <a id="vote-accepted-53529101" 
-        class="vote-accepted-off vote-accepted-on" 
-        href="javascript:void(0);"
-        data-title-accept="Click to accept this answer because it solved your problem or was the most helpful in finding your solution (click again to undo)" 
-        data-verb-accept="accept"
-        data-title-unaccept="Click to undo acceptance of this answer; you accepted this answer Nov 28 at 22:33" 
-        data-verb-unaccept="unaccept"></a>
+    <a id="vote-accepted-53529101" class="vote-accepted-off vote-accepted-on" href="javascript:void(0);" data-title-accept="Click to accept this answer because it solved your problem or was the most helpful in finding your solution (click again to undo)" data-verb-accept="accept" data-title-unaccept="Click to undo acceptance of this answer; you accepted this answer Nov 28 at 22:33" data-verb-unaccept="unaccept"></a>
 
 
 </div>
@@ -843,111 +372,100 @@ Jobs        </a>
 
 <p>(Could've just saved the user ID, and check if it is present, instead of using both a <code>Bool</code> and <code>String</code> key.)</p>
 
-<pre><code>//  NVC.swift
+<pre class="lang-swift prettyprint prettyprinted" style=""><code><span class="com">//  NVC.swift
+</span><span class="pln">
+</span><span class="kwd">import</span><span class="pln"> </span><span class="typ">UIKit</span><span class="pln">
+</span><span class="kwd">import</span><span class="pln"> </span><span class="typ">FirebaseAuth</span><span class="pln">
 
-import UIKit
-import FirebaseAuth
+</span><span class="kwd">class</span><span class="pln"> NVC</span><span class="pun">:</span><span class="pln"> </span><span class="typ">UINavigationController</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
 
-class NVC: UINavigationController {
+    </span><span class="com">/* Step 1 */</span><span class="pln">
+    </span><span class="kwd">let</span><span class="pln"> defaults </span><span class="pun">=</span><span class="pln"> </span><span class="typ">UserDefaults</span><span class="pun">.</span><span class="kwd">init</span><span class="pun">(</span><span class="pln">suiteName</span><span class="pun">:</span><span class="pln"> </span><span class="str">"group.org.societyfortheblind.access-news-reader-ag"</span><span class="pun">)!</span><span class="pln">
+    </span><span class="com">/**********/</span><span class="pln">
 
-    /* Step 1 */
-    let defaults = UserDefaults.init(suiteName: "group.org.societyfortheblind.access-news-reader-ag")!
-    /**********/
+    </span><span class="kwd">override</span><span class="pln"> </span><span class="kwd">func</span><span class="pln"> viewDidLoad</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        </span><span class="kwd">super</span><span class="pun">.</span><span class="pln">viewDidLoad</span><span class="pun">()</span><span class="pln">
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        /* Step 3 */
-        if self.defaults.bool(forKey: "user-logged-in") == false {
-        /**********/
-            let storyboard = UIStoryboard(name: "Main", bundle: .main)
-            let loginViewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
-            loginViewController.navigationItem.hidesBackButton = true
-            self.pushViewController(loginViewController, animated: false)
-        }
-    }
-</code></pre>
+        </span><span class="com">/* Step 3 */</span><span class="pln">
+        </span><span class="kwd">if</span><span class="pln"> </span><span class="kwd">self</span><span class="pun">.</span><span class="pln">defaults</span><span class="pun">.</span><span class="pln">bool</span><span class="pun">(</span><span class="pln">forKey</span><span class="pun">:</span><span class="pln"> </span><span class="str">"user-logged-in"</span><span class="pun">)</span><span class="pln"> </span><span class="pun">==</span><span class="pln"> </span><span class="lit">false</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        </span><span class="com">/**********/</span><span class="pln">
+            </span><span class="kwd">let</span><span class="pln"> storyboard </span><span class="pun">=</span><span class="pln"> </span><span class="typ">UIStoryboard</span><span class="pun">(</span><span class="pln">name</span><span class="pun">:</span><span class="pln"> </span><span class="str">"Main"</span><span class="pun">,</span><span class="pln"> bundle</span><span class="pun">:</span><span class="pln"> </span><span class="pun">.</span><span class="pln">main</span><span class="pun">)</span><span class="pln">
+            </span><span class="kwd">let</span><span class="pln"> loginViewController </span><span class="pun">=</span><span class="pln"> storyboard</span><span class="pun">.</span><span class="pln">instantiateViewController</span><span class="pun">(</span><span class="pln">withIdentifier</span><span class="pun">:</span><span class="pln"> </span><span class="str">"LoginViewController"</span><span class="pun">)</span><span class="pln">
+            loginViewController</span><span class="pun">.</span><span class="pln">navigationItem</span><span class="pun">.</span><span class="pln">hidesBackButton </span><span class="pun">=</span><span class="pln"> </span><span class="lit">true</span><span class="pln">
+            </span><span class="kwd">self</span><span class="pun">.</span><span class="pln">pushViewController</span><span class="pun">(</span><span class="pln">loginViewController</span><span class="pun">,</span><span class="pln"> animated</span><span class="pun">:</span><span class="pln"> </span><span class="lit">false</span><span class="pun">)</span><span class="pln">
+        </span><span class="pun">}</span><span class="pln">
+    </span><span class="pun">}</span></code></pre>
 
 <p>If no user is logged in, <code>LoginViewController</code> is loaded that sets the key to <code>true</code> on successful login. (It is set to <code>false</code> on logout in <a href="https://github.com/society-for-the-blind/Access-News-Reader_iOS/blob/c137fd77e6889ebfb89740e85a24bf3109b5f977/Access%20News/SessionStartViewController.swift" rel="nofollow noreferrer"><code>SessionStartViewController</code></a>.)</p>
 
-<pre><code>//  ViewController.swift
+<pre class="lang-swift prettyprint prettyprinted" style=""><code><span class="com">//  ViewController.swift
+</span><span class="pln">
+</span><span class="kwd">import</span><span class="pln"> </span><span class="typ">UIKit</span><span class="pln">
+</span><span class="kwd">import</span><span class="pln"> </span><span class="typ">FirebaseAuth</span><span class="pln">
 
-import UIKit
-import FirebaseAuth
+</span><span class="kwd">class</span><span class="pln"> </span><span class="typ">LoginViewController</span><span class="pun">:</span><span class="pln"> </span><span class="typ">UIViewController</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
 
-class LoginViewController: UIViewController {
+    </span><span class="com">/* Step 1 */</span><span class="pln">
+    </span><span class="kwd">let</span><span class="pln"> defaults </span><span class="pun">=</span><span class="pln"> </span><span class="typ">UserDefaults</span><span class="pun">.</span><span class="kwd">init</span><span class="pun">(</span><span class="pln">suiteName</span><span class="pun">:</span><span class="pln"> </span><span class="str">"group.org.societyfortheblind.access-news-reader-ag"</span><span class="pun">)!</span><span class="pln">
+    </span><span class="com">/**********/</span><span class="pln">
 
-    /* Step 1 */
-    let defaults = UserDefaults.init(suiteName: "group.org.societyfortheblind.access-news-reader-ag")!
-    /**********/
+    </span><span class="com">// ...
+</span><span class="pln">
+    </span><span class="pun">@</span><span class="typ">IBAction</span><span class="pln"> </span><span class="kwd">func</span><span class="pln"> tapSignInButton</span><span class="pun">(</span><span class="lit">_</span><span class="pln"> sender</span><span class="pun">:</span><span class="pln"> </span><span class="lit">Any</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
 
-    // ...
+       </span><span class="com">// ...
+</span><span class="pln">       </span><span class="typ">Auth</span><span class="pun">.</span><span class="pln">auth</span><span class="pun">().</span><span class="pln">signIn</span><span class="pun">(</span><span class="pln">withEmail</span><span class="pun">:</span><span class="pln"> username</span><span class="pun">.</span><span class="pln">text</span><span class="pun">!,</span><span class="pln"> password</span><span class="pun">:</span><span class="pln"> password</span><span class="pun">.</span><span class="pln">text</span><span class="pun">!)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+            </span><span class="pun">(</span><span class="pln">user</span><span class="pun">,</span><span class="pln"> error</span><span class="pun">)</span><span class="pln"> </span><span class="kwd">in</span><span class="pln">
+            </span><span class="kwd">if</span><span class="pln"> error </span><span class="pun">!=</span><span class="pln"> </span><span class="lit">nil</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+                </span><span class="com">// ...
+</span><span class="pln">            </span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+                </span><span class="com">/* Step 2 */</span><span class="pln">
+                </span><span class="kwd">self</span><span class="pun">.</span><span class="pln">defaults</span><span class="pun">.</span><span class="kwd">set</span><span class="pun">(</span><span class="lit">true</span><span class="pun">,</span><span class="pln"> forKey</span><span class="pun">:</span><span class="pln"> </span><span class="str">"user-logged-in"</span><span class="pun">)</span><span class="pln">
 
-    @IBAction func tapSignInButton(_ sender: Any) {
-
-       // ...
-       Auth.auth().signIn(withEmail: username.text!, password: password.text!) {
-            (user, error) in
-            if error != nil {
-                // ...
-            } else {
-                /* Step 2 */
-                self.defaults.set(true, forKey: "user-logged-in")
-
-                // !!!
-                self.defaults.set(Auth.auth().currentUser.uid, forKey: "user-id")
-                /**********/
-                self.navigationController?.popViewController(animated: false)
-            }
-        }
-    }
-}
-</code></pre>
+                </span><span class="com">// !!!
+</span><span class="pln">                </span><span class="kwd">self</span><span class="pun">.</span><span class="pln">defaults</span><span class="pun">.</span><span class="kwd">set</span><span class="pun">(</span><span class="typ">Auth</span><span class="pun">.</span><span class="pln">auth</span><span class="pun">().</span><span class="pln">currentUser</span><span class="pun">.</span><span class="pln">uid</span><span class="pun">,</span><span class="pln"> forKey</span><span class="pun">:</span><span class="pln"> </span><span class="str">"user-id"</span><span class="pun">)</span><span class="pln">
+                </span><span class="com">/**********/</span><span class="pln">
+                </span><span class="kwd">self</span><span class="pun">.</span><span class="pln">navigationController</span><span class="pun">?.</span><span class="pln">popViewController</span><span class="pun">(</span><span class="pln">animated</span><span class="pun">:</span><span class="pln"> </span><span class="lit">false</span><span class="pun">)</span><span class="pln">
+            </span><span class="pun">}</span><span class="pln">
+        </span><span class="pun">}</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span></code></pre>
 
 <p><strong>In the app extension</strong> the key is checked in the <a href="https://github.com/society-for-the-blind/Access-News-Reader_iOS/blob/c137fd77e6889ebfb89740e85a24bf3109b5f977/Access-News-Uploader/UploaderNavigationViewController.swift" rel="nofollow noreferrer">main navigation controller</a>, and if no user is logged it, it would load <code>LoginViewController</code> from the containing app.</p>
 
-<pre><code>//  UploaderNavigationViewController.swift
+<pre class="lang-swift prettyprint prettyprinted" style=""><code><span class="com">//  UploaderNavigationViewController.swift
+</span><span class="pln">
+</span><span class="kwd">import</span><span class="pln"> </span><span class="typ">UIKit</span><span class="pln">
+</span><span class="kwd">import</span><span class="pln"> </span><span class="typ">Firebase</span><span class="pln">
 
-import UIKit
-import Firebase
+</span><span class="kwd">class</span><span class="pln"> </span><span class="typ">UploaderNavigationViewController</span><span class="pun">:</span><span class="pln"> </span><span class="typ">UINavigationController</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
 
-class UploaderNavigationViewController: UINavigationController {
+    </span><span class="com">/* Step 1 */</span><span class="pln">
+    </span><span class="kwd">let</span><span class="pln"> defaults </span><span class="pun">=</span><span class="pln"> </span><span class="typ">UserDefaults</span><span class="pun">.</span><span class="kwd">init</span><span class="pun">(</span><span class="pln">suiteName</span><span class="pun">:</span><span class="pln"> </span><span class="str">"group.org.societyfortheblind.access-news-reader-ag"</span><span class="pun">)!</span><span class="pln">
+    </span><span class="com">/**********/</span><span class="pln">
 
-    /* Step 1 */
-    let defaults = UserDefaults.init(suiteName: "group.org.societyfortheblind.access-news-reader-ag")!
-    /**********/
+    </span><span class="kwd">override</span><span class="pln"> </span><span class="kwd">func</span><span class="pln"> viewDidLoad</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        </span><span class="kwd">super</span><span class="pun">.</span><span class="pln">viewDidLoad</span><span class="pun">()</span><span class="pln">
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+        </span><span class="kwd">if</span><span class="pln"> </span><span class="typ">FirebaseApp</span><span class="pun">.</span><span class="pln">app</span><span class="pun">()</span><span class="pln"> </span><span class="pun">==</span><span class="pln"> </span><span class="lit">nil</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+            </span><span class="typ">FirebaseApp</span><span class="pun">.</span><span class="pln">configure</span><span class="pun">()</span><span class="pln">
+        </span><span class="pun">}</span><span class="pln">
 
-        if FirebaseApp.app() == nil {
-            FirebaseApp.configure()
-        }
-
-        /* Step 3 */
-        if self.defaults.bool(forKey: "user-logged-in") == false {
-        /**********/
-            let storyboard = UIStoryboard(name: "Main", bundle: .main)
-            let loginViewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
-            loginViewController.navigationItem.hidesBackButton = true
-            self.pushViewController(loginViewController, animated: false)
-        }
-    }
-</code></pre>
+        </span><span class="com">/* Step 3 */</span><span class="pln">
+        </span><span class="kwd">if</span><span class="pln"> </span><span class="kwd">self</span><span class="pun">.</span><span class="pln">defaults</span><span class="pun">.</span><span class="pln">bool</span><span class="pun">(</span><span class="pln">forKey</span><span class="pun">:</span><span class="pln"> </span><span class="str">"user-logged-in"</span><span class="pun">)</span><span class="pln"> </span><span class="pun">==</span><span class="pln"> </span><span class="lit">false</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        </span><span class="com">/**********/</span><span class="pln">
+            </span><span class="kwd">let</span><span class="pln"> storyboard </span><span class="pun">=</span><span class="pln"> </span><span class="typ">UIStoryboard</span><span class="pun">(</span><span class="pln">name</span><span class="pun">:</span><span class="pln"> </span><span class="str">"Main"</span><span class="pun">,</span><span class="pln"> bundle</span><span class="pun">:</span><span class="pln"> </span><span class="pun">.</span><span class="pln">main</span><span class="pun">)</span><span class="pln">
+            </span><span class="kwd">let</span><span class="pln"> loginViewController </span><span class="pun">=</span><span class="pln"> storyboard</span><span class="pun">.</span><span class="pln">instantiateViewController</span><span class="pun">(</span><span class="pln">withIdentifier</span><span class="pun">:</span><span class="pln"> </span><span class="str">"LoginViewController"</span><span class="pun">)</span><span class="pln">
+            loginViewController</span><span class="pun">.</span><span class="pln">navigationItem</span><span class="pun">.</span><span class="pln">hidesBackButton </span><span class="pun">=</span><span class="pln"> </span><span class="lit">true</span><span class="pln">
+            </span><span class="kwd">self</span><span class="pun">.</span><span class="pln">pushViewController</span><span class="pun">(</span><span class="pln">loginViewController</span><span class="pun">,</span><span class="pln"> animated</span><span class="pun">:</span><span class="pln"> </span><span class="lit">false</span><span class="pun">)</span><span class="pln">
+        </span><span class="pun">}</span><span class="pln">
+    </span><span class="pun">}</span></code></pre>
 
 <p>Here is <a href="https://github.com/society-for-the-blind/Access-News-Reader_iOS/tree/26dadbd0adc042856352daeec3231533cd33d6c2" rel="nofollow noreferrer">our project at the commit when this has been set up</a>.</p>
     </div>
     <div class="grid mb0 fw-wrap ai-start jc-end gs8 gsy">
     <div class="grid--cell mr16" style="flex: 1 1 100px;">
-<div class="post-menu"><a href="/a/53529101/1498178" title="short permalink to this answer" class="short-link" id="link-post-53529101">share</a><span class="lsep">|</span><a href="/posts/53529101/edit" class="edit-post" title="revise and improve this post">edit</a><span class="lsep">|</span><a href="#"
-               id="delete-post-53529101" 
-               title="vote to delete this post" 
-               class=""
-               data-delete-prompt="Delete this post?"
-               data-undelete-prompt="Undelete this post?">delete</a><span class="lsep">|</span><a href="#"
-       class="flag-post-link"
-       title="flag this post for serious problems or moderator attention"
-       data-postid="53529101">flag</a></div>                    </div>
+<div class="post-menu"><a href="/a/53529101/1498178" title="short permalink to this answer" class="short-link" id="link-post-53529101">share</a><span class="lsep">|</span><a href="/posts/53529101/edit" class="edit-post" title="revise and improve this post">edit</a><span class="lsep">|</span><a href="#" id="delete-post-53529101" title="vote to delete this post" class="" data-delete-prompt="Delete this post?" data-undelete-prompt="Undelete this post?">delete</a><span class="lsep">|</span><a href="#" class="flag-post-link" title="flag this post for serious problems or moderator attention" data-postid="53529101">flag</a></div>                    </div>
     <div class="post-signature grid--cell fl0">
 <div class="user-info ">
     <div class="user-action-time">
@@ -988,34 +506,25 @@ class UploaderNavigationViewController: UINavigationController {
     
     <div class="post-layout--right">
 	    <div id="comments-53529101" class="comments js-comments-container  dno">
-            <ul class="comments-list js-comments-list"
-                    data-remaining-comments-count="0"
-                    data-canpost="true"
-                    data-cansee="false"
-                    data-comments-unavailable="false"
-                    data-addlink-disabled="false">
+            <ul class="comments-list js-comments-list" data-remaining-comments-count="0" data-canpost="true" data-cansee="false" data-comments-unavailable="false" data-addlink-disabled="false">
 
             </ul>
 				<div class="comment-form">
-					<form id="add-comment-53529101" 
-							class="" 
-							data-placeholdertext="Use comments to reply to other users or notify them of changes. If you are adding new information, edit your post instead of commenting."></form>
+					<form id="add-comment-53529101" class="" data-placeholdertext="Use comments to reply to other users or notify them of changes. If you are adding new information, edit your post instead of commenting."></form>
 				</div>
 	    </div>
 
-        <div id="comments-link-53529101" >
+        <div id="comments-link-53529101">
 
-                <a class="js-add-link comments-link "
-                   title="Use comments to reply to other users or notify them of changes. If you are adding new information, edit your post instead of commenting."
-                   href=#>add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
-            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href=# onclick=""></a>
+                <a class="js-add-link comments-link " title="Use comments to reply to other users or notify them of changes. If you are adding new information, edit your post instead of commenting." href="#">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="#" onclick=""></a>
         </div>         
     </div>    </div>
 </div>
 
   
 <a name="49847494"></a>
-<div id="answer-49847494" class="answer" data-answerid="49847494"   itemscope itemtype="http://schema.org/Answer">
+<div id="answer-49847494" class="answer" data-answerid="49847494" itemscope="" itemtype="http://schema.org/Answer">
     <div class="post-layout">
             <div class="votecell post-layout--left">
                 
@@ -1028,13 +537,7 @@ class UploaderNavigationViewController: UINavigationController {
 
 
 
-    <a id="vote-accepted-49847494" 
-        class="vote-accepted-off " 
-        href="javascript:void(0);"
-        data-title-accept="Click to accept this answer because it solved your problem or was the most helpful in finding your solution (click again to undo)" 
-        data-verb-accept="accept"
-        data-title-unaccept="Click to undo acceptance of this answer; you accepted this answer " 
-        data-verb-unaccept="unaccept"></a>
+    <a id="vote-accepted-49847494" class="vote-accepted-off " href="javascript:void(0);" data-title-accept="Click to accept this answer because it solved your problem or was the most helpful in finding your solution (click again to undo)" data-verb-accept="accept" data-title-unaccept="Click to undo acceptance of this answer; you accepted this answer " data-verb-unaccept="unaccept"></a>
 
 
 </div>
@@ -1053,56 +556,55 @@ class UploaderNavigationViewController: UINavigationController {
 
 <p>The pertinent code parts:</p>
 
-<pre><code>import UIKit
-import Social
-import Firebase
-import FirebaseAuthUI
+<pre class="lang-swift prettyprint prettyprinted" style=""><code><span class="kwd">import</span><span class="pln"> </span><span class="typ">UIKit</span><span class="pln">
+</span><span class="kwd">import</span><span class="pln"> </span><span class="typ">Social</span><span class="pln">
+</span><span class="kwd">import</span><span class="pln"> </span><span class="typ">Firebase</span><span class="pln">
+</span><span class="kwd">import</span><span class="pln"> </span><span class="typ">FirebaseAuthUI</span><span class="pln">
 
-class ShareViewController: SLComposeServiceViewController {
+</span><span class="kwd">class</span><span class="pln"> </span><span class="typ">ShareViewController</span><span class="pun">:</span><span class="pln"> </span><span class="typ">SLComposeServiceViewController</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
 
-    var authUI: FUIAuth?
+    </span><span class="kwd">var</span><span class="pln"> authUI</span><span class="pun">:</span><span class="pln"> </span><span class="typ">FUIAuth</span><span class="pun">?</span><span class="pln">
 
-    /* Using shared container to communicate between extension
+    </span><span class="com">/* Using shared container to communicate between extension
        and containing app. Keychain would probably work too.
-    */
-    let defaults = UserDefaults.init(suiteName: "your-app-group")!
+    */</span><span class="pln">
+    </span><span class="kwd">let</span><span class="pln"> defaults </span><span class="pun">=</span><span class="pln"> </span><span class="typ">UserDefaults</span><span class="pun">.</span><span class="kwd">init</span><span class="pun">(</span><span class="pln">suiteName</span><span class="pun">:</span><span class="pln"> </span><span class="str">"your-app-group"</span><span class="pun">)!</span><span class="pln">
 
-    override func presentationAnimationDidFinish() {
+    </span><span class="kwd">override</span><span class="pln"> </span><span class="kwd">func</span><span class="pln"> presentationAnimationDidFinish</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
 
-        /* https://stackoverflow.com/questions/37910766/
-        */
-        if FirebaseApp.app() == nil {
-            FirebaseApp.configure()
-        }
+        </span><span class="com">/* https://stackoverflow.com/questions/37910766/
+        */</span><span class="pln">
+        </span><span class="kwd">if</span><span class="pln"> </span><span class="typ">FirebaseApp</span><span class="pun">.</span><span class="pln">app</span><span class="pun">()</span><span class="pln"> </span><span class="pun">==</span><span class="pln"> </span><span class="lit">nil</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+            </span><span class="typ">FirebaseApp</span><span class="pun">.</span><span class="pln">configure</span><span class="pun">()</span><span class="pln">
+        </span><span class="pun">}</span><span class="pln">
 
-        self.authUI = FUIAuth.defaultAuthUI()
-        self.authUI?.delegate = self
+        </span><span class="kwd">self</span><span class="pun">.</span><span class="pln">authUI </span><span class="pun">=</span><span class="pln"> </span><span class="typ">FUIAuth</span><span class="pun">.</span><span class="pln">defaultAuthUI</span><span class="pun">()</span><span class="pln">
+        </span><span class="kwd">self</span><span class="pun">.</span><span class="pln">authUI</span><span class="pun">?.</span><span class="pln">delegate </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">self</span><span class="pln">
 
-        if self.defaults.bool(forKey: "userLoggedIn") == false {
-            let fuiSignin     = 
-                FUIPasswordSignInViewController(
-                    authUI: FUIAuth.defaultAuthUI()!,
-                    email: nil)
-            let navController = 
-                UINavigationController(rootViewController: fuiSignin)
+        </span><span class="kwd">if</span><span class="pln"> </span><span class="kwd">self</span><span class="pun">.</span><span class="pln">defaults</span><span class="pun">.</span><span class="pln">bool</span><span class="pun">(</span><span class="pln">forKey</span><span class="pun">:</span><span class="pln"> </span><span class="str">"userLoggedIn"</span><span class="pun">)</span><span class="pln"> </span><span class="pun">==</span><span class="pln"> </span><span class="lit">false</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+            </span><span class="kwd">let</span><span class="pln"> fuiSignin     </span><span class="pun">=</span><span class="pln"> 
+                </span><span class="typ">FUIPasswordSignInViewController</span><span class="pun">(</span><span class="pln">
+                    authUI</span><span class="pun">:</span><span class="pln"> </span><span class="typ">FUIAuth</span><span class="pun">.</span><span class="pln">defaultAuthUI</span><span class="pun">()!,</span><span class="pln">
+                    email</span><span class="pun">:</span><span class="pln"> </span><span class="lit">nil</span><span class="pun">)</span><span class="pln">
+            </span><span class="kwd">let</span><span class="pln"> navController </span><span class="pun">=</span><span class="pln"> 
+                </span><span class="typ">UINavigationController</span><span class="pun">(</span><span class="pln">rootViewController</span><span class="pun">:</span><span class="pln"> fuiSignin</span><span class="pun">)</span><span class="pln">
 
-            self.present(navController, animated: true)
-        }
-    }
+            </span><span class="kwd">self</span><span class="pun">.</span><span class="pln">present</span><span class="pun">(</span><span class="pln">navController</span><span class="pun">,</span><span class="pln"> animated</span><span class="pun">:</span><span class="pln"> </span><span class="lit">true</span><span class="pun">)</span><span class="pln">
+        </span><span class="pun">}</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln">
 
-/* FirebaseAuthUI delegate to handle sign-in
-*/
-extension ShareViewController: FUIAuthDelegate {
-    func authUI(_ authUI: FUIAuth, didSignInWith user: User?, error: Error?) {
-        if error != nil {
-            fatalError()
-        }
-        if user != nil {
-            self.defaults.set(true, forKey: "userLoggedIn")
-        }
-    }
-}
-</code></pre>
+</span><span class="com">/* FirebaseAuthUI delegate to handle sign-in
+*/</span><span class="pln">
+</span><span class="kwd">extension</span><span class="pln"> </span><span class="typ">ShareViewController</span><span class="pun">:</span><span class="pln"> </span><span class="typ">FUIAuthDelegate</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    </span><span class="kwd">func</span><span class="pln"> authUI</span><span class="pun">(</span><span class="lit">_</span><span class="pln"> authUI</span><span class="pun">:</span><span class="pln"> </span><span class="typ">FUIAuth</span><span class="pun">,</span><span class="pln"> didSignInWith user</span><span class="pun">:</span><span class="pln"> </span><span class="typ">User</span><span class="pun">?,</span><span class="pln"> error</span><span class="pun">:</span><span class="pln"> </span><span class="typ">Error</span><span class="pun">?)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        </span><span class="kwd">if</span><span class="pln"> error </span><span class="pun">!=</span><span class="pln"> </span><span class="lit">nil</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+            fatalError</span><span class="pun">()</span><span class="pln">
+        </span><span class="pun">}</span><span class="pln">
+        </span><span class="kwd">if</span><span class="pln"> user </span><span class="pun">!=</span><span class="pln"> </span><span class="lit">nil</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+            </span><span class="kwd">self</span><span class="pun">.</span><span class="pln">defaults</span><span class="pun">.</span><span class="kwd">set</span><span class="pun">(</span><span class="lit">true</span><span class="pun">,</span><span class="pln"> forKey</span><span class="pun">:</span><span class="pln"> </span><span class="str">"userLoggedIn"</span><span class="pun">)</span><span class="pln">
+        </span><span class="pun">}</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span></code></pre>
 
 <p>Successful sign in also gets remembered via the shared container (i.e., opening the containing app won't ask for login).</p>
 
@@ -1117,15 +619,7 @@ extension ShareViewController: FUIAuthDelegate {
     </div>
     <div class="grid mb0 fw-wrap ai-start jc-end gs8 gsy">
     <div class="grid--cell mr16" style="flex: 1 1 100px;">
-<div class="post-menu"><a href="/a/49847494/1498178" title="short permalink to this answer" class="short-link" id="link-post-49847494">share</a><span class="lsep">|</span><a href="/posts/49847494/edit" class="edit-post" title="revise and improve this post">edit</a><span class="lsep">|</span><a href="#"
-               id="delete-post-49847494" 
-               title="vote to delete this post" 
-               class=""
-               data-delete-prompt="Delete this post?"
-               data-undelete-prompt="Undelete this post?">delete</a><span class="lsep">|</span><a href="#"
-       class="flag-post-link"
-       title="flag this post for serious problems or moderator attention"
-       data-postid="49847494">flag</a></div>                    </div>
+<div class="post-menu"><a href="/a/49847494/1498178" title="short permalink to this answer" class="short-link" id="link-post-49847494">share</a><span class="lsep">|</span><a href="/posts/49847494/edit" class="edit-post" title="revise and improve this post">edit</a><span class="lsep">|</span><a href="#" id="delete-post-49847494" title="vote to delete this post" class="" data-delete-prompt="Delete this post?" data-undelete-prompt="Undelete this post?">delete</a><span class="lsep">|</span><a href="#" class="flag-post-link" title="flag this post for serious problems or moderator attention" data-postid="49847494">flag</a></div>                    </div>
             
 
 
@@ -1151,35 +645,26 @@ extension ShareViewController: FUIAuthDelegate {
     
     <div class="post-layout--right">
 	    <div id="comments-49847494" class="comments js-comments-container  dno">
-            <ul class="comments-list js-comments-list"
-                    data-remaining-comments-count="0"
-                    data-canpost="true"
-                    data-cansee="false"
-                    data-comments-unavailable="false"
-                    data-addlink-disabled="false">
+            <ul class="comments-list js-comments-list" data-remaining-comments-count="0" data-canpost="true" data-cansee="false" data-comments-unavailable="false" data-addlink-disabled="false">
 
             </ul>
 				<div class="comment-form">
-					<form id="add-comment-49847494" 
-							class="" 
-							data-placeholdertext="Use comments to reply to other users or notify them of changes. If you are adding new information, edit your post instead of commenting."></form>
+					<form id="add-comment-49847494" class="" data-placeholdertext="Use comments to reply to other users or notify them of changes. If you are adding new information, edit your post instead of commenting."></form>
 				</div>
 	    </div>
 
-        <div id="comments-link-49847494" >
+        <div id="comments-link-49847494">
 
-                <a class="js-add-link comments-link "
-                   title="Use comments to reply to other users or notify them of changes. If you are adding new information, edit your post instead of commenting."
-                   href=#>add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
-            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href=# onclick=""></a>
+                <a class="js-add-link comments-link " title="Use comments to reply to other users or notify them of changes. If you are adding new information, edit your post instead of commenting." href="#">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="#" onclick=""></a>
         </div>         
     </div>    </div>
 </div>
-                                    <a name='new-answer'></a>
-                        <form id="post-form" action="/questions/49134868/answer/submit" method="post"  class="dno post-form">
-                            <input type="hidden" id="post-id" value="49134868" />
-                            <input type="hidden" id="qualityBanWarningShown" name="qualityBanWarningShown" value="false" />
-                            <input type="hidden" name="referrer" value="https://stackoverflow.com/"/>
+                                    <a name="new-answer"></a>
+                        <form id="post-form" action="/questions/49134868/answer/submit" method="post" class="dno post-form">
+                            <input type="hidden" id="post-id" value="49134868">
+                            <input type="hidden" id="qualityBanWarningShown" name="qualityBanWarningShown" value="false">
+                            <input type="hidden" name="referrer" value="https://stackoverflow.com/">
                             <h2 class="space">Your Answer</h2>
 
 
@@ -1259,7 +744,7 @@ extension ShareViewController: FUIAuthDelegate {
         <p>Thanks for contributing an answer to Stack Overflow!</p><ul><li>Please be sure to <em>answer the question</em>. Provide details and share your research!</li></ul><p>But <em>avoid</em> …</p><ul><li>Asking for help, clarification, or responding to other answers.</li><li>Making statements based on opinion; back them up with references or personal experience.</li></ul><p>To learn more, see our <a href="/help/how-to-answer">tips on writing great answers</a>.</p>
     </div>
     <button class="grid--cell js-answer-help-close-btn s-btn s-btn__muted fc-dark">
-        <svg aria-hidden="true" class="svg-icon iconClear" width="18" height="18" viewBox="0 0 18 18"><path d="M15 4.41L13.59 3 9 7.59 4.41 3 3 4.41 7.59 9 3 13.59 4.41 15 9 10.41 13.59 15 15 13.59 10.41 9z"/></svg>
+        <svg aria-hidden="true" class="svg-icon iconClear" width="18" height="18" viewBox="0 0 18 18"><path d="M15 4.41L13.59 3 9 7.59 4.41 3 3 4.41 7.59 9 3 13.59 4.41 15 9 10.41 13.59 15 15 13.59 10.41 9z"></path></svg>
     </button>
 </aside>
 
@@ -1268,7 +753,7 @@ extension ShareViewController: FUIAuthDelegate {
         <p>Some of your past answers have not been well-received, and you're in danger of being <a href="/help/answer-bans">blocked from answering</a>.</p><p>Please pay close attention to the following guidance:</p><ul><li>Please be sure to <em>answer the question</em>. Provide details and share your research!</li></ul><p>But <em>avoid</em> …</p><ul><li>Asking for help, clarification, or responding to other answers.</li><li>Making statements based on opinion; back them up with references or personal experience.</li></ul><p>To learn more, see our <a href="/help/how-to-answer">tips on writing great answers</a>.</p>
     </div>
     <button class="grid--cell js-answer-ban-close-btn s-btn s-btn__muted fc-dark">
-        <svg aria-hidden="true" class="svg-icon iconClear" width="18" height="18" viewBox="0 0 18 18"><path d="M15 4.41L13.59 3 9 7.59 4.41 3 3 4.41 7.59 9 3 13.59 4.41 15 9 10.41 13.59 15 15 13.59 10.41 9z"/></svg>
+        <svg aria-hidden="true" class="svg-icon iconClear" width="18" height="18" viewBox="0 0 18 18"><path d="M15 4.41L13.59 3 9 7.59 4.41 3 3 4.41 7.59 9 3 13.59 4.41 15 9 10.41 13.59 15 15 13.59 10.41 9z"></path></svg>
     </button>
 </aside>
 
@@ -1278,7 +763,7 @@ extension ShareViewController: FUIAuthDelegate {
 
     <div class="community-option g-row ai-center f-checkbox">
         <div class="g-col -input">
-            <input id="communitymode" name="communitymode" type="checkbox" >
+            <input id="communitymode" name="communitymode" type="checkbox">
         </div>
         <div class="g-col">
             <label for="communitymode" class="f-label _small" title="Marking an answer community wiki encourages others to edit it by lowering the reputation barrier required to edit. However, you will not gain any upvote reputation from it. This cannot be undone.">community wiki</label>
@@ -1309,16 +794,9 @@ Post Your Answer                                        </button>
                                                                     </div>
                         </form>
                             <div id="show-editor-button" class="form-submit">
-                                <input type="button"
-                                       class="js-add-another-answer"
-                                       value="Add Another Answer"
-                                       data-confirm-text="Are you sure you want to add another answer?
+                                <input type="button" class="js-add-another-answer" value="Add Another Answer" data-confirm-text="Are you sure you want to add another answer?
 
-You could use the edit link to refine and improve your existing answer, instead."
-                                       data-confirm-use-fancy="False"
-                                       data-confirm-fancy-title=""
-                                       data-confirm-fancy-body=""
-                                       data-confirm-fancy-accept-button=""/>
+You could use the edit link to refine and improve your existing answer, instead." data-confirm-use-fancy="False" data-confirm-fancy-title="" data-confirm-fancy-body="" data-confirm-fancy-accept-button="">
                             </div>
                             <script>
                                 StackExchange.ready(function () {
@@ -1362,370 +840,21 @@ You could use the edit link to refine and improve your existing answer, instead.
 
             </div>
         </div>
-                <div id="sidebar" class="show-votes" role="complementary" aria-label="sidebar">
-                            <div class="module question-stats">
-                    <table id="qinfo">
-                        <tr>
-                            <td>
-                                <p class="label-key">asked</p>
-                            </td>
-                            <td style="padding-left: 10px">
-                                <p class="label-key" title="2018-03-06 15:48:36Z"><b>9 months ago</b></p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <p class="label-key">viewed</p>
-                            </td>
-
-                            <td style="padding-left: 10px">
-                                <p class="label-key">
-                                    <b>149 times</b>
-                                </p>
-                            </td>
-                        </tr>
-                            <tr>
-                                <td>
-                                    <p class="label-key">active</p>
-                                </td>
-                                <td style="padding-left: 10px">
-                                    <p class="label-key"><b><a href="?lastactivity" class="lastactivity-link" title="2018-11-29 19:08:43Z">8 days ago</a></b></p>
-                                </td>
-                            </tr>
-                    </table>
-                </div>
-            <div class="module community-bulletin" data-tracker="cb=1">
-    <div class="related">
-                <div class="bulletin-title">
-                    Blog
-                </div>
-                <hr />
-    <div class="spacer">
-        <div class="bulletin-item-type">
-                <a href="https://stackoverflow.blog/2018/12/04/welcome-wagon-community-and-comments-on-stack-overflow/" class="question-hyperlink" data-ga="[&quot;community bulletin board&quot;,&quot;Blog&quot;,&quot;https://stackoverflow.blog/2018/12/04/welcome-wagon-community-and-comments-on-stack-overflow/&quot;,null,null]">
-<div class="favicon favicon-stackexchangemeta" title="Meta Stack Exchange"></div>                </a>
-        </div>
-        <div class="bulletin-item-content">
-            <a href="https://stackoverflow.blog/2018/12/04/welcome-wagon-community-and-comments-on-stack-overflow/" class="question-hyperlink" data-ga="[&quot;community bulletin board&quot;,&quot;Blog&quot;,&quot;https://stackoverflow.blog/2018/12/04/welcome-wagon-community-and-comments-on-stack-overflow/&quot;,null,null]">Welcome Wagon: Community and Comments on Stack Overflow</a>
-        </div>
-        <br class="cbt" />
-    </div>
-                <div class="bulletin-title">
-                    Featured on Meta
-                </div>
-                <hr />
-    <div class="spacer">
-        <div class="bulletin-item-type">
-                <a href="https://meta.stackexchange.com/questions/319274/responsive-design-themes-what-can-sites-customize-and-how-can-they-get-changes" class="question-hyperlink" data-ga="[&quot;community bulletin board&quot;,&quot;Featured on Meta&quot;,&quot;https://meta.stackexchange.com/questions/319274/responsive-design-themes-what-can-sites-customize-and-how-can-they-get-changes&quot;,null,null]">
-<div class="favicon favicon-stackexchangemeta" title="Meta Stack Exchange"></div>                </a>
-        </div>
-        <div class="bulletin-item-content">
-            <a href="https://meta.stackexchange.com/questions/319274/responsive-design-themes-what-can-sites-customize-and-how-can-they-get-changes" title="Responsive Design Themes - What can sites customize and how can they get changes implemented?" class="question-hyperlink" data-ga="[&quot;community bulletin board&quot;,&quot;Featured on Meta&quot;,&quot;https://meta.stackexchange.com/questions/319274/responsive-design-themes-what-can-sites-customize-and-how-can-they-get-changes&quot;,null,null]">Responsive Design Themes - What can sites customize and how can they get&hellip;</a>
-        </div>
-        <br class="cbt" />
-    </div>
-    <div class="spacer">
-        <div class="bulletin-item-type">
-                <a href="https://meta.stackexchange.com/questions/319375/help-us-improve-the-user-profile-and-settings" class="question-hyperlink" data-ga="[&quot;community bulletin board&quot;,&quot;Featured on Meta&quot;,&quot;https://meta.stackexchange.com/questions/319375/help-us-improve-the-user-profile-and-settings&quot;,null,null]">
-<div class="favicon favicon-stackexchangemeta" title="Meta Stack Exchange"></div>                </a>
-        </div>
-        <div class="bulletin-item-content">
-            <a href="https://meta.stackexchange.com/questions/319375/help-us-improve-the-user-profile-and-settings" class="question-hyperlink" data-ga="[&quot;community bulletin board&quot;,&quot;Featured on Meta&quot;,&quot;https://meta.stackexchange.com/questions/319375/help-us-improve-the-user-profile-and-settings&quot;,null,null]">Help us improve the user profile and settings</a>
-        </div>
-        <br class="cbt" />
-    </div>
-    <div class="spacer">
-        <div class="bulletin-item-type">
-                <a href="https://meta.stackoverflow.com/questions/377152/stack-overflow-academic-research-partnership-program" class="question-hyperlink" data-ga="[&quot;community bulletin board&quot;,&quot;Featured on Meta&quot;,&quot;https://meta.stackoverflow.com/questions/377152/stack-overflow-academic-research-partnership-program&quot;,null,null]">
-<div class="favicon favicon-stackoverflowmeta" title="Meta Stack Overflow"></div>                </a>
-        </div>
-        <div class="bulletin-item-content">
-            <a href="https://meta.stackoverflow.com/questions/377152/stack-overflow-academic-research-partnership-program" class="question-hyperlink" data-ga="[&quot;community bulletin board&quot;,&quot;Featured on Meta&quot;,&quot;https://meta.stackoverflow.com/questions/377152/stack-overflow-academic-research-partnership-program&quot;,null,null]">Stack Overflow Academic Research Partnership Program</a>
-        </div>
-        <br class="cbt" />
-    </div>
-                <div class="bulletin-title">
-                    Hot Meta Posts
-                </div>
-                <hr />
-    <div class="spacer">
-        <div class="bulletin-item-type">
-                <span title="Vote score (upvotes - downvotes)">16</span>
-        </div>
-        <div class="bulletin-item-content">
-            <a href="https://meta.stackoverflow.com/questions/377506/getting-prompt-to-allow-adobe-flash-player-when-navigating-to-a-new-so-window" class="question-hyperlink" data-ga="[&quot;community bulletin board&quot;,&quot;Hot Meta Posts&quot;,&quot;https://meta.stackoverflow.com/questions/377506/getting-prompt-to-allow-adobe-flash-player-when-navigating-to-a-new-so-window&quot;,null,null]">Getting prompt to allow Adobe Flash Player when navigating to a new SO window</a>
-        </div>
-        <br class="cbt" />
-    </div>
-    <div class="spacer">
-        <div class="bulletin-item-type">
-                <span title="Vote score (upvotes - downvotes)">17</span>
-        </div>
-        <div class="bulletin-item-content">
-            <a href="https://meta.stackoverflow.com/questions/377535/rename-tags-pine-script-and-trading-view-to-pinescript-and-tradingview-c" title="Rename tags [pine-script] and [trading-view] to [pinescript] and [tradingview] correspondingly" class="question-hyperlink" data-ga="[&quot;community bulletin board&quot;,&quot;Hot Meta Posts&quot;,&quot;https://meta.stackoverflow.com/questions/377535/rename-tags-pine-script-and-trading-view-to-pinescript-and-tradingview-c&quot;,null,null]">Rename tags [pine-script] and [trading-view] to [pinescript] and&hellip;</a>
-        </div>
-        <br class="cbt" />
-    </div>
-    </div>
-</div>
-<div id="dfp-tsb" class="everyonelovesstackoverflow everyoneloves__top-sidebar"></div>
-            <div id="hireme"></div>
-<script>;try{(function(a){function b(a){return'string'==typeof a?document.getElementById(a):a}function c(a){return a=b(a),!!a&&'none'===getComputedStyle(a).display}function d(a){return!c(a)}function e(a){return!!a}function f(a){return /^\s*$/.test(b(a).innerHTML)}function g(a){var b=a.style;b.height=b.maxHeight=b.minHeight='auto',b.display='none',[].forEach.call(a.children,g)}function h(a,b){var c;return function(){return a&&(c=a.call(b||this,arguments),a=null),c}}function i(a){var b=document.createElement('script');b.src=a,document.body.appendChild(b)}function j(a){return k([],a)}function k(a,b){return a.push=function(a){return b(),delete this.push,this.push(a)},a}function l(){try{return!new Function('return async()=>{};')}catch(a){return!0}}function m(){return'undefined'!=typeof googletag&&!!googletag.apiReady}function n(){m()||(googletag={cmd:j(A)})}function o(){var a=document.createElement('div');a.className='adsbox',a.id='clc-abd',a.style.position='absolute',a.style.pointerEvents='none',a.innerHTML='&nbsp;',document.body.appendChild(a)}function p(a){var b=a.serviceName,c=a.slot,d=a.lineItemId;try{var e=c.getSlotElementId(),f=[];e||f.push('id=0');var h=document.getElementById(e);if(!e||h?h.hasAttribute('data-clc-stalled')&&f.push('st=1'):f.push('el=0'),0!==f.length)return void B(f.join('&'));-1===x.dh.indexOf(d)?h.setAttribute('data-clc-prefilled','true'):g(h),h.setAttribute('data-clc-ready','true')}catch(a){var i=document.querySelector('#dfp-tsb, #dfp-isb, #clc-tsb');i&&i.setAttribute('data-clc-ready','true'),B('e=1')}}function q(){return Object.keys(F.ids)}function r(a){var b=F.ids[a],c=F.slots[b];'function'==typeof c&&(c=c(a));return{path:'/'+C+'/'+E+'/'+b+'/'+D,sizes:c,zone:b}}function s(a){return!(clc.collapse&&void 0!==clc.collapse[a])||!!clc.collapse[a]}function t(a,b){'dfp-isb'===a&&b.setTargeting('Sidebar',['Inline']),'dfp-tsb'===a&&b.setTargeting('Sidebar',['Right']);var c=r(a),d=c.path,e=c.sizes,f=c.zone,g=googletag.defineSlot(d,e,a);s(f)&&g.setCollapseEmptyDiv(!0,!0),g.addService(b),!1}function u(b){var c=a.dfp&&a.dfp.targeting||{};Object.keys(c).forEach(function(a){b.setTargeting(a,c[a])})}function v(a){var g=a.map(b).filter(e);return{eligible:g.filter(f).filter(d).map(function(a){return a.id}),ineligible:g.filter(c)}}function w(b){if(void 0===b&&(b=q()),!m())return n(),void googletag.cmd.push(function(){return w(b)});var c=v(b),d=c.eligible,e=c.ineligible;if(e.forEach(g),0!==d.length){o(),googletag.destroySlots();var f=googletag.pubads();f.enableSingleRequest(),a.sreEvent||(f.addEventListener('slotRenderEnded',p),a.sreEvent=!0),u(f),d.forEach(function(a){return t(a,f)}),googletag.enableServices(),d.forEach(function(a){googletag.display(a)})}}var x=function(a){for(var b=[],c=1;c<arguments.length;c++)b[c-1]=arguments[c];for(var d,e=0,f=b;e<f.length;e++)for(var g in d=f[e],d)a[g]=d[g];return a}({"lib":"https://cdn.sstatic.net/clc/clc.min.js?v=04d772c81312","style":"https://cdn.sstatic.net/clc/styles/clc.min.css?v=1db48f495ba1","u":"https://clc.stackoverflow.com/markup.js","wa":true,"kt":2000,"tto":true,"h":"clc.stackoverflow.com","allowed":"^(((talent\\.)?stackoverflow)|(blog\\.codinghorror)|(serverfault|askubuntu)|([^\\.]+\\.stackexchange))\\.com$","wv":true,"al":false,"dh":[4385506061,4386578282,4386579572]},a.options||{}),y=h(function(){var a=x.lib;l()&&(a=a.replace(/(\.min)?\.js(\?v=[0-9a-fA-F]+)?$/,'.ie$1.js$2')),i(a)}),z=a.cmd||[];Array.isArray(z)&&(0<z.length?y():k(z,y));var A=h(function(){i('https://www.googletagservices.com/tag/js/gpt.js')}),B=function(a){new Image().src='https://'+x.h+'/stalled.gif?'+a},C='248424177',D=/^\/tags\//.test(location.pathname)||/^\/questions\/tagged\//.test(location.pathname)?'tag-pages':'question-pages',E=location.hostname;var F={slots:{lb:[[728,90]],mlb:[[728,90]],sb:function(a){return'dfp-tsb'===a?[[300,250],[300,600]]:[[300,250]]},"tag-sponsorship":[[730,135]],"mobile-below-question":[[320,50],[300,250]]},ids:{"dfp-tlb":'lb',"dfp-mlb":'mlb',"dfp-tsb":'sb',"dfp-isb":'sb',"dfp-tag":'tag-sponsorship',"dfp-m-aq":'mobile-below-question',"clc-tlb":'lb',"clc-mlb":'mlb',"clc-tsb":'sb'}};(function(){var b=x.al;b&&z.push(function(){return a.load()})})(),n(),a.dfp={load:w},a.options=x,a.cmd=z})(this.clc=this.clc||{})}catch(a){window.console.error(a)}</script>            <script>
-                var clc = clc || {};
-                clc.collapse = { sb: !0,'tag-sponsorship':!0,lb:!1,mlb:!1,'mobile-below-question':!0};
-                clc.cmd = clc.cmd || [];
-                clc.cmd.push(function () { window.clc_request='Ak0YdKF6XNYIG78YABS97QICAAAAAgAAAAM8AAAAfGlvc3xzd2lmdHxhdXRoZW50aWNhdGlvbnxpb3MtYXBwLWV4dGVuc2lvbnxzaGFyZS1leHRlbnNpb258AOop7FyqfQvbhgA'; clc.load(); });
-                                clc.dfp = clc.dfp || {};
-                clc.dfp.targeting = {Registered:['true'],Reputation:['200'],'so-tag':['ios','swift','authentication','ios-app-extension','share-extension'],IsHighRepEarner:['true']};
                 
-                var googletag = googletag || {};
-                googletag.cmd = googletag.cmd || [];
-                googletag.cmd.push(function () { clc.dfp.load(); });
-            </script>
-            <div class="module sidebar-linked">
-	<h4 id="h-linked">Linked</h4>
-	<div class="linked" data-tracker="lq=1">
-
-<div class="spacer">
-	<a href="/q/37910766" title="Vote score (upvotes - downvotes)">
-		<div class="answer-votes  default">24</div>
-	</a>
-	<a href="/questions/37910766/app-crashing-when-using-firebase-auth-reason-default-app-has-already-been-con?noredirect=1" class="question-hyperlink">App crashing when using Firebase Auth, reason: &#39;Default app has already been configured.&#39;</a>
-</div>
-<div class="spacer">
-	<a href="/q/27506413" title="Vote score (upvotes - downvotes)">
-		<div class="answer-votes answered-accepted default">14</div>
-	</a>
-	<a href="/questions/27506413/share-extension-to-open-containing-app?noredirect=1" class="question-hyperlink">Share Extension to open containing app</a>
-</div>
-<div class="spacer">
-	<a href="/q/41114967" title="Vote score (upvotes - downvotes)">
-		<div class="answer-votes answered-accepted default">6</div>
-	</a>
-	<a href="/questions/41114967/how-to-add-firebase-to-today-extension-ios?noredirect=1" class="question-hyperlink">How to add Firebase to Today Extension iOS</a>
-</div>
-<div class="spacer">
-	<a href="/q/25254700" title="Vote score (upvotes - downvotes)">
-		<div class="answer-votes  default">10</div>
-	</a>
-	<a href="/questions/25254700/communicating-with-opening-containing-app-from-share-extension?noredirect=1" class="question-hyperlink">Communicating with/opening Containing app from Share extension</a>
-</div>
-<div class="spacer">
-	<a href="/q/46696866" title="Vote score (upvotes - downvotes)">
-		<div class="answer-votes answered-accepted default">2</div>
-	</a>
-	<a href="/questions/46696866/ios-share-extension-with-custom-view-controller?noredirect=1" class="question-hyperlink">iOS Share Extension with custom View Controller</a>
-</div>
-<div class="spacer">
-	<a href="/q/26188931" title="Vote score (upvotes - downvotes)">
-		<div class="answer-votes  default">16</div>
-	</a>
-	<a href="/questions/26188931/ios-8-share-extension-and-authentication-flows?noredirect=1" class="question-hyperlink">iOS 8 share extension and authentication flows</a>
-</div>
-<div class="spacer">
-	<a href="/q/46606221" title="Vote score (upvotes - downvotes)">
-		<div class="answer-votes  default">10</div>
-	</a>
-	<a href="/questions/46606221/share-extension-remove-textfield?noredirect=1" class="question-hyperlink">Share Extension - Remove Textfield</a>
-</div>
-<div class="spacer">
-	<a href="/q/46442299" title="Vote score (upvotes - downvotes)">
-		<div class="answer-votes  default">3</div>
-	</a>
-	<a href="/questions/46442299/user-not-signed-into-firebase-in-share-app-extension?noredirect=1" class="question-hyperlink">User not signed into Firebase in Share App Extension</a>
-</div>			</div>
-</div>
-
-                <div class="module sidebar-related">
-                    <h4 id="h-related">Related</h4>
-                    <div class="related js-gps-related-questions" data-tracker="rq=1">
-                        <div class="spacer"><a href="/q/24019820" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted default">53</div></a><a href="/questions/24019820/today-app-extension-widget-tap-to-open-containing-app" class="question-hyperlink">Today App Extension Widget Tap To Open Containing App</a></div><div class="spacer"><a href="/q/24895093" title="Vote score (upvotes - downvotes)"><div class="answer-votes default">6</div></a><a href="/questions/24895093/openurl-doesnt-work-in-share-extension" class="question-hyperlink">openURL doesn&#39;t work in Share extension</a></div><div class="spacer"><a href="/q/36103665" title="Vote score (upvotes - downvotes)"><div class="answer-votes default">6</div></a><a href="/questions/36103665/how-can-i-sign-in-with-the-google-signin-sdk-in-a-sharing-extension" class="question-hyperlink">How can I sign in with the Google SignIn SDK in a sharing extension?</a></div><div class="spacer"><a href="/q/44455433" title="Vote score (upvotes - downvotes)"><div class="answer-votes default">1</div></a><a href="/questions/44455433/how-to-use-same-authenticated-user-token-between-main-ios-app-and-its-share-exte" class="question-hyperlink">How to use same Authenticated user token between main iOS app and its Share Extension</a></div><div class="spacer"><a href="/q/44635989" title="Vote score (upvotes - downvotes)"><div class="answer-votes default">4</div></a><a href="/questions/44635989/how-to-access-current-firebase-user-from-ios-today-extension" class="question-hyperlink">How to access current firebase user from iOS Today Extension?</a></div><div class="spacer"><a href="/q/45658705" title="Vote score (upvotes - downvotes)"><div class="answer-votes default">8</div></a><a href="/questions/45658705/sharing-firebase-authentication-session-from-ios-container-app-with-app-extensio" class="question-hyperlink">Sharing Firebase authentication session from iOS container app with app extensions</a></div><div class="spacer"><a href="/q/46442299" title="Vote score (upvotes - downvotes)"><div class="answer-votes default">3</div></a><a href="/questions/46442299/user-not-signed-into-firebase-in-share-app-extension" class="question-hyperlink">User not signed into Firebase in Share App Extension</a></div><div class="spacer"><a href="/q/47199896" title="Vote score (upvotes - downvotes)"><div class="answer-votes default">0</div></a><a href="/questions/47199896/authenticating-a-today-widget-for-api-access" class="question-hyperlink">Authenticating a Today Widget for API access</a></div><div class="spacer"><a href="/q/49205541" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted default">1</div></a><a href="/questions/49205541/firebase-currentuser-returns-nil-in-ios-today-extension-while-user-is-logged-in" class="question-hyperlink">Firebase currentUser returns nil in iOS Today Extension while user is logged in</a></div><div class="spacer"><a href="/q/49490919" title="Vote score (upvotes - downvotes)"><div class="answer-votes default">0</div></a><a href="/questions/49490919/how-to-handle-login-session-sync-using-firebase-authentication-between-a-ios-cor" class="question-hyperlink">How to handle login session sync using Firebase Authentication between a iOS Cordova app and a native extension</a></div>
-                    </div>
-                </div>
-
-<div id="hot-network-questions" class="module tex2jax_ignore">
-    <h4>
-        <a href="https://stackexchange.com/questions?tab=hot"
-           class="js-gps-track s-link s-link__inherit" 
-           data-gps-track="posts_hot_network.click({ item_type:1, location:11 })">
-            Hot Network Questions
-        </a>
-    </h4>
-    <ul>
-            <li >
-                <div class="favicon favicon-wordpress" title="WordPress Development Stack Exchange"></div><a href="https://wordpress.stackexchange.com/questions/321293/if-newest-post-of-category-is-newest-post-in-general-skip-first-post-of-categor" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:110 }); posts_hot_network.click({ item_type:2, location:11 })">
-                    If newest post of category is newest post in general, skip first post of category
-                </a>
-
-            </li>
-            <li >
-                <div class="favicon favicon-ell" title="English Language Learners Stack Exchange"></div><a href="https://ell.stackexchange.com/questions/187635/how-to-understand-i-had-two-try" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:481 }); posts_hot_network.click({ item_type:2, location:11 })">
-                    How to understand &quot;I had two try&quot;
-                </a>
-
-            </li>
-            <li >
-                <div class="favicon favicon-security" title="Information Security Stack Exchange"></div><a href="https://security.stackexchange.com/questions/199226/how-to-protect-printers-from-being-hacked" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:162 }); posts_hot_network.click({ item_type:2, location:11 })">
-                    How to protect printers from being hacked
-                </a>
-
-            </li>
-            <li >
-                <div class="favicon favicon-codegolf" title="Programming Puzzles &amp; Code Golf Stack Exchange"></div><a href="https://codegolf.stackexchange.com/questions/177096/walk-across-a-keyboard" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:200 }); posts_hot_network.click({ item_type:2, location:11 })">
-                    Walk Across a Keyboard
-                </a>
-
-            </li>
-            <li >
-                <div class="favicon favicon-worldbuilding" title="Worldbuilding Stack Exchange"></div><a href="https://worldbuilding.stackexchange.com/questions/132059/semi-accessible-continent" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:579 }); posts_hot_network.click({ item_type:2, location:11 })">
-                    Semi-accessible continent
-                </a>
-
-            </li>
-            <li class="dno js-hidden">
-                <div class="favicon favicon-codereview" title="Code Review Stack Exchange"></div><a href="https://codereview.stackexchange.com/questions/209202/merge-two-list-of-dicts-with-same-key" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:196 }); posts_hot_network.click({ item_type:2, location:11 })">
-                    Merge two list of dicts with same key
-                </a>
-
-            </li>
-            <li class="dno js-hidden">
-                <div class="favicon favicon-politics" title="Politics Stack Exchange"></div><a href="https://politics.stackexchange.com/questions/35951/can-the-president-put-himself-on-money" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:475 }); posts_hot_network.click({ item_type:2, location:11 })">
-                    Can the president put himself on money?
-                </a>
-
-            </li>
-            <li class="dno js-hidden">
-                <div class="favicon favicon-workplace" title="The Workplace Stack Exchange"></div><a href="https://workplace.stackexchange.com/questions/124209/how-to-handle-being-asked-to-automate-jobs-as-a-temp-worker" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:423 }); posts_hot_network.click({ item_type:2, location:11 })">
-                    How to handle being asked to automate jobs as a temp worker
-                </a>
-
-            </li>
-            <li class="dno js-hidden">
-                <div class="favicon favicon-diy" title="Home Improvement Stack Exchange"></div><a href="https://diy.stackexchange.com/questions/152177/how-can-i-properly-remove-not-cover-an-unused-receptacle" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:73 }); posts_hot_network.click({ item_type:2, location:11 })">
-                    How can I properly remove (not cover) an unused receptacle?
-                </a>
-
-            </li>
-            <li class="dno js-hidden">
-                <div class="favicon favicon-wordpress" title="WordPress Development Stack Exchange"></div><a href="https://wordpress.stackexchange.com/questions/321307/what-s-the-difference-between-esc-html-esc-attr-esc-html-e-and-so-on" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:110 }); posts_hot_network.click({ item_type:2, location:11 })">
-                    What’s the difference between esc_html, esc_attr, esc_html_e, and so on?
-                </a>
-
-            </li>
-            <li class="dno js-hidden">
-                <div class="favicon favicon-mathematica" title="Mathematica Stack Exchange"></div><a href="https://mathematica.stackexchange.com/questions/187472/min-and-max-of-a-list-of-associations" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:387 }); posts_hot_network.click({ item_type:2, location:11 })">
-                    Min and Max of a list of Associations
-                </a>
-
-            </li>
-            <li class="dno js-hidden">
-                <div class="favicon favicon-aviation" title="Aviation Stack Exchange"></div><a href="https://aviation.stackexchange.com/questions/57811/how-can-i-find-my-grandmothers-old-instrument-rating-documentation" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:528 }); posts_hot_network.click({ item_type:2, location:11 })">
-                    How can I find my grandmother&#39;s OLD instrument rating documentation?
-                </a>
-
-            </li>
-            <li class="dno js-hidden">
-                <div class="favicon favicon-writing" title="Writing Stack Exchange"></div><a href="https://writing.stackexchange.com/questions/40566/i-noticed-that-several-already-existing-poems-used-the-same-highly-specific-puns" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:166 }); posts_hot_network.click({ item_type:2, location:11 })">
-                    I noticed that several already-existing poems used the same highly specific puns and phrases that I used. Is this unintentional plagiarism on my part?
-                </a>
-
-            </li>
-            <li class="dno js-hidden">
-                <div class="favicon favicon-diy" title="Home Improvement Stack Exchange"></div><a href="https://diy.stackexchange.com/questions/152033/how-do-i-make-around-the-room-shelves-for-a-seriously-skewed-room" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:73 }); posts_hot_network.click({ item_type:2, location:11 })">
-                    How do I make around-the-room shelves for a seriously skewed room?
-                </a>
-
-            </li>
-            <li class="dno js-hidden">
-                <div class="favicon favicon-retrocomputing" title="Retrocomputing Stack Exchange"></div><a href="https://retrocomputing.stackexchange.com/questions/8487/what-was-the-first-mainstream-advanced-debugger" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:648 }); posts_hot_network.click({ item_type:2, location:11 })">
-                    What was the first mainstream advanced debugger?
-                </a>
-
-            </li>
-            <li class="dno js-hidden">
-                <div class="favicon favicon-math" title="Mathematics Stack Exchange"></div><a href="https://math.stackexchange.com/questions/3030191/the-math-behind-warren-buffets-famous-rule-never-lose-money" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:69 }); posts_hot_network.click({ item_type:2, location:11 })">
-                    The math behind Warren Buffets famous rule - Never lose money
-                </a>
-
-            </li>
-            <li class="dno js-hidden">
-                <div class="favicon favicon-superuser" title="Super User"></div><a href="https://superuser.com/questions/1381433/should-the-ups-output-be-exactly-same-in-normal-and-battery-backup-modes-or-it" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:3 }); posts_hot_network.click({ item_type:2, location:11 })">
-                    Should the UPS output be exactly same in normal and battery backup modes? Or it is normal to have a slight variation in voltage or something?
-                </a>
-
-            </li>
-            <li class="dno js-hidden">
-                <div class="favicon favicon-puzzling" title="Puzzling Stack Exchange"></div><a href="https://puzzling.stackexchange.com/questions/76112/four-boys-are-playing-football-and-one-of-them-breaks-a-window" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:559 }); posts_hot_network.click({ item_type:2, location:11 })">
-                    Four boys are playing football and one of them breaks a window
-                </a>
-
-            </li>
-            <li class="dno js-hidden">
-                <div class="favicon favicon-askubuntu" title="Ask Ubuntu"></div><a href="https://askubuntu.com/questions/1099220/how-to-make-new-file-with-date-in-it" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:89 }); posts_hot_network.click({ item_type:2, location:11 })">
-                    How to make new file with date in it?
-                </a>
-
-            </li>
-            <li class="dno js-hidden">
-                <div class="favicon favicon-scifi" title="Science Fiction &amp; Fantasy Stack Exchange"></div><a href="https://scifi.stackexchange.com/questions/199966/why-did-aragorn-call-this-stranger-father" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:186 }); posts_hot_network.click({ item_type:2, location:11 })">
-                    Why did Aragorn call this stranger father?
-                </a>
-
-            </li>
-            <li class="dno js-hidden">
-                <div class="favicon favicon-english" title="English Language &amp; Usage Stack Exchange"></div><a href="https://english.stackexchange.com/questions/475852/a-short-word-that-is-used-when-one-finds-something-unexpectedly" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:97 }); posts_hot_network.click({ item_type:2, location:11 })">
-                    A short word that is used when one finds something unexpectedly
-                </a>
-
-            </li>
-            <li class="dno js-hidden">
-                <div class="favicon favicon-ell" title="English Language Learners Stack Exchange"></div><a href="https://ell.stackexchange.com/questions/187672/a-voice-that-bored-a-thousand-ships-into-sinking-themselves" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:481 }); posts_hot_network.click({ item_type:2, location:11 })">
-                    &quot;[A] voice that bored a thousand ships into sinking themselves&quot;
-                </a>
-
-            </li>
-            <li class="dno js-hidden">
-                <div class="favicon favicon-worldbuilding" title="Worldbuilding Stack Exchange"></div><a href="https://worldbuilding.stackexchange.com/questions/131944/how-to-make-a-metal-with-extraordinary-property-worthless" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:579 }); posts_hot_network.click({ item_type:2, location:11 })">
-                    How to make a metal with extraordinary property worthless?
-                </a>
-
-            </li>
-            <li class="dno js-hidden">
-                <div class="favicon favicon-history" title="History Stack Exchange"></div><a href="https://history.stackexchange.com/questions/49736/does-any-country-have-an-official-celebration-for-the-annexation-of-foreign-terr" class="js-gps-track question-hyperlink mb0" data-gps-track="site.switch({ item_type:11, target_site:324 }); posts_hot_network.click({ item_type:2, location:11 })">
-                    Does any country have an official celebration for the annexation of foreign territory?
-                </a>
-
-            </li>
-    </ul>
-
-        <a href="#" 
-           class="show-more js-show-more js-gps-track" 
-           data-gps-track="posts_hot_network.click({ item_type:3, location:11 })">
-            more hot questions
-        </a>
-</div>
-
-<div id="feed-link">
-    <a href="/feeds/question/49134868" title="feed of this question and its answers">
-        <svg aria-hidden="true" class="svg-icon fc-orange-400 iconRss" width="18" height="18" viewBox="0 0 18 18"><path d="M1 3c0-1.1.9-2 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V3zm14.5 12C15.5 8.1 9.9 2.5 3 2.5V5a10 10 0 0 1 10 10h2.5zm-5 0A7.5 7.5 0 0 0 3 7.5V10a5 5 0 0 1 5 5h2.5zm-5 0A2.5 2.5 0 0 0 3 12.5V15h2.5z"/></svg>
-        question feed
-    </a>
-</div>
-        </div>
     </div>
 <script>StackExchange.ready(function(){$.get('/posts/49134868/ivc/e1e1');});</script>
 <noscript><div><img src="/posts/49134868/ivc/e1e1" class="dno" alt="" width="0" height="0"></div></noscript><div style="display:none" id="prettify-lang">lang-swift</div></div>
 
 
         </div>
-    </div>
+    </div><script src="https://cdn.sstatic.net/clc/clc.min.js?v=04d772c81312"></script><script src="https://www.googletagservices.com/tag/js/gpt.js"></script>
 
     <footer id="footer" class="site-footer js-footer" role="contentinfo">
         <div class="site-footer--container">
                 <div class="site-footer--logo">
 
                     
-                    <a href="https://stackoverflow.com"><svg aria-hidden="true" class="svg-icon native iconLogoGlyphMd" width="32" height="37" viewBox="0 0 32 37"><g><path fill="#BCBBBB" d="M26 33v-9h4v13H0V24h4v9z"/><path d="M23.1 25.99l.68-2.95-16.1-3.35L7 23l16.1 2.99zM9.1 15.2l15 7 1.4-3-15-7-1.4 3zm4.2-7.4L26 18.4l2.1-2.5L15.4 5.3l-2.1 2.5zM21.5 0l-2.7 2 9.9 13.3 2.7-2L21.5 0zM7 30h16v-3H7v3z" fill="#F48024"/></g></svg></a>
+                    <a href="https://stackoverflow.com"><svg aria-hidden="true" class="svg-icon native iconLogoGlyphMd" width="32" height="37" viewBox="0 0 32 37"><g><path fill="#BCBBBB" d="M26 33v-9h4v13H0V24h4v9z"></path><path d="M23.1 25.99l.68-2.95-16.1-3.35L7 23l16.1 2.99zM9.1 15.2l15 7 1.4-3-15-7-1.4 3zm4.2-7.4L26 18.4l2.1-2.5L15.4 5.3l-2.1 2.5zM21.5 0l-2.7 2 9.9 13.3 2.7-2L21.5 0zM7 30h16v-3H7v3z" fill="#F48024"></path></g></svg></a>
                 </div>
             
             <nav class="site-footer--nav">
@@ -1737,15 +866,13 @@ You could use the edit link to refine and improve your existing answer, instead.
                                 <li class="-item"><a href="https://stackoverflow.com/jobs/directory/developer-jobs" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 11})">Developer Jobs Directory</a></li>
                                      <li class="-item"><a href="https://stackoverflow.com/jobs/salary" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 28})">Salary Calculator</a></li>
                                                             <li class="-item"><a href="/help" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 3 })">Help</a></li>
-                                <li class="-item"><a onclick='StackExchange.switchMobile("on")' class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 12 })">Mobile</a></li>
-                        </ul>
+                                <li class="-item"><a onclick="StackExchange.switchMobile(&quot;on&quot;)" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 12 })">Mobile</a></li>
+                        <li class="-item"><a class="-link" role="button">Disable Responsiveness</a></li></ul>
                     </div>
                     <div class="site-footer--col site-footer--col__visible js-footer-col" data-name="default">
                         <h5 class="-title"><a href="https://www.stackoverflowbusiness.com" class="js-gps-track" data-gps-track="footer.click({ location: 2, link: 19 })">Products</a></h5>
                         <ul class="-list">
-                            <li class="-item"><a href="https://stackoverflow.com/teams" class="js-gps-track -link" 
-                                                 data-ga="[&quot;teams traffic&quot;,&quot;footer - site nav&quot;,&quot;stackoverflow.com/teams&quot;,null,{&quot;dimension4&quot;:&quot;teams&quot;}]"
-                                                 data-gps-track="footer.click({ location: 2, link: 29 })">Teams</a></li>
+                            <li class="-item"><a href="https://stackoverflow.com/teams" class="js-gps-track -link" data-ga="[&quot;teams traffic&quot;,&quot;footer - site nav&quot;,&quot;stackoverflow.com/teams&quot;,null,{&quot;dimension4&quot;:&quot;teams&quot;}]" data-gps-track="footer.click({ location: 2, link: 29 })">Teams</a></li>
                             <li class="-item"><a href="https://www.stackoverflowbusiness.com/talent" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 20 })">Talent</a></li>
                             <li class="-item"><a href="https://www.stackoverflowbusiness.com/advertise" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 21 })">Engagement</a></li>
                             <li class="-item"><a href="https://stackoverflow.com/enterprise" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 22 })">Enterprise</a></li>
@@ -1763,7 +890,7 @@ You could use the edit link to refine and improve your existing answer, instead.
                     </ul>
                 </div>
                 <div class="site-footer--col site-footer--categories-nav site-footer--col__visible">
-                    <a href="#" class="site-footer--back js-footer-back"><svg aria-hidden="true" class="svg-icon iconArrowLeftAlt" width="18" height="18" viewBox="0 0 18 18"><path d="M10.58 16L12 14.59 6.4 9 12 3.41 10.57 2l-7 7z"/></svg></a>
+                    <a href="#" class="site-footer--back js-footer-back"><svg aria-hidden="true" class="svg-icon iconArrowLeftAlt" width="18" height="18" viewBox="0 0 18 18"><path d="M10.58 16L12 14.59 6.4 9 12 3.41 10.57 2l-7 7z"></path></svg></a>
                     <div>
                         <h5 class="-title"><a href="https://stackexchange.com">Stack Exchange<br> Network</a></h5>
                         <ul class="-list">
@@ -1804,8 +931,8 @@ You could use the edit link to refine and improve your existing answer, instead.
                 <li class="-item"><a href="https://mathematica.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="users of Wolfram Mathematica">Mathematica</a></li>
                     </ul></div><div class="site-footer--col site-footer--category js-footer-col" data-name="Technology"><ul class="-list">
                 <li class="-item"><a href="https://salesforce.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="Salesforce administrators, implementation experts, developers and anybody in-between">Salesforce</a></li>
-                <li class="-item"><a href="https://expressionengine.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="administrators, end users, developers and designers for ExpressionEngine&#174; CMS">ExpressionEngine&#174; Answers</a></li>
-                <li class="-item"><a href="https://pt.stackoverflow.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="programadores profissionais e entusiastas">Stack Overflow em Portugu&#234;s</a></li>
+                <li class="-item"><a href="https://expressionengine.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="administrators, end users, developers and designers for ExpressionEngine® CMS">ExpressionEngine® Answers</a></li>
+                <li class="-item"><a href="https://pt.stackoverflow.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="programadores profissionais e entusiastas">Stack Overflow em Português</a></li>
                 <li class="-item"><a href="https://blender.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="people who use Blender to create 3D graphics, animations, or games">Blender</a></li>
                 <li class="-item"><a href="https://networkengineering.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="network engineers">Network Engineering</a></li>
                 <li class="-item"><a href="https://crypto.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="software developers, mathematicians and others interested in cryptography">Cryptography</a></li>
@@ -1819,7 +946,7 @@ You could use the edit link to refine and improve your existing answer, instead.
                 <li class="-item"><a href="https://ru.stackoverflow.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="программистов">Stack Overflow на русском</a></li>
                 <li class="-item"><a href="https://codegolf.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="programming puzzle enthusiasts and code golfers">Programming Puzzles &amp; Code Golf</a></li>
                     </ul></div><div class="site-footer--col site-footer--category js-footer-col" data-name="Technology"><ul class="-list">
-                <li class="-item"><a href="https://es.stackoverflow.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="programadores y profesionales de la inform&#225;tica">Stack Overflow en espa&#241;ol</a></li>
+                <li class="-item"><a href="https://es.stackoverflow.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="programadores y profesionales de la informática">Stack Overflow en español</a></li>
                 <li class="-item"><a href="https://ethereum.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="users of Ethereum, the decentralized application platform and smart contract enabled blockchain">Ethereum</a></li>
                 <li class="-item"><a href="https://datascience.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="Data science professionals, Machine Learning specialists, and those interested in learning more about the field">Data Science</a></li>
                 <li class="-item"><a href="https://arduino.stackexchange.com" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="developers of open-source hardware and software that is compatible with Arduino">Arduino</a></li>
@@ -1922,7 +1049,7 @@ You could use the edit link to refine and improve your existing answer, instead.
                 </ul>
 
                 <p class="mt-auto mb24">
-site design / logo &#169; 2018 Stack Exchange Inc; user contributions licensed under <a href="https://creativecommons.org/licenses/by-sa/3.0/" rel="license">cc by-sa 3.0</a>
+site design / logo © 2018 Stack Exchange Inc; user contributions licensed under <a href="https://creativecommons.org/licenses/by-sa/3.0/" rel="license">cc by-sa 3.0</a>
                             with <a href="https://stackoverflow.blog/2009/06/25/attribution-required/" rel="license">attribution required</a>.
                     <span id="svnrev">rev&nbsp;2018.12.7.32344</span>
                 </p>
@@ -1987,5 +1114,6 @@ site design / logo &#169; 2018 Stack Exchange Inc; user contributions licensed u
 
 </script>
             
-    </body>
-    </html>
+    
+    
+<div class="adsbox" id="clc-abd" style="position: absolute; pointer-events: none;">&nbsp;</div></body></html>

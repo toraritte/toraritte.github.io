@@ -10,9 +10,8 @@ Long
 
 Short
 =====
-+ [Add Share Extension to iOS project](posts/add-share-extension-to-ios-project.md)
-+ [Adapter design patterns in Elixir](posts/adapter-design-patterns-in-elixir.md)
-+ [(Deleted SO swift question) How to officially handle unauthenticated users in an iOS share extension](posts/deleted-how-to-officially-handle-unauthenticated-users-in-an-iOS-share-extension.htm)
++ [(Deleted question) How to officially handle unauthenticated users in an iOS share extension](posts/deleted-how-to-officially-handle-unauthenticated-users-in-an-iOS-share-extension.htm)
++ [(Deleted question) How to mix unrelated content (e.g., ads, “see more”) with the main text/article while preserving the semantic purity of an HTML page?](posts/deleted-how-to-mix-unrelated-content-with-the-main-text-article-while-preserving-semantic-purity.html)
 
 From Medium
 -----------
