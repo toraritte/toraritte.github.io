@@ -2,7 +2,7 @@
 
 1. [Minimal NixOS config for Nixops deployment (discourse)](https://discourse.nixos.org/t/minimal-nixos-config-for-nixops-deployment/3912)
 
-2. [Can't deploy to NixOS #1192](https://github.com/NixOS/nixops/issues/1192) (see [hypothes.is annotations](https://github.com/NixOS/nixops/issues/1192#annotations:group:__world__) as well, under orphans for some reason<sup>1<sup>)
+2. [Can't deploy to NixOS #1192](https://github.com/NixOS/nixops/issues/1192) (see [hypothes.is annotations](https://github.com/NixOS/nixops/issues/1192#annotations:group:__world__) as well, under orphans for some reason)<sup>1<sup>
 
 The [NixOps 1.8 User's Guide](https://hydra.nixos.org/build/115931128/download/1/manual/manual.html) (linked from the [NixOps repo](https://github.com/NixOS/nixops)) has very little info, [the 1.7 one](https://releases.nixos.org/nixops/nixops-1.7/manual/manual.html) is way more detailed, but they both lack some basic information.<sup>2<sup>
 
@@ -33,6 +33,7 @@ So many questions:
   [repo](https://github.com/aij/aij-nixos-config).
 
 + See [2].
+
 ---
 
 [1] The problem is state.
