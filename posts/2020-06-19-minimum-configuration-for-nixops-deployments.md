@@ -19,6 +19,8 @@ From link 1:
 
 See more at [NixOS images on Azure](https://discourse.nixos.org/t/nixos-images-on-azure/7062) discourse thread. (It's archived, just in case.)
 
+NOTE/TODO: nixops also creates images for various environments, so look at the image declarations, az they probably hold the bare minimum if nothing is added.
+
 ---
 
 So many questions:
