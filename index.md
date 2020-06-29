@@ -17,6 +17,7 @@ Short
 + [Link-mirror of Sander van der Burg's posts](posts/2020-06-16-sander-van-der-burg-posts-all.md)
 + [Minimum NixOS configuration for NixOps deployments](posts/2020-06-19-minimum-configuration-for-nixops-deployments.md)
 + [[Linux/NixOS systemd-logind] Don't suspend/sleep laptop on lid closure when external monitor is connected](posts/2020-06-25-nixos-do-not-suspend-with-external-monitor.md)
++ [[Linux] Mount CIFS shares from the terminal](posts/2020-06-29-mount-cifs-shares.md)
 
 From Medium
 -----------
