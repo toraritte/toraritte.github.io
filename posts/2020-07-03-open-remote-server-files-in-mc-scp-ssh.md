@@ -6,9 +6,22 @@ Got into the habit of adding a passphrase to private
 keys,  so `ssh`  commands  will keep  asking for  it
 every time.
 [`ssh-agent`](https://www.ssh.com/ssh/agent)
-solves this problem.
+solves this problem, and makes  sure that passphrase
+popups won't interrupt.
 
-## 1. Midnight Commander
+## 1. Current workflow
+
+1. Open `tmux`
+
+2. `cd` to project
+
+3. `ssh-agent vim -S Session.vim`
+
+4. In Vim, `:!ssh-add`
+
+5. Continue with either Vim or Midnight Commander (or both)
+
+## 1. `scp` in `Midnight Commander
 
 As of version 4.8.23:
 
@@ -28,17 +41,29 @@ asking how to make this permanent.
 
 ## 2. Vim
 
-## Current workflow
+Using
 
-1. Open `tmux`
+```text
+:Lexplore scp://<server>/<path>
+```
 
-2. `cd` to project
+For example:
+```text
+:Lexplore scp://1.2.3.4//home/toraritte/clones/
+```
 
-3. `ssh-agent vim -S Session.vim`
+The extra  `/` (instead of the  `:`) is **crucial**!
+Type `:h  scp` for more  info (which is an  alias to
+`:h netrw`).
 
-4. In Vim, `:!ssh-add`
+Prefer using `Lexplore`  (see `:h Lexplore`) because
+it gives the layout I prefer (i.e., a fixed vertical
+file browser on the left).
 
-At this  point, either `:vert term`,  open `mc`, and
-follow  section 1,  or  follow  section2. No  matter
-which method  is used,  `ssh-agent` makes  sure that
-passphrase popups won't interrupt.
+## 2.1 Issues
+
+Whenever I select a file  the Vim tab gets messed up
+upon opening  (e.g., the file browser  split becomes
+blank, the  opened file's  lines show up  funky), so
+just  press  <kbd>CTRL</kbd>-<kbd>L</kbd> to  redraw
+the screen (see `:h CTRL-L`).
