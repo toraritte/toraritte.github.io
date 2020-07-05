@@ -60,7 +60,7 @@ Prefer using `Lexplore`  (see `:h Lexplore`) because
 it gives the layout I prefer (i.e., a fixed vertical
 file browser on the left).
 
-## 2.1 Issues
+### 2.1 Issues
 
 Whenever I select a file  the Vim tab gets messed up
 upon opening  (e.g., the file browser  split becomes
