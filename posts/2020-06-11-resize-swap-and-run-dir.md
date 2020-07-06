@@ -16,9 +16,6 @@ Filesystem                   Size  Used Avail Use% Mounted on
 tmpfs                        785M   28K  785M   1% /run/user/1000
 ...
 ```
-The sections  below do not go  how I chronologically
-figured things  out, but how  I wish I  had stumbled
-upon things.
 
 > On NixOS, instead of the steps below, the process would have been simply
 >
@@ -31,12 +28,11 @@ upon things.
 >     HandleLidSwitchDocked=ignore
 >   '';
 > ```
->
 > 2. Rebuild configuration (e.g., with `sudo nixos-rebuild switch`).
 >
 > More info:
-> + https://nixos.org/nixos/options.html#services.logind.extraconfig
-> + https://releases.nixos.org/nix-dev/2015-July/017657.html
+> + [NixOS option: services.logind.extraConfig](https://nixos.org/nixos/options.html#services.logind.extraconfig)
+> + [https://releases.nixos.org/nix-dev/2015-July/017657.html](https://releases.nixos.org/nix-dev/2015-July/017657.html)
 
 ## 1. What is `/run`? <sup>(Baby don't hurt me)</sup>
 
