@@ -1,4 +1,4 @@
-# Resize the `/run` directory and temporarily increase swap size
+# [Ubuntu, NixOS] Resize the `/run` directory (and temporarily increase swap size)
 
 A  Nix  custom image  build  kept  failing with  the
 message `No space left  on device` on Ubuntu 18.04.4
@@ -19,6 +19,24 @@ tmpfs                        785M   28K  785M   1% /run/user/1000
 The sections  below do not go  how I chronologically
 figured things  out, but how  I wish I  had stumbled
 upon things.
+
+> On NixOS, instead of the steps below, the process would have been simply
+>
+> 1.   to   edit   the   `services.logind.extraConfig`
+> attribute in `/etc/nixos/configuration.nix`:
+>
+> ```nix
+>   services.logind.extraConfig = ''
+>     RuntimeDirectorySize=12G
+>     HandleLidSwitchDocked=ignore
+>   '';
+> ```
+>
+> 2. Rebuild configuration (e.g., with `sudo nixos-rebuild switch`).
+>
+> More info:
+> + https://nixos.org/nixos/options.html#services.logind.extraconfig
+> + https://releases.nixos.org/nix-dev/2015-July/017657.html
 
 ## 1. What is `/run`? <sup>(Baby don't hurt me)</sup>
 
@@ -138,10 +156,10 @@ Filename                                Type            Size    Used    Priority
 
 ### 4.2 Permanently
 
-StackExchange answers (snapshots available on archive.org):  
+StackExchange answers (snapshots available on archive.org):
 
 * https://askubuntu.com/questions/178712/how-to-increase-swap-space
 * https://askubuntu.com/questions/226520/how-can-i-modify-the-size-of-swap-with-lvm-partitions
 
-This is a troubleshooting one for the LVM one:  
+This is a troubleshooting one for the LVM one:
 * https://serverfault.com/questions/733407/insufficient-free-space-x-extents-needed-but-only-y-available
