@@ -16,6 +16,7 @@ forgetting the syntax (plus,
 > ```
 >
 > Now coworker's reaction is *mindblown*.
+
 ([Twitter post from Susan Potter](https://twitter.com/SusanPotter/status/1260544743097892866))
 
 ## Rationale
