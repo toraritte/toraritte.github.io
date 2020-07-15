@@ -64,7 +64,7 @@ error: undefined variable 'erlangR23' at (string):1:94
 ```
 
 ```text
-0 [18:28:26] nix-shell -I nixpkgs=~/clones/nixpkgs -p erlangR23
+$ nix-shell -I nixpkgs=~/clones/nixpkgs -p erlangR23
 
 [nix-shell:~/clones/toraritte.github.io]$
 ```
