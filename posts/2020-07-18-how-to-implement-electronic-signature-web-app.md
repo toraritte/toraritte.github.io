@@ -18,6 +18,10 @@ in  effect,  temporarily superseding  the  permanent
 regulations; see
 [the diff between the two](./california-digital-signatures.diff.html).
 
+<sup>
+The diff was done using Pandoc (`pandoc -s -r html <URL> -o <name-of-markdown-file>`), vimdiff, and Vim's `:TOhtml`.
+</sup>
+
 ## 2. Implementation plan without using 3rd party services
 
 In
