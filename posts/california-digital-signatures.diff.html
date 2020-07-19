@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>diff</title>
+<meta name="Generator" content="Vim/8.2">
+<meta name="plugin-version" content="vim8.1_v2">
+<meta name="settings" content="number_lines,whole_filler,use_css,no_foldcolumn,expand_tabs,line_ids,prevent_copy=,use_input_for_pc=fallback">
+<meta name="colorscheme" content="gruvbox">
+<style>
+<!--
+pre { font-family: monospace; color: #ffd7af; background-color: #1c1c1c; }
+body { font-family: monospace; color: #ffd7af; background-color: #1c1c1c; }
+* { font-size: 1em; }
+.GruvboxGray { color: #8a8a8a; }
+.LineNr { color: #767676; }
+.GruvboxOrange { color: #ff8700; }
+.GruvboxPurple { color: #d787af; }
+.GruvboxAqua { color: #87af87; }
+.markdownLinkText { color: #8a8a8a; text-decoration: underline; }
+.GruvboxGreenBold { color: #afaf00; font-weight: bold; }
+.Folded { color: #8a8a8a; background-color: #3a3a3a; padding-bottom: 1px; }
+.GruvboxYellowBold { color: #ffaf00; font-weight: bold; }
+.GruvboxFg3 { color: #a8a8a8; }
+.markdownItalic { color: #a8a8a8; }
+.DiffChange { color: #1c1c1c; background-color: #87af87; }
+.DiffDelete { color: #1c1c1c; background-color: #d75f5f; }
+.DiffText { color: #1c1c1c; background-color: #ffaf00; }
+.DiffAdd { color: #1c1c1c; background-color: #afaf00; }
+-->
+<!--
+table { table-layout: fixed; }
+html, body, table, tbody { width: 100%; margin: 0; padding: 0; }
+table, td, th { border: 1px solid; }
+td { vertical-align: top; }
+th, td { width: 50.0%; }
+td div { overflow: auto; }
+-->
+</style>
+<script>
+<!--
+
+/* function to open any folds containing a jumped-to line before jumping to it */
+function JumpToLine()
+{
+  var lineNum;
+  lineNum = window.location.hash;
+  lineNum = lineNum.substr(1); /* strip off '#' */
+
+  if (lineNum.indexOf('L') == -1) {
+    lineNum = 'L'+lineNum;
+  }
+  if (lineNum.indexOf('W') == -1) {
+    lineNum = 'W1'+lineNum;
+  }
+  var lineElem = document.getElementById(lineNum);
+  /* Always jump to new location even if the line was hidden inside a fold, or
+   * we corrected the raw number to a line ID.
+   */
+  if (lineElem) {
+    lineElem.scrollIntoView(true);
+  }
+  return true;
+}
+if ('onhashchange' in window) {
+  window.onhashchange = JumpToLine;
+}
+
+-->
+</script>
+</head>
+<body onload='JumpToLine();'>
+<table id='vimCodeElement'>
+<tr>
+<th>digital-signatures.md</th>
+<th>digital-signatures-emergency-regulations.md</th>
+</tr><tr>
+<td><div>
+<pre>
+<span id="W1L1" class="LineNr">  1 </span><span class="GruvboxGray">---</span>
+<span id="W1L2" class="LineNr">  2 </span>lang: en
+<span id="W1L3" class="LineNr">  3 </span><span class="DiffChange">title: 'Digital Signatures | California Secretary of State'</span><span class="DiffChange">                                                                                                                                   </span>
+<span id="W1L4" class="LineNr">  4 </span><span class="GruvboxGreenBold">viewport: 'width=device-width'</span>
+<span id="W1L5" class="LineNr">  5 </span><span class="GruvboxGray">---</span>
+<span id="W1L6" class="LineNr">  6 </span>
+<span id="W1L7" class="LineNr">  7 </span><span class="GruvboxGreenBold DiffChange">Digital Signatures</span><span class="DiffChange">                                                                                                                                                                            </span>
+<span id="W1L8" class="LineNr">  8 </span><span class="GruvboxGray DiffChange">==================</span><span class="DiffChange">                                                                                                                                                                            </span>
+<span id="W1L9" class="LineNr">  9 </span>
+<span id="W1L10" class="LineNr"> 10 </span><span class="GruvboxGreenBold">Title 2. Administration</span>
+<span id="W1L11" class="LineNr"> 11 </span><span class="GruvboxGray">-----------------------</span>
+<span id="W1L12" class="LineNr"> 12 </span>
+<span id="W1L13" class="LineNr"> 13 </span><span class="GruvboxOrange">###</span><span class="GruvboxYellowBold"> Division 7. Secretary of State Chapter 10. Digital Signatures</span>
+<span id="W1L14" class="LineNr"> 14 </span>
+<span id="W1L15" class="LineNr"> 15 </span><span class="DiffChange">These  </span><span class="DiffText"> permanent    regulations   are   temporarily</span><span class="DiffChange">                                                                                                                                          </span>
+<span id="W1L16" class="LineNr"> 16 </span><span class="DiffAdd">superseded by  emergency regulations  effective from</span><span class="DiffAdd">                                                                                                                                          </span>
+<span id="W1L17" class="LineNr"> 17 </span>4/22/2020 through 10/20/2020, or  until that date is
+<span id="W1L18" class="LineNr"> 18 </span><span class="DiffChange">extended </span><span class="DiffText"> or  the  emergency  regulations  are  made</span><span class="DiffChange">                                                                                                                                          </span>
+<span id="W1L19" class="LineNr"> 19 </span><span class="DiffText">permanent by regulatory action. See</span><span class="DiffChange">                                                                                                                                                           </span>
+<span id="W1L20" class="LineNr"> 20 </span><span class="DiffAdd">[emergency regulations]</span><span class="DiffAdd">                                                                                                                                                                       </span>
+<span id="W1L21" class="LineNr"> 21 </span><span class="DiffAdd">(<a href="https://www.sos.ca.gov/administration/regulations/current-regulations/technology/emergency-digital-signatures/).">https://www.sos.ca.gov/administration/regulations/current-regulations/technology/emergency-digital-signatures/).</a></span><span class="DiffAdd">                                                                             </span>
+<span id="W1L22" class="LineNr"> 22 </span>
+<span id="W1L23" class="LineNr"> 23 </span><span class="GruvboxGray">+</span> <span class="GruvboxFg3">[</span><span class="markdownLinkText">22000</span><span class="GruvboxFg3">]</span><span class="GruvboxFg3">(</span><span class="GruvboxPurple">#22000</span><span class="GruvboxFg3">)</span> Definitions.
+<span id="W1L24" class="LineNr"> 24 </span><span class="GruvboxGray">+</span> <span class="GruvboxFg3">[</span><span class="markdownLinkText">22001</span><span class="GruvboxFg3">]</span><span class="GruvboxFg3">(</span><span class="GruvboxPurple">#22001</span><span class="GruvboxFg3">)</span> Digital Signatures Must Be  Created By An Acceptable
+<span id="W1L25" class="LineNr"> 25 </span><span class="GruvboxAqua">                  Technology.</span>
+<span id="W1L26" class="LineNr"> 26 </span><span class="GruvboxGray">+</span> <span class="GruvboxFg3">[</span><span class="markdownLinkText">22002</span><span class="GruvboxFg3">]</span><span class="GruvboxFg3">(</span><span class="GruvboxPurple">#22002</span><span class="GruvboxFg3">)</span> Criteria  For  Determining  If A  Digital  Signature
+<span id="W1L27" class="LineNr"> 27 </span><span class="GruvboxAqua DiffText">                  Technology Is Acceptable</span><span class="GruvboxAqua DiffChange">.</span><span class="DiffChange">                                                                                                                                                   </span>
+<span id="W1L28" class="LineNr"> 28 </span><span class="GruvboxGray DiffChange">+</span><span class="DiffChange"> </span><span class="GruvboxFg3 DiffChange">[</span><span class="markdownLinkText DiffChange">22003</span><span class="GruvboxFg3 DiffChange">]</span><span class="GruvboxFg3 DiffChange">(</span><span class="GruvboxPurple DiffChange">#20203</span><span class="GruvboxFg3 DiffChange">)</span><span class="DiffChange"> </span><span class="DiffText">List of </span><span class="DiffChange">Acceptable Technologies.                                                                                                                                            </span>
+<span id="W1L29" class="LineNr"> 29 </span><span class="GruvboxGray DiffChange">+</span><span class="DiffChange"> </span><span class="GruvboxFg3 DiffChange">[</span><span class="markdownLinkText DiffChange">22004</span><span class="GruvboxFg3 DiffChange">]</span><span class="GruvboxFg3 DiffChange">(</span><span class="GruvboxPurple DiffChange">#22004</span><span class="GruvboxFg3 DiffChange">)</span><span class="DiffChange"> </span><span class="DiffText">Provisions For  Adding New Technologies to  the List</span><span class="DiffChange">                                                                                                                        </span>
+<span id="W1L30" class="LineNr"> 30 </span><span class="GruvboxAqua DiffText">                  of Acceptable Technologies.</span><span class="DiffChange">                                                                                                                                                 </span>
+<span id="W1L31" class="LineNr"> 31 </span><span class="GruvboxGray DiffChange">+</span><span class="DiffChange"> </span><span class="GruvboxFg3 DiffChange">[</span><span class="markdownLinkText DiffChange">22005</span><span class="GruvboxFg3 DiffChange">]</span><span class="GruvboxFg3 DiffChange">(</span><span class="GruvboxPurple DiffChange">#22005</span><span class="GruvboxFg3 DiffChange">)</span><span class="DiffChange"> </span><span class="DiffText">Issues to Be Addressed By Public Entities When Us</span><span class="DiffChange">ing                                                                                                                        </span>
+<span id="W1L32" class="LineNr"> 32 </span><span class="GruvboxAqua">                  Digital Signatures.</span>
+<span id="W1L33" class="LineNr"> 33 </span>
+<span id="W1L34" class="LineNr"> 34 </span><span class="GruvboxGray">------------------------------------------------------------------------</span>
+<span id="W1L35" class="LineNr"> 35 </span>
+<span id="W1L36" class="LineNr"> 36 </span><span class="GruvboxGray">22000.</span> Definitions. {#22000}
+<span id="W1L37" class="LineNr"> 37 </span><span class="GruvboxGray">-------------------</span>
+<span id="W1L38" class="LineNr"> 38 </span>
+<span id="W1L39" class="LineNr"> 39 </span><span class="GruvboxGray">1.</span>  For purposes of this chapter, and unless the context expressly
+<span id="W1L40" class="LineNr"> 40 </span><span class="GruvboxAqua">    indicates otherwise:</span>
+<span id="W1L41" class="LineNr"> 41 </span>
+<span id="W1L42" class="LineNr"> 42 </span><span class="GruvboxGray">    1.</span>  &quot;Digitally-signed communication&quot; is a message that has been
+<span id="W1L43" class="LineNr"> 43 </span><span class="GruvboxAqua DiffChange">        processed by a</span><span class="GruvboxAqua DiffText"> computer in such a manner that ties the message</span><span class="DiffChange">                                                                                                                        </span>
+<span id="W1L44" class="LineNr"> 44 </span><span class="GruvboxAqua DiffChange">        </span><span class="GruvboxAqua DiffText">to the individual that signed the message</span><span class="GruvboxAqua DiffChange">.</span><span class="DiffChange">                                                                                                                                            </span>
+<span id="W1L45" class="LineNr"> 45 </span>
+<span id="W1L46" class="LineNr"> 46 </span><span class="GruvboxGray">    2.</span>  &quot;Message&quot; means a digital representation of information intended
+<span id="W1L47" class="LineNr"> 47 </span><span class="GruvboxAqua DiffChange">        to serve as a written communication </span><span class="GruvboxAqua DiffText">with a public entity.</span><span class="DiffChange">                                                                                                                             </span>
+<span class="LineNr">    </span><span class="DiffDelete">----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span id="W1L48" class="LineNr"> 48 </span>
+<span id="W1L49" class="LineNr"> 49 </span><span class="GruvboxGray">    3.</span>  &quot;Person&quot; means a human being or any organization capable of
+<span id="W1L50" class="LineNr"> 50 </span><span class="GruvboxAqua">        signing a document, either legally or as a matter of fact.</span>
+<span id="W1L51" class="LineNr"> 51 </span>
+<span id="W1L52" class="LineNr"> 52 </span><span class="GruvboxGray">    4.</span>  &quot;Public entity&quot; means the public entity as defined by California
+<span id="W1L53" class="LineNr"> 53 </span><span class="GruvboxAqua">        Government Code Section 811.2.</span>
+<span id="W1L54" class="Folded"> 54 </span><span class="Folded">0  [2 lines]--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span id="W1L56" class="LineNr"> 56 </span><span class="GruvboxAqua">        communication with the use of an acceptable technology to</span>
+<span id="W1L57" class="LineNr"> 57 </span><span class="GruvboxAqua">        uniquely link the message with the person sending it.</span>
+<span id="W1L58" class="LineNr"> 58 </span>
+<span id="W1L59" class="LineNr"> 59 </span><span class="GruvboxGray">    6.</span>  &quot;Technology&quot; means the computer hardware and/or software-based
+<span id="W1L60" class="LineNr"> 60 </span><span class="GruvboxAqua">        method or process used to create digital signatures.</span>
+<span id="W1L61" class="LineNr"> 61 </span>
+<span class="LineNr">    </span><span class="DiffDelete">----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="LineNr">    </span><span class="DiffDelete">----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span id="W1L62" class="LineNr"> 62 </span>
+<span id="W1L63" class="LineNr"> 63 </span><span class="GruvboxGray">22001.</span> Digital Signatures Must Be Created by an Acceptable Technology. {#22001}
+<span id="W1L64" class="LineNr"> 64 </span><span class="GruvboxGray">----------------------------------------------------------------------</span>
+<span id="W1L65" class="LineNr"> 65 </span>
+<span id="W1L66" class="LineNr"> 66 </span><span class="GruvboxGray">1.</span>  For a digital signature to be valid for use by a public entity, it
+<span id="W1L67" class="LineNr"> 67 </span><span class="GruvboxAqua">    must be created by a technology that is acceptable for use by the</span>
+<span id="W1L68" class="LineNr"> 68 </span><span class="GruvboxAqua">    State of California.</span>
+<span id="W1L69" class="LineNr"> 69 </span>
+<span class="LineNr">    </span><span class="DiffDelete">----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="LineNr">    </span><span class="DiffDelete">----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span id="W1L70" class="LineNr"> 70 </span>
+<span id="W1L71" class="LineNr"> 71 </span><span class="GruvboxGray">22002.</span> Criteria for State to Determine if a Digital Signature Technology Is Acceptable for Use by Public Entities. {#22002}
+<span id="W1L72" class="LineNr"> 72 </span><span class="GruvboxGray">------------------------------------------------------------------------------------------------------------------</span>
+<span id="W1L73" class="LineNr"> 73 </span>
+<span id="W1L74" class="LineNr"> 74 </span>An acceptable technology must be capable of creating signatures that
+<span id="W1L75" class="LineNr"> 75 </span>conform to requirements set forth in California Government Code Section
+<span id="W1L76" class="LineNr"> 76 </span>16.5, specifically:
+<span id="W1L77" class="LineNr"> 77 </span>
+<span id="W1L78" class="LineNr"> 78 </span><span class="GruvboxGray">1.</span>  It is unique to the person using it;
+<span id="W1L79" class="LineNr"> 79 </span><span class="GruvboxGray">2.</span>  It is capable of verification;
+<span id="W1L80" class="LineNr"> 80 </span><span class="GruvboxGray">3.</span>  It is under the sole control of the person using it;
+<span id="W1L81" class="LineNr"> 81 </span><span class="GruvboxGray">4.</span>  It is linked to data in such a manner that if the data are changed,
+<span id="W1L82" class="LineNr"> 82 </span><span class="GruvboxAqua DiffChange">    the digital signature is invalidated;</span><span class="DiffChange">                                                                                                                                                     </span>
+<span id="W1L83" class="LineNr"> 83 </span><span class="GruvboxGray">5.</span>  It conforms to Title 2, Division 7, Chapter 10 of the California
+<span id="W1L84" class="LineNr"> 84 </span><span class="GruvboxAqua">    Code of Regulations.</span>
+<span id="W1L85" class="LineNr"> 85 </span>
+<span class="LineNr">    </span><span class="DiffDelete">----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="LineNr">    </span><span class="DiffDelete">----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span id="W1L86" class="LineNr"> 86 </span>
+<span id="W1L87" class="LineNr"> 87 </span><span class="GruvboxGray DiffChange">22003.</span><span class="DiffChange"> </span><span class="DiffText">List of </span><span class="DiffChange">Acceptable Technologies. {#20203}                                                                                                                                              </span>
+<span id="W1L88" class="LineNr"> 88 </span><span class="GruvboxGray">-------------------------------</span>
+<span id="W1L89" class="LineNr"> 89 </span>
+<span id="W1L90" class="LineNr"> 90 </span><span class="GruvboxGray">1.</span> The technology known as Public Key Cryptography is an acceptable
+<span id="W1L91" class="LineNr"> 91 </span>   technology for use by public entities in California, provided that
+<span id="W1L92" class="LineNr"> 92 </span><span class="DiffChange">   the digital signature is created consistent with the </span><span class="DiffText">provisions in</span><span class="DiffChange">                                                                                                                         </span>
+<span id="W1L93" class="LineNr"> 93 </span><span class="DiffAdd">   Section 22003(a)1-5.</span><span class="DiffAdd">                                                                                                                                                                       </span>
+<span id="W1L94" class="LineNr"> 94 </span>
+<span id="W1L95" class="LineNr"> 95 </span><span class="GruvboxGray DiffChange">   1.</span><span class="DiffChange"> Definitions</span><span class="DiffText"> - For purposes of Section 22003(a), and unless the</span><span class="DiffChange">                                                                                                                          </span>
+<span id="W1L96" class="LineNr"> 96 </span><span class="GruvboxAqua DiffChange">      </span><span class="GruvboxAqua DiffText">context </span><span class="GruvboxAqua DiffChange">expressly indicates otherwise:</span><span class="DiffChange">                                                                                                                                                  </span>
+<span id="W1L97" class="LineNr"> 97 </span>
+<span id="W1L98" class="LineNr"> 98 </span><span class="GruvboxAqua DiffAdd">      1. &quot;Acceptable Certification Authorities&quot; means a certification</span><span class="DiffAdd">                                                                                                                         </span>
+<span id="W1L99" class="LineNr"> 99 </span><span class="GruvboxAqua DiffAdd">          authority that meets the requirements of either Section</span><span class="DiffAdd">                                                                                                                             </span>
+<span id="W1L100" class="LineNr">100 </span><span class="GruvboxAqua DiffAdd">          22003(a)6(C) or Section 22003(a)6(D).</span><span class="DiffAdd">                                                                                                                                               </span>
+<span id="W1L101" class="LineNr">101 </span>
+<span id="W1L102" class="LineNr">102 </span>
+<span id="W1L103" class="LineNr">103 </span><span class="GruvboxAqua DiffAdd">      2.  &quot;Approved List of Certification Authorities&quot; means the list</span><span class="DiffAdd">                                                                                                                         </span>
+<span id="W1L104" class="LineNr">104 </span><span class="GruvboxAqua DiffAdd">          of Certification Authorities approved by the Secretary of</span><span class="DiffAdd">                                                                                                                           </span>
+<span id="W1L105" class="LineNr">105 </span><span class="GruvboxAqua DiffAdd">          State to issue certification for digital signature</span><span class="DiffAdd">                                                                                                                                  </span>
+<span id="W1L106" class="LineNr">106 </span><span class="GruvboxAqua DiffAdd">          transactions involving public entities in California.</span><span class="DiffAdd">                                                                                                                               </span>
+<span id="W1L107" class="LineNr">107 </span>
+<span id="W1L108" class="LineNr">108 </span><span class="GruvboxAqua DiffChange">      </span><span class="GruvboxAqua DiffText">3</span><span class="GruvboxAqua DiffChange">. &quot;Asymmetric cryptosystem&quot; means a computer algorithm or</span><span class="DiffChange">                                                                                                                              </span>
+<span id="W1L109" class="LineNr">109 </span><span class="GruvboxAqua">         series of algorithms which utilize two different keys with</span>
+<span id="W1L110" class="LineNr">110 </span><span class="GruvboxAqua">         the following characteristics:</span>
+<span id="W1L111" class="LineNr">111 </span><span class="GruvboxAqua">          1.  One key signs a given message;</span>
+<span id="W1L112" class="LineNr">112 </span><span class="GruvboxAqua">          2.  One key verifies a given message; and</span>
+<span id="W1L113" class="LineNr">113 </span><span class="GruvboxAqua">          3.  The keys have the property that, knowing one key, it is</span>
+<span id="W1L114" class="LineNr">114 </span><span class="GruvboxAqua">              computationally infeasible to discover the other key.</span>
+<span id="W1L115" class="LineNr">115 </span>
+<span id="W1L116" class="LineNr">116 </span><span class="GruvboxAqua DiffChange">      </span><span class="GruvboxAqua DiffText">4</span><span class="GruvboxAqua DiffChange">. &quot;Certificate&quot; means a computer-based record which:</span><span class="DiffChange">                                                                                                                                   </span>
+<span id="W1L117" class="LineNr">117 </span><span class="GruvboxAqua">          1.  Identifies the certification authority issuing it;</span>
+<span id="W1L118" class="LineNr">118 </span><span class="GruvboxAqua">          2.  Names or identifies its subscriber;</span>
+<span id="W1L119" class="LineNr">119 </span><span class="GruvboxAqua DiffChange">          3.  Contains the subscriber's public key;</span><span class="GruvboxAqua DiffText"> and</span><span class="DiffChange">                                                                                                                                       </span>
+<span id="W1L120" class="LineNr">120 </span><span class="GruvboxAqua">          4.  Is digitally signed by the certification authority issuing or</span>
+<span id="W1L121" class="LineNr">121 </span><span class="GruvboxAqua DiffChange">              amending it</span><span class="GruvboxAqua DiffText">,</span><span class="GruvboxAqua DiffChange"> and</span><span class="DiffChange">                                                                                                                                                                </span>
+<span id="W1L122" class="LineNr">122 </span><span class="GruvboxAqua">          5.  Conforms to widely-used industry standards, including,</span>
+<span id="W1L123" class="LineNr">123 </span><span class="GruvboxAqua DiffChange">              but not limited to ISO x.509 and PGP certificate</span><span class="DiffChange">                                                                                                                                </span>
+<span id="W1L124" class="LineNr">124 </span><span class="GruvboxAqua">              standards.</span>
+<span id="W1L125" class="LineNr">125 </span>
+<span id="W1L126" class="LineNr">126 </span><span class="GruvboxAqua DiffChange">      </span><span class="GruvboxAqua DiffText">5</span><span class="GruvboxAqua DiffChange">.  &quot;Certification Authority&quot; means a person or entity that issues a</span><span class="DiffChange">                                                                                                                    </span>
+<span id="W1L127" class="LineNr">127 </span><span class="GruvboxAqua">          certificate, or in the case of certain certification processes,</span>
+<span id="W1L128" class="LineNr">128 </span><span class="GruvboxAqua">          certifies amendments to an existing certificate.</span>
+<span id="W1L129" class="LineNr">129 </span>
+<span id="W1L130" class="LineNr">130 </span><span class="GruvboxAqua DiffChange">      </span><span class="GruvboxAqua DiffText">6</span><span class="GruvboxAqua DiffChange">.  &quot;Key pair&quot; means a private key and its corresponding public key in</span><span class="DiffChange">                                                                                                                  </span>
+<span id="W1L131" class="LineNr">131 </span><span class="GruvboxAqua">          an asymmetric cryptosystem. The keys have the property that the</span>
+<span id="W1L132" class="LineNr">132 </span><span class="GruvboxAqua">          public key can verify a digital signature that the private key</span>
+<span id="W1L133" class="LineNr">133 </span><span class="GruvboxAqua">          creates.</span>
+<span id="W1L134" class="LineNr">134 </span>
+<span id="W1L135" class="LineNr">135 </span><span class="GruvboxAqua DiffChange">      </span><span class="GruvboxAqua DiffText">7</span><span class="GruvboxAqua DiffChange">.  &quot;Practice statement&quot; means documentation of the practices,</span><span class="DiffChange">                                                                                                                          </span>
+<span id="W1L136" class="LineNr">136 </span><span class="GruvboxAqua">          procedures and controls employed by a Certification Authority.</span>
+<span id="W1L137" class="LineNr">137 </span>
+<span id="W1L138" class="LineNr">138 </span><span class="GruvboxAqua DiffChange">      </span><span class="GruvboxAqua DiffText">8</span><span class="GruvboxAqua DiffChange">.  &quot;Private key&quot; means the key of a key pair used to create a digital</span><span class="DiffChange">                                                                                                                  </span>
+<span id="W1L139" class="LineNr">139 </span><span class="GruvboxAqua">          signature.</span>
+<span id="W1L140" class="LineNr">140 </span>
+<span id="W1L141" class="LineNr">141 </span><span class="GruvboxAqua DiffChange">      </span><span class="GruvboxAqua DiffText">9</span><span class="GruvboxAqua DiffChange">.  &quot;Proof of Identification&quot; means the document or documents presented</span><span class="DiffChange">                                                                                                                 </span>
+<span id="W1L142" class="LineNr">142 </span><span class="GruvboxAqua">          to a Certification Authority to establish the identity of a</span>
+<span id="W1L143" class="LineNr">143 </span><span class="GruvboxAqua">          subscriber.</span>
+<span id="W1L144" class="LineNr">144 </span>
+<span id="W1L145" class="LineNr">145 </span><span class="GruvboxAqua DiffChange">      </span><span class="GruvboxAqua DiffText">10.</span><span class="GruvboxAqua DiffChange"> &quot;Public key&quot; means the key of a key pair used to verify a digital</span><span class="DiffChange">                                                                                                                   </span>
+<span id="W1L146" class="LineNr">146 </span><span class="GruvboxAqua">          signature.</span>
+<span id="W1L147" class="LineNr">147 </span>
+<span id="W1L148" class="LineNr">148 </span><span class="GruvboxAqua DiffChange">      </span><span class="GruvboxAqua DiffText">11.</span><span class="GruvboxAqua DiffChange"> &quot;Subscriber&quot; means a person who:</span><span class="DiffChange">                                                                                                                                                    </span>
+<span id="W1L149" class="LineNr">149 </span><span class="GruvboxAqua">          1.  Is the subject listed in a certificate;</span>
+<span id="W1L150" class="LineNr">150 </span><span class="GruvboxAqua">          2.  Accepts the certificate; and</span>
+<span id="W1L151" class="LineNr">151 </span><span class="GruvboxAqua">          3.  Holds a private key which corresponds to a public key listed in</span>
+<span id="W1L152" class="LineNr">152 </span><span class="GruvboxAqua">              that certificate.</span>
+<span id="W1L153" class="LineNr">153 </span>
+<span id="W1L154" class="LineNr">154 </span><span class="GruvboxGray DiffChange">   2.</span><span class="DiffChange">  California Government Code </span><span class="DiffText">§</span><span class="DiffChange"> 16.5 requires that a digital                                                                                                                              </span>
+<span id="W1L155" class="LineNr">155 </span><span class="GruvboxAqua">       signature be 'unique to the person using it'. A public key-based digital</span>
+<span id="W1L156" class="LineNr">156 </span><span class="GruvboxAqua DiffChange">       signature may be considered unique to the person using it</span><span class="GruvboxAqua DiffText">,</span><span class="GruvboxAqua DiffChange"> if:</span><span class="DiffChange">                                                                                                                         </span>
+<span id="W1L157" class="LineNr">157 </span>
+<span id="W1L158" class="LineNr">158 </span><span class="GruvboxAqua">       1.  The private key used to create the signature on the document is</span>
+<span id="W1L159" class="LineNr">159 </span><span class="GruvboxAqua DiffChange">           known only to the signer</span><span class="GruvboxAqua DiffText">, and</span><span class="DiffChange">                                                                                                                                                      </span>
+<span id="W1L160" class="LineNr">160 </span>
+<span id="W1L161" class="LineNr">161 </span><span class="GruvboxAqua">       2.  The digital signature is created when a person runs a message</span>
+<span id="W1L162" class="LineNr">162 </span><span class="GruvboxAqua">           through a one-way function, creating a message digest, then</span>
+<span id="W1L163" class="LineNr">163 </span><span class="GruvboxAqua">           encrypting the resulting message digest using an asymmetrical</span>
+<span id="W1L164" class="LineNr">164 </span><span class="GruvboxAqua DiffChange">           cryptosystem and the signer\'s private key</span><span class="GruvboxAqua DiffText">, and,</span><span class="DiffChange">                                                                                                                                   </span>
+<span id="W1L165" class="LineNr">165 </span>
+<span id="W1L166" class="LineNr">166 </span><span class="GruvboxAqua">       3.  Although not all digitally signed communications will require the</span>
+<span id="W1L167" class="LineNr">167 </span><span class="GruvboxAqua">           signer to obtain a certificate, the signer is capable of being</span>
+<span id="W1L168" class="LineNr">168 </span><span class="GruvboxAqua">           issued a certificate to certify that he or she controls the key pair</span>
+<span id="W1L169" class="LineNr">169 </span><span class="GruvboxAqua DiffChange">           used to create the signature</span><span class="GruvboxAqua DiffText">,</span><span class="GruvboxAqua DiffChange"> and</span><span class="DiffChange">                                                                                                                                                  </span>
+<span id="W1L170" class="LineNr">170 </span>
+<span id="W1L171" class="LineNr">171 </span><span class="GruvboxAqua">       4.  It is computationally infeasible to derive the private key from</span>
+<span id="W1L172" class="LineNr">172 </span><span class="GruvboxAqua">           knowledge of the public key.</span>
+<span id="W1L173" class="LineNr">173 </span>
+<span id="W1L174" class="LineNr">174 </span><span class="GruvboxGray DiffChange">   3.</span><span class="DiffChange">  California Government Code </span><span class="DiffText">§</span><span class="DiffChange"> 16.5 requires that a digital                                                                                                                              </span>
+<span id="W1L175" class="LineNr">175 </span><span class="GruvboxAqua">       signature be 'capable of verification'. A public-key based digital</span>
+<span id="W1L176" class="LineNr">176 </span><span class="GruvboxAqua">       signature is capable of verification if:</span>
+<span id="W1L177" class="LineNr">177 </span>
+<span id="W1L178" class="LineNr">178 </span><span class="GruvboxAqua">       1.  The acceptor of the digitally signed document can verify the</span>
+<span id="W1L179" class="LineNr">179 </span><span class="GruvboxAqua">           document was digitally signed by using the signer's public</span>
+<span id="W1L180" class="LineNr">180 </span><span class="GruvboxAqua">           key to decrypt the message; and</span>
+<span id="W1L181" class="Folded">181 </span><span class="Folded">0  [2 lines]--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span id="W1L183" class="LineNr">183 </span><span class="GruvboxAqua">           public agency, the issuing Certification Authority, either through a</span>
+<span id="W1L184" class="LineNr">184 </span><span class="GruvboxAqua">           certification practice statement or through the content of the</span>
+<span id="W1L185" class="LineNr">185 </span><span class="GruvboxAqua">           certificate itself, must identify which, if any, form(s) of</span>
+<span id="W1L186" class="LineNr">186 </span><span class="GruvboxAqua">           identification it required of the signer prior to issuing the</span>
+<span id="W1L187" class="LineNr">187 </span><span class="GruvboxAqua">           certificate.</span>
+<span id="W1L188" class="LineNr">188 </span>
+<span id="W1L189" class="LineNr">189 </span><span class="GruvboxGray DiffChange">   4.</span><span class="DiffChange">  California Government Code </span><span class="DiffText">§</span><span class="DiffChange"> 16.5 requires that the digital                                                                                                                            </span>
+<span id="W1L190" class="LineNr">190 </span><span class="GruvboxAqua">       signature remain 'under the sole control of the person using it'.</span>
+<span id="W1L191" class="LineNr">191 </span><span class="GruvboxAqua">       Whether a signature is accompanied by a certificate or not, the person</span>
+<span id="W1L192" class="LineNr">192 </span><span class="GruvboxAqua">       who holds the key pair, or the subscriber identified in the certificate,</span>
+<span id="W1L193" class="LineNr">193 </span><span class="GruvboxAqua">       assumes a duty to exercise reasonable care to retain control of the</span>
+<span id="W1L194" class="LineNr">194 </span><span class="GruvboxAqua">       private key and prevent its disclosure to any person not authorized to</span>
+<span id="W1L195" class="LineNr">195 </span><span class="GruvboxAqua DiffChange">       create the subscriber's digital signature pursuant to</span><span class="DiffChange">                                                                                                                                  </span>
+<span id="W1L196" class="LineNr">196 </span><span class="GruvboxAqua">       Evidence Code Section 669.</span>
+<span id="W1L197" class="LineNr">197 </span>
+<span id="W1L198" class="LineNr">198 </span><span class="GruvboxGray">   5.</span>  The digital signature must be linked to the message of the document in
+<span id="W1L199" class="LineNr">199 </span><span class="GruvboxAqua">       such a way that if the data are changed, the digital signature is</span>
+<span id="W1L200" class="LineNr">200 </span><span class="GruvboxAqua">       invalidated.</span>
+<span id="W1L201" class="LineNr">201 </span>
+<span id="W1L202" class="LineNr">202 </span><span class="GruvboxGray DiffChange">   6.</span><span class="DiffChange">  </span><span class="DiffText">Acceptable Certification Authoritie</span><span class="DiffChange">s                                                                                                                                                   </span>
+<span id="W1L203" class="LineNr">203 </span><span class="GruvboxAqua DiffChange">       </span><span class="GruvboxAqua DiffText">1.  The California Secretary of State shall maintain an</span><span class="DiffChange">                                                                                                                                </span>
+<span id="W1L204" class="LineNr">204 </span><span class="GruvboxAqua DiffChange">       </span><span class="GruvboxAqua DiffText">    &quot;Approved List of Certificate Authorities&quot; authorized to</span><span class="DiffChange">                                                                                                                           </span>
+<span id="W1L205" class="LineNr">205 </span><span class="GruvboxAqua DiffText">           issue certificates for digitally signed communication with</span><span class="DiffChange">                                                                                                                         </span>
+<span id="W1L206" class="LineNr">206 </span><span class="GruvboxAqua DiffChange">       </span><span class="GruvboxAqua DiffText">    public entities in California.</span><span class="DiffChange">                                                                                                                                                     </span>
+<span id="W1L207" class="LineNr">207 </span><span class="GruvboxAqua DiffChange">       2.  </span><span class="GruvboxAqua DiffText">Public entities shall only accept certificates fro</span><span class="GruvboxAqua DiffChange">m</span><span class="DiffChange">                                                                                                                                </span>
+<span id="W1L208" class="LineNr">208 </span><span class="GruvboxAqua DiffChange">       </span><span class="GruvboxAqua DiffText">    Certification Authorities that appear on the &quot;Approved List</span><span class="DiffChange">                                                                                                                        </span>
+<span id="W1L209" class="LineNr">209 </span><span class="GruvboxAqua DiffAdd">           of Certification Authorities&quot; authorized to issue</span><span class="DiffAdd">                                                                                                                                  </span>
+<span id="W1L210" class="LineNr">210 </span><span class="GruvboxAqua DiffAdd">           certificates by the California Secretary of State.</span><span class="DiffAdd">                                                                                                                                 </span>
+<span id="W1L211" class="LineNr">211 </span><span class="GruvboxAqua DiffAdd">       3.  The Secretary of State shall place Certification Authorities</span><span class="DiffAdd">                                                                                                                       </span>
+<span id="W1L212" class="LineNr">212 </span><span class="GruvboxAqua DiffAdd">           on the &quot;Approved List of Certification Authorities&quot; after</span><span class="DiffAdd">                                                                                                                          </span>
+<span id="W1L213" class="LineNr">213 </span><span class="GruvboxAqua DiffAdd">           the Certification Authority provides the Secretary of State</span><span class="DiffAdd">                                                                                                                        </span>
+<span id="W1L214" class="LineNr">214 </span><span class="GruvboxAqua DiffAdd">           with a copy of an unqualified performance audit performed in</span><span class="DiffAdd">                                                                                                                       </span>
+<span id="W1L215" class="LineNr">215 </span><span class="GruvboxAqua DiffAdd">           accordance with standards set in the American Institute of</span><span class="DiffAdd">                                                                                                                         </span>
+<span id="W1L216" class="LineNr">216 </span><span class="GruvboxAqua DiffAdd">           Certified Public Accountants (AICPA) Statement on Auditing</span><span class="DiffAdd">                                                                                                                         </span>
+<span id="W1L217" class="LineNr">217 </span><span class="GruvboxAqua DiffAdd">           Standards No. 70 (S.A.S. 70) &quot;Reports on the Processing of</span><span class="DiffAdd">                                                                                                                         </span>
+<span id="W1L218" class="LineNr">218 </span><span class="GruvboxAqua DiffAdd">           Service Transactions by Service Organizations&quot; (1992) to</span><span class="DiffAdd">                                                                                                                           </span>
+<span id="W1L219" class="LineNr">219 </span><span class="GruvboxAqua DiffAdd">           ensure that the Certification Authorities\' practices and</span><span class="DiffAdd">                                                                                                                          </span>
+<span id="W1L220" class="LineNr">220 </span><span class="GruvboxAqua DiffAdd">           policies are consistent with the Certifications Authority\'s</span><span class="DiffAdd">                                                                                                                       </span>
+<span id="W1L221" class="LineNr">221 </span><span class="GruvboxAqua DiffAdd">           stated control objectives. The AICPA Statement on Auditing</span><span class="DiffAdd">                                                                                                                         </span>
+<span id="W1L222" class="LineNr">222 </span><span class="GruvboxAqua DiffAdd">           Standards No. 70 (1992) is hereby incorporated by reference.</span><span class="DiffAdd">                                                                                                                       </span>
+<span id="W1L223" class="LineNr">223 </span><span class="GruvboxAqua DiffAdd">           1.  Certification Authorities that have been in operation</span><span class="DiffAdd">                                                                                                                          </span>
+<span id="W1L224" class="LineNr">224 </span><span class="GruvboxAqua DiffAdd">               for one year or less shall undergo a SAS 70 Type One</span><span class="DiffAdd">                                                                                                                           </span>
+<span id="W1L225" class="LineNr">225 </span><span class="GruvboxAqua DiffAdd">               audit - A Report of Policies and Procedures Placed in</span><span class="DiffAdd">                                                                                                                          </span>
+<span id="W1L226" class="LineNr">226 </span><span class="GruvboxAqua DiffAdd">               Operation, receiving an unqualified opinion.</span><span class="DiffAdd">                                                                                                                                   </span>
+<span id="W1L227" class="LineNr">227 </span><span class="GruvboxAqua DiffAdd">           2.  Certification Authorities that have been in operation</span><span class="DiffAdd">                                                                                                                          </span>
+<span id="W1L228" class="LineNr">228 </span><span class="GruvboxAqua DiffAdd">               for longer than one year shall undergo a SAS 70 Type Two</span><span class="DiffAdd">                                                                                                                       </span>
+<span id="W1L229" class="LineNr">229 </span><span class="GruvboxAqua DiffAdd">               audit - A Report Of Policies And Procedures Placed In</span><span class="DiffAdd">                                                                                                                          </span>
+<span id="W1L230" class="LineNr">230 </span><span class="GruvboxAqua DiffAdd">               Operation And Test Of Operating Effectiveness, receiving</span><span class="DiffAdd">                                                                                                                       </span>
+<span id="W1L231" class="LineNr">231 </span><span class="GruvboxAqua DiffAdd">               an unqualified opinion.</span><span class="DiffAdd">                                                                                                                                                        </span>
+<span id="W1L232" class="LineNr">232 </span><span class="GruvboxAqua DiffAdd">           3.  To remain on the &quot;Approved List of Certification</span><span class="DiffAdd">                                                                                                                               </span>
+<span id="W1L233" class="LineNr">233 </span><span class="GruvboxAqua DiffAdd">               Authorities&quot; a Certification Authority must provide</span><span class="DiffAdd">                                                                                                                            </span>
+<span id="W1L234" class="LineNr">234 </span><span class="GruvboxAqua DiffAdd">               proof of compliance with Section 20003(a)(6)(C)(ii) to</span><span class="DiffAdd">                                                                                                                         </span>
+<span id="W1L235" class="LineNr">235 </span><span class="GruvboxAqua DiffAdd">               the Secretary of State every two years after initially</span><span class="DiffAdd">                                                                                                                         </span>
+<span id="W1L236" class="LineNr">236 </span><span class="GruvboxAqua DiffAdd">               being placed on the list.</span><span class="DiffAdd">                                                                                                                                                      </span>
+<span id="W1L237" class="LineNr">237 </span><span class="GruvboxAqua DiffAdd">       4.  In lieu of completing the auditing requirement in Section</span><span class="DiffAdd">                                                                                                                          </span>
+<span id="W1L238" class="LineNr">238 </span><span class="GruvboxAqua DiffAdd">           22003(a)(6)(C), Certification Authorities may be placed on</span><span class="DiffAdd">                                                                                                                         </span>
+<span id="W1L239" class="LineNr">239 </span><span class="GruvboxAqua DiffAdd">           the &quot;Approved List of Certification Authorities&quot; upon</span><span class="DiffAdd">                                                                                                                              </span>
+<span id="W1L240" class="LineNr">240 </span><span class="GruvboxAqua DiffAdd">           providing the Secretary of State with proof of accreditation</span><span class="DiffAdd">                                                                                                                       </span>
+<span id="W1L241" class="LineNr">241 </span><span class="GruvboxAqua DiffAdd">           that has been conferred by a national or international</span><span class="DiffAdd">                                                                                                                             </span>
+<span id="W1L242" class="LineNr">242 </span><span class="GruvboxAqua DiffAdd">           accreditation body that the Secretary of State has</span><span class="DiffAdd">                                                                                                                                 </span>
+<span id="W1L243" class="LineNr">243 </span><span class="GruvboxAqua DiffAdd">           determined utilizes accreditation criteria that are</span><span class="DiffAdd">                                                                                                                                </span>
+<span id="W1L244" class="LineNr">244 </span><span class="GruvboxAqua DiffAdd">           consistent with the requirements of Section 22003(a)(1)-(5).</span><span class="DiffAdd">                                                                                                                       </span>
+<span id="W1L245" class="LineNr">245 </span><span class="GruvboxAqua DiffAdd">           1.  Certification Authorities shall be removed from the</span><span class="DiffAdd">                                                                                                                            </span>
+<span id="W1L246" class="LineNr">246 </span><span class="GruvboxAqua DiffAdd">               &quot;Approved List of Acceptable Certifications Authorities&quot;</span><span class="DiffAdd">                                                                                                                       </span>
+<span id="W1L247" class="LineNr">247 </span><span class="GruvboxAqua DiffAdd">               unless they provide current proof of accreditation to</span><span class="DiffAdd">                                                                                                                          </span>
+<span id="W1L248" class="LineNr">248 </span><span class="GruvboxAqua DiffAdd">               the Secretary of State at least once per year.</span><span class="DiffAdd">                                                                                                                                 </span>
+<span id="W1L249" class="LineNr">249 </span><span class="GruvboxAqua DiffAdd">           2.  If the Secretary of State is informed that a</span><span class="DiffAdd">                                                                                                                                   </span>
+<span id="W1L250" class="LineNr">250 </span><span class="GruvboxAqua DiffAdd">               Certification Authority has had its accreditation</span><span class="DiffAdd">                                                                                                                              </span>
+<span id="W1L251" class="LineNr">251 </span><span class="GruvboxAqua DiffAdd">               revoked, the Certification Authority shall be removed</span><span class="DiffAdd">                                                                                                                          </span>
+<span id="W1L252" class="LineNr">252 </span><span class="GruvboxAqua DiffAdd">               from the &quot;Approved List of Certification Authorities&quot;</span><span class="DiffAdd">                                                                                                                          </span>
+<span id="W1L253" class="LineNr">253 </span><span class="GruvboxAqua DiffAdd">               immediately.</span><span class="DiffAdd">                                                                                                                                                                   </span>
+<span id="W1L254" class="LineNr">254 </span>
+<span id="W1L255" class="LineNr">255 </span><span class="GruvboxGray">2.</span>  The technology known as &quot;Signature Dynamics&quot; is an acceptable technology
+<span id="W1L256" class="LineNr">256 </span><span class="GruvboxAqua">    for use by public entities in California, provided that the signature is</span>
+<span id="W1L257" class="LineNr">257 </span><span class="GruvboxAqua DiffChange">    created consistent with the </span><span class="GruvboxAqua DiffText">provisions in Section</span><span class="DiffChange">                                                                                                                                         </span>
+<span id="W1L258" class="LineNr">258 </span>
+<span id="W1L259" class="LineNr">259 </span><span class="GruvboxAqua DiffAdd">    22003(b)(1)-(5).</span><span class="DiffAdd">                                                                                                                                                                          </span>
+<span id="W1L260" class="LineNr">260 </span><span class="GruvboxGray">    1.</span>  Definitions. For the purposes of Section 22003(b), and unless the
+<span id="W1L261" class="LineNr">261 </span><span class="GruvboxAqua">        context expressly indicates otherwise:</span>
+<span id="W1L262" class="LineNr">262 </span>
+<span id="W1L263" class="LineNr">263 </span><span class="GruvboxAqua">        1.  &quot;Handwriting Measurements&quot; means the metrics of the shapes, speeds</span>
+<span id="W1L264" class="LineNr">264 </span><span class="GruvboxAqua">            and/or other distinguishing features of a signature as the person</span>
+<span id="W1L265" class="LineNr">265 </span><span class="GruvboxAqua">            writes it by hand with a pen or stylus on a flat surface.</span>
+<span id="W1L266" class="LineNr">266 </span>
+<span id="W1L267" class="LineNr">267 </span><span class="GruvboxAqua">        2.  &quot;Signature Digest&quot; is the resulting bit-string produced when a</span>
+<span id="W1L268" class="LineNr">268 </span><span class="GruvboxAqua">            signature is tied to a document using Signature Dynamics.</span>
+<span id="W1L269" class="LineNr">269 </span>
+<span id="W1L270" class="LineNr">270 </span><span class="GruvboxAqua">        3.  &quot;Expert&quot; means a person with demonstrable skill and knowledge based</span>
+<span id="W1L271" class="LineNr">271 </span><span class="GruvboxAqua">            on training and experience who would qualify as an expert pursuant</span>
+<span id="W1L272" class="LineNr">272 </span><span class="GruvboxAqua DiffChange">            to California Evidence Code </span><span class="GruvboxAqua DiffText">s</span><span class="GruvboxAqua DiffChange">720.</span><span class="DiffChange">                                                                                                                                                 </span>
+<span id="W1L273" class="LineNr">273 </span>
+<span id="W1L274" class="LineNr">274 </span><span class="GruvboxAqua">        4.  &quot;Signature Dynamics&quot; means measuring the way a person writes his or</span>
+<span id="W1L275" class="LineNr">275 </span><span class="GruvboxAqua">            her signature by hand on a flat surface and binding the measurements</span>
+<span id="W1L276" class="LineNr">276 </span><span class="GruvboxAqua">            to a message through the use of cryptographic techniques.</span>
+<span id="W1L277" class="LineNr">277 </span>
+<span id="W1L278" class="LineNr">278 </span><span class="GruvboxGray DiffChange">    2.</span><span class="DiffChange">  California Government Code </span><span class="DiffText">§</span><span class="DiffChange"> 16.5 requires that a digital                                                                                                                             </span>
+<span id="W1L279" class="LineNr">279 </span><span class="GruvboxAqua">        signatures be 'unique to the person using it.' A signature digest</span>
+<span id="W1L280" class="LineNr">280 </span><span class="GruvboxAqua">        produced by Signature Dynamics technology may be considered unique to</span>
+<span id="W1L281" class="LineNr">281 </span><span class="GruvboxAqua DiffChange">        the person using it</span><span class="GruvboxAqua DiffText">,</span><span class="GruvboxAqua DiffChange"> if:</span><span class="DiffChange">                                                                                                                                                              </span>
+<span id="W1L282" class="LineNr">282 </span>
+<span id="W1L283" class="LineNr">283 </span><span class="GruvboxAqua">        1.  The signature digest records the handwriting measurements of the</span>
+<span id="W1L284" class="LineNr">284 </span><span class="GruvboxAqua DiffChange">            person signing the document using signature dynamics technology</span><span class="GruvboxAqua DiffText">, and</span><span class="DiffChange">                                                                                                              </span>
+<span id="W1L285" class="LineNr">285 </span>
+<span id="W1L286" class="LineNr">286 </span><span class="GruvboxAqua">        2.  The signature digest is cryptographically bound to the handwriting</span>
+<span id="W1L287" class="LineNr">287 </span><span class="GruvboxAqua DiffChange">            measurements</span><span class="GruvboxAqua DiffText">,</span><span class="GruvboxAqua DiffChange"> and</span><span class="DiffChange">                                                                                                                                                                 </span>
+<span id="W1L288" class="LineNr">288 </span>
+<span id="W1L289" class="LineNr">289 </span><span class="GruvboxAqua">        3.  After the signature digest has been bound to the handwriting</span>
+<span id="W1L290" class="LineNr">290 </span><span class="GruvboxAqua">            measurements, it is computationally infeasible to separate the</span>
+<span id="W1L291" class="LineNr">291 </span><span class="GruvboxAqua">            handwriting measurements and bind them to a different signature</span>
+<span id="W1L292" class="LineNr">292 </span><span class="GruvboxAqua">            digest.</span>
+<span id="W1L293" class="LineNr">293 </span>
+<span id="W1L294" class="LineNr">294 </span><span class="GruvboxGray DiffChange">    3.</span><span class="DiffChange">  California Government Code </span><span class="DiffText">§</span><span class="DiffChange"> 16.5 requires that a digital                                                                                                                             </span>
+<span id="W1L295" class="LineNr">295 </span><span class="GruvboxAqua DiffChange">        signature be </span><span class="GruvboxAqua DiffText">capable of verification</span><span class="GruvboxAqua DiffChange">. A signature digest produced by</span><span class="DiffChange">                                                                                                                  </span>
+<span id="W1L296" class="LineNr">296 </span><span class="GruvboxAqua">        signature dynamics technology is capable of verification if:</span>
+<span id="W1L297" class="LineNr">297 </span>
+<span id="W1L298" class="LineNr">298 </span><span class="GruvboxAqua">        1.  The acceptor of the digitally signed message obtains the handwriting</span>
+<span id="W1L299" class="LineNr">299 </span><span class="GruvboxAqua DiffChange">            measurements for purposes of comparison</span><span class="GruvboxAqua DiffText">,</span><span class="GruvboxAqua DiffChange"> and</span><span class="DiffChange">                                                                                                                                      </span>
+<span id="W1L300" class="LineNr">300 </span>
+<span id="W1L301" class="LineNr">301 </span><span class="GruvboxAqua">        2.  If signature verification is a required component of a transaction</span>
+<span id="W1L302" class="LineNr">302 </span><span class="GruvboxAqua">            with a public entity, the handwriting measurements can allow an</span>
+<span id="W1L303" class="LineNr">303 </span><span class="GruvboxAqua">            expert handwriting and document examiner to assess the authenticity</span>
+<span id="W1L304" class="LineNr">304 </span><span class="GruvboxAqua">            of a signature.</span>
+<span id="W1L305" class="LineNr">305 </span>
+<span id="W1L306" class="LineNr">306 </span><span class="GruvboxGray DiffChange">    4.</span><span class="DiffChange">  California Government Code </span><span class="DiffText">§</span><span class="DiffChange"> 16.5 requires that a digital                                                                                                                             </span>
+<span id="W1L307" class="LineNr">307 </span><span class="GruvboxAqua">        signature remain 'under the sole control of the person using it'. A</span>
+<span id="W1L308" class="LineNr">308 </span><span class="GruvboxAqua">        signature digest is under the sole control of the person using it if:</span>
+<span id="W1L309" class="LineNr">309 </span>
+<span id="W1L310" class="LineNr">310 </span><span class="GruvboxAqua">        1.  The signature digest captures the handwriting measurements and</span>
+<span id="W1L311" class="LineNr">311 </span><span class="GruvboxAqua">            cryptographically binds them to the message directed by the signer</span>
+<span id="W1L312" class="LineNr">312 </span><span class="GruvboxAqua DiffChange">            and to no other message</span><span class="GruvboxAqua DiffText">,</span><span class="GruvboxAqua DiffChange"> and</span><span class="DiffChange">                                                                                                                                                      </span>
+<span id="W1L313" class="LineNr">313 </span>
+<span id="W1L314" class="LineNr">314 </span><span class="GruvboxAqua">        2.  The signature digest makes it computationally infeasible for the</span>
+<span id="W1L315" class="LineNr">315 </span><span class="GruvboxAqua">            handwriting measurements to be bound to any other message.</span>
+<span id="W1L316" class="LineNr">316 </span>
+<span id="W1L317" class="LineNr">317 </span><span class="GruvboxGray">    5.</span>  The signature digest produced by signature dynamics technology must be
+<span id="W1L318" class="LineNr">318 </span><span class="GruvboxAqua">        linked to the message in such a way that if the data in the message are</span>
+<span id="W1L319" class="LineNr">319 </span><span class="GruvboxAqua">        changed, the signature digest is invalidated.</span>
+<span id="W1L320" class="LineNr">320 </span>
+<span class="LineNr">    </span><span class="DiffDelete">----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="LineNr">    </span><span class="DiffDelete">----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span id="W1L321" class="LineNr">321 </span>
+<span id="W1L322" class="LineNr">322 </span><span class="GruvboxGray DiffChange">22004.</span><span class="DiffChange"> </span><span class="DiffText">Provisions for Adding New Technologies to the List of Acceptable Technologies</span><span class="DiffChange">. {#22004}                                                                                                </span>
+<span id="W1L323" class="LineNr">323 </span><span class="GruvboxGray DiffChange">----------------</span><span class="GruvboxGray DiffText">-----------------------------------------------------------------------</span><span class="DiffChange">                                                                                                       </span>
+<span id="W1L324" class="LineNr">324 </span><span class="DiffAdd"> </span><span class="DiffAdd">                                                                                                                                                                                             </span>
+<span id="W1L325" class="LineNr">325 </span><span class="GruvboxGray DiffAdd">1.</span><span class="DiffAdd">  Any individual or company can, by providing a written request that                                                                                                                        </span>
+<span id="W1L326" class="LineNr">326 </span><span class="GruvboxAqua DiffAdd">    includes a full explanation of a proposed technology which meets the</span><span class="DiffAdd">                                                                                                                      </span>
+<span id="W1L327" class="LineNr">327 </span><span class="GruvboxAqua DiffAdd">    requirements of Section 22002, petition the California Secretary of</span><span class="DiffAdd">                                                                                                                       </span>
+<span id="W1L328" class="LineNr">328 </span><span class="GruvboxAqua DiffAdd">    State to review the technology. If the Secretary of State determines</span><span class="DiffAdd">                                                                                                                      </span>
+<span id="W1L329" class="LineNr">329 </span><span class="GruvboxAqua DiffAdd">    that the technology is acceptable for use with the state, the</span><span class="DiffAdd">                                                                                                                             </span>
+<span id="W1L330" class="LineNr">330 </span><span class="GruvboxAqua DiffAdd">    Secretary of State shall adopt regulation(s), pursuant to the</span><span class="DiffAdd">                                                                                                                             </span>
+<span id="W1L331" class="LineNr">331 </span><span class="GruvboxAqua DiffAdd">    Administrative Procedure Act, which would add the proposed</span><span class="DiffAdd">                                                                                                                                </span>
+<span id="W1L332" class="LineNr">332 </span><span class="GruvboxAqua DiffAdd">    technology to the list of acceptable technologies in Section 22003.</span><span class="DiffAdd">                                                                                                                       </span>
+<span id="W1L333" class="LineNr">333 </span><span class="GruvboxGray DiffAdd">2.</span><span class="DiffAdd">  The Secretary of State has 180 calendar days from the date the                                                                                                                            </span>
+<span id="W1L334" class="LineNr">334 </span><span class="GruvboxAqua DiffAdd">    request is received to review the petition and inform the</span><span class="DiffAdd">                                                                                                                                 </span>
+<span id="W1L335" class="LineNr">335 </span><span class="GruvboxAqua DiffAdd">    petitioner, in writing, whether the technology is accepted or</span><span class="DiffAdd">                                                                                                                             </span>
+<span id="W1L336" class="LineNr">336 </span><span class="GruvboxAqua DiffAdd">    rejected. If the petition is rejected, the Secretary of State shall</span><span class="DiffAdd">                                                                                                                       </span>
+<span id="W1L337" class="LineNr">337 </span><span class="GruvboxAqua DiffAdd">    provide the petitioner with the reasons for the rejection.</span><span class="DiffAdd">                                                                                                                                </span>
+<span id="W1L338" class="LineNr">338 </span><span class="GruvboxGray DiffAdd">    1.</span><span class="DiffAdd">  If the proposed technology is rejected, the petitioner can                                                                                                                            </span>
+<span id="W1L339" class="LineNr">339 </span><span class="GruvboxAqua DiffAdd">        appeal the decision through the Administrative Procedures Act</span><span class="DiffAdd">                                                                                                                         </span>
+<span id="W1L340" class="LineNr">340 </span><span class="GruvboxAqua DiffAdd">        (Government Code Section 11500 et seq).</span><span class="DiffAdd">                                                                                                                                               </span>
+<span id="W1L341" class="LineNr">341 </span>
+<span id="W1L342" class="LineNr">342 </span><span class="GruvboxGray">22005.</span> Criteria for Public Entities To Use in Accepting Digital Signatures. {#22005}
+<span id="W1L343" class="LineNr">343 </span><span class="GruvboxGray">---------------------------------------------------------------------------</span>
+<span id="W1L344" class="LineNr">344 </span>
+<span id="W1L345" class="LineNr">345 </span><span class="GruvboxGray">1.</span>  Prior to accepting a digital signature, public entities shall ensure
+<span id="W1L346" class="LineNr">346 </span><span class="GruvboxAqua">    that the level of security used to identify the signer of a document</span>
+<span id="W1L347" class="LineNr">347 </span><span class="GruvboxAqua">    is sufficient for the transaction being conducted.</span>
+<span id="W1L348" class="LineNr">348 </span><span class="DiffAdd"> </span><span class="DiffAdd">                                                                                                                                                                                             </span>
+<span id="W1L349" class="LineNr">349 </span><span class="GruvboxGray">2.</span>  Prior to accepting a digital signature, public entities shall ensure
+<span id="W1L350" class="LineNr">350 </span><span class="GruvboxAqua">    that the level of security used to transmit the signature is</span>
+<span id="W1L351" class="LineNr">351 </span><span class="GruvboxAqua">    sufficient for the transaction being conducted.</span>
+<span id="W1L352" class="LineNr">352 </span><span class="DiffAdd"> </span><span class="DiffAdd">                                                                                                                                                                                             </span>
+<span id="W1L353" class="LineNr">353 </span><span class="GruvboxGray">3.</span>  If a certificate is a required component of a digital signature
+<span id="W1L354" class="LineNr">354 </span><span class="GruvboxAqua">    transaction, public entities shall ensure that the certificate</span>
+<span id="W1L355" class="LineNr">355 </span><span class="GruvboxAqua">    format used by the signer is sufficient for the security and</span>
+<span id="W1L356" class="LineNr">356 </span><span class="GruvboxAqua">    interoperability needs of the public entity.</span>
+</pre>
+</div></td>
+<td><div>
+<pre>
+<span id="W2L1" class="LineNr">  1 </span><span class="GruvboxGray">---</span>
+<span id="W2L2" class="LineNr">  2 </span>lang: en
+<span id="W2L3" class="LineNr">  3 </span><span class="DiffChange">title: 'Digital Signatures </span><span class="DiffText">(Emergency Regulations) </span><span class="DiffChange">| California Secretary of State'                                                                                                           </span>
+<span id="W2L4" class="LineNr">  4 </span><span class="GruvboxGreenBold">viewport: 'width=device-width'</span>
+<span id="W2L5" class="LineNr">  5 </span><span class="GruvboxGray">---</span>
+<span id="W2L6" class="LineNr">  6 </span>
+<span id="W2L7" class="LineNr">  7 </span><span class="GruvboxGreenBold DiffChange">Digital Signatures</span><span class="GruvboxGreenBold DiffText"> (Emergency Regulations)</span><span class="DiffChange">                                                                                                                                                    </span>
+<span id="W2L8" class="LineNr">  8 </span><span class="GruvboxGray DiffChange">==================</span><span class="GruvboxGray DiffText">========================</span><span class="DiffChange">                                                                                                                                                    </span>
+<span id="W2L9" class="LineNr">  9 </span>
+<span id="W2L10" class="LineNr"> 10 </span><span class="GruvboxGreenBold">Title 2. Administration</span>
+<span id="W2L11" class="LineNr"> 11 </span><span class="GruvboxGray">-----------------------</span>
+<span id="W2L12" class="LineNr"> 12 </span>
+<span id="W2L13" class="LineNr"> 13 </span><span class="GruvboxOrange">###</span><span class="GruvboxYellowBold"> Division 7. Secretary of State Chapter 10. Digital Signatures</span>
+<span id="W2L14" class="LineNr"> 14 </span>
+<span id="W2L15" class="LineNr"> 15 </span><span class="DiffChange">These  </span><span class="DiffText">emergency  regulations   are  effective  from</span><span class="DiffChange">                                                                                                                                          </span>
+<span class="LineNr">    </span><span class="DiffDelete">----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span id="W2L16" class="LineNr"> 16 </span>4/22/2020 through 10/20/2020, or  until that date is
+<span id="W2L17" class="LineNr"> 17 </span><span class="DiffChange">extended </span><span class="DiffText">or  the regulations  are made  permanent by</span><span class="DiffChange">                                                                                                                                          </span>
+<span id="W2L18" class="LineNr"> 18 </span><span class="DiffText">regulatory action.</span><span class="DiffChange">                                                                                                                                                                            </span>
+<span class="LineNr">    </span><span class="DiffDelete">----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="LineNr">    </span><span class="DiffDelete">----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span id="W2L19" class="LineNr"> 19 </span>
+<span id="W2L20" class="LineNr"> 20 </span><span class="GruvboxGray">+</span> <span class="GruvboxFg3">[</span><span class="markdownLinkText">22000</span><span class="GruvboxFg3">]</span><span class="GruvboxFg3">(</span><span class="GruvboxPurple">#22000</span><span class="GruvboxFg3">)</span> Definitions.
+<span id="W2L21" class="LineNr"> 21 </span><span class="GruvboxGray">+</span> <span class="GruvboxFg3">[</span><span class="markdownLinkText">22001</span><span class="GruvboxFg3">]</span><span class="GruvboxFg3">(</span><span class="GruvboxPurple">#22001</span><span class="GruvboxFg3">)</span> Digital Signatures Must Be  Created By An Acceptable
+<span id="W2L22" class="LineNr"> 22 </span><span class="GruvboxAqua">                  Technology.</span>
+<span id="W2L23" class="LineNr"> 23 </span><span class="GruvboxGray">+</span> <span class="GruvboxFg3">[</span><span class="markdownLinkText">22002</span><span class="GruvboxFg3">]</span><span class="GruvboxFg3">(</span><span class="GruvboxPurple">#22002</span><span class="GruvboxFg3">)</span> Criteria  For  Determining  If A  Digital  Signature
+<span id="W2L24" class="LineNr"> 24 </span><span class="GruvboxGray DiffText">+</span><span class="DiffText">                 Technology Is Acceptable for Use by Public Entities</span><span class="DiffChange">.                                                                                                                        </span>
+<span id="W2L25" class="LineNr"> 25 </span><span class="GruvboxGray DiffChange">+</span><span class="DiffChange"> </span><span class="GruvboxFg3 DiffChange">[</span><span class="markdownLinkText DiffChange">22003</span><span class="GruvboxFg3 DiffChange">]</span><span class="GruvboxFg3 DiffChange">(</span><span class="GruvboxPurple DiffChange">#20203</span><span class="GruvboxFg3 DiffChange">)</span><span class="DiffChange"> Acceptable Technologies.                                                                                                                                                    </span>
+<span id="W2L26" class="LineNr"> 26 </span><span class="GruvboxGray DiffChange">+</span><span class="DiffChange"> </span><span class="GruvboxFg3 DiffChange">[</span><span class="markdownLinkText DiffChange">22004</span><span class="GruvboxFg3 DiffChange">]</span><span class="GruvboxFg3 DiffChange">(</span><span class="GruvboxPurple DiffChange">#22004</span><span class="GruvboxFg3 DiffChange">)</span><span class="DiffChange"> </span><span class="DiffText">Repealed</span><span class="DiffChange">                                                                                                                                                                    </span>
+<span id="W2L27" class="LineNr"> 27 </span><span class="DiffChange"> </span><span class="DiffChange">                                                                                                                                                                                             </span>
+<span id="W2L28" class="LineNr"> 28 </span><span class="GruvboxGray DiffChange">+</span><span class="DiffChange"> </span><span class="GruvboxFg3 DiffChange">[</span><span class="markdownLinkText DiffChange">22005</span><span class="GruvboxFg3 DiffChange">]</span><span class="GruvboxFg3 DiffChange">(</span><span class="GruvboxPurple DiffChange">#22005</span><span class="GruvboxFg3 DiffChange">)</span><span class="DiffChange"> </span><span class="DiffText">Criteria  for Public  Entities to  Use in  Accept</span><span class="DiffChange">ing                                                                                                                        </span>
+<span id="W2L29" class="LineNr"> 29 </span><span class="GruvboxAqua">                  Digital Signatures.</span>
+<span id="W2L30" class="LineNr"> 30 </span>
+<span id="W2L31" class="LineNr"> 31 </span><span class="GruvboxGray">------------------------------------------------------------------------</span>
+<span id="W2L32" class="LineNr"> 32 </span>
+<span id="W2L33" class="LineNr"> 33 </span><span class="GruvboxGray">22000.</span> Definitions. {#22000}
+<span id="W2L34" class="LineNr"> 34 </span><span class="GruvboxGray">-------------------</span>
+<span id="W2L35" class="LineNr"> 35 </span>
+<span id="W2L36" class="LineNr"> 36 </span><span class="GruvboxGray">1.</span>  For purposes of this chapter, and unless the context expressly
+<span id="W2L37" class="LineNr"> 37 </span><span class="GruvboxAqua">    indicates otherwise:</span>
+<span id="W2L38" class="LineNr"> 38 </span>
+<span id="W2L39" class="LineNr"> 39 </span><span class="GruvboxGray">    1.</span>  &quot;Digitally-signed communication&quot; is a message that has been
+<span id="W2L40" class="LineNr"> 40 </span><span class="GruvboxAqua DiffChange">        processed by a</span><span class="GruvboxAqua DiffText">n acceptable technology, pursuant to section</span><span class="DiffChange">                                                                                                                            </span>
+<span id="W2L41" class="LineNr"> 41 </span><span class="GruvboxAqua DiffChange">        </span><span class="GruvboxAqua DiffText">23003, in such a manner that ties the message to the signer</span><span class="GruvboxAqua DiffChange">.</span><span class="DiffChange">                                                                                                                          </span>
+<span id="W2L42" class="LineNr"> 42 </span>
+<span id="W2L43" class="LineNr"> 43 </span><span class="GruvboxGray">    2.</span>  &quot;Message&quot; means a digital representation of information intended
+<span id="W2L44" class="LineNr"> 44 </span><span class="GruvboxAqua DiffChange">        to serve as a written communication </span><span class="GruvboxAqua DiffText">provided to a public entity</span><span class="DiffChange">                                                                                                                       </span>
+<span id="W2L45" class="LineNr"> 45 </span><span class="GruvboxAqua DiffAdd">        by a public entity or a private entity.</span><span class="DiffAdd">                                                                                                                                               </span>
+<span id="W2L46" class="LineNr"> 46 </span>
+<span id="W2L47" class="LineNr"> 47 </span><span class="GruvboxGray">    3.</span>  &quot;Person&quot; means a human being or any organization capable of
+<span id="W2L48" class="LineNr"> 48 </span><span class="GruvboxAqua">        signing a document, either legally or as a matter of fact.</span>
+<span id="W2L49" class="LineNr"> 49 </span>
+<span id="W2L50" class="LineNr"> 50 </span><span class="GruvboxGray">    4.</span>  &quot;Public entity&quot; means the public entity as defined by California
+<span id="W2L51" class="LineNr"> 51 </span><span class="GruvboxAqua">        Government Code Section 811.2.</span>
+<span id="W2L52" class="Folded"> 52 </span><span class="Folded">0  [2 lines]--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span id="W2L54" class="LineNr"> 54 </span><span class="GruvboxAqua">        communication with the use of an acceptable technology to</span>
+<span id="W2L55" class="LineNr"> 55 </span><span class="GruvboxAqua">        uniquely link the message with the person sending it.</span>
+<span id="W2L56" class="LineNr"> 56 </span>
+<span id="W2L57" class="LineNr"> 57 </span><span class="GruvboxGray">    6.</span>  &quot;Technology&quot; means the computer hardware and/or software-based
+<span id="W2L58" class="LineNr"> 58 </span><span class="GruvboxAqua">        method or process used to create digital signatures.</span>
+<span id="W2L59" class="LineNr"> 59 </span>
+<span id="W2L60" class="LineNr"> 60 </span><span class="markdownItalic DiffAdd">*</span><span class="markdownItalic DiffAdd">Note: Authority cited: Section 16.5, Government Code. Reference:</span><span class="DiffAdd">                                                                                                                             </span>
+<span id="W2L61" class="LineNr"> 61 </span><span class="markdownItalic DiffAdd">Section 16.5, Government Code.*</span><span class="DiffAdd">                                                                                                                                                               </span>
+<span id="W2L62" class="LineNr"> 62 </span>
+<span id="W2L63" class="LineNr"> 63 </span><span class="GruvboxGray">22001.</span><span class="markdownItalic"> Digital Signatures Must Be Created by an Acceptable Technology. {#22001}</span>
+<span id="W2L64" class="LineNr"> 64 </span><span class="GruvboxGray">----------------------------------------------------------------------</span>
+<span id="W2L65" class="LineNr"> 65 </span>
+<span id="W2L66" class="LineNr"> 66 </span><span class="GruvboxGray">1.</span><span class="markdownItalic">  For a digital signature to be valid for use by a public entity, it</span>
+<span id="W2L67" class="LineNr"> 67 </span><span class="GruvboxAqua">    must be created by a technology that is acceptable for use by the</span>
+<span id="W2L68" class="LineNr"> 68 </span><span class="GruvboxAqua">    State of California.</span>
+<span id="W2L69" class="LineNr"> 69 </span>
+<span id="W2L70" class="LineNr"> 70 </span><span class="markdownItalic DiffAdd">*Note: Authority cited: Section 16.5, Government Code. Reference:</span><span class="DiffAdd">                                                                                                                             </span>
+<span id="W2L71" class="LineNr"> 71 </span><span class="markdownItalic DiffAdd">Section 16.5, Government Code.*</span><span class="DiffAdd">                                                                                                                                                               </span>
+<span id="W2L72" class="LineNr"> 72 </span>
+<span id="W2L73" class="LineNr"> 73 </span><span class="GruvboxGray">22002.</span><span class="markdownItalic"> Criteria for State to Determine if a Digital Signature Technology Is Acceptable for Use by Public Entities. {#22002}</span>
+<span id="W2L74" class="LineNr"> 74 </span><span class="GruvboxGray">------------------------------------------------------------------------------------------------------------------</span>
+<span id="W2L75" class="LineNr"> 75 </span>
+<span id="W2L76" class="LineNr"> 76 </span><span class="markdownItalic">An acceptable technology must be capable of creating signatures that</span>
+<span id="W2L77" class="LineNr"> 77 </span><span class="markdownItalic">conform to requirements set forth in California Government Code Section</span>
+<span id="W2L78" class="LineNr"> 78 </span><span class="markdownItalic">16.5, specifically:</span>
+<span id="W2L79" class="LineNr"> 79 </span>
+<span id="W2L80" class="LineNr"> 80 </span><span class="GruvboxGray">1.</span><span class="markdownItalic">  It is unique to the person using it;</span>
+<span id="W2L81" class="LineNr"> 81 </span><span class="GruvboxGray">2.</span><span class="markdownItalic">  It is capable of verification;</span>
+<span id="W2L82" class="LineNr"> 82 </span><span class="GruvboxGray">3.</span><span class="markdownItalic">  It is under the sole control of the person using it;</span>
+<span id="W2L83" class="LineNr"> 83 </span><span class="GruvboxGray">4.</span><span class="markdownItalic">  It is linked to data in such a manner that if the data are changed,</span>
+<span id="W2L84" class="LineNr"> 84 </span><span class="GruvboxAqua DiffChange">    the digital signature is invalidated;</span><span class="GruvboxAqua DiffText"> and</span><span class="DiffChange">                                                                                                                                                 </span>
+<span id="W2L85" class="LineNr"> 85 </span><span class="GruvboxGray">5.</span><span class="markdownItalic">  It conforms to Title 2, Division 7, Chapter 10 of the California</span>
+<span id="W2L86" class="LineNr"> 86 </span><span class="GruvboxAqua">    Code of Regulations.</span>
+<span id="W2L87" class="LineNr"> 87 </span>
+<span id="W2L88" class="LineNr"> 88 </span><span class="markdownItalic DiffAdd">*Note: Authority cited: Section 16.5, Government Code. Reference:</span><span class="DiffAdd">                                                                                                                             </span>
+<span id="W2L89" class="LineNr"> 89 </span><span class="markdownItalic DiffAdd">Section 16.5, Government Code.*</span><span class="DiffAdd">                                                                                                                                                               </span>
+<span id="W2L90" class="LineNr"> 90 </span>
+<span id="W2L91" class="LineNr"> 91 </span><span class="GruvboxGray DiffChange">22003.</span><span class="markdownItalic DiffChange"> Acceptable Technologies. {#20203}</span><span class="DiffChange">                                                                                                                                                      </span>
+<span id="W2L92" class="LineNr"> 92 </span><span class="GruvboxGray">-------------------------------</span>
+<span id="W2L93" class="LineNr"> 93 </span>
+<span id="W2L94" class="LineNr"> 94 </span><span class="GruvboxGray">1.</span><span class="markdownItalic"> The technology known as Public Key Cryptography is an acceptable</span>
+<span id="W2L95" class="LineNr"> 95 </span><span class="markdownItalic">   technology for use by public entities in California, provided that</span>
+<span id="W2L96" class="LineNr"> 96 </span><span class="markdownItalic DiffChange">   the digital signature is created consistent with the </span><span class="markdownItalic DiffText">following provisions:</span><span class="DiffChange">                                                                                                                 </span>
+<span class="LineNr">    </span><span class="DiffDelete">----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span id="W2L97" class="LineNr"> 97 </span>
+<span id="W2L98" class="LineNr"> 98 </span><span class="GruvboxGray DiffChange">   1.</span><span class="markdownItalic DiffChange"> Definitions</span><span class="markdownItalic DiffText">. For purposes of section 22003(a), and unless the context</span><span class="DiffChange">                                                                                                                   </span>
+<span id="W2L99" class="LineNr"> 99 </span><span class="GruvboxAqua DiffChange">      expressly indicates otherwise:</span><span class="DiffChange">                                                                                                                                                          </span>
+<span id="W2L100" class="LineNr">100 </span>
+<span class="LineNr">    </span><span class="DiffDelete">----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="LineNr">    </span><span class="DiffDelete">----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="LineNr">    </span><span class="DiffDelete">----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span id="W2L101" class="LineNr">101 </span>
+<span id="W2L102" class="LineNr">102 </span>
+<span class="LineNr">    </span><span class="DiffDelete">----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="LineNr">    </span><span class="DiffDelete">----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="LineNr">    </span><span class="DiffDelete">----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="LineNr">    </span><span class="DiffDelete">----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span id="W2L103" class="LineNr">103 </span>
+<span id="W2L104" class="LineNr">104 </span><span class="GruvboxAqua DiffChange">      </span><span class="GruvboxAqua DiffText">1</span><span class="GruvboxAqua DiffChange">. &quot;Asymmetric cryptosystem&quot; means a computer algorithm or</span><span class="DiffChange">                                                                                                                              </span>
+<span id="W2L105" class="LineNr">105 </span><span class="GruvboxAqua">         series of algorithms which utilize two different keys with</span>
+<span id="W2L106" class="LineNr">106 </span><span class="GruvboxAqua">         the following characteristics:</span>
+<span id="W2L107" class="LineNr">107 </span><span class="GruvboxAqua">          1.  One key signs a given message;</span>
+<span id="W2L108" class="LineNr">108 </span><span class="GruvboxAqua">          2.  One key verifies a given message; and</span>
+<span id="W2L109" class="LineNr">109 </span><span class="GruvboxAqua">          3.  The keys have the property that, knowing one key, it is</span>
+<span id="W2L110" class="LineNr">110 </span><span class="GruvboxAqua">              computationally infeasible to discover the other key.</span>
+<span id="W2L111" class="LineNr">111 </span>
+<span id="W2L112" class="LineNr">112 </span><span class="GruvboxAqua DiffChange">      </span><span class="GruvboxAqua DiffText">2</span><span class="GruvboxAqua DiffChange">. &quot;Certificate&quot; means a computer-based record which:</span><span class="DiffChange">                                                                                                                                   </span>
+<span id="W2L113" class="LineNr">113 </span><span class="GruvboxAqua">          1.  Identifies the certification authority issuing it;</span>
+<span id="W2L114" class="LineNr">114 </span><span class="GruvboxAqua">          2.  Names or identifies its subscriber;</span>
+<span id="W2L115" class="LineNr">115 </span><span class="GruvboxAqua DiffChange">          3.  Contains the subscriber's public key;</span><span class="DiffChange">                                                                                                                                           </span>
+<span id="W2L116" class="LineNr">116 </span><span class="GruvboxAqua">          4.  Is digitally signed by the certification authority issuing or</span>
+<span id="W2L117" class="LineNr">117 </span><span class="GruvboxAqua DiffChange">              amending it</span><span class="GruvboxAqua DiffText">;</span><span class="GruvboxAqua DiffChange"> and</span><span class="DiffChange">                                                                                                                                                                </span>
+<span id="W2L118" class="LineNr">118 </span><span class="GruvboxAqua">          5.  Conforms to widely-used industry standards, including,</span>
+<span id="W2L119" class="LineNr">119 </span><span class="GruvboxAqua DiffChange">              but not limited to</span><span class="GruvboxAqua DiffText">,</span><span class="GruvboxAqua DiffChange"> ISO x.509 and PGP certificate</span><span class="DiffChange">                                                                                                                               </span>
+<span id="W2L120" class="LineNr">120 </span><span class="GruvboxAqua">              standards.</span>
+<span id="W2L121" class="LineNr">121 </span>
+<span id="W2L122" class="LineNr">122 </span><span class="GruvboxAqua DiffChange">      </span><span class="GruvboxAqua DiffText">3</span><span class="GruvboxAqua DiffChange">.  &quot;Certification Authority&quot; means a person or entity that issues a</span><span class="DiffChange">                                                                                                                    </span>
+<span id="W2L123" class="LineNr">123 </span><span class="GruvboxAqua">          certificate, or in the case of certain certification processes,</span>
+<span id="W2L124" class="LineNr">124 </span><span class="GruvboxAqua">          certifies amendments to an existing certificate.</span>
+<span id="W2L125" class="LineNr">125 </span>
+<span id="W2L126" class="LineNr">126 </span><span class="GruvboxAqua DiffChange">      </span><span class="GruvboxAqua DiffText">4</span><span class="GruvboxAqua DiffChange">.  &quot;Key pair&quot; means a private key and its corresponding public key in</span><span class="DiffChange">                                                                                                                  </span>
+<span id="W2L127" class="LineNr">127 </span><span class="GruvboxAqua">          an asymmetric cryptosystem. The keys have the property that the</span>
+<span id="W2L128" class="LineNr">128 </span><span class="GruvboxAqua">          public key can verify a digital signature that the private key</span>
+<span id="W2L129" class="LineNr">129 </span><span class="GruvboxAqua">          creates.</span>
+<span id="W2L130" class="LineNr">130 </span>
+<span id="W2L131" class="LineNr">131 </span><span class="GruvboxAqua DiffChange">      </span><span class="GruvboxAqua DiffText">5</span><span class="GruvboxAqua DiffChange">.  &quot;Practice statement&quot; means documentation of the practices,</span><span class="DiffChange">                                                                                                                          </span>
+<span id="W2L132" class="LineNr">132 </span><span class="GruvboxAqua">          procedures and controls employed by a Certification Authority.</span>
+<span id="W2L133" class="LineNr">133 </span>
+<span id="W2L134" class="LineNr">134 </span><span class="GruvboxAqua DiffChange">      </span><span class="GruvboxAqua DiffText">6</span><span class="GruvboxAqua DiffChange">.  &quot;Private key&quot; means the key of a key pair used to create a digital</span><span class="DiffChange">                                                                                                                  </span>
+<span id="W2L135" class="LineNr">135 </span><span class="GruvboxAqua">          signature.</span>
+<span id="W2L136" class="LineNr">136 </span>
+<span id="W2L137" class="LineNr">137 </span><span class="GruvboxAqua DiffChange">      </span><span class="GruvboxAqua DiffText">7</span><span class="GruvboxAqua DiffChange">.  &quot;Proof of Identification&quot; means the document or documents presented</span><span class="DiffChange">                                                                                                                 </span>
+<span id="W2L138" class="LineNr">138 </span><span class="GruvboxAqua">          to a Certification Authority to establish the identity of a</span>
+<span id="W2L139" class="LineNr">139 </span><span class="GruvboxAqua">          subscriber.</span>
+<span id="W2L140" class="LineNr">140 </span>
+<span id="W2L141" class="LineNr">141 </span><span class="GruvboxAqua DiffChange">      </span><span class="GruvboxAqua DiffText">8. </span><span class="GruvboxAqua DiffChange"> &quot;Public key&quot; means the key of a key pair used to verify a digital</span><span class="DiffChange">                                                                                                                   </span>
+<span id="W2L142" class="LineNr">142 </span><span class="GruvboxAqua">          signature.</span>
+<span id="W2L143" class="LineNr">143 </span>
+<span id="W2L144" class="LineNr">144 </span><span class="GruvboxAqua DiffChange">      </span><span class="GruvboxAqua DiffText">9. </span><span class="GruvboxAqua DiffChange"> &quot;Subscriber&quot; means a person who:</span><span class="DiffChange">                                                                                                                                                    </span>
+<span id="W2L145" class="LineNr">145 </span><span class="GruvboxAqua">          1.  Is the subject listed in a certificate;</span>
+<span id="W2L146" class="LineNr">146 </span><span class="GruvboxAqua">          2.  Accepts the certificate; and</span>
+<span id="W2L147" class="LineNr">147 </span><span class="GruvboxAqua">          3.  Holds a private key which corresponds to a public key listed in</span>
+<span id="W2L148" class="LineNr">148 </span><span class="GruvboxAqua">              that certificate.</span>
+<span id="W2L149" class="LineNr">149 </span>
+<span id="W2L150" class="LineNr">150 </span><span class="GruvboxGray DiffChange">   2.</span><span class="markdownItalic DiffChange">  California Government Code </span><span class="markdownItalic DiffText">Section</span><span class="markdownItalic DiffChange"> 16.5 requires that a digital</span><span class="DiffChange">                                                                                                                        </span>
+<span id="W2L151" class="LineNr">151 </span><span class="GruvboxAqua">       signature be 'unique to the person using it'. A public key-based digital</span>
+<span id="W2L152" class="LineNr">152 </span><span class="GruvboxAqua DiffChange">       signature may be considered unique to the person using it if:</span><span class="DiffChange">                                                                                                                          </span>
+<span id="W2L153" class="LineNr">153 </span>
+<span id="W2L154" class="LineNr">154 </span><span class="GruvboxAqua">       1.  The private key used to create the signature on the document is</span>
+<span id="W2L155" class="LineNr">155 </span><span class="GruvboxAqua DiffChange">           known only to the signer</span><span class="GruvboxAqua DiffText">;</span><span class="DiffChange">                                                                                                                                                          </span>
+<span id="W2L156" class="LineNr">156 </span>
+<span id="W2L157" class="LineNr">157 </span><span class="GruvboxAqua">       2.  The digital signature is created when a person runs a message</span>
+<span id="W2L158" class="LineNr">158 </span><span class="GruvboxAqua">           through a one-way function, creating a message digest, then</span>
+<span id="W2L159" class="LineNr">159 </span><span class="GruvboxAqua">           encrypting the resulting message digest using an asymmetrical</span>
+<span id="W2L160" class="LineNr">160 </span><span class="GruvboxAqua DiffChange">           cryptosystem and the signer\'s private key</span><span class="GruvboxAqua DiffText">;</span><span class="DiffChange">                                                                                                                                        </span>
+<span id="W2L161" class="LineNr">161 </span>
+<span id="W2L162" class="LineNr">162 </span><span class="GruvboxAqua">       3.  Although not all digitally signed communications will require the</span>
+<span id="W2L163" class="LineNr">163 </span><span class="GruvboxAqua">           signer to obtain a certificate, the signer is capable of being</span>
+<span id="W2L164" class="LineNr">164 </span><span class="GruvboxAqua">           issued a certificate to certify that he or she controls the key pair</span>
+<span id="W2L165" class="LineNr">165 </span><span class="GruvboxAqua DiffChange">           used to create the signature</span><span class="GruvboxAqua DiffText">;</span><span class="GruvboxAqua DiffChange"> and</span><span class="DiffChange">                                                                                                                                                  </span>
+<span id="W2L166" class="LineNr">166 </span>
+<span id="W2L167" class="LineNr">167 </span><span class="GruvboxAqua">       4.  It is computationally infeasible to derive the private key from</span>
+<span id="W2L168" class="LineNr">168 </span><span class="GruvboxAqua">           knowledge of the public key.</span>
+<span id="W2L169" class="LineNr">169 </span>
+<span id="W2L170" class="LineNr">170 </span><span class="GruvboxGray DiffChange">   3.</span><span class="markdownItalic DiffChange">  California Government Code </span><span class="markdownItalic DiffText">Section</span><span class="markdownItalic DiffChange"> 16.5 requires that a digital</span><span class="DiffChange">                                                                                                                        </span>
+<span id="W2L171" class="LineNr">171 </span><span class="GruvboxAqua">       signature be 'capable of verification'. A public-key based digital</span>
+<span id="W2L172" class="LineNr">172 </span><span class="GruvboxAqua">       signature is capable of verification if:</span>
+<span id="W2L173" class="LineNr">173 </span>
+<span id="W2L174" class="LineNr">174 </span><span class="GruvboxAqua">       1.  The acceptor of the digitally signed document can verify the</span>
+<span id="W2L175" class="LineNr">175 </span><span class="GruvboxAqua">           document was digitally signed by using the signer's public</span>
+<span id="W2L176" class="LineNr">176 </span><span class="GruvboxAqua">           key to decrypt the message; and</span>
+<span id="W2L177" class="Folded">177 </span><span class="Folded">0  [2 lines]--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span id="W2L179" class="LineNr">179 </span><span class="GruvboxAqua">           public agency, the issuing Certification Authority, either through a</span>
+<span id="W2L180" class="LineNr">180 </span><span class="GruvboxAqua">           certification practice statement or through the content of the</span>
+<span id="W2L181" class="LineNr">181 </span><span class="GruvboxAqua">           certificate itself, must identify which, if any, form(s) of</span>
+<span id="W2L182" class="LineNr">182 </span><span class="GruvboxAqua">           identification it required of the signer prior to issuing the</span>
+<span id="W2L183" class="LineNr">183 </span><span class="GruvboxAqua">           certificate.</span>
+<span id="W2L184" class="LineNr">184 </span>
+<span id="W2L185" class="LineNr">185 </span><span class="GruvboxGray DiffChange">   4.</span><span class="markdownItalic DiffChange">  California Government Code </span><span class="markdownItalic DiffText">Section</span><span class="markdownItalic DiffChange"> 16.5 requires that the digital</span><span class="DiffChange">                                                                                                                      </span>
+<span id="W2L186" class="LineNr">186 </span><span class="GruvboxAqua">       signature remain 'under the sole control of the person using it'.</span>
+<span id="W2L187" class="LineNr">187 </span><span class="GruvboxAqua">       Whether a signature is accompanied by a certificate or not, the person</span>
+<span id="W2L188" class="LineNr">188 </span><span class="GruvboxAqua">       who holds the key pair, or the subscriber identified in the certificate,</span>
+<span id="W2L189" class="LineNr">189 </span><span class="GruvboxAqua">       assumes a duty to exercise reasonable care to retain control of the</span>
+<span id="W2L190" class="LineNr">190 </span><span class="GruvboxAqua">       private key and prevent its disclosure to any person not authorized to</span>
+<span id="W2L191" class="LineNr">191 </span><span class="GruvboxAqua DiffChange">       create the subscriber's digital signature pursuant to</span><span class="GruvboxAqua DiffText"> California</span><span class="DiffChange">                                                                                                                       </span>
+<span id="W2L192" class="LineNr">192 </span><span class="GruvboxAqua">       Evidence Code Section 669.</span>
+<span id="W2L193" class="LineNr">193 </span>
+<span id="W2L194" class="LineNr">194 </span><span class="GruvboxGray">   5.</span><span class="markdownItalic">  The digital signature must be linked to the message of the document in</span>
+<span id="W2L195" class="LineNr">195 </span><span class="GruvboxAqua">       such a way that if the data are changed, the digital signature is</span>
+<span id="W2L196" class="LineNr">196 </span><span class="GruvboxAqua">       invalidated.</span>
+<span id="W2L197" class="LineNr">197 </span>
+<span id="W2L198" class="LineNr">198 </span><span class="GruvboxGray DiffChange">   6.</span><span class="markdownItalic DiffChange">  </span><span class="markdownItalic DiffText">If the signature is accompanied by a certificate, the certificate i</span><span class="markdownItalic DiffChange">s</span><span class="DiffChange">                                                                                                                   </span>
+<span id="W2L199" class="LineNr">199 </span><span class="GruvboxAqua DiffChange">       </span><span class="GruvboxAqua DiffText">from a Certification Authority that, at the time of signing, is included</span><span class="DiffChange">                                                                                                               </span>
+<span id="W2L200" class="LineNr">200 </span><span class="GruvboxAqua DiffChange">       </span><span class="GruvboxAqua DiffText">in at least one of the following third-party certificate program lists:</span><span class="DiffChange">                                                                                                                </span>
+<span id="W2L201" class="LineNr">201 </span><span class="DiffChange"> </span><span class="DiffChange">                                                                                                                                                                                             </span>
+<span id="W2L202" class="LineNr">202 </span><span class="GruvboxAqua DiffChange">       </span><span class="GruvboxAqua DiffText">1.  Apple Root Certificate Program</span><span class="DiffChange">                                                                                                                                                     </span>
+<span id="W2L203" class="LineNr">203 </span><span class="GruvboxAqua DiffChange">       2.  </span><span class="GruvboxAqua DiffText">Microsoft Trusted Root Progra</span><span class="GruvboxAqua DiffChange">m</span><span class="DiffChange">                                                                                                                                                     </span>
+<span id="W2L204" class="LineNr">204 </span><span class="GruvboxAqua DiffChange">       </span><span class="GruvboxAqua DiffText">3.  Mozilla Root Program</span><span class="DiffChange">                                                                                                                                                               </span>
+<span class="LineNr">    </span><span class="DiffDelete">----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="LineNr">    </span><span class="DiffDelete">----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="LineNr">    </span><span class="DiffDelete">----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="LineNr">    </span><span class="DiffDelete">----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="LineNr">    </span><span class="DiffDelete">----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="LineNr">    </span><span class="DiffDelete">----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="LineNr">    </span><span class="DiffDelete">----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="LineNr">    </span><span class="DiffDelete">----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="LineNr">    </span><span class="DiffDelete">----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="LineNr">    </span><span class="DiffDelete">----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="LineNr">    </span><span class="DiffDelete">----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="LineNr">    </span><span class="DiffDelete">----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="LineNr">    </span><span class="DiffDelete">----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="LineNr">    </span><span class="DiffDelete">----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="LineNr">    </span><span class="DiffDelete">----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="LineNr">    </span><span class="DiffDelete">----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="LineNr">    </span><span class="DiffDelete">----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="LineNr">    </span><span class="DiffDelete">----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="LineNr">    </span><span class="DiffDelete">----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="LineNr">    </span><span class="DiffDelete">----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="LineNr">    </span><span class="DiffDelete">----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="LineNr">    </span><span class="DiffDelete">----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="LineNr">    </span><span class="DiffDelete">----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="LineNr">    </span><span class="DiffDelete">----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="LineNr">    </span><span class="DiffDelete">----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="LineNr">    </span><span class="DiffDelete">----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="LineNr">    </span><span class="DiffDelete">----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="LineNr">    </span><span class="DiffDelete">----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="LineNr">    </span><span class="DiffDelete">----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="LineNr">    </span><span class="DiffDelete">----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="LineNr">    </span><span class="DiffDelete">----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="LineNr">    </span><span class="DiffDelete">----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="LineNr">    </span><span class="DiffDelete">----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="LineNr">    </span><span class="DiffDelete">----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="LineNr">    </span><span class="DiffDelete">----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="LineNr">    </span><span class="DiffDelete">----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="LineNr">    </span><span class="DiffDelete">----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="LineNr">    </span><span class="DiffDelete">----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="LineNr">    </span><span class="DiffDelete">----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="LineNr">    </span><span class="DiffDelete">----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="LineNr">    </span><span class="DiffDelete">----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="LineNr">    </span><span class="DiffDelete">----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="LineNr">    </span><span class="DiffDelete">----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="LineNr">    </span><span class="DiffDelete">----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="LineNr">    </span><span class="DiffDelete">----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span id="W2L205" class="LineNr">205 </span>
+<span id="W2L206" class="LineNr">206 </span><span class="GruvboxGray">2.</span><span class="markdownItalic">  The technology known as &quot;Signature Dynamics&quot; is an acceptable technology</span>
+<span id="W2L207" class="LineNr">207 </span><span class="GruvboxAqua">    for use by public entities in California, provided that the signature is</span>
+<span id="W2L208" class="LineNr">208 </span><span class="GruvboxAqua DiffChange">    created consistent with the </span><span class="GruvboxAqua DiffText">following provisions:</span><span class="DiffChange">                                                                                                                                         </span>
+<span id="W2L209" class="LineNr">209 </span>
+<span class="LineNr">    </span><span class="DiffDelete">----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span id="W2L210" class="LineNr">210 </span><span class="GruvboxGray">    1.</span><span class="markdownItalic">  Definitions. For the purposes of Section 22003(b), and unless the</span>
+<span id="W2L211" class="LineNr">211 </span><span class="GruvboxAqua">        context expressly indicates otherwise:</span>
+<span id="W2L212" class="LineNr">212 </span>
+<span id="W2L213" class="LineNr">213 </span><span class="GruvboxAqua">        1.  &quot;Handwriting Measurements&quot; means the metrics of the shapes, speeds</span>
+<span id="W2L214" class="LineNr">214 </span><span class="GruvboxAqua">            and/or other distinguishing features of a signature as the person</span>
+<span id="W2L215" class="LineNr">215 </span><span class="GruvboxAqua">            writes it by hand with a pen or stylus on a flat surface.</span>
+<span id="W2L216" class="LineNr">216 </span>
+<span id="W2L217" class="LineNr">217 </span><span class="GruvboxAqua">        2.  &quot;Signature Digest&quot; is the resulting bit-string produced when a</span>
+<span id="W2L218" class="LineNr">218 </span><span class="GruvboxAqua">            signature is tied to a document using Signature Dynamics.</span>
+<span id="W2L219" class="LineNr">219 </span>
+<span id="W2L220" class="LineNr">220 </span><span class="GruvboxAqua">        3.  &quot;Expert&quot; means a person with demonstrable skill and knowledge based</span>
+<span id="W2L221" class="LineNr">221 </span><span class="GruvboxAqua">            on training and experience who would qualify as an expert pursuant</span>
+<span id="W2L222" class="LineNr">222 </span><span class="GruvboxAqua DiffChange">            to California Evidence Code </span><span class="GruvboxAqua DiffText">Section </span><span class="GruvboxAqua DiffChange">720.</span><span class="DiffChange">                                                                                                                                          </span>
+<span id="W2L223" class="LineNr">223 </span>
+<span id="W2L224" class="LineNr">224 </span><span class="GruvboxAqua">        4.  &quot;Signature Dynamics&quot; means measuring the way a person writes his or</span>
+<span id="W2L225" class="LineNr">225 </span><span class="GruvboxAqua">            her signature by hand on a flat surface and binding the measurements</span>
+<span id="W2L226" class="LineNr">226 </span><span class="GruvboxAqua">            to a message through the use of cryptographic techniques.</span>
+<span id="W2L227" class="LineNr">227 </span>
+<span id="W2L228" class="LineNr">228 </span><span class="GruvboxGray DiffChange">    2.</span><span class="markdownItalic DiffChange">  California Government Code </span><span class="markdownItalic DiffText">Section</span><span class="markdownItalic DiffChange"> 16.5 requires that a digital</span><span class="DiffChange">                                                                                                                       </span>
+<span id="W2L229" class="LineNr">229 </span><span class="GruvboxAqua">        signatures be 'unique to the person using it.' A signature digest</span>
+<span id="W2L230" class="LineNr">230 </span><span class="GruvboxAqua">        produced by Signature Dynamics technology may be considered unique to</span>
+<span id="W2L231" class="LineNr">231 </span><span class="GruvboxAqua DiffChange">        the person using it if:</span><span class="DiffChange">                                                                                                                                                               </span>
+<span id="W2L232" class="LineNr">232 </span>
+<span id="W2L233" class="LineNr">233 </span><span class="GruvboxAqua">        1.  The signature digest records the handwriting measurements of the</span>
+<span id="W2L234" class="LineNr">234 </span><span class="GruvboxAqua DiffChange">            person signing the document using signature dynamics technology</span><span class="GruvboxAqua DiffText">;</span><span class="DiffChange">                                                                                                                  </span>
+<span id="W2L235" class="LineNr">235 </span>
+<span id="W2L236" class="LineNr">236 </span><span class="GruvboxAqua">        2.  The signature digest is cryptographically bound to the handwriting</span>
+<span id="W2L237" class="LineNr">237 </span><span class="GruvboxAqua DiffChange">            measurements</span><span class="GruvboxAqua DiffText">;</span><span class="GruvboxAqua DiffChange"> and</span><span class="DiffChange">                                                                                                                                                                 </span>
+<span id="W2L238" class="LineNr">238 </span>
+<span id="W2L239" class="LineNr">239 </span><span class="GruvboxAqua">        3.  After the signature digest has been bound to the handwriting</span>
+<span id="W2L240" class="LineNr">240 </span><span class="GruvboxAqua">            measurements, it is computationally infeasible to separate the</span>
+<span id="W2L241" class="LineNr">241 </span><span class="GruvboxAqua">            handwriting measurements and bind them to a different signature</span>
+<span id="W2L242" class="LineNr">242 </span><span class="GruvboxAqua">            digest.</span>
+<span id="W2L243" class="LineNr">243 </span>
+<span id="W2L244" class="LineNr">244 </span><span class="GruvboxGray DiffChange">    3.</span><span class="markdownItalic DiffChange">  California Government Code </span><span class="markdownItalic DiffText">Section</span><span class="markdownItalic DiffChange"> 16.5 requires that a digital</span><span class="DiffChange">                                                                                                                       </span>
+<span id="W2L245" class="LineNr">245 </span><span class="GruvboxAqua DiffChange">        signature be </span><span class="GruvboxAqua DiffText">'capable of verification'</span><span class="GruvboxAqua DiffChange">. A signature digest produced by</span><span class="DiffChange">                                                                                                                </span>
+<span id="W2L246" class="LineNr">246 </span><span class="GruvboxAqua">        signature dynamics technology is capable of verification if:</span>
+<span id="W2L247" class="LineNr">247 </span>
+<span id="W2L248" class="LineNr">248 </span><span class="GruvboxAqua">        1.  The acceptor of the digitally signed message obtains the handwriting</span>
+<span id="W2L249" class="LineNr">249 </span><span class="GruvboxAqua DiffChange">            measurements for purposes of comparison</span><span class="GruvboxAqua DiffText">;</span><span class="GruvboxAqua DiffChange"> and</span><span class="DiffChange">                                                                                                                                      </span>
+<span id="W2L250" class="LineNr">250 </span>
+<span id="W2L251" class="LineNr">251 </span><span class="GruvboxAqua">        2.  If signature verification is a required component of a transaction</span>
+<span id="W2L252" class="LineNr">252 </span><span class="GruvboxAqua">            with a public entity, the handwriting measurements can allow an</span>
+<span id="W2L253" class="LineNr">253 </span><span class="GruvboxAqua">            expert handwriting and document examiner to assess the authenticity</span>
+<span id="W2L254" class="LineNr">254 </span><span class="GruvboxAqua">            of a signature.</span>
+<span id="W2L255" class="LineNr">255 </span>
+<span id="W2L256" class="LineNr">256 </span><span class="GruvboxGray DiffChange">    4.</span><span class="markdownItalic DiffChange">  California Government Code </span><span class="markdownItalic DiffText">Section</span><span class="markdownItalic DiffChange"> 16.5 requires that a digital</span><span class="DiffChange">                                                                                                                       </span>
+<span id="W2L257" class="LineNr">257 </span><span class="GruvboxAqua">        signature remain 'under the sole control of the person using it'. A</span>
+<span id="W2L258" class="LineNr">258 </span><span class="GruvboxAqua">        signature digest is under the sole control of the person using it if:</span>
+<span id="W2L259" class="LineNr">259 </span>
+<span id="W2L260" class="LineNr">260 </span><span class="GruvboxAqua">        1.  The signature digest captures the handwriting measurements and</span>
+<span id="W2L261" class="LineNr">261 </span><span class="GruvboxAqua">            cryptographically binds them to the message directed by the signer</span>
+<span id="W2L262" class="LineNr">262 </span><span class="GruvboxAqua DiffChange">            and to no other message</span><span class="GruvboxAqua DiffText">;</span><span class="GruvboxAqua DiffChange"> and</span><span class="DiffChange">                                                                                                                                                      </span>
+<span id="W2L263" class="LineNr">263 </span>
+<span id="W2L264" class="LineNr">264 </span><span class="GruvboxAqua">        2.  The signature digest makes it computationally infeasible for the</span>
+<span id="W2L265" class="LineNr">265 </span><span class="GruvboxAqua">            handwriting measurements to be bound to any other message.</span>
+<span id="W2L266" class="LineNr">266 </span>
+<span id="W2L267" class="LineNr">267 </span><span class="GruvboxGray">    5.</span><span class="markdownItalic">  The signature digest produced by signature dynamics technology must be</span>
+<span id="W2L268" class="LineNr">268 </span><span class="GruvboxAqua">        linked to the message in such a way that if the data in the message are</span>
+<span id="W2L269" class="LineNr">269 </span><span class="GruvboxAqua">        changed, the signature digest is invalidated.</span>
+<span id="W2L270" class="LineNr">270 </span>
+<span id="W2L271" class="LineNr">271 </span><span class="markdownItalic DiffAdd">*Note: Authority cited: Section 16.5, Government Code. Reference:</span><span class="DiffAdd">                                                                                                                             </span>
+<span id="W2L272" class="LineNr">272 </span><span class="markdownItalic DiffAdd">Section 16.5, Government Code.*</span><span class="DiffAdd">                                                                                                                                                               </span>
+<span id="W2L273" class="LineNr">273 </span>
+<span id="W2L274" class="LineNr">274 </span><span class="GruvboxGray DiffChange">22004.</span><span class="markdownItalic DiffChange"> </span><span class="markdownItalic DiffText">REPEALED</span><span class="markdownItalic DiffChange">. {#22004}</span><span class="DiffChange">                                                                                                                                                                     </span>
+<span id="W2L275" class="LineNr">275 </span><span class="GruvboxGray DiffChange">----------------</span><span class="DiffChange">                                                                                                                                                                              </span>
+<span class="LineNr">    </span><span class="DiffDelete">----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="LineNr">    </span><span class="DiffDelete">----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="LineNr">    </span><span class="DiffDelete">----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="LineNr">    </span><span class="DiffDelete">----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="LineNr">    </span><span class="DiffDelete">----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="LineNr">    </span><span class="DiffDelete">----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="LineNr">    </span><span class="DiffDelete">----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="LineNr">    </span><span class="DiffDelete">----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="LineNr">    </span><span class="DiffDelete">----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="LineNr">    </span><span class="DiffDelete">----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="LineNr">    </span><span class="DiffDelete">----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="LineNr">    </span><span class="DiffDelete">----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="LineNr">    </span><span class="DiffDelete">----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="LineNr">    </span><span class="DiffDelete">----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="LineNr">    </span><span class="DiffDelete">----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="LineNr">    </span><span class="DiffDelete">----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="LineNr">    </span><span class="DiffDelete">----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span id="W2L276" class="LineNr">276 </span>
+<span id="W2L277" class="LineNr">277 </span><span class="GruvboxGray">22005.</span><span class="markdownItalic"> Criteria for Public Entities To Use in Accepting Digital Signatures. {#22005}</span>
+<span id="W2L278" class="LineNr">278 </span><span class="GruvboxGray">---------------------------------------------------------------------------</span>
+<span id="W2L279" class="LineNr">279 </span>
+<span id="W2L280" class="LineNr">280 </span><span class="GruvboxGray">1.</span><span class="markdownItalic">  Prior to accepting a digital signature, public entities shall ensure</span>
+<span id="W2L281" class="LineNr">281 </span><span class="GruvboxAqua">    that the level of security used to identify the signer of a document</span>
+<span id="W2L282" class="LineNr">282 </span><span class="GruvboxAqua">    is sufficient for the transaction being conducted.</span>
+<span class="LineNr">    </span><span class="DiffDelete">----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span id="W2L283" class="LineNr">283 </span><span class="GruvboxGray">2.</span><span class="markdownItalic">  Prior to accepting a digital signature, public entities shall ensure</span>
+<span id="W2L284" class="LineNr">284 </span><span class="GruvboxAqua">    that the level of security used to transmit the signature is</span>
+<span id="W2L285" class="LineNr">285 </span><span class="GruvboxAqua">    sufficient for the transaction being conducted.</span>
+<span class="LineNr">    </span><span class="DiffDelete">----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span id="W2L286" class="LineNr">286 </span><span class="GruvboxGray">3.</span><span class="markdownItalic">  If a certificate is a required component of a digital signature</span>
+<span id="W2L287" class="LineNr">287 </span><span class="GruvboxAqua">    transaction, public entities shall ensure that the certificate</span>
+<span id="W2L288" class="LineNr">288 </span><span class="GruvboxAqua">    format used by the signer is sufficient for the security and</span>
+<span id="W2L289" class="LineNr">289 </span><span class="GruvboxAqua">    interoperability needs of the public entity.</span>
+</pre>
+</div></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- vim: set foldmethod=manual : -->
+
