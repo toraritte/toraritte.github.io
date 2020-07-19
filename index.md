@@ -20,6 +20,7 @@
 + [[Linux] Mount CIFS shares from the terminal](posts/2020-06-29-mount-cifs-shares.md)
 + [[`scp`, `ssh`] Open remote machine's files in Midnight Commander (MC) and Vim](posts/2020-07-03-open-remote-server-files-in-mc-scp-ssh.md)
 + [How to use Vim to merge files](posts/2020-07-05-how-to-use-vim-to-merge-files.md)
-+ [How to implement digital/electronic signature functionality in a web app? (No, really, how?)](posts/2020-07-18-how-to-implement-electronic-signature-web-app.md]
++ [Call `nix-shell` with path (e.g., to use the latest `NixOS/nixpkgs` clone)](posts/2020-07-15-nix-shell-with-specific-path.md)
++ [How to implement digital/electronic signature functionality in a web app? (No, really, how?)](posts/2020-07-18-how-to-implement-electronic-signature-web-app.md)
 
 ## From Medium
