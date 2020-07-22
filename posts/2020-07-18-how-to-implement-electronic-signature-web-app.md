@@ -16,7 +16,8 @@ At the time of this writing, there is an
 [emergency regulation](https://www.sos.ca.gov/administration/regulations/current-regulations/technology/emergency-digital-signatures/)
 in  effect,  temporarily superseding  the  permanent
 regulations; see
-[the diff between the two](./california-digital-signatures.diff.html).
+[the diff between the two](./california-digital-signatures.diff.html)
+([pdf](./california-digital-signatures.diff.pdf)).
 
 <sup>
 The diff was done using Pandoc (`pandoc -s -r html <URL> -o <name-of-markdown-file>`), vimdiff, and Vim's `:TOhtml`.
