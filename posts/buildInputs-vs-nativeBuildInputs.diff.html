@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>diff</title>
+<meta name="Generator" content="Vim/8.2">
+<meta name="plugin-version" content="vim8.1_v2">
+<meta name="settings" content="number_lines,whole_filler,use_css,no_foldcolumn,expand_tabs,line_ids,prevent_copy=,use_input_for_pc=fallback">
+<meta name="colorscheme" content="gruvbox">
+<style>
+<!--
+pre { font-family: monospace; color: #ffd7af; background-color: #1c1c1c; }
+body { font-family: monospace; color: #ffd7af; background-color: #1c1c1c; }
+* { font-size: 1em; }
+.LineNr { color: #767676; }
+.DiffChange { color: #1c1c1c; background-color: #87af87; }
+.DiffDelete { color: #1c1c1c; background-color: #d75f5f; }
+.DiffText { color: #1c1c1c; background-color: #ffaf00; }
+.DiffAdd { color: #1c1c1c; background-color: #afaf00; }
+-->
+<!--
+table { table-layout: fixed; }
+html, body, table, tbody { width: 100%; margin: 0; padding: 0; }
+table, td, th { border: 1px solid; }
+td { vertical-align: top; }
+th, td { width: 50.0%; }
+td div { overflow: auto; }
+-->
+</style>
+<script>
+<!--
+
+/* function to open any folds containing a jumped-to line before jumping to it */
+function JumpToLine()
+{
+  var lineNum;
+  lineNum = window.location.hash;
+  lineNum = lineNum.substr(1); /* strip off '#' */
+
+  if (lineNum.indexOf('L') == -1) {
+    lineNum = 'L'+lineNum;
+  }
+  if (lineNum.indexOf('W') == -1) {
+    lineNum = 'W1'+lineNum;
+  }
+  var lineElem = document.getElementById(lineNum);
+  /* Always jump to new location even if the line was hidden inside a fold, or
+   * we corrected the raw number to a line ID.
+   */
+  if (lineElem) {
+    lineElem.scrollIntoView(true);
+  }
+  return true;
+}
+if ('onhashchange' in window) {
+  window.onhashchange = JumpToLine;
+}
+
+-->
+</script>
+</head>
+<body onload='JumpToLine();'>
+<table id='vimCodeElement'>
+<tr>
+<th></th>
+<th></th>
+</tr><tr>
+<td><div>
+<pre>
+<span id="W1L1" class="LineNr"> 1 </span><span class="DiffText">nativeB</span><span class="DiffChange">uildInputs                                                                                                                                                                              </span>
+<span id="W1L2" class="LineNr"> 2 </span><span class="DiffChange">A  list  of  dependencies </span><span class="DiffText"> whose  host  platform  is</span><span class="DiffChange">                                                                                                                                           </span>
+<span id="W1L3" class="LineNr"> 3 </span><span class="DiffChange">t</span><span class="DiffText">he  new  derivation's  build platform,  and  target</span><span class="DiffChange">                                                                                                                                           </span>
+<span id="W1L4" class="LineNr"> 4 </span><span class="DiffText">platform is the new derivation's host platform. This</span><span class="DiffChange">                                                                                                                                           </span>
+<span id="W1L5" class="LineNr"> 5 </span><span class="DiffText">means  a -1  host offset  and 0  target offset  from</span><span class="DiffChange">                                                                                                                                           </span>
+<span id="W1L6" class="LineNr"> 6 </span><span class="DiffText">the new  derivation's platforms. These  are programs</span><span class="DiffChange">                                                                                                                                           </span>
+<span id="W1L7" class="LineNr"> 7 </span><span class="DiffAdd">and  libraries  used  at build-time  that,  if  they</span><span class="DiffAdd">                                                                                                                                           </span>
+<span id="W1L8" class="LineNr"> 8 </span><span class="DiffAdd">are  a compiler  or  similar tool,  produce code  to</span><span class="DiffAdd">                                                                                                                                           </span>
+<span id="W1L9" class="LineNr"> 9 </span><span class="DiffAdd">run  at run-time—i.e.  tools used  to build  the new</span><span class="DiffAdd">                                                                                                                                           </span>
+<span id="W1L10" class="LineNr">10 </span><span class="DiffAdd">derivation.</span><span class="DiffAdd">                                                                                                                                                                                    </span>
+<span id="W1L11" class="LineNr">11 </span>
+<span id="W1L12" class="LineNr">12 </span>If  the dependency  doesn't  care  about the  target
+<span id="W1L13" class="LineNr">13 </span>platform (i.e.  isn't a  compiler or  similar tool),
+<span id="W1L14" class="LineNr">14 </span><span class="DiffChange">put it here, rather than in depsBuildBuild</span><span class="DiffText"> or</span><span class="DiffChange">                                                                                                                                                  </span>
+<span id="W1L15" class="LineNr">15 </span><span class="DiffAdd">depsBuildTarget. This could  be called depsBuildHost</span><span class="DiffAdd">                                                                                                                                           </span>
+<span id="W1L16" class="LineNr">16 </span><span class="DiffAdd">but   nativeBuildInputs  is   used  for   historical</span><span class="DiffAdd">                                                                                                                                           </span>
+<span id="W1L17" class="LineNr">17 </span><span class="DiffAdd">continuity.</span><span class="DiffAdd">                                                                                                                                                                                    </span>
+<span id="W1L18" class="LineNr">18 </span><span class="DiffAdd"> </span><span class="DiffAdd">                                                                                                                                                                                              </span>
+<span id="W1L19" class="LineNr">19 </span><span class="DiffAdd">Since  these   packages  are  able  to   be  run  at</span><span class="DiffAdd">                                                                                                                                           </span>
+<span id="W1L20" class="LineNr">20 </span><span class="DiffAdd">build-time, they are added to the PATH, as described</span><span class="DiffAdd">                                                                                                                                           </span>
+<span id="W1L21" class="LineNr">21 </span><span class="DiffAdd">above. But since these  packages are only guaranteed</span><span class="DiffAdd">                                                                                                                                           </span>
+<span id="W1L22" class="LineNr">22 </span><span class="DiffAdd">to  be  able to  run  then,  they shouldn't  persist</span><span class="DiffAdd">                                                                                                                                           </span>
+<span id="W1L23" class="LineNr">23 </span><span class="DiffAdd">as  run-time  dependencies.   This  isn't  currently</span><span class="DiffAdd">                                                                                                                                           </span>
+<span id="W1L24" class="LineNr">24 </span><span class="DiffAdd">enforced, but could be in the future.</span><span class="DiffAdd">                                                                                                                                                          </span>
+<span id="W1L25" class="LineNr">25 </span>
+</pre>
+</div></td>
+<td><div>
+<pre>
+<span id="W2L1" class="LineNr"> 1 </span><span class="DiffText">b</span><span class="DiffChange">uildInputs                                                                                                                                                                                    </span>
+<span id="W2L2" class="LineNr"> 2 </span><span class="DiffChange">A  list  of  dependencies </span><span class="DiffText">whose  host  platform  and</span><span class="DiffChange">                                                                                                                                           </span>
+<span id="W2L3" class="LineNr"> 3 </span><span class="DiffChange">t</span><span class="DiffText">arget  platform match  the  new derivation's.  This</span><span class="DiffChange">                                                                                                                                           </span>
+<span id="W2L4" class="LineNr"> 4 </span><span class="DiffText">means a 0 host offset and a 1 target offset from the</span><span class="DiffChange">                                                                                                                                           </span>
+<span id="W2L5" class="LineNr"> 5 </span><span class="DiffText">new derivation's host platform. This would be called</span><span class="DiffChange">                                                                                                                                           </span>
+<span id="W2L6" class="LineNr"> 6 </span><span class="DiffText">depsHostTarget but for historical continuity.</span><span class="DiffChange">                                                                                                                                                  </span>
+<span class="LineNr">   </span><span class="DiffDelete">-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="LineNr">   </span><span class="DiffDelete">-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="LineNr">   </span><span class="DiffDelete">-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="LineNr">   </span><span class="DiffDelete">-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span id="W2L7" class="LineNr"> 7 </span>
+<span id="W2L8" class="LineNr"> 8 </span>If  the dependency  doesn't  care  about the  target
+<span id="W2L9" class="LineNr"> 9 </span>platform (i.e.  isn't a  compiler or  similar tool),
+<span id="W2L10" class="LineNr">10 </span><span class="DiffChange">put it here, rather than in depsBuildBuild</span><span class="DiffText">.</span><span class="DiffChange">                                                                                                                                                    </span>
+<span class="LineNr">   </span><span class="DiffDelete">-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="LineNr">   </span><span class="DiffDelete">-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="LineNr">   </span><span class="DiffDelete">-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="LineNr">   </span><span class="DiffDelete">-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="LineNr">   </span><span class="DiffDelete">-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="LineNr">   </span><span class="DiffDelete">-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="LineNr">   </span><span class="DiffDelete">-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="LineNr">   </span><span class="DiffDelete">-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="LineNr">   </span><span class="DiffDelete">-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span class="LineNr">   </span><span class="DiffDelete">-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+<span id="W2L11" class="LineNr">11 </span>
+<span id="W2L12" class="LineNr">12 </span><span class="DiffAdd">These are  often programs and libraries  used by the</span><span class="DiffAdd">                                                                                                                                           </span>
+<span id="W2L13" class="LineNr">13 </span><span class="DiffAdd">new derivation  at run-time,  but that  isn't always</span><span class="DiffAdd">                                                                                                                                           </span>
+<span id="W2L14" class="LineNr">14 </span><span class="DiffAdd">the  case.  For  example,  the  machine  code  in  a</span><span class="DiffAdd">                                                                                                                                           </span>
+<span id="W2L15" class="LineNr">15 </span><span class="DiffAdd">statically-linked library is  only used at run-time,</span><span class="DiffAdd">                                                                                                                                           </span>
+<span id="W2L16" class="LineNr">16 </span><span class="DiffAdd">but the  derivation containing  the library  is only</span><span class="DiffAdd">                                                                                                                                           </span>
+<span id="W2L17" class="LineNr">17 </span><span class="DiffAdd">needed at build-time. Even  in the dynamic case, the</span><span class="DiffAdd">                                                                                                                                           </span>
+<span id="W2L18" class="LineNr">18 </span><span class="DiffAdd">library may also be  needed at build-time to appease</span><span class="DiffAdd">                                                                                                                                           </span>
+<span id="W2L19" class="LineNr">19 </span><span class="DiffAdd">the linker.</span><span class="DiffAdd">                                                                                                                                                                                    </span>
+</pre>
+</div></td>
+</tr>
+</table>
+</body>
+</html>
+<!-- vim: set foldmethod=manual : -->
+
