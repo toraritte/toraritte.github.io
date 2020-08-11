@@ -59,7 +59,7 @@ nix-repl> (square: x: y: square y + square x) (x: x*x) 2 7
 Another round with default values:
 
 
-```
+```text
 nix-repl> ({ s ? { a = 27;}, p ? s.a }: p) ()
 error: syntax error, unexpected ')', at (string):1:35
 
