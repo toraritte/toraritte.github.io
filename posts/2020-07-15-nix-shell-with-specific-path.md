@@ -51,7 +51,7 @@ nixos.erlang               erlang-22.1.7
 
 ## Use `-I nixpgks=[path]` with `nix-shell` for the same effect
 
-`nix-shell` does not have a `-f` switch, and 
+`nix-shell` does not have a `-f` switch, and
 [`NixOS/nix` issue #459](https://github.com/NixOS/nix/issues/459)
 has been raised for just this reason. The
 [current workaround](https://github.com/NixOS/nix/issues/459#issuecomment-71530305)
@@ -95,7 +95,7 @@ From `man nix-env`:
 >     active Nix expression) used by the --install, --upgrade,
 >     and --query --available operations to obtain derivations.
 >     The default is ~/.nix-defexpr.
-> 
+>
 >     If the argument starts with http:// or https://, it is
 >     interpreted as the URL of a tarball that will be downloaded
 >     and unpacked to a temporary location. The tarball must
