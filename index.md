@@ -23,5 +23,6 @@
 + [Call `nix-shell` with path (e.g., to use the latest `NixOS/nixpkgs` clone)](posts/2020-07-15-nix-shell-with-specific-path.md)
 + [How to implement digital/electronic signature functionality in a web app? (No, really, how?)](posts/2020-07-18-how-to-implement-electronic-signature-web-app.md)
 + [Playing with the Nix expression language on the `nix repl`](posts/2020-08-11-nix-expression-lang-repl.txt)
++ [Paths vs strings in the Nix expression language](posts/2020-08-13-paths-vs-string-in-nix.md)
 
 ## From Medium
