@@ -26,4 +26,8 @@
 + [Paths vs strings in the Nix expression language](posts/2020-08-13-paths-vs-string-in-nix.md)
 + [`with` considered harmful in Nix expressions](posts/2020-08-15-with-considered-harmful.md)
 
+## Saves
+
++ [Fyodor Soikin - `forall` is the type-level "lambda"](saves/fyodor-soikin_forall-is-the-type-level-lambda.html)
+
 ## From Medium

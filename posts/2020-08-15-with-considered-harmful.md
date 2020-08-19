@@ -7,7 +7,7 @@ Expanding slightly on the [`Nix anti-patterns`](https://nix.dev/anti-patterns/la
 Both the post and the issue lists the detrimental effects using `with` but there is only one suggestion:
 
 ```nix
-let lib = something.very.long; in { lib.foo /*etc..*/ } 
+let lib = something.very.long; in { lib.foo /*etc..*/ }
 
 ```
 
@@ -29,7 +29,7 @@ pkgs.mkShell {
 
 ```
 
-[`easy-purescript-nix`](https://github.com/justinwoo/easy-purescript-nix) provides alternatives by using `lib.attrValues`:
+[`easy-purescript-nix`](https://github.com/justinwoo/easy-purescript-nix) provides alternatives by using [`builtins.attrValues`](https://nixos.org/nix/manual/#:~:text=builtins.attrValues):
 
 ```nix
 { pkgs ? import <nixpkgs> {} }:
