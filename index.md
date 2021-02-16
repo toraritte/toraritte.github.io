@@ -26,8 +26,13 @@
 + [Paths vs strings in the Nix expression language](posts/2020-08-13-paths-vs-string-in-nix.md)
 + [`with` considered harmful in Nix expressions](posts/2020-08-15-with-considered-harmful.md)
 
-## Saves
+## Blog-local saves
+
+Mostly to be able to do [hypothes.is](https://hypothes.is) annotations; this is to make sure that URL changes won't result in dangling annotations (expect when this blog's domain changes...). Originally, tried [archive.org](https://archive.org/) saves, but that wouldn't work with [hypothes.is](https://hypothes.is) on Chrome on Android (it doesn't allow plugins, so the only way to do annotations on mobile is using [via.hypothes.is](https://via.hypothes.is/), but [archive.org](https://archive.org/) loads its own widget that interferes with [hypothes.is](https://hypothes.is)').
 
 + [Fyodor Soikin - `forall` is the type-level "lambda"](saves/fyodor-soikin_forall-is-the-type-level-lambda.html)
++ [Nix Package Manager Guide, Version 2.3.10](saves/Nix-Package-Manager-Guide-Version-2.3.10.html)
++ [Nixpkgs Manual, Version 20.09](saves/Nixpkgs-Manual-Version-20.09.html)
++ [NixOS Manual, Version 20.09](saves/NixOS-Manual-Version-20.09.html)
 
 ## From Medium
