@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<!-- saved from url=(0057)https://nixos.wiki/wiki/Nixpkgs/Create_and_debug_packages -->
+<html class="client-js" lang="en" dir="ltr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>Nixpkgs/Create and debug packages - NixOS Wiki</title>
+<script>document.documentElement.className=document.documentElement.className.replace(/(^|\s)client-nojs(\s|$)/,"$1client-js$2");</script>
+<script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Nixpkgs/Create_and_debug_packages","wgTitle":"Nixpkgs/Create and debug packages","wgCurRevisionId":5217,"wgRevisionId":5217,"wgArticleId":9,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Development","NixOS","Nixpkgs","Guide"],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Nixpkgs/Create_and_debug_packages","wgRelevantArticleId":9,"wgRequestId":"6045bbaf08910e73c66831cc","wgIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgWikiEditorEnabledModules":{"toolbar":false,"dialogs":false,"preview":false,"publish":false}});mw.loader.state({"site.styles":"ready","noscript":"ready","user.styles":"ready","user":"ready","user.options":"loading","user.tokens":"loading","ext.pygments":"ready","mediawiki.legacy.shared":"ready","mediawiki.legacy.commonPrint":"ready","mediawiki.sectionAnchor":"ready","skins.tweeki.bootstrap.styles":"ready","skins.tweeki.styles":"ready","skins.tweeki.corrections.styles":"ready","skins.tweeki.externallinks.styles":"ready","skins.tweeki.awesome.styles":"ready","skins.tweeki.bootstraptheme.styles":"ready","x.nixos-wiki.styles":"ready"});mw.loader.implement("user.options@0j3lz3q",function($,jQuery,require,module){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens@1x06yyp",function($,jQuery,require,module){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});;});mw.loader.load(["mediawiki.toc","mediawiki.action.view.postEdit","site","mediawiki.page.startup","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest","skins.tweeki.scripts"]);});</script>
+<link rel="stylesheet" href="./Nixpkgs_Createanddebugpackages-NixOSWiki_files/load.php">
+<script async="" src="./Nixpkgs_Createanddebugpackages-NixOSWiki_files/load(1).php"></script>
+<style>
+@media screen {
+	.tochidden,.toctoggle{-moz-user-select:none;-webkit-user-select:none;-ms-user-select:none;user-select:none}.toctoggle{font-size:94%}}
+@media print {
+	#toc.tochidden,.toc.tochidden,.toctoggle{display:none}}
+.postedit-container{margin:0 auto;position:fixed;top:0;height:0;left:50%;z-index:1000;font-size:13px}.postedit-container:hover{cursor:pointer}.postedit{position:relative;top:0.6em;left:-50%;padding:0.6em 3.6em 0.6em 1.1em;line-height:1.5625em;color:#626465;background-color:#f4f4f4;border:1px solid #dcd9d9;text-shadow:0 0.0625em 0 rgba( 255,255,255,0.5 );border-radius:5px;box-shadow:0 2px 5px 0 #ccc;-webkit-transition:all 0.25s ease-in-out;-moz-transition:all 0.25s ease-in-out;-ms-transition:all 0.25s ease-in-out;-o-transition:all 0.25s ease-in-out;transition:all 0.25s ease-in-out}.skin-monobook .postedit{top:6em !important; }.postedit-faded{opacity:0}.postedit-icon{padding-left:41px;  line-height:25px;background-repeat:no-repeat;background-position:8px 50%}.postedit-icon-checkmark{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAB9ElEQVR4AZWRA3AYURQArxrVHtW2bdu2bdu2zdi2bdu2bWxs7zeehZaw4f70kbs+zI3e/nWK+RWx3aOFlrL56Sy5SxrruG69hlv6OyK+mz+8KDSXdXembj0ispT7tjs4ZTIbpYBvxGSGKzZTeFrb7W/meN002swFs0U8ttpHTkF2BvCqWQrW35929bTsKm5Zb+SEwWwcY8wAngB9m7Z+d+rIPZ/npdy12M5p47n8dXsCYAf0qPy06eGMdktuDu9Qf+JmKl3SWM91qzVcN9tAbEYkwMaq0tyb1m/To5kP170el/BK8/qa6sJr70ydf+T/Uu5ab+Oo/lS0AkUBpIFWlZ9WPhxpse/PHO7YbOOczjL0vZV2lNxPPtG73dYXM+xvm2znrOl83tidoqCwMBgYXsPFB0on5S6pr+eK5TKuW67lgvaKvF8mL1dtfTL32FHxRdyx3cQpg7m4x9sCXKkTIzA4LDH44zWdzaUf71hv5rTG4uyzcusybxSX7aThbMQ8XgCYAp3rzTTQOiIh9PNlzY3FSuZxrzjme1Y7uGS6kjsWO4jPjM4FVjRZsvD4kO9XtTZzQn82NyzWc0B7AmZh6gA/hOYSGhfw9YbOVnarj+S7800AL2BIsxUAbWNToj7bhBuQmZcOsFdoKUC74rGheCwXmqAIQTc9jQcrADIAAAAASUVORK5CYII=);background-image:url(/resources/src/mediawiki.action/images/green-checkmark.png?d94f1)!ie;background-position:left}.postedit-close{position:absolute;padding:0 0.8em;right:0;top:0;font-size:1.25em;font-weight:bold;line-height:2.3em;color:#000;text-shadow:0 0.0625em 0 #fff;text-decoration:none;opacity:0.2;filter:alpha( opacity=20 )}.postedit-close:hover{color:#000;text-decoration:none;opacity:0.4;filter:alpha( opacity=40 )}
+.suggestions{overflow:hidden;position:absolute;top:0;left:0;width:0;border:0;z-index:1099;padding:0;margin:-1px 0 0 0}.suggestions-special{position:relative;background-color:#fff;cursor:pointer;border:solid 1px #aaa;margin:0;margin-top:-2px;display:none;padding:0.25em 0.25em;line-height:1.25em}.suggestions-results{background-color:#fff;cursor:pointer;border:solid 1px #aaa;padding:0;margin:0}.suggestions-result{color:#000;margin:0;line-height:1.5em;padding:0.01em 0.25em;text-align:left; overflow:hidden;-o-text-overflow:ellipsis; text-overflow:ellipsis;white-space:nowrap}.suggestions-result-current{background-color:#4c59a6;color:#fff}.suggestions-special .special-label{color:#808080;text-align:left}.suggestions-special .special-query{color:#000;font-style:italic;text-align:left}.suggestions-special .special-hover{background-color:#c0c0c0}.suggestions-result-current .special-label,.suggestions-result-current .special-query{color:#fff}.highlight{font-weight:bold}</style><style>
+.suggestions a.mw-searchSuggest-link,.suggestions a.mw-searchSuggest-link:hover,.suggestions a.mw-searchSuggest-link:active,.suggestions a.mw-searchSuggest-link:focus{color:#000;text-decoration:none}.suggestions-result-current a.mw-searchSuggest-link,.suggestions-result-current a.mw-searchSuggest-link:hover,.suggestions-result-current a.mw-searchSuggest-link:active,.suggestions-result-current a.mw-searchSuggest-link:focus{color:#fff}.suggestions a.mw-searchSuggest-link .special-query{ overflow:hidden;-o-text-overflow:ellipsis; text-overflow:ellipsis;white-space:nowrap}</style><meta name="ResourceLoaderDynamicStyles" content="">
+<link rel="stylesheet" href="./Nixpkgs_Createanddebugpackages-NixOSWiki_files/load(2).php">
+<meta name="generator" content="MediaWiki 1.29.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="https://nixos.wiki/xfavicon.png.pagespeed.ic.Yz0KSD8dq8.webp">
+<link rel="search" type="application/opensearchdescription+xml" href="https://nixos.wiki/opensearch_desc.php" title="NixOS Wiki (en)">
+<link rel="EditURI" type="application/rsd+xml" href="https://nixos.wiki/api.php?action=rsd">
+<link rel="alternate" type="application/atom+xml" title="NixOS Wiki Atom feed" href="https://nixos.wiki/index.php?title=Special:RecentChanges&amp;feed=atom">
+<link rel="canonical" href="https://nixos.wiki/wiki/Nixpkgs/Create_and_debug_packages">
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/skins/tweeki/csshover.min.htc")}</style><![endif]-->
+<style>@media print {#ghostery-tracker-tally {display:none !important}}</style><script src="./Nixpkgs_Createanddebugpackages-NixOSWiki_files/load(3).php"></script></head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-Nixpkgs_Create_and_debug_packages rootpage-Nixpkgs_Create_and_debug_packages skin-tweeki action-view tweeki-animateLayout" style="margin-bottom: 0px; position: relative;">			<!-- navbar -->
+			<div id="mw-navigation" class="navbar navbar-default navbar-fixed-top" role="navigation">
+				<h2>Navigation menu</h2>
+				<div id="mw-head" class="navbar-inner">
+					<div class="container">
+				
+						<div class="navbar-header">
+							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+								<span class="sr-only">Toggle navigation</span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							</button>
+
+							<a href="https://nixos.wiki/wiki/Main_Page" class="navbar-brand">NixOS Wiki</a>					
+						</div>
+
+						<div id="navbar" class="navbar-collapse collapse">
+													<ul class="nav navbar-nav">
+							<li class="nav"><a href="https://nixos.wiki/wiki/Nixpkgs/Create_and_debug_packages#" id="n-Ecosystem" class="dropdown-toggle" data-toggle="dropdown">Ecosystem <b class="caret"></b></a><ul class="dropdown-menu " role="menu"><li id="n-Nix-Ecosystem"><a href="https://nixos.wiki/wiki/Nix_Ecosystem" tabindex="-1">Overview</a></li><li id="n-NixOS"><a href="https://nixos.wiki/wiki/NixOS" tabindex="-1">NixOS</a></li><li id="n-Nix"><a href="https://nixos.wiki/wiki/Nix" tabindex="-1">Nix</a></li><li id="n-Nix-Expression-Language"><a href="https://nixos.wiki/wiki/Nix_Expression_Language" tabindex="-1">Nix language</a></li><li id="n-Nixpkgs"><a href="https://nixos.wiki/wiki/Nixpkgs" tabindex="-1">Nixpkgs</a></li><li id="n-NixOps"><a href="https://nixos.wiki/wiki/NixOps" tabindex="-1">NixOps</a></li><li id="n-Hydra"><a href="https://nixos.wiki/wiki/Hydra" tabindex="-1">Hydra</a></li><li id="n-Applications"><a href="https://nixos.wiki/wiki/Applications" tabindex="-1">Applications</a></li></ul></li><li class="nav"><a href="https://nixos.wiki/wiki/Resources" id="n-Resources">Resources</a></li><li class="nav"><a href="https://nixos.wiki/wiki/Nixpkgs/Create_and_debug_packages#" id="n-Community" class="dropdown-toggle" data-toggle="dropdown">Community <b class="caret"></b></a><ul class="dropdown-menu " role="menu"><li id="n-Nix-Community"><a href="https://nixos.wiki/wiki/Nix_Community" tabindex="-1">About</a></li><li id="n-Get-In-Touch"><a href="https://nixos.wiki/wiki/Get_In_Touch" tabindex="-1">Get In Touch</a></li><li id="n-Support"><a href="https://nixos.wiki/wiki/Support" tabindex="-1">Support</a></li></ul></li><li class="nav"><a href="https://nixos.wiki/wiki/Nixpkgs/Create_and_debug_packages#" id="n-Wiki" class="dropdown-toggle" data-toggle="dropdown">Wiki <b class="caret"></b></a><ul class="dropdown-menu " role="menu"><li id="n-Contributing-to-the-wiki"><a href="https://nixos.wiki/wiki/Contributing_to_the_wiki" tabindex="-1">Contribute</a></li><li id="n-https:.2F.2Fgithub.com.2Fnixos-users.2Fwiki.2Fissues"><a href="https://github.com/nixos-users/wiki/issues" rel="nofollow" tabindex="-1">Issues</a></li><li id="n-https:.2F.2Fgithub.com.2Fnixos-users.2Fwiki.2Fprojects"><a href="https://github.com/nixos-users/wiki/projects" rel="nofollow" tabindex="-1">Projects</a></li><li id="n-recentchanges-url"><a href="https://nixos.wiki/wiki/Special:RecentChanges" tabindex="-1">Recent changes</a></li><li id="n-randompage-url"><a href="https://nixos.wiki/wiki/Special:Random" tabindex="-1">Random page</a></li><li id="n-https:.2F.2Fwww.mediawiki.org.2Fwiki.2FSpecial:MyLanguage.2FHelp:Contents"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" tabindex="-1">Help</a></li></ul></li>							</ul>
+						
+													<ul class="nav navbar-nav navbar-right">
+							<li class="nav"><a class="dropdown-toggle" data-toggle="dropdown" href="https://nixos.wiki/wiki/Nixpkgs/Create_and_debug_packages#">Log in <b class="caret"></b></a><ul class="dropdown-menu " role="menu"><li><a href="https://nixos.wiki/index.php?title=Special:UserLogin&amp;returnto=Nixpkgs%2FCreate+and+debug+packages" tabindex="-1" title="You are encouraged to log in; however, it is not mandatory [alt-shift-o]" accesskey="o">With a wiki account</a></li><li><a href="https://nixos.wiki/index.php?title=Special:OAuth2Client/redirect&amp;returnto=Nixpkgs%2FCreate+and+debug+packages" tabindex="-1">Login with GitHub</a></li></ul></li></ul>
+			<form class="navbar-form navbar-right" action="https://nixos.wiki/index.php" id="searchform">
+				<div class="form-group">
+					<input id="searchInput" class="search-query form-control" type="search" accesskey="f" title="Special:Search [alt-shift-f]" placeholder="Search" name="search" value="" autocomplete="off">
+					<input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="mw-searchButton" class="searchButton btn hidden">
+				</div>
+			</form><ul class="nav navbar-nav navbar-right">							</ul>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+			<!-- /navbar -->
+				<div id="mw-page-base"></div>
+		<div id="mw-head-base"></div>
+		<a id="top"></a>
+
+		<!-- content -->
+		<div id="contentwrapper" class="user-loggedout not-editable container with-navbar with-navbar-fixed">
+
+			
+			<div class="row">
+				<div class="col-md-offset-0 col-md-9" role="main">
+							<div class="mw-body" id="content">
+			<div id="mw-js-message" style="display:none;"></div>
+									<h1 id="firstHeading" class="firstHeading page-header" lang="en"><span dir="auto">Nixpkgs/Create and debug packages</span></h1>
+									<!-- bodyContent -->
+			<div id="bodyContent">
+								<div id="siteSub">From NixOS Wiki</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="https://nixos.wiki/wiki/Nixpkgs/Create_and_debug_packages#mw-navigation">navigation</a>, 					<a href="https://nixos.wiki/wiki/Nixpkgs/Create_and_debug_packages#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><p>This article describes how to work with the nix related repositories to add new packages, edit and debug existing packages. For details on the NixOS module system see <a href="https://nixos.wiki/wiki/NixOS:Modules" class="mw-redirect" title="NixOS:Modules">NixOS:Modules</a>. <a href="https://nixos.wiki/wiki/NixOS:extend_NixOS" title="NixOS:extend NixOS">NixOS:extend_NixOS</a> explains how to write, test and debug your own modules.
+</p><p>There is a chapter about hacking packages and modules in the NixOS manual: <a rel="nofollow" class="external free" href="http://nixos.org/nixos/manual/index.html#ch-development">http://nixos.org/nixos/manual/index.html#ch-development</a>
+</p><p>Writing packages is covered in <a rel="nofollow" class="external free" href="https://nixos.org/manual/nixpkgs/stable/#chap-quick-start">https://nixos.org/manual/nixpkgs/stable/#chap-quick-start</a> and writing modules in <a rel="nofollow" class="external free" href="http://nixos.org/nixos/manual">http://nixos.org/nixos/manual</a>
+</p><p>The nix repositories are hosted here: <a rel="nofollow" class="external free" href="https://github.com/nixos">https://github.com/nixos</a>
+</p><p><br>
+</p>
+
+
+<h2><span class="mw-headline" id="Basics"></span>Basics</h2>
+<p>The code for nix packages is managed in the nixpkgs repository. NixOS services, and other system configuration options are managed in the nixos sub-directory of the nixpkgs repository.
+</p><p>The steps to take for your first change should look something like this:
+</p>
+<ol><li> Fork the repo (e.g. click the fork button on <a rel="nofollow" class="external free" href="https://github.com/nixos/nixpkgs">https://github.com/nixos/nixpkgs</a>).</li>
+<li> Clone your fork <code>git clone git@github.com:YOUR-GITHUB-ACCOUNT-NAME/nixpkgs.git</code></li>
+<li> Hack hack hack</li>
+<li> Push your changes to your fork</li>
+<li> Open a pull request</li>
+<li> Profit!</li></ol>
+<p>This is pretty much the standard way to use github, so if you have trouble using git or github any general guide on these should get you going, or just ask on the NixOS IRC channel. The rest of this guide deals with the "Hack hack hack" step&nbsp;:)
+</p>
+<h2><span class="mw-headline" id="How_to_install_from_the_local_repository"></span>How to install from the local repository</h2>
+<p>For expediency just for this article, we'll shallow clone direct from the distribution repo and set an environment variable pointing to it.
+</p>
+<div class="mw-highlight mw-content-ltr" dir="ltr"><pre>$ mkdir -p ~/tmpdev <span class="o">&amp;&amp;</span> <span class="nb">cd</span> ~/tmpdev
+$ git clone --depth<span class="o">=</span><span class="m">1</span> https://github.com/nixos/nixpkgs
+$ <span class="nb">export</span> <span class="nv">NIXPKGS</span><span class="o">=</span>~/tmpdev/nixpkgs
+$ ls $NIXPKGS
+</pre></div>
+<p>make some changes ...
+</p><p><b>example: list all available software</b> from the local repository
+$NIXPKGS
+</p>
+<div class="mw-highlight mw-content-ltr" dir="ltr"><pre><span class="gp">$</span> nix-env -f $NIXPKGS -qaP <span class="s1">'*'</span>
+</pre></div>
+<p><b>example: install software from local repository</b>
+</p>
+<div class="mw-highlight mw-content-ltr" dir="ltr"><pre><span class="gp">$</span> nix-env -f $NIXPKGS -iA python-urlgrabber
+</pre></div>
+<p><b>example: update the system</b> based on your local <b>$NIXPKGS</b>
+</p>
+<div class="mw-highlight mw-content-ltr" dir="ltr"><pre><span class="gp">$</span> nixos-rebuild -I <span class="nv">nixpkgs</span><span class="o">=</span>$NIXPKGS switch
+</pre></div>
+<p><b>example: build an expression and put the output in to `pwd`/results</b>
+</p>
+<div class="mw-highlight mw-content-ltr" dir="ltr"><pre><span class="gp">$</span> nix-build $NIXPKGS -A irssi
+</pre></div>
+<p><b>example: get an environment which is used to build irssi (also see nix-shell)</b>
+</p>
+<div class="mw-highlight mw-content-ltr" dir="ltr"><pre><span class="gp">$</span> nix-build $NIXPKGS --run-env -A irssi
+</pre></div>
+<p><b>example: get a persistent environment which is used to build irssi</b>
+</p>
+<div class="mw-highlight mw-content-ltr" dir="ltr"><pre><span class="gp">$</span> nix-build $NIXPKGS --run-env -A irssi --add-root
+</pre></div>
+<h2><span class="mw-headline" id="Tracking_upstream_changes_and_avoiding_extra_rebuilding"></span>Tracking upstream changes and avoiding extra rebuilding</h2>
+<p>You have forked the relevant nix repository, but you will want to track changes in the upstream nix repo too. You can add a remote, and a corresponding branch for this.
+</p>
+<div class="mw-highlight mw-content-ltr" dir="ltr"><pre><span class="gp">$</span> git remote add upstream https://github.com/NixOS/nixpkgs.git
+</pre></div>
+<p>You can create a branch to track the upstream master branch:
+</p>
+<div class="mw-highlight mw-content-ltr" dir="ltr"><pre><span class="gp">$</span> git fetch upstream
+<span class="gp">$</span> git checkout -b upstream-master upstream/master
+<span class="gp">$</span> git pull
+</pre></div>
+<p>This will put you into a branch with all the latest changes. Hydra, the build farm, regularly creates binaries, but, since people are constantly contributing to the nix repositories, it is usually the case that there are changes in the master branch which have not yet made it into the binary channel. To take advantage of available binaries you can switch to the revision which produced the binaries in your current system and apply your changes from there. You can use `nixos-version` to see the relevant short revision hash:
+</p>
+<div class="mw-highlight mw-content-ltr" dir="ltr"><pre><span class="gp">$</span> nixos-version 
+<span class="go">14.11pre52727.5d97886 (Caterpillar)</span>
+<span class="gp">$</span><span class="o">{</span>NixOS release<span class="o">}</span>.<span class="si">${</span><span class="nv">nixpkgs</span><span class="p"> revision</span><span class="si">}</span> 
+<span class="go">(since the git-repo called nixos was merged into nixpkgs)</span>
+</pre></div>
+<div class="mw-highlight mw-content-ltr" dir="ltr"><pre><span class="gp">$</span> nixos-version 
+<span class="go">13.07pre4871_18de9f6-3c35dae (Aardvark)</span>
+<span class="gp">$</span><span class="o">{</span>NixOS release<span class="o">}</span>_<span class="si">${</span><span class="nv">NixOS</span><span class="p"> revision</span><span class="si">}</span>-<span class="si">${</span><span class="nv">nixpkgs</span><span class="p"> revision</span><span class="si">}</span>
+</pre></div>
+<p>This string shows the Nixos release number (13.07pre4871) followed by the nixos revision used to produce your current system (18de9f6) followed by the nixpkgs revision (3c35dae).
+</p>
+<div class="mw-highlight mw-content-ltr" dir="ltr"><pre><span class="gp">$</span> git branch
+<span class="go">upstream-master</span>
+<span class="gp">$</span> git checkout -b nixpkgs-channel 3c35dae
+<span class="go">Switched to a new branch 'nixpkgs-channel'</span>
+<span class="gp">$</span> git checkout -b my-new-pkg
+<span class="go">Switched to a new branch 'my-new-pkg'</span>
+</pre></div>
+<p>After making some changes you can commit them into your local repo:
+</p>
+<div class="mw-highlight mw-content-ltr" dir="ltr"><pre><span class="gp">$</span> git add foo
+<span class="gp">$</span> git commit
+</pre></div>
+<p>Then you push your changes to your fork:
+</p>
+<div class="mw-highlight mw-content-ltr" dir="ltr"><pre><span class="gp">$</span> git push origin my-new-pkg
+</pre></div>
+<p>You can use this to open a pull request on github.
+</p><p>If some time has passed since you have created your fork, you will want to merge your changes with upstream and test that it still works.
+</p>
+<div class="mw-highlight mw-content-ltr" dir="ltr"><pre><span class="gp">$</span> git fetch upstream
+<span class="gp">$</span> git merge upstream
+</pre></div>
+<p>If your merge then fails because someone else has made the same change (for example, someone else also packaged a library you have just packed for the program you want to get into nixpkgs), then you can do this:
+</p>
+<div class="mw-highlight mw-content-ltr" dir="ltr"><pre><span class="gp">$</span> git rebase -i HEAD~10
+</pre></div>
+<p>there select the edit mode for your commit and remove the your code which added the library. **Warning: only use 'git rebase' on your commits, which have not been pushed and nobody else is working with already!**
+</p><p>Next you have to test if your program works with the library packaged from someone else, then do:
+</p>
+<div class="mw-highlight mw-content-ltr" dir="ltr"><pre><span class="gp">$</span> git checkout master
+<span class="gp">$</span> git log --stat
+</pre></div>
+<p>and pick the commit where the library was added. Finally cherry-pick that commit into your branch:
+</p>
+<div class="mw-highlight mw-content-ltr" dir="ltr"><pre><span class="gp">$</span> git checkout my-new-pkg
+<span class="gp">$</span> git cherry-pick 5d97886a6a545fb20495e0837cc50fa63d2a80e1
+</pre></div>
+<p>Afterwards do your usual tests and if needed also make modifications to the library but keep in mind that this might break the other use-case of that library and if in doubt check that as well.
+</p>
+<h2><span class="mw-headline" id="Using_nix-shell_for_package_development"></span>Using nix-shell for package development</h2>
+<p>nix-shell is a command which drops you into the build environment for a package. This is convenient for writing and debugging nix expressions. Nix-shell requires nix-1.6.x although running nix-build --run-env produces a similar environment.
+</p>
+<div class="mw-highlight mw-content-ltr" dir="ltr"><pre>$ mkdir -p ~/tmpdev/bc-build  <span class="o">&amp;&amp;</span>  <span class="nb">cd</span> ~/tmpdev/bc-build
+$ nix-shell $NIXPKGS -A bc
+</pre></div>
+<p>You can also drop in the build environment for a package not in nixpkgs.
+</p>
+<div class="mw-highlight mw-content-ltr" dir="ltr"><pre>$ mkdir -p ~/tmpdev/bc-build  <span class="o">&amp;&amp;</span>  <span class="nb">cd</span> ~/tmpdev/bc-build
+$ nix-shell -E <span class="s2">"with import &lt;nixpkgs&gt; {}; callPackage /path/to/package.nix {}"</span>
+</pre></div>
+<p>You would have seen the dependencies downloading, but the <i>bc-build</i> directory remains empty. The build system would next invoke <b>genericBuild()</b>.  This is a shell function defined by <a rel="nofollow" class="external text" href="https://github.com/NixOS/nixpkgs/blob/master/pkgs/stdenv/generic/setup.sh">stdenv</a> that you can review like this...
+</p>
+<div class="mw-highlight mw-content-ltr" dir="ltr"><pre>$ <span class="nb">typeset</span> -f genericBuild <span class="p">|</span> less
+</pre></div>
+<p>which shows when custom variables <b>$buildCommandPath</b> or <b>$buildCommand</b> are defined, those are evaluated exclusively.  Otherwise, if no custom <b>$phases</b> variable is set, the standard build phase order is used as shown here...
+</p>
+<div class="mw-highlight mw-content-ltr" dir="ltr"><pre>$ <span class="nb">typeset</span> -f genericBuild <span class="p">|</span> grep <span class="s1">'phases='</span>
+<span class="nv">phases</span><span class="o">=</span><span class="s2">"</span>$<span class="s2">prePhases unpackPhase patchPhase </span>$<span class="s2">preConfigurePhases configurePhase </span>$<span class="s2">preBuildPhases buildPhase checkPhase </span>$<span class="s2">preInstallPhases installPhase fixupPhase installCheckPhase </span>$<span class="s2">preDistPhases distPhase </span>$<span class="s2">postPhases"</span><span class="p">;</span>
+</pre></div>
+<p>The phases can be defined either as a string to be eval'ed or as a shell function, <a rel="nofollow" class="external text" href="https://github.com/NixOS/nixpkgs/blob/5a0b79f955d6c2dc21239f1b0d956ef8dc89a57e/pkgs/stdenv/generic/setup.sh#L818">this is how</a> Nix invokes it.
+</p><p><br>
+So to observe a full build, you can do...
+</p>
+<div class="mw-highlight mw-content-ltr" dir="ltr"><pre>$ <span class="nb">export</span> <span class="nv">out</span><span class="o">=</span>~/tmpdev/bc-build/out
+$ <span class="nb">set</span> -x
+$ genericBuild
+</pre></div>
+<p>or while developing your own package, you need to individually run these phases in order:
+</p>
+<div class="mw-highlight mw-content-ltr" dir="ltr"><pre>unpackPhase
+patchPhase
+configurePhase
+buildPhase
+checkPhase
+installPhase
+fixupPhase
+installCheckPhase
+distPhase
+</pre></div>
+<p>Any overridden phases should be invoked using <b>eval</b> instead:
+</p>
+<div class="mw-highlight mw-content-ltr" dir="ltr"><pre><span class="nb">eval</span> <span class="s2">"</span><span class="nv">$c</span><span class="s2">heckPhase"</span>
+<span class="c1"># etc..</span>
+</pre></div>
+<div style="padding: 0.5em; margin: 0.50em 0; background-color: #C1E5FF; border: thin solid #1D99F3; overflow: hidden;"><strong> Note: </strong>you do not need to run $preConfigurePhase explicitly as it is run, when running configurePhase already.</div>
+<p>To list all functions which are declared in <b>set</b>:
+</p>
+<div class="mw-highlight mw-content-ltr" dir="ltr"><pre><span class="nb">typeset</span> -F
+<span class="nb">declare</span> -f addCVars
+<span class="nb">declare</span> -f addToCrossEnv
+<span class="nb">declare</span> -f addToNativeEnv
+<span class="nb">declare</span> -f addToSearchPath
+<span class="nb">declare</span> -f addToSearchPathWithCustomDelimiter
+<span class="nb">declare</span> -f buildPhase
+<span class="nb">declare</span> -f checkPhase
+<span class="nb">declare</span> -f closeNest
+<span class="nb">declare</span> -f command_not_found_handle
+<span class="nb">declare</span> -f configurePhase
+<span class="nb">declare</span> -f distPhase
+<span class="nb">declare</span> -f dumpVars
+<span class="nb">declare</span> -f ensureDir
+<span class="nb">declare</span> -f exitHandler
+<span class="nb">declare</span> -f findInputs
+<span class="nb">declare</span> -f fixLibtool
+<span class="nb">declare</span> -f fixupPhase
+<span class="nb">declare</span> -f genericBuild
+<span class="nb">declare</span> -f header
+<span class="nb">declare</span> -f installBin
+<span class="nb">declare</span> -f installCheckPhase
+<span class="nb">declare</span> -f installPhase
+<span class="nb">declare</span> -f patchELF
+<span class="nb">declare</span> -f patchPhase
+<span class="nb">declare</span> -f patchShebangs
+<span class="nb">declare</span> -f runHook
+<span class="nb">declare</span> -f showPhaseHeader
+<span class="nb">declare</span> -f startNest
+<span class="nb">declare</span> -f stopNest
+<span class="nb">declare</span> -f stripDirs
+<span class="nb">declare</span> -f stripHash
+<span class="nb">declare</span> -f substitute
+<span class="nb">declare</span> -f substituteAll
+<span class="nb">declare</span> -f substituteAllInPlace
+<span class="nb">declare</span> -f substituteInPlace
+<span class="nb">declare</span> -f unpackFile
+<span class="nb">declare</span> -f unpackPhase
+</pre></div>
+<p>If the phase has been defined as a function, to list a particular function type:
+</p>
+<div class="mw-highlight mw-content-ltr" dir="ltr"><pre><span class="nb">typeset</span> -f unpackPhase
+</pre></div>
+<p>Otherwise, if it was a string, simply echo the variable related to it
+</p>
+<div class="mw-highlight mw-content-ltr" dir="ltr"><pre><span class="nb">echo</span> <span class="s2">"</span>$<span class="s2">unpackPhase"</span>
+</pre></div>
+<p>In either case, you can see the code that is about to be executed for each phase:
+</p>
+<div class="mw-highlight mw-content-ltr" dir="ltr"><pre><span class="nb">typeset</span> -f unpackPhase
+unpackPhase <span class="o">()</span>
+<span class="o">{</span>
+    runHook preUnpack<span class="p">;</span>
+    <span class="k">if</span> <span class="o">[</span> -z <span class="s2">"</span>$<span class="s2">srcs"</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+        <span class="k">if</span> <span class="o">[</span> -z <span class="s2">"</span>$<span class="s2">src"</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+            <span class="nb">echo</span> <span class="s1">'variable $src or $srcs should point to the source'</span><span class="p">;</span>
+            <span class="nb">exit</span> 1<span class="p">;</span>
+        <span class="k">fi</span><span class="p">;</span>
+        <span class="nv">srcs</span><span class="o">=</span><span class="s2">"</span>$<span class="s2">src"</span><span class="p">;</span>
+    <span class="k">fi</span><span class="p">;</span>
+    <span class="nb">local</span> <span class="nv">dirsBefore</span><span class="o">=</span><span class="s2">""</span><span class="p">;</span>
+    <span class="k">for</span> i in *<span class="p">;</span>
+    <span class="k">do</span>
+        <span class="k">if</span> <span class="o">[</span> -d <span class="s2">"</span>$<span class="s2">i"</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+            <span class="nv">dirsBefore</span><span class="o">=</span><span class="s2">"</span><span class="nv">$d</span><span class="s2">irsBefore </span>$<span class="s2">i "</span><span class="p">;</span>
+        <span class="k">fi</span><span class="p">;</span>
+    <span class="k">done</span><span class="p">;</span>
+    <span class="k">for</span> i in $srcs<span class="p">;</span>
+    <span class="k">do</span>
+        unpackFile $i<span class="p">;</span>
+    <span class="k">done</span><span class="p">;</span>
+    <span class="k">if</span> <span class="o">[</span> -n <span class="s2">"</span>$<span class="s2">setSourceRoot"</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+        runHook setSourceRoot<span class="p">;</span>
+    <span class="k">else</span>
+        <span class="k">if</span> <span class="o">[</span> -z <span class="s2">"</span>$<span class="s2">sourceRoot"</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+            <span class="nv">sourceRoot</span><span class="o">=</span><span class="p">;</span>
+            <span class="k">for</span> i in *<span class="p">;</span>
+            <span class="k">do</span>
+                <span class="k">if</span> <span class="o">[</span> -d <span class="s2">"</span>$<span class="s2">i"</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+                    <span class="k">case</span> <span class="nv">$d</span>irsBefore in
+                        *<span class="se">\ </span>$i<span class="se">\ </span>*<span class="o">)</span>
+
+                        <span class="p">;;</span>
+                        *<span class="o">)</span>
+                            <span class="k">if</span> <span class="o">[</span> -n <span class="s2">"</span>$<span class="s2">sourceRoot"</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+                                <span class="nb">echo</span> <span class="s2">"unpacker produced multiple directories"</span><span class="p">;</span>
+                                <span class="nb">exit</span> 1<span class="p">;</span>
+                            <span class="k">fi</span><span class="p">;</span>
+                            <span class="nv">sourceRoot</span><span class="o">=</span><span class="s2">"</span>$<span class="s2">i"</span>
+                        <span class="p">;;</span>
+                    <span class="k">esac</span><span class="p">;</span>
+                <span class="k">fi</span><span class="p">;</span>
+            <span class="k">done</span><span class="p">;</span>
+        <span class="k">fi</span><span class="p">;</span>
+    <span class="k">fi</span><span class="p">;</span>
+    <span class="k">if</span> <span class="o">[</span> -z <span class="s2">"</span>$<span class="s2">sourceRoot"</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+        <span class="nb">echo</span> <span class="s2">"unpacker appears to have produced no directories"</span><span class="p">;</span>
+        <span class="nb">exit</span> 1<span class="p">;</span>
+    <span class="k">fi</span><span class="p">;</span>
+    <span class="nb">echo</span> <span class="s2">"source root is </span>$<span class="s2">sourceRoot"</span><span class="p">;</span>
+    <span class="k">if</span> <span class="o">[</span> <span class="s2">"</span><span class="nv">$d</span><span class="s2">ontMakeSourcesWritable"</span> !<span class="o">=</span> <span class="m">1</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+        chmod -R u+w <span class="s2">"</span>$<span class="s2">sourceRoot"</span><span class="p">;</span>
+    <span class="k">fi</span><span class="p">;</span>
+    runHook postUnpack
+<span class="o">}</span>
+</pre></div>
+<p>you can also modify the configureFlags prefix:
+</p>
+<div class="mw-highlight mw-content-ltr" dir="ltr"><pre><span class="nb">export</span> <span class="nv">configureFlags</span><span class="o">=</span><span class="s2">"--prefix=</span>$<span class="s2">out --with-readline"</span>
+</pre></div>
+<p>Tip: A git repository can be used for snapshotting attempts at building the package. This also makes it easy to generate patches, should you need to.
+</p>
+<h2><span class="mw-headline" id="nix_channels"></span>nix channels</h2>
+<p>nix channels can be used in parallel with your new local repositories, see its <a href="https://nixos.wiki/index.php?title=Install/remove_software&amp;action=edit&amp;redlink=1" class="new" title="Install/remove software (page does not exist)"> nix-channel-documentation</a>
+</p><p><br>
+</p>
+<h2><span class="mw-headline" id="Testing_Package_Updates_with_Nox"></span>Testing Package Updates with Nox</h2>
+<p>If you are updating a package's version, you can use nox to make sure all packages that depend on the updated package still compile correctly.
+</p><p>First make sure it is in your environment:
+</p>
+<div class="mw-highlight mw-content-ltr" dir="ltr"><pre>nix-env -i nox
+</pre></div>
+<p>You can run nox against uncommited changes to a nixpkgs repository:
+</p>
+<div class="mw-highlight mw-content-ltr" dir="ltr"><pre><span class="nb">cd</span> ~/.nix-defexpr
+nox-review wip
+</pre></div>
+<p>If you have already commited your changes and created a pull request, you can use the pr command:
+</p>
+<div class="mw-highlight mw-content-ltr" dir="ltr"><pre>nox-review pr 5341
+</pre></div>
+<h2><span class="mw-headline" id="See_also"></span>See also</h2>
+<ul><li> <a href="https://nixos.wiki/wiki/Generic_Algorithm_on_Doing_Packaging" class="mw-redirect" title="Generic Algorithm on Doing Packaging">Generic Algorithm on Doing Packaging</a></li></ul>
+
+<!-- 
+NewPP limit report
+Cached time: 20210105222639
+Cache expiry: 86400
+Dynamic content: false
+CPU time usage: 0.012 seconds
+Real time usage: 0.014 seconds
+Preprocessor visited node count: 347/1000000
+Preprocessor generated node count: 821/1000000
+Post‐expand include size: 831/2097152 bytes
+Template argument size: 333/2097152 bytes
+Highest expansion depth: 6/40
+Expensive parser function count: 0/100
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    1.805      1 Template:Note
+100.00%    1.805      1 -total
+ 66.27%    1.196      1 Template:META_Box_Blue
+ 32.47%    0.586      1 Template:META_Box
+-->
+
+<!-- Saved in parser cache with key nixoswiki-nixos:pcache:idhash:9-0!*!0!!en!*!* and timestamp 20210105222717 and revision id 5217
+ -->
+</div>								<div class="printfooter">
+				Retrieved from "<a dir="ltr" href="https://nixos.wiki/index.php?title=Nixpkgs/Create_and_debug_packages&amp;oldid=5217">https://nixos.wiki/index.php?title=Nixpkgs/Create_and_debug_packages&amp;oldid=5217</a>"				</div>
+												<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="https://nixos.wiki/wiki/Special:Categories" title="Special:Categories">Categories</a>: <ul><li><a href="https://nixos.wiki/index.php?title=Category:Development&amp;action=edit&amp;redlink=1" class="new" title="Category:Development (page does not exist)">Development</a></li><li><a href="https://nixos.wiki/index.php?title=Category:NixOS&amp;action=edit&amp;redlink=1" class="new" title="Category:NixOS (page does not exist)">NixOS</a></li><li><a href="https://nixos.wiki/wiki/Category:Nixpkgs" title="Category:Nixpkgs">Nixpkgs</a></li><li><a href="https://nixos.wiki/wiki/Category:Guide" title="Category:Guide">Guide</a></li></ul></div></div>												<div class="visualClear"></div>
+							</div>
+			<!-- /bodyContent -->
+		</div>
+					</div>
+			</div>
+		</div>
+		<!-- /content -->
+
+			<!-- sidebar-right -->
+			<div class="sidebar-wrapper sidebar-right-wrapper">
+				<div class="sidebar-container container">
+					<div class="row">
+						<div id="sidebar-right" class="col-md-3 col-md-offset-9">
+							<div class="btn-group btn-block"><a href="https://nixos.wiki/index.php?title=Talk:Nixpkgs/Create_and_debug_packages&amp;action=edit&amp;redlink=1" primary="1" context="talk" rel="discussion" id="ca-talk" attributes=" id=&quot;ca-talk&quot; class=&quot;new&quot;" key=" title=&quot;Discussion about the content page [t]&quot; accesskey=&quot;t&quot;" class="btn btn-primary btn-block" title="Discussion about the content page [alt-shift-t]" accesskey="t">Discussion</a></div><div id="tweekiTOC"><div id="toctitle" class="toctitle"><h2>Contents<a href="javascript:scrollTo(0,0);">to top</a></h2></div><div id="toc" class="toc" style="display: table;">
+<ul class="nav">
+<li class="toclevel-1 tocsection-1"><a href="https://nixos.wiki/wiki/Nixpkgs/Create_and_debug_packages#Basics"><span class="tocnumber">1</span> <span class="toctext">Basics</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="https://nixos.wiki/wiki/Nixpkgs/Create_and_debug_packages#How_to_install_from_the_local_repository"><span class="tocnumber">2</span> <span class="toctext">How to install from the local repository</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="https://nixos.wiki/wiki/Nixpkgs/Create_and_debug_packages#Tracking_upstream_changes_and_avoiding_extra_rebuilding"><span class="tocnumber">3</span> <span class="toctext">Tracking upstream changes and avoiding extra rebuilding</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="https://nixos.wiki/wiki/Nixpkgs/Create_and_debug_packages#Using_nix-shell_for_package_development"><span class="tocnumber">4</span> <span class="toctext">Using nix-shell for package development</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="https://nixos.wiki/wiki/Nixpkgs/Create_and_debug_packages#nix_channels"><span class="tocnumber">5</span> <span class="toctext">nix channels</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="https://nixos.wiki/wiki/Nixpkgs/Create_and_debug_packages#Testing_Package_Updates_with_Nox"><span class="tocnumber">6</span> <span class="toctext">Testing Package Updates with Nox</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="https://nixos.wiki/wiki/Nixpkgs/Create_and_debug_packages#See_also"><span class="tocnumber">7</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div></div>						</div>
+					</div>
+				</div>
+			</div>
+			<!-- /sidebar-right -->
+					<!-- footer -->
+			<div id="footer" role="contentinfo" class="footer container footer-sticky" style="margin-top: 50px; opacity: 1;">
+			<ul id="footer-places"><li id="footer-places-privacy"><a href="https://nixos.wiki/wiki/NixOS_Wiki:Privacy_policy" title="NixOS Wiki:Privacy policy">Privacy Policy</a></li><li id="footer-places-about"><a href="https://nixos.wiki/wiki/NixOS_Wiki:About" title="NixOS Wiki:About">About NixOS Wiki</a></li></ul><ul id="footer-custom"><li class="dropup"><a href="https://nixos.wiki/index.php?title=Special:UserLogin&amp;returnto=Nixpkgs%2FCreate+and+debug+packages" title="You are encouraged to log in; however, it is not mandatory [alt-shift-o]" accesskey="o">Login / Create Account</a></li></ul><div style="clear:both"></div><div class="dropup"><a href="https://nixos.wiki/index.php?title=Nixpkgs/Create_and_debug_packages&amp;action=edit" primary="1" id="ca-viewsource" attributes=" id=&quot;ca-viewsource&quot;" key=" title=&quot;This page is protected.&amp;#10;You can view its source [e]&quot; accesskey=&quot;e&quot;" title="This page is protected.
+You can view its source [alt-shift-e]" accesskey="e"><span class="glyphicon glyphicon-pencil"></span> View source</a></div><div class="dropup"><a href="https://nixos.wiki/index.php?title=Talk:Nixpkgs/Create_and_debug_packages&amp;action=edit&amp;redlink=1" primary="1" context="talk" rel="discussion" id="ca-talk" attributes=" id=&quot;ca-talk&quot; class=&quot;new&quot;" key=" title=&quot;Discussion about the content page [t]&quot; accesskey=&quot;t&quot;" title="Discussion about the content page [alt-shift-t]" accesskey="t">Discussion</a></div><div class="dropup"><a class="dropdown-toggle" data-toggle="dropdown" href="https://nixos.wiki/wiki/Nixpkgs/Create_and_debug_packages#">Log in <b class="caret"></b></a><ul class="dropdown-menu " role="menu"><li><a href="https://nixos.wiki/index.php?title=Special:UserLogin&amp;returnto=Nixpkgs%2FCreate+and+debug+packages" tabindex="-1" title="You are encouraged to log in; however, it is not mandatory [alt-shift-o]" accesskey="o">With a wiki account</a></li><li><a href="https://nixos.wiki/index.php?title=Special:OAuth2Client/redirect&amp;returnto=Nixpkgs%2FCreate+and+debug+packages" tabindex="-1">Login with GitHub</a></li></ul></div>			</div>
+			<!-- /footer -->
+		<script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.012","walltime":"0.014","ppvisitednodes":{"value":347,"limit":1000000},"ppgeneratednodes":{"value":821,"limit":1000000},"postexpandincludesize":{"value":831,"limit":2097152},"templateargumentsize":{"value":333,"limit":2097152},"expansiondepth":{"value":6,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"timingprofile":["100.00%    1.805      1 Template:Note","100.00%    1.805      1 -total"," 66.27%    1.196      1 Template:META_Box_Blue"," 32.47%    0.586      1 Template:META_Box"]},"cachereport":{"timestamp":"20210105222639","ttl":86400,"transientcontent":false}}});});</script><script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":35});});</script>	
+<!-- Cached 20210105223521 -->
+
+<div class="suggestions" style="display: none; font-size: 13px;"><div class="suggestions-results"></div><div class="suggestions-special"></div></div></body><div></div></html>
