@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<!-- saved from url=(0062)https://nixos.wiki/wiki/Development_environment_with_nix-shell -->
+<html class="client-js" lang="en" dir="ltr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>Development environment with nix-shell - NixOS Wiki</title>
+<script>document.documentElement.className=document.documentElement.className.replace(/(^|\s)client-nojs(\s|$)/,"$1client-js$2");</script>
+<script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Development_environment_with_nix-shell","wgTitle":"Development environment with nix-shell","wgCurRevisionId":5295,"wgRevisionId":5295,"wgArticleId":424,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Development_environment_with_nix-shell","wgRelevantArticleId":424,"wgRequestId":"b34baae996865e9e64aa1b95","wgIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgWikiEditorEnabledModules":{"toolbar":false,"dialogs":false,"preview":false,"publish":false}});mw.loader.state({"site.styles":"ready","noscript":"ready","user.styles":"ready","user":"ready","user.options":"loading","user.tokens":"loading","ext.pygments":"ready","mediawiki.legacy.shared":"ready","mediawiki.legacy.commonPrint":"ready","mediawiki.sectionAnchor":"ready","skins.tweeki.bootstrap.styles":"ready","skins.tweeki.styles":"ready","skins.tweeki.corrections.styles":"ready","skins.tweeki.externallinks.styles":"ready","skins.tweeki.awesome.styles":"ready","skins.tweeki.bootstraptheme.styles":"ready","x.nixos-wiki.styles":"ready"});mw.loader.implement("user.options@0j3lz3q",function($,jQuery,require,module){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens@1x06yyp",function($,jQuery,require,module){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});;});mw.loader.load(["mediawiki.toc","mediawiki.action.view.postEdit","site","mediawiki.page.startup","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest","skins.tweeki.scripts"]);});</script>
+<link rel="stylesheet" href="./Developmentenvironmentwithnix-shell-NixOSWiki_files/load.php">
+<script async="" src="./Developmentenvironmentwithnix-shell-NixOSWiki_files/load(1).php"></script>
+<style>
+@media screen {
+	.tochidden,.toctoggle{-moz-user-select:none;-webkit-user-select:none;-ms-user-select:none;user-select:none}.toctoggle{font-size:94%}}
+@media print {
+	#toc.tochidden,.toc.tochidden,.toctoggle{display:none}}
+.postedit-container{margin:0 auto;position:fixed;top:0;height:0;left:50%;z-index:1000;font-size:13px}.postedit-container:hover{cursor:pointer}.postedit{position:relative;top:0.6em;left:-50%;padding:0.6em 3.6em 0.6em 1.1em;line-height:1.5625em;color:#626465;background-color:#f4f4f4;border:1px solid #dcd9d9;text-shadow:0 0.0625em 0 rgba( 255,255,255,0.5 );border-radius:5px;box-shadow:0 2px 5px 0 #ccc;-webkit-transition:all 0.25s ease-in-out;-moz-transition:all 0.25s ease-in-out;-ms-transition:all 0.25s ease-in-out;-o-transition:all 0.25s ease-in-out;transition:all 0.25s ease-in-out}.skin-monobook .postedit{top:6em !important; }.postedit-faded{opacity:0}.postedit-icon{padding-left:41px;  line-height:25px;background-repeat:no-repeat;background-position:8px 50%}.postedit-icon-checkmark{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAB9ElEQVR4AZWRA3AYURQArxrVHtW2bdu2bdu2zdi2bdu2bWxs7zeehZaw4f70kbs+zI3e/nWK+RWx3aOFlrL56Sy5SxrruG69hlv6OyK+mz+8KDSXdXembj0ispT7tjs4ZTIbpYBvxGSGKzZTeFrb7W/meN002swFs0U8ttpHTkF2BvCqWQrW35929bTsKm5Zb+SEwWwcY8wAngB9m7Z+d+rIPZ/npdy12M5p47n8dXsCYAf0qPy06eGMdktuDu9Qf+JmKl3SWM91qzVcN9tAbEYkwMaq0tyb1m/To5kP170el/BK8/qa6sJr70ydf+T/Uu5ab+Oo/lS0AkUBpIFWlZ9WPhxpse/PHO7YbOOczjL0vZV2lNxPPtG73dYXM+xvm2znrOl83tidoqCwMBgYXsPFB0on5S6pr+eK5TKuW67lgvaKvF8mL1dtfTL32FHxRdyx3cQpg7m4x9sCXKkTIzA4LDH44zWdzaUf71hv5rTG4uyzcusybxSX7aThbMQ8XgCYAp3rzTTQOiIh9PNlzY3FSuZxrzjme1Y7uGS6kjsWO4jPjM4FVjRZsvD4kO9XtTZzQn82NyzWc0B7AmZh6gA/hOYSGhfw9YbOVnarj+S7800AL2BIsxUAbWNToj7bhBuQmZcOsFdoKUC74rGheCwXmqAIQTc9jQcrADIAAAAASUVORK5CYII=);background-image:url(/resources/src/mediawiki.action/images/green-checkmark.png?d94f1)!ie;background-position:left}.postedit-close{position:absolute;padding:0 0.8em;right:0;top:0;font-size:1.25em;font-weight:bold;line-height:2.3em;color:#000;text-shadow:0 0.0625em 0 #fff;text-decoration:none;opacity:0.2;filter:alpha( opacity=20 )}.postedit-close:hover{color:#000;text-decoration:none;opacity:0.4;filter:alpha( opacity=40 )}
+.suggestions{overflow:hidden;position:absolute;top:0;left:0;width:0;border:0;z-index:1099;padding:0;margin:-1px 0 0 0}.suggestions-special{position:relative;background-color:#fff;cursor:pointer;border:solid 1px #aaa;margin:0;margin-top:-2px;display:none;padding:0.25em 0.25em;line-height:1.25em}.suggestions-results{background-color:#fff;cursor:pointer;border:solid 1px #aaa;padding:0;margin:0}.suggestions-result{color:#000;margin:0;line-height:1.5em;padding:0.01em 0.25em;text-align:left; overflow:hidden;-o-text-overflow:ellipsis; text-overflow:ellipsis;white-space:nowrap}.suggestions-result-current{background-color:#4c59a6;color:#fff}.suggestions-special .special-label{color:#808080;text-align:left}.suggestions-special .special-query{color:#000;font-style:italic;text-align:left}.suggestions-special .special-hover{background-color:#c0c0c0}.suggestions-result-current .special-label,.suggestions-result-current .special-query{color:#fff}.highlight{font-weight:bold}</style><style>
+.suggestions a.mw-searchSuggest-link,.suggestions a.mw-searchSuggest-link:hover,.suggestions a.mw-searchSuggest-link:active,.suggestions a.mw-searchSuggest-link:focus{color:#000;text-decoration:none}.suggestions-result-current a.mw-searchSuggest-link,.suggestions-result-current a.mw-searchSuggest-link:hover,.suggestions-result-current a.mw-searchSuggest-link:active,.suggestions-result-current a.mw-searchSuggest-link:focus{color:#fff}.suggestions a.mw-searchSuggest-link .special-query{ overflow:hidden;-o-text-overflow:ellipsis; text-overflow:ellipsis;white-space:nowrap}</style><meta name="ResourceLoaderDynamicStyles" content="">
+<link rel="stylesheet" href="./Developmentenvironmentwithnix-shell-NixOSWiki_files/load(2).php">
+<meta name="generator" content="MediaWiki 1.29.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="https://nixos.wiki/xfavicon.png.pagespeed.ic.Yz0KSD8dq8.webp">
+<link rel="search" type="application/opensearchdescription+xml" href="https://nixos.wiki/opensearch_desc.php" title="NixOS Wiki (en)">
+<link rel="EditURI" type="application/rsd+xml" href="https://nixos.wiki/api.php?action=rsd">
+<link rel="alternate" type="application/atom+xml" title="NixOS Wiki Atom feed" href="https://nixos.wiki/index.php?title=Special:RecentChanges&amp;feed=atom">
+<link rel="canonical" href="https://nixos.wiki/wiki/Development_environment_with_nix-shell">
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/skins/tweeki/csshover.min.htc")}</style><![endif]-->
+<script src="./Developmentenvironmentwithnix-shell-NixOSWiki_files/load(3).php"></script></head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-Development_environment_with_nix-shell rootpage-Development_environment_with_nix-shell skin-tweeki action-view tweeki-animateLayout" style="margin-bottom: 0px; position: relative;">			<!-- navbar -->
+			<div id="mw-navigation" class="navbar navbar-default navbar-fixed-top" role="navigation">
+				<h2>Navigation menu</h2>
+				<div id="mw-head" class="navbar-inner">
+					<div class="container">
+				
+						<div class="navbar-header">
+							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+								<span class="sr-only">Toggle navigation</span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							</button>
+
+							<a href="https://nixos.wiki/wiki/Main_Page" class="navbar-brand">NixOS Wiki</a>					
+						</div>
+
+						<div id="navbar" class="navbar-collapse collapse">
+													<ul class="nav navbar-nav">
+							<li class="nav"><a href="https://nixos.wiki/wiki/Development_environment_with_nix-shell#" id="n-Ecosystem" class="dropdown-toggle" data-toggle="dropdown">Ecosystem <b class="caret"></b></a><ul class="dropdown-menu " role="menu"><li id="n-Nix-Ecosystem"><a href="https://nixos.wiki/wiki/Nix_Ecosystem" tabindex="-1">Overview</a></li><li id="n-NixOS"><a href="https://nixos.wiki/wiki/NixOS" tabindex="-1">NixOS</a></li><li id="n-Nix"><a href="https://nixos.wiki/wiki/Nix" tabindex="-1">Nix</a></li><li id="n-Nix-Expression-Language"><a href="https://nixos.wiki/wiki/Nix_Expression_Language" tabindex="-1">Nix language</a></li><li id="n-Nixpkgs"><a href="https://nixos.wiki/wiki/Nixpkgs" tabindex="-1">Nixpkgs</a></li><li id="n-NixOps"><a href="https://nixos.wiki/wiki/NixOps" tabindex="-1">NixOps</a></li><li id="n-Hydra"><a href="https://nixos.wiki/wiki/Hydra" tabindex="-1">Hydra</a></li><li id="n-Applications"><a href="https://nixos.wiki/wiki/Applications" tabindex="-1">Applications</a></li></ul></li><li class="nav"><a href="https://nixos.wiki/wiki/Resources" id="n-Resources">Resources</a></li><li class="nav"><a href="https://nixos.wiki/wiki/Development_environment_with_nix-shell#" id="n-Community" class="dropdown-toggle" data-toggle="dropdown">Community <b class="caret"></b></a><ul class="dropdown-menu " role="menu"><li id="n-Nix-Community"><a href="https://nixos.wiki/wiki/Nix_Community" tabindex="-1">About</a></li><li id="n-Get-In-Touch"><a href="https://nixos.wiki/wiki/Get_In_Touch" tabindex="-1">Get In Touch</a></li><li id="n-Support"><a href="https://nixos.wiki/wiki/Support" tabindex="-1">Support</a></li></ul></li><li class="nav"><a href="https://nixos.wiki/wiki/Development_environment_with_nix-shell#" id="n-Wiki" class="dropdown-toggle" data-toggle="dropdown">Wiki <b class="caret"></b></a><ul class="dropdown-menu " role="menu"><li id="n-Contributing-to-the-wiki"><a href="https://nixos.wiki/wiki/Contributing_to_the_wiki" tabindex="-1">Contribute</a></li><li id="n-https:.2F.2Fgithub.com.2Fnixos-users.2Fwiki.2Fissues"><a href="https://github.com/nixos-users/wiki/issues" rel="nofollow" tabindex="-1">Issues</a></li><li id="n-https:.2F.2Fgithub.com.2Fnixos-users.2Fwiki.2Fprojects"><a href="https://github.com/nixos-users/wiki/projects" rel="nofollow" tabindex="-1">Projects</a></li><li id="n-recentchanges-url"><a href="https://nixos.wiki/wiki/Special:RecentChanges" tabindex="-1">Recent changes</a></li><li id="n-randompage-url"><a href="https://nixos.wiki/wiki/Special:Random" tabindex="-1">Random page</a></li><li id="n-https:.2F.2Fwww.mediawiki.org.2Fwiki.2FSpecial:MyLanguage.2FHelp:Contents"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" tabindex="-1">Help</a></li></ul></li>							</ul>
+						
+													<ul class="nav navbar-nav navbar-right">
+							<li class="nav"><a class="dropdown-toggle" data-toggle="dropdown" href="https://nixos.wiki/wiki/Development_environment_with_nix-shell#">Log in <b class="caret"></b></a><ul class="dropdown-menu " role="menu"><li><a href="https://nixos.wiki/index.php?title=Special:UserLogin&amp;returnto=Development+environment+with+nix-shell" tabindex="-1" title="You are encouraged to log in; however, it is not mandatory [alt-shift-o]" accesskey="o">With a wiki account</a></li><li><a href="https://nixos.wiki/index.php?title=Special:OAuth2Client/redirect&amp;returnto=Development+environment+with+nix-shell" tabindex="-1">Login with GitHub</a></li></ul></li></ul>
+			<form class="navbar-form navbar-right" action="https://nixos.wiki/index.php" id="searchform">
+				<div class="form-group">
+					<input id="searchInput" class="search-query form-control" type="search" accesskey="f" title="Special:Search [alt-shift-f]" placeholder="Search" name="search" value="" autocomplete="off">
+					<input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="mw-searchButton" class="searchButton btn hidden">
+				</div>
+			</form><ul class="nav navbar-nav navbar-right">							</ul>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+			<!-- /navbar -->
+				<div id="mw-page-base"></div>
+		<div id="mw-head-base"></div>
+		<a id="top"></a>
+
+		<!-- content -->
+		<div id="contentwrapper" class="user-loggedout not-editable container with-navbar with-navbar-fixed">
+
+			
+			<div class="row">
+				<div class="col-md-offset-0 col-md-9" role="main">
+							<div class="mw-body" id="content">
+			<div id="mw-js-message" style="display:none;"></div>
+									<h1 id="firstHeading" class="firstHeading page-header" lang="en"><span dir="auto">Development environment with nix-shell</span></h1>
+									<!-- bodyContent -->
+			<div id="bodyContent">
+								<div id="siteSub">From NixOS Wiki</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="https://nixos.wiki/wiki/Development_environment_with_nix-shell#mw-navigation">navigation</a>, 					<a href="https://nixos.wiki/wiki/Development_environment_with_nix-shell#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><p>Nix can be used to provides some kind of <b>virtual environment</b> through the <code>nix-shell</code> command.
+</p><p>If you already have a nix package definition of your project it's easy: Just use <code>nix-shell</code> instead of <code>nix-build</code> and you will end up in a bash shell that reproduce the build-environment of your package. You can also override<a rel="nofollow" class="external autonumber" href="https://nixos.org/nixpkgs/manual/#sec-pkg-override">[1]</a> your package in a <code>shell.nix</code> file to add test and coverage dependencies, that are not necessary for the actual build of the package, but that you want for your development environment.
+</p><p>But, if you don't (or you don't want to) have a package definition you can still use a nix-shell to provide a reproducible development environment. To do so, you have to create a <code>shell.nix</code> file at the root of your repository. For example, if you want to have Ruby 2.3 and not one provided by your system you can write:
+</p>
+<div class="mw-highlight mw-content-ltr" dir="ltr"><pre><span class="p">{</span> pkgs <span class="o">?</span> <span class="nb">import</span> <span class="l">&lt;nixpkgs&gt;</span> <span class="p">{}</span> <span class="p">}:</span>
+  pkgs<span class="o">.</span>mkShell <span class="p">{</span>
+    <span class="c1"># nativeBuildInputs is usually what you want -- tools you need to run</span>
+    <span class="ss">nativeBuildInputs =</span> <span class="p">[</span> pkgs<span class="o">.</span>buildPackages<span class="o">.</span>ruby_2_3 <span class="p">];</span>
+<span class="p">}</span>
+</pre></div>
+<p>Then just run:
+</p>
+<pre style="padding: 0.4em;">$ nix-shell</pre>
+<p>Or, to be more explicit:
+</p>
+<pre style="padding: 0.4em;">$ nix-shell shell.nix</pre>
+<p>Now you got ruby 2.3 in available in your shell:
+</p>
+<div class="mw-highlight mw-content-ltr" dir="ltr"><pre>$ ruby --version
+ruby 2.3.7p456 <span class="o">(</span>2018-03-28<span class="o">)</span> <span class="o">[</span>x86_64-linux<span class="o">]</span>
+</pre></div>
+<p>To be sure that the tools installed on your system will not interfere with the dependencies that you've defined in the shell you can use the <code>--pure</code> option.
+</p><p>If you'd like to load a local nix expression into a shell you can do it by modifying the earlier example a little bit:
+</p>
+<div class="mw-highlight mw-content-ltr" dir="ltr"><pre><span class="p">{</span> pkgs <span class="o">?</span> <span class="nb">import</span> <span class="l">&lt;nixpkgs&gt;</span> <span class="p">{}</span> <span class="p">}:</span>
+pkgs<span class="o">.</span>mkShell <span class="p">{</span>
+  <span class="c1"># buildInputs is for dependencies you'd need "at run time",</span>
+  <span class="c1"># were you to to use nix-build not nix-shell and build whatever you were working on</span>
+  <span class="ss">buildInputs =</span> <span class="p">[</span>
+    <span class="p">(</span><span class="nb">import</span> <span class="o">.</span><span class="l">/my-expression.nix</span> <span class="p">{</span> <span class="k">inherit</span> pkgs<span class="p">;</span> <span class="p">})</span>
+  <span class="p">];</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<h3><span class="mw-headline" id="Small_cross_env_note"></span>Small cross env note</h3>
+<p>The comments in the code snippets on <code>nativeBuildInputs</code> and <code>buildInputs</code> above might seem pendantic --- who cares about build-time vs run-time when we're just making a dev environment, not a real package! However, the distinction becomes of practical importance if one wants a cross compilation development environment. In that case one would begin file with something like:
+</p>
+<div class="mw-highlight mw-content-ltr" dir="ltr"><pre><span class="p">{</span> pkgs <span class="o">?</span> <span class="nb">import</span> <span class="l">&lt;nixpkgs&gt;</span> <span class="p">{</span> crossSystem<span class="o">.</span><span class="ss">config =</span> <span class="s2">"exotic_arch-unknown-exotic_os"</span><span class="p">;</span> <span class="p">}</span> <span class="p">}:</span>
+</pre></div>
+<p>and <code>nativeBuildInputs</code> would be for the native platform, while <code>buildInputs</code> would be for the foreign platform. That's a much more practical distinction: any tool that's miscategorized one won't be able to run, and any library that's miscategorized one won't be able to link!
+</p>
+<h2><span class="mw-headline" id="Using_Direnv"></span>Using Direnv</h2>
+<p>One of the limitations of nix-shell is that you can't use a shell other than bash. Thankfully, there is Direnv [<a rel="nofollow" class="external autonumber" href="https://direnv.net/">[2]</a>] with the support of Nix[<a rel="nofollow" class="external autonumber" href="https://github.com/direnv/direnv/wiki/Nix">[3]</a>] to overcome this limitation. Also, Direnv provides some nice features like loading the environment automatically when you enter your project directory and show the loaded variables to you (explicit is always better;-)).
+</p><p>First, install Direnv:
+</p>
+<div class="mw-highlight mw-content-ltr" dir="ltr"><pre>nix-env -i direnv
+</pre></div>
+<p>Now, you need to add one more file in the root of your repository named <code>.envrc</code> that contains only this:
+</p>
+<div class="mw-highlight mw-content-ltr" dir="ltr"><pre>use_nix
+</pre></div>
+<p>Then depending on the shell you are using, you need to add a line in your configuration file. See the <i>Setup</i> section of the doc<a rel="nofollow" class="external autonumber" href="https://direnv.net/">[4]</a>. For example, for Zsh put in your <code>~/.zshrc.local</code>:
+</p>
+<div class="mw-highlight mw-content-ltr" dir="ltr"><pre><span class="nb">eval</span> <span class="s2">"</span><span class="k">$(</span>direnv hook zsh<span class="k">)</span><span class="s2">"</span>
+</pre></div>
+<p>Then, still at the root of your repository, run:
+</p>
+<div class="mw-highlight mw-content-ltr" dir="ltr"><pre>$ direnv allow .
+direnv: loading .envrc
+direnv: using nix
+<span class="o">[</span>...<span class="o">]</span>
+ +SIZE +SOURCE_DATE_EPOCH +STRINGS +STRIP +TEMP +TEMPDIR +TMP +TMPDIR +_PATH +buildInputs +builder +checkPhase +cmakeFlags +configureFlags +doCheck +enableParallelBuilding +name +nativeBuildInputs +out +postCheck +preCheck +preConfigure +propagatedBuildInputs +propagatedNativeBuildInputs +shell +src +stdenv +system +testInputs +version ~PATH
+</pre></div>
+<p>Bonus: you can see all the variables set by the nix-shell&nbsp;:)
+</p><p>Now you can leave your project and the environment will be unloaded:
+</p>
+<div class="mw-highlight mw-content-ltr" dir="ltr"><pre>$ <span class="nb">cd</span> ..
+direnv: unloading
+</pre></div>
+<p>No need to use <code>direnv allow</code> anymore, the next time you go to your project the environment will be loaded!
+</p><p>More explanation and configuration tweaks can be found in the Direnv wiki <a rel="nofollow" class="external autonumber" href="https://github.com/direnv/direnv/wiki/Nix">[5]</a>.
+</p>
+<h2><span class="mw-headline" id="Troubleshooting"></span>Troubleshooting</h2>
+<p>When compiling software which links against local files (e.g. when compiling with rust's cargo), you may encounter the following problem:
+</p>
+<div class="mw-highlight mw-content-ltr" dir="ltr"><pre><span class="o">=</span> note: impure path <span class="sb">`</span>/<span class="o">[</span>...<span class="o">]</span><span class="err">'</span> used in link
+</pre></div>
+<p>This happens due to a specialty in nix: <code>ld</code> is wrapped in a shell script which refuses to link against files not residing in the nix store, to ensure the purity of builds. Obviously this is not useful when building locally, for example in your home directory. To disable this behavior simply set
+</p>
+<div class="mw-highlight mw-content-ltr" dir="ltr"><pre><span class="nv">NIX_ENFORCE_PURITY</span><span class="o">=</span>0
+</pre></div>
+<p>in the nix-shell.
+</p>
+<h3><span class="mw-headline" id="No_GSettings_schemas_are_installed_on_the_system"></span>No GSettings schemas are installed on the system</h3>
+<p>When working with gtk, the <code>XDG_DATA_DIRS</code> must contain a path to the gtk schemas, if not an application may crash with the error above.
+</p><p>For packages we use <code>wrapGAppsHook</code> in <code>nativeBuildInputs</code>, however in nix-shell this is not working as expected.
+To get your application to work in nix-shell you will need to add the following to your <code>mkShell</code> expression:
+</p>
+<div class="mw-highlight mw-content-ltr" dir="ltr"><pre>mkShell <span class="p">{</span>
+  <span class="o">...</span>
+  <span class="ss">buildInputs =</span> <span class="p">[</span> gtk3 <span class="p">];</span>
+  <span class="ss">shellHook =</span> <span class="s1">''</span>
+<span class="s1">     XDG_DATA_DIRS=$GSETTINGS_SCHEMA_PATH</span>
+<span class="s1">  ''</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+<p>This may also called: <code>$GSETTINGS_SCHEMA<b>S</b>_PATH</code>.
+</p>
+<h3><span class="mw-headline" id="Icons_not_working"></span>Icons not working</h3>
+<p>Similar to the Gsettings issue, icons can be added with XDG_DATA_DIRS:
+</p>
+<pre> XDG_DATA_DIRS=...:${hicolor-icon-theme}/share:${gnome3.adwaita-icon-theme}/share</pre>
+
+<!-- 
+NewPP limit report
+Cached time: 20210126112333
+Cache expiry: 86400
+Dynamic content: false
+CPU time usage: 0.007 seconds
+Real time usage: 0.009 seconds
+Preprocessor visited node count: 150/1000000
+Preprocessor generated node count: 372/1000000
+Post‐expand include size: 162/2097152 bytes
+Template argument size: 32/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    1.728      1 -total
+ 95.49%    1.650      2 Template:Commands
+ 32.59%    0.563      2 Template:META_Commands_Style
+-->
+
+<!-- Saved in parser cache with key nixoswiki-nixos:pcache:idhash:424-0!*!*!!en!*!* and timestamp 20210126112355 and revision id 5295
+ -->
+</div>								<div class="printfooter">
+				Retrieved from "<a dir="ltr" href="https://nixos.wiki/index.php?title=Development_environment_with_nix-shell&amp;oldid=5295">https://nixos.wiki/index.php?title=Development_environment_with_nix-shell&amp;oldid=5295</a>"				</div>
+												<div id="catlinks" class="catlinks catlinks-allhidden" data-mw="interface"></div>												<div class="visualClear"></div>
+							</div>
+			<!-- /bodyContent -->
+		</div>
+					</div>
+			</div>
+		</div>
+		<!-- /content -->
+
+			<!-- sidebar-right -->
+			<div class="sidebar-wrapper sidebar-right-wrapper">
+				<div class="sidebar-container container">
+					<div class="row">
+						<div id="sidebar-right" class="col-md-3 col-md-offset-9">
+							<div class="btn-group btn-block"><a href="https://nixos.wiki/index.php?title=Talk:Development_environment_with_nix-shell&amp;action=edit&amp;redlink=1" primary="1" context="talk" rel="discussion" id="ca-talk" attributes=" id=&quot;ca-talk&quot; class=&quot;new&quot;" key=" title=&quot;Discussion about the content page [t]&quot; accesskey=&quot;t&quot;" class="btn btn-primary btn-block" title="Discussion about the content page [alt-shift-t]" accesskey="t">Discussion</a></div><div id="tweekiTOC"><div id="toctitle" class="toctitle"><h2>Contents<a href="javascript:scrollTo(0,0);">to top</a></h2></div><div id="toc" class="toc" style="display: table;">
+<ul class="nav">
+<li class="toclevel-1 tocsection-1"><a href="https://nixos.wiki/wiki/Development_environment_with_nix-shell#Small_cross_env_note"><span class="tocnumber">1</span> <span class="toctext">Small cross env note</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="https://nixos.wiki/wiki/Development_environment_with_nix-shell#Using_Direnv"><span class="tocnumber">2</span> <span class="toctext">Using Direnv</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="https://nixos.wiki/wiki/Development_environment_with_nix-shell#Troubleshooting"><span class="tocnumber">3</span> <span class="toctext">Troubleshooting</span></a>
+<ul class="nav">
+<li class="toclevel-2 tocsection-4"><a href="https://nixos.wiki/wiki/Development_environment_with_nix-shell#No_GSettings_schemas_are_installed_on_the_system"><span class="tocnumber">3.1</span> <span class="toctext">No GSettings schemas are installed on the system</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="https://nixos.wiki/wiki/Development_environment_with_nix-shell#Icons_not_working"><span class="tocnumber">3.2</span> <span class="toctext">Icons not working</span></a></li>
+</ul>
+</li>
+</ul>
+</div></div>						</div>
+					</div>
+				</div>
+			</div>
+			<!-- /sidebar-right -->
+					<!-- footer -->
+			<div id="footer" role="contentinfo" class="footer container footer-sticky" style="margin-top: 50px; opacity: 1;">
+			<ul id="footer-places"><li id="footer-places-privacy"><a href="https://nixos.wiki/wiki/NixOS_Wiki:Privacy_policy" title="NixOS Wiki:Privacy policy">Privacy Policy</a></li><li id="footer-places-about"><a href="https://nixos.wiki/wiki/NixOS_Wiki:About" title="NixOS Wiki:About">About NixOS Wiki</a></li></ul><ul id="footer-custom"><li class="dropup"><a href="https://nixos.wiki/index.php?title=Special:UserLogin&amp;returnto=Development+environment+with+nix-shell" title="You are encouraged to log in; however, it is not mandatory [alt-shift-o]" accesskey="o">Login / Create Account</a></li></ul><div style="clear:both"></div><div class="dropup"><a href="https://nixos.wiki/index.php?title=Development_environment_with_nix-shell&amp;action=edit" primary="1" id="ca-viewsource" attributes=" id=&quot;ca-viewsource&quot;" key=" title=&quot;This page is protected.&amp;#10;You can view its source [e]&quot; accesskey=&quot;e&quot;" title="This page is protected.
+You can view its source [alt-shift-e]" accesskey="e"><span class="glyphicon glyphicon-pencil"></span> View source</a></div><div class="dropup"><a href="https://nixos.wiki/index.php?title=Talk:Development_environment_with_nix-shell&amp;action=edit&amp;redlink=1" primary="1" context="talk" rel="discussion" id="ca-talk" attributes=" id=&quot;ca-talk&quot; class=&quot;new&quot;" key=" title=&quot;Discussion about the content page [t]&quot; accesskey=&quot;t&quot;" title="Discussion about the content page [alt-shift-t]" accesskey="t">Discussion</a></div><div class="dropup"><a class="dropdown-toggle" data-toggle="dropdown" href="https://nixos.wiki/wiki/Development_environment_with_nix-shell#">Log in <b class="caret"></b></a><ul class="dropdown-menu " role="menu"><li><a href="https://nixos.wiki/index.php?title=Special:UserLogin&amp;returnto=Development+environment+with+nix-shell" tabindex="-1" title="You are encouraged to log in; however, it is not mandatory [alt-shift-o]" accesskey="o">With a wiki account</a></li><li><a href="https://nixos.wiki/index.php?title=Special:OAuth2Client/redirect&amp;returnto=Development+environment+with+nix-shell" tabindex="-1">Login with GitHub</a></li></ul></div>			</div>
+			<!-- /footer -->
+		<script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.007","walltime":"0.009","ppvisitednodes":{"value":150,"limit":1000000},"ppgeneratednodes":{"value":372,"limit":1000000},"postexpandincludesize":{"value":162,"limit":2097152},"templateargumentsize":{"value":32,"limit":2097152},"expansiondepth":{"value":2,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"timingprofile":["100.00%    1.728      1 -total"," 95.49%    1.650      2 Template:Commands"," 32.59%    0.563      2 Template:META_Commands_Style"]},"cachereport":{"timestamp":"20210126112333","ttl":86400,"transientcontent":false}}});});</script><script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":38});});</script>	
+<!-- Cached 20210126112431 -->
+
+<div class="suggestions" style="display: none; font-size: 13px;"><div class="suggestions-results"></div><div class="suggestions-special"></div></div></body></html>
