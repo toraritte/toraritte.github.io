@@ -36,5 +36,6 @@ Mostly to be able to do [hypothes.is](https://hypothes.is) annotations; this is 
 + [[nixos.org] NixOS Manual, Version 20.09](saves/NixOS-Manual-Version-20.09.html)
 + [[nixos.wiki] Nixpkgs/Create and debug packages](saves/Nixpkgs_Createanddebugpackages-NixOSWiki.html)
 + [[nixos.wiki] Development environment with `nix-shell`](saves/Developmentenvironmentwithnix-shell-NixOSWiki.html)
++ [[nixos.org] Nix Pills (all in one page)](saves/nix-pills.html)
 
 ## From Medium
