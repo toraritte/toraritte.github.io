@@ -1,3 +1,9 @@
+## Works of others only available in HTML format here
+
++ [Eelco Dolstra](https://edolstra.github.io/)'s [PhD thesis](https://edolstra.github.io/pubs/phd-thesis.pdf), "_The Purely Functional SoftwareDeployment Model_":
+  + [version 1](./works-of-others/eelco-dolstra-phd-thesis-v1.html) (15M) with [cloudconvert](https://cloudconvert.com/)
+  + [version 2](./works-of-others/eelco-dolstra-phd-thesis-v2.html) (2.4M) with [pdftohtml.net](https://www.pdftohtml.net/)
+
 ## Notes
 
 + [to Harry Garrood's *A Guide to the PureScript Numeric Hierarchy*](https://annotated-a-guide-to-the-purescript-numeric-hierarchy.readthedocs.io/en/latest/)
@@ -36,6 +42,5 @@ Mostly to be able to do [hypothes.is](https://hypothes.is) annotations; this is 
 + [[nixos.org] NixOS Manual, Version 20.09](saves/NixOS-Manual-Version-20.09.html)
 + [[nixos.wiki] Nixpkgs/Create and debug packages](saves/Nixpkgs_Createanddebugpackages-NixOSWiki.html)
 + [[nixos.wiki] Development environment with `nix-shell`](saves/Developmentenvironmentwithnix-shell-NixOSWiki.html)
-+ [[nixos.org] Nix Pills (all in one page)](saves/nix-pills.html)
 
 ## From Medium
