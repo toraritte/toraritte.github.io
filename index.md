@@ -1,8 +1,14 @@
 ## Works of others only available in HTML format here
 
-+ [Eelco Dolstra](https://edolstra.github.io/)'s [PhD thesis](https://edolstra.github.io/pubs/phd-thesis.pdf), "_The Purely Functional SoftwareDeployment Model_":
++ [Eelco Dolstra](https://edolstra.github.io/)'s [PhD thesis, "_The Purely Functional SoftwareDeployment Model_"](https://edolstra.github.io/pubs/phd-thesis.pdf):
   + [version 1](./works-of-others/eelco-dolstra-phd-thesis-v1.html) (15M) with [cloudconvert](https://cloudconvert.com/)
   + [version 2](./works-of-others/eelco-dolstra-phd-thesis-v2.html) (2.4M) with [pdftohtml.net](https://www.pdftohtml.net/)
+
++ [Sander van der Burg](http://sandervanderburg.nl/)'s [PhD thesis, "_A Reference Architecture for Distributed Software Deployment_"](http://sandervanderburg.nl/index.php/phdthesis):
+
+  + [version 1](./works-of-others/sander-van-der-burg-phd-thesis.html) (12M) with [cloudconvert](https://cloudconvert.com/)
+
+  + **TODO**: ... and [propositions accompanying the thesis](http://sandervanderburg.nl/pdf/phdthesis/phdpropositions.pdf), [in HTML format]() (with [cloudconvert](https://cloudconvert.com/))
 
 ## Notes
 
