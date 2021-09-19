@@ -4,6 +4,9 @@
   + [version 1](./works-of-others/eelco-dolstra-phd-thesis-v1.html) (15M) with [cloudconvert](https://cloudconvert.com/)
   + [version 2](./works-of-others/eelco-dolstra-phd-thesis-v2.html) (2.4M) with [pdftohtml.net](https://www.pdftohtml.net/)
 
++ [Eelco Dolstra, Eelco Visser - Hydra: A Declarative Approach to Continuous Integration](https://edolstra.github.io/pubs/hydra-scp-submitted.pdf)
+  + [version 1](./works-of-others/dolstra-visser-hydra-scp-submitted.html)
+
 + [Sander van der Burg](http://sandervanderburg.nl/)'s [PhD thesis, "_A Reference Architecture for Distributed Software Deployment_"](http://sandervanderburg.nl/index.php/phdthesis):
 
   + [version 1](./works-of-others/sander-van-der-burg-phd-thesis.html) (12M) with [cloudconvert](https://cloudconvert.com/)
