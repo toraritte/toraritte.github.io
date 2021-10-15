@@ -18,6 +18,4 @@ See ongoing discussions in the topic:
 
 + [Nixpkgs issue #11052: Naming of packages](https://github.com/NixOS/nixpkgs/issues/11052)
 
-+ [Nixpkgs issue #11052: Naming of packages](https://github.com/NixOS/nixpkgs/issues/11052)
-
 + [Discourse: Clarification on Package Names and Versions](https://discourse.nixos.org/t/clarification-on-package-names-and-versions/9819)
