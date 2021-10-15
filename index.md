@@ -1,3 +1,5 @@
+# Nix issues to investigate further (maybe even RFC candidates)
+
 ## Works of others only available in HTML format here
 
 + [Eelco Dolstra](https://edolstra.github.io/)'s [PhD thesis, "_The Purely Functional SoftwareDeployment Model_"](https://edolstra.github.io/pubs/phd-thesis.pdf):
@@ -15,7 +17,7 @@
 
 ## Notes
 
-+ [Nix/NixOS/Nixpkgs](posts/nix-notes.md)
++ [Nix/NixOS/Nixpkgs issues to investigate + notes](posts/nix-notes.md)
 
 + [to Harry Garrood's *A Guide to the PureScript Numeric Hierarchy*](https://annotated-a-guide-to-the-purescript-numeric-hierarchy.readthedocs.io/en/latest/)
 
