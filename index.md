@@ -15,7 +15,7 @@
 
 ## Notes
 
-+ [Nix/NixOS/Nixpkgs](./nix-notes.md)
++ [Nix/NixOS/Nixpkgs](posts/nix-notes.md)
 
 + [to Harry Garrood's *A Guide to the PureScript Numeric Hierarchy*](https://annotated-a-guide-to-the-purescript-numeric-hierarchy.readthedocs.io/en/latest/)
 
