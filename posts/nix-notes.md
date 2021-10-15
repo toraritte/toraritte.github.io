@@ -1,3 +1,5 @@
+# Nix issues to investigate further (maybe even RFC candidates)
+
 ## Package naming is not consistent
 
 Why hasn't it been standardized? This section was triggered by [this HN comment](https://news.ycombinator.com/item?id=26751238):

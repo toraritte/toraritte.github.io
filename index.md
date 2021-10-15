@@ -1,5 +1,3 @@
-# Nix issues to investigate further (maybe even RFC candidates)
-
 ## Works of others only available in HTML format here
 
 + [Eelco Dolstra](https://edolstra.github.io/)'s [PhD thesis, "_The Purely Functional SoftwareDeployment Model_"](https://edolstra.github.io/pubs/phd-thesis.pdf):
