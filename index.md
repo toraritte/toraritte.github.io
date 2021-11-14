@@ -57,5 +57,6 @@ Mostly to be able to do [hypothes.is](https://hypothes.is) annotations; this is 
 ## Links
 
 + [XML-based authoring (DocBook, DITA, TEI-C, JATS, etc.)](links/docbook-links.html)
++ [Nix](links/nix.html)
 
 ## From Medium
