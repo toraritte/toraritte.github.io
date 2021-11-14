@@ -58,5 +58,6 @@ Mostly to be able to do [hypothes.is](https://hypothes.is) annotations; this is 
 
 + [XML-based authoring (DocBook, DITA, TEI-C, JATS, etc.)](links/docbook-links.html)
 + [Nix](links/nix.html)
++ [BEAM (Erlang, Elixir, Gleam, LFE, etc.)](links/beam.html)
 
 ## From Medium
