@@ -62,5 +62,6 @@ Mostly to be able to do [hypothes.is](https://hypothes.is) annotations; this is 
 + [Virtualization (QEMU, containers)](links/virtualization.html)
 + [Distributed File Systems](links/distributed-fs.html)
 + [Web animation](links/web-animation.html)
++ [Web design](links/web-design.html)
 
 ## From Medium
