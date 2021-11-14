@@ -54,4 +54,8 @@ Mostly to be able to do [hypothes.is](https://hypothes.is) annotations; this is 
 + [[nixos.wiki] Nixpkgs/Create and debug packages](saves/Nixpkgs_Createanddebugpackages-NixOSWiki.html)
 + [[nixos.wiki] Development environment with `nix-shell`](saves/Developmentenvironmentwithnix-shell-NixOSWiki.html)
 
+## Links
+
++ [XML-based authoring (DocBook, DITA, TEI-C, JATS, etc.)](links/docbook-links.html)
+
 ## From Medium
