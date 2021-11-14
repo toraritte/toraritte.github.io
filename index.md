@@ -60,5 +60,6 @@ Mostly to be able to do [hypothes.is](https://hypothes.is) annotations; this is 
 + [Nix](links/nix.html)
 + [BEAM (Erlang, Elixir, Gleam, LFE, etc.)](links/beam.html)
 + [Virtualization (QEMU, containers)](links/virtualization.html)
++ [Distributed File Systems](links/distributed-fs.html)
 
 ## From Medium
