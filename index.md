@@ -64,4 +64,16 @@ Mostly to be able to do [hypothes.is](https://hypothes.is) annotations; this is 
 + [Web animation](links/web-animation.html)
 + [Web design](links/web-design.html)
 
+### VIM commands for link handling
+
+```text
+:'<,'>s/li><li/li>\r<li/g
+
+# sort lines by URL
+# (see :h :sort -> if [r] flag is not specified,
+#                  whatever matched is skipped,
+#                  and lines are sorted what follows
+:'<,'>!sort /href="/
+```
+
 ## From Medium
