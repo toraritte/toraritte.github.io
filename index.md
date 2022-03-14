@@ -15,11 +15,15 @@
 
 ## Notes
 
-+ [Nix/NixOS/Nixpkgs issues to investigate + notes](posts/nix-notes.md)
-
 + [to Harry Garrood's *A Guide to the PureScript Numeric Hierarchy*](https://annotated-a-guide-to-the-purescript-numeric-hierarchy.readthedocs.io/en/latest/)
 
 + [to Phil Freeman's *PureScript By Example* (forked from Dustin Whitney's updated fork)](https://github.com/toraritte/purescript-book/tree/practice)
+
+## scribbles
+
++ [Nix/NixOS/Nixpkgs issues to investigate + notes](scribbles/nix-notes.md)
++ [Store state/data in Nix store](scribbles/store-state-in-nix-store.md)
++ [documentation notes and audio annotator](scribbles/audio-book-reader-and-annotator.md)
 
 ## Long
 
