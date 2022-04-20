@@ -31,6 +31,7 @@
 
 ## Short
 
++ [Introduction to the Poetry tool for Python projects](https://toraritte.github.io/poetry-intro/) ([github](https://github.com/toraritte/poetry-intro))
 + [(Deleted question) How to officially handle unauthenticated users in an iOS share extension](posts/deleted-how-to-officially-handle-unauthenticated-users-in-an-iOS-share-extension.htm)
 + [(Deleted question) How to mix unrelated content (e.g., ads, “see more”) with the main text/article while preserving the semantic purity of an HTML page?](posts/deleted-how-to-mix-unrelated-content-with-the-main-text-article-while-preserving-semantic-purity.html)
 + [Resize the `/run` directory and temporarily increase swap size](posts/2020-06-11-resize-swap-and-run-dir.md)
