@@ -1,3 +1,5 @@
+<sup>[Scientific Breakthrough of the Afternoon](https://medium.com/scientific-breakthrough-of-the-afternoon) - posts that haven't been migrated here yet.</sup>
+
 ## Works of others only available in HTML format here
 
 + [Eelco Dolstra](https://edolstra.github.io/)'s [PhD thesis, "_The Purely Functional SoftwareDeployment Model_"](https://edolstra.github.io/pubs/phd-thesis.pdf):
@@ -31,6 +33,8 @@
 
 ## Short
 
++ [Suggestions to improve Nix documentation](posts/nix-and-otherwise-documentation-suggestions.md)
++ [Nix derivations and the terms ambiguous usage](posts/nix-derivation.md)
 + [Introduction to the Poetry tool for Python projects](https://toraritte.github.io/poetry-intro/) ([github](https://github.com/toraritte/poetry-intro))
 + [(Deleted question) How to officially handle unauthenticated users in an iOS share extension](posts/deleted-how-to-officially-handle-unauthenticated-users-in-an-iOS-share-extension.htm)
 + [(Deleted question) How to mix unrelated content (e.g., ads, “see more”) with the main text/article while preserving the semantic purity of an HTML page?](posts/deleted-how-to-mix-unrelated-content-with-the-main-text-article-while-preserving-semantic-purity.html)
