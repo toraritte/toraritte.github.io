@@ -21,6 +21,8 @@
 
 + [to Phil Freeman's *PureScript By Example* (forked from Dustin Whitney's updated fork)](https://github.com/toraritte/purescript-book/tree/practice)
 
++ [to Eelco Dolstra's PhD thesis](https://github.com/toraritte/nix.land/blob/main/dolstra-thesis-annotated.pdf)
+
 ## scribbles
 
 + [Nix/NixOS/Nixpkgs issues to investigate + notes](scribbles/nix-notes.md)
