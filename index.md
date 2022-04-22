@@ -35,7 +35,7 @@
 
 ## Short
 
-+ [Suggestions to improve Nix documentation](posts/nix-and-otherwise-documentation-suggestions.md)
++ [Suggestions to improve Nix documentation](https://github.com/toraritte/nix.land/blob/main/nix-doc-suggestions.md)
 + [Nix derivations and the terms ambiguous usage](posts/nix-derivation.md)
 + [What is the `patchShebangs` command in Nix build expressions?](https://github.com/toraritte/nix.land/blob/main/raw/patchShebangs-nixos_discourse.md)
 + [Introduction to the Poetry tool for Python projects](https://toraritte.github.io/poetry-intro/) ([github](https://github.com/toraritte/poetry-intro))
