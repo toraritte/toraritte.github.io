@@ -36,7 +36,7 @@
 ## Short
 
 + \[nix other] [(Nix) documentation suggestions](https://github.com/toraritte/nix.land/blob/main/concepts-exploration/_documentation-suggestions/doc-suggestions.md)
-+ \[nix] [Nix derivations and the terms ambiguous usage](posts/nix-derivation.md)
++ \[nix] [Nix derivations and the term's ambiguous usage](https://github.com/toraritte/nix.land/blob/main/concepts-exploration/derivation-mysteries/nix-derivation-ambiguities.md)
 + \[nix] [What is the `patchShebangs` command in Nix build expressions?](https://github.com/toraritte/nix.land/blob/main/concepts-exploration/patchShebangs-nixos_discourse.md)
 + \[nix, python] [Introduction to the Poetry tool for Python projects](https://toraritte.github.io/poetry-intro/) ([github](https://github.com/toraritte/poetry-intro))
 + \[iOS] [(Deleted question) How to officially handle unauthenticated users in an iOS share extension](posts/deleted-how-to-officially-handle-unauthenticated-users-in-an-iOS-share-extension.htm)
