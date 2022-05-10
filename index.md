@@ -55,6 +55,7 @@
 + \[nix] [Playing with the Nix expression language on the `nix repl`](posts/2020-08-11-nix-expression-lang-repl.txt)
 + \[nix] [Paths vs strings in the Nix expression language](posts/2020-08-13-paths-vs-string-in-nix.md)
 + \[nix] [`with` considered harmful in Nix expressions](posts/2020-08-15-with-considered-harmful.md)
++ [stuff](./stuff.md)
 
 ## Blog-local saves
 
