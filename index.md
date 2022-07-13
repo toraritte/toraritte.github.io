@@ -92,3 +92,7 @@ Mostly to be able to do [hypothes.is](https://hypothes.is) annotations; this is 
 ```
 
 ## From Medium
+
+## Whatever
+
++ [Varez: Within a year?](whatever/within-a-year.html)
