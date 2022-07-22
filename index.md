@@ -28,6 +28,8 @@
 + [Nix/NixOS/Nixpkgs issues to investigate + notes](scribbles/nix-notes.md)
 + [Store state/data in Nix store](scribbles/store-state-in-nix-store.md)
 + [documentation notes and audio annotator](scribbles/audio-book-reader-and-annotator.md)
++ [Nix derivations and documentation guidelines (again?)](scribbles/nix-derivation-and-doc-guidelines.md)
++ [Notes on consolidating Nix\* contribution guides](scribbles/consolidate-nix-contribution-guides.md)
 
 ## Long
 
