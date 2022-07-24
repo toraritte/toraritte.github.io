@@ -35,7 +35,7 @@
 
 + [Software Licensing Primer](https://toraritte.github.io/software-licensing-a-primer/)
 
-## Short
+## Posts
 
 + \[nix other] [(Nix) documentation suggestions](https://github.com/toraritte/nix.land/blob/main/concepts-exploration/_documentation-suggestions/doc-suggestions.md)
 + \[nix] [Nix derivations and the term's ambiguous usage](https://github.com/toraritte/nix.land/blob/main/concepts-exploration/derivation-mysteries/nix-derivation-ambiguities.md)
