@@ -29,7 +29,8 @@
 + [Store state/data in Nix store](scribbles/store-state-in-nix-store.md)
 + [documentation notes and audio annotator](scribbles/audio-book-reader-and-annotator.md)
 + [Nix derivations and documentation guidelines (again?)](scribbles/nix-derivation-and-doc-guidelines.md)
-+ [Notes on consolidating Nix\* contribution guides](scribbles/consolidate-nix-contribution-guides.md)
++ [All kinds of Nix documentation notes](scribbles/consolidate-nix-contribution-guides.md)
++ [Nix manual: `builtins.fetchGit`](scribbles/fetchGit.md)
 
 ## Long
 
