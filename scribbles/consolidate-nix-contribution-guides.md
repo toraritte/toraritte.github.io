@@ -9,9 +9,17 @@ Eelco:It was a terrible choice of terms. Just replace "intensional" with "conten
 
 + https://stackoverflow.com/questions/73145810/how-do-git-revisions-and-references-relate-to-each-other
 
+https://github.com/NixOS/nix/issues/5128
+
 lecture: https://www.youtube.com/watch?v=t6goF1dM3ag
 
 ## TODOs
+
+### "Nix path" and POSIX (`~` or tilde)
+
+Tried to find a UNIX/Linux specification that defines the syntax of file system paths, which led me from [Path syntax rules (SO thread)](https://unix.stackexchange.com/questions/125522/path-syntax-rules) to [The Open Group Base Specifications Issue 6, IEEE Std 1003.1, 2004 Edition](https://pubs.opengroup.org/onlinepubs/009695399/), specifically to chapter [3. Definitions](https://pubs.opengroup.org/onlinepubs/009695399/) (start with sections "3.2 Absolute Pathname", "3.319 Relative Pathname" and follow the crumbs - especially to [4.11 Pathname Resolution](https://pubs.opengroup.org/onlinepubs/007904875/basedefs/xbd_chap04.html#tag_04_11)).
+
+Bottom line is, `~` or tilde is not part of any specification and [it may be have different meaning attached to it depending on the shell](https://stackoverflow.com/questions/998626/meaning-of-tilde-in-linux-bash-not-home-directory), so it may be prudent to advise against using it.
 
 ### Nix manual re-organization
 

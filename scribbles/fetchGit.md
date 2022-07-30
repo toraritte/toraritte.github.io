@@ -5,7 +5,11 @@ Fetch a Git repo.
 
 > **improvement ideas**:
 > +  Make "Types" section collapsible and add hover tooltip to expand type mentions in the descriptive portion of this reference.
+>
 > + Fix table 2.3-1's vertical header to the left so that it doesn't scroll out of screen
+>
+> + Link footnotes
+>
 > **...and questions**:
 > + How to treat ancillary texts?
 > + Levels of detail?
@@ -29,11 +33,11 @@ Fetch a Git repo.
 
 **fileURL** = `"file://"` + **fileURLPathPart**\
 **fileURLPathPart** = [string](TODO)\
-&nbsp;&nbsp;Both need to conform to the `file://` URI scheme (see [the path syntax of RFC 8089](https://datatracker.ietf.org/doc/html/rfc8089#section-2)).
+&nbsp;&nbsp;**fileURLPathPart** is a shorthand for **fileURL** (i.e., it will be prefixed with `"file://"` during evaluation) therefore both need to conform to the `file://` URI scheme (see [the path syntax of RFC 8089](https://datatracker.ietf.org/doc/html/rfc8089#section-2)).
 <br>
 
 **path** = [Nix path](TODO) | **fileURLPathPart**\
-&nbsp;&nbsp;When called with **fileURLPathPart**, the argument will be prefixed with `"file://"`, and then evaluated as a **fileURL**.
+&nbsp;&nbsp;
 <br>
 
 **gitArgs** :: [attribute set](TODO) =\
@@ -55,8 +59,10 @@ Fetch a Git repo.
 &nbsp;&nbsp;(Haskell-y) **gitArgs**#{ `url` :: (**path** | **fileURL**); }
 
 **webLike** = **webLikeURLs** | **webLikeGitArgs**
+&nbsp;&nbsp;Argument that is a URL or has a URL member conforming to the `http://`, `https://`, and `ftp://` URI schemes.
 
 **pathLike** = **path** | **fileURL** | **pathLikeGitArgs**
+&nbsp;&nbsp;Argument that resolves or has a member that resolves to a file system path.
 
 **gitReference** = [string](TODO)\
 &nbsp;&nbsp;Needs to be valid [Git reference](https://git-scm.com/book/en/v2/Git-Internals-Git-References).
@@ -76,11 +82,11 @@ Fetch a Git repo.
 &nbsp;&nbsp;&nbsp;&nbsp;`submodules` :: [boolean](TODO);\
 &nbsp;&nbsp;}
 
----
+## 1. Behaviour
 
 `builtins.fetchGit` behaves differently when called with **pathLike** or **webLike** arguments.
 
-## 1. "Web-like" semantics: Calling `fetchGit` with **webLike** arguments
+### 1.1 "Web-like" semantics: **webLike** arguments
 
 This section applies to any argument that uses URLs conforming to the `http://`, `https://`, and `ftp://` URI schemes. (The `file://` URI scheme is omitted on purpose, and is discussed in the next section titled "_2. "Path-like" semantics: Calling `fetchGit` with **pathLike** arguments_".)
 
@@ -117,15 +123,15 @@ When called
 
   + otherwise the end results may be different, and possible deviations are described in the sections below for each optional attribute.
 
-## 2. "Path-like" semantics: Calling `fetchGit` with **pathLike** arguments
+### 1.2 "Path-like" semantics: Calling `fetchGit` with **pathLike** arguments
 
 Calls with **pathLike** arguments  attempt to fetch a repo in a directory on a local or remote file system. The target project may be  under active development so their status and state may need to be determined before trying to copy the repo to the Nix store.
 
-### 2.1 Git repository characteristics
+#### 1.2.1 Git repository characteristics
 
 That is, characteristics that `fetchGit` cares about.
 
-#### 2.1.1 Status
+##### 1.2.1.1 Status
 
 A Git repo can be
 
@@ -133,7 +139,7 @@ A Git repo can be
 
 + **clean**, if the output of [`git diff-index HEAD`](https://git-scm.com/docs/git-diff-index) is empty. (If there are only untracked files in `git status`, the repo is **clean**.)
 
-#### 2.1.2 State
+##### 1.2.1.2 State
 
 The state of a repo is determined by where the [HEAD reference][2.1.2-0] points to at the moment when the repo is fetched.
 
@@ -141,7 +147,7 @@ For example, if you are on branch `BRANCH`, then HEAD points to `ref/heads/BRANC
 
 [2.1.2-0]: https://git-scm.com/book/sv/v2/Git-Internals-Git-References#ref_the_ref
 
-### 2.2. Call `fetchGit` with [`Nix path`](TODO), `fileURL`, or `fileURLPathPart`
+#### 1.2.2. Call `fetchGit` with [`Nix path`](TODO), `fileURL`, or `fileURLPathPart`
 
 Sample calls to demonstrate:
 
@@ -166,7 +172,7 @@ Sample calls to demonstrate:
 
 <sup>\[2.2-2]: See [`src/libfetchers/git.cc`#`fetch()`](https://github.com/NixOS/nix/blob/86fcd4f6923b3a8ccca261596b9db0d8c0a873ec/src/libfetchers/git.cc#L393), line [556](https://github.com/NixOS/nix/blob/86fcd4f6923b3a8ccca261596b9db0d8c0a873ec/src/libfetchers/git.cc#L556).</sup>
 
-### 2.3 Call via `pathLikeGitArgs` attribute set
+#### 1.2.3 Call via `pathLikeGitArgs` attribute set
 
 This means one of the following:
 
@@ -209,21 +215,21 @@ It is clear from section "2.2. Call `fetchGit` with [`Nix path`](TODO), `fileURL
     <td>omitted</td>
  </tr>
  <tr>
-    <th><i><code>ref</code><br>attribute</i></th>>
+    <th><i><code>ref</code><br>attribute</i></th>
     <td>omitted</td>
     <td>omitted</td>
     <td>irrelevant<sup><b>2.3-2</b></sup></td>
     <td>present</td>
  </tr>
  <tr>
-    <th><i>Outcome</i></th>>
+    <th><i>Outcome</i></th>
     <td>Verbatim copy</td>
     <td>Fetch repo at HEAD</td>
     <td>Ignore changes<br>and<br>fetch repo at <code>rev</code> commit</td>
     <td>Ignore changes<br>and<br>fetch repo at <code>ref</code> branch / tag</td>
  </tr>
  <tr>
-    <th><i>Example argument</i></th>>
+    <th><i>Example argument</i></th>
     <td><pre>{ url = "file:///home/user/nix; }</pre></td>
     <td><pre>{ url = "/home/user/nix; }</pre></td>
     <td>
@@ -231,7 +237,7 @@ It is clear from section "2.2. Call `fetchGit` with [`Nix path`](TODO), `fileURL
 { url = ./.;
   rev = "6692c9c6e231b1dfd5594dd59b32001b70060f19";
 }
-</pre
+</pre>
     </td>
     <td>
 <pre>
@@ -247,13 +253,13 @@ It is clear from section "2.2. Call `fetchGit` with [`Nix path`](TODO), `fileURL
 
 <sup>\[2.3-2]: When `rev` (i.e., commit hash) is specified, `ref` is ignored (present or not), because it has higher specificity (i.e., a reference will need to be resolved and its value may change with time, but a commit hash will always point to the same exact state during the lifetime of a Git repo. (TODO: right?)</sup>
 
-As a corollary, here are some best practices:
+As a corollary, here are some tips:
 
 + If you need to fetch a local repo, calling `fetchGit` with `ref` (branch or tag) or `rev` (commit hash) will make sure that a repo is fetched with a predictable content, ignoring any changes that may have been made since you last touched it.
 
 + If you are packaging a project under active development and want to test changes without commiting, you'll probably want to call `fetchGit` simply with the mandatory `url` attribute (or any of the formats in section 2.2).
 
-### 3. **gitArgs** attributes
+## 2. **gitArgs** attributes
 
 #### 3.1 `url` (mandatory)
 
