@@ -3,15 +3,15 @@
 Eelco:It was a terrible choice of terms. Just replace "intensional" with "content-addressed" and "extensional" with "input-addressed".
 
 ## done links
-+ https://discourse.nixos.org/t/what-does-warning-git-tree-a-path-is-dirty-mean-exactly/20568
++ 
 
-+ https://discourse.nixos.org/t/rev-and-ref-attributes-in-builtins-fetchgit-and-maybe-flakes-too/20588
++ 
 
-+ https://stackoverflow.com/questions/73145810/how-do-git-revisions-and-references-relate-to-each-other
++ 
 
-https://github.com/NixOS/nix/issues/5128
 
-lecture: https://www.youtube.com/watch?v=t6goF1dM3ag
+
+lecture: 
 
 ## TODOs
 

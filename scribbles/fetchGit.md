@@ -1,7 +1,10 @@
+The original [`builtins.fetchGit` docs](https://nixos.org/manual/nix/stable/expressions/builtins.html#builtins-fetchGit); see also [comment in Nix issue #5128](https://github.com/NixOS/nix/issues/5128#issuecomment-1198254451).
 
-Fetch a Git repo.
+Quick notes beforehand:
 
-## 0. Types
++ The in-docs links (e.g., links to types such as "string", "attribute set", etc.) are just empty ones for now.
+
++ The inspiration for the "pseudo types" section come from the Erlang docs that is also a dynamically typed language, but has a "sub-language" for type specification for functions and each function doc starts with these, thus making the descriptions unambiguous.
 
 > **improvement ideas**:
 > +  Make "Types" section collapsible and add hover tooltip to expand type mentions in the descriptive portion of this reference.
@@ -16,46 +19,55 @@ Fetch a Git repo.
 > + How to treat ancillary texts?
 > + Levels of detail?
 
+
+---
+
+`builtins.fetchGit referenceToGitRepo -> storeResult`
+
+Fetch a Git repo.
+
+## 0. Pseudo Types
+
 **referenceToGitRepo** = **URL** | **path** | **gitArgs**
 <br>
 
-**URL** :: [string](TODO) = **httpURL** | **httpsURL** | **ftpURL** | **fileURL**\
+**URL** :: [string]() = **httpURL** | **httpsURL** | **ftpURL** | **fileURL**\
 &nbsp;&nbsp;Supported code hosting services: GitHub, GitLab, SourceHut.
 
-**httpURL** = [string](TODO)\
+**httpURL** = [string]()\
 &nbsp;&nbsp;Needs to conform to the `http://` URI scheme (see [RFC 9110, section 4.2](https://datatracker.ietf.org/doc/html/rfc9110#section-4.2)).
 
-**httpsURL** = [string](TODO)\
+**httpsURL** = [string]()\
 &nbsp;&nbsp;Needs to conform to the `https://` URI scheme (see [RFC 9110, section 4.2](https://datatracker.ietf.org/doc/html/rfc9110#section-4.2)).
 
-**ftpURL** = [string](TODO)\
+**ftpURL** = [string]()\
 &nbsp;&nbsp;Needs to conform to the `ftp://` URI scheme (see [RFC 1738, section 3.2](https://datatracker.ietf.org/doc/html/rfc1738#section-3.2)).
 
-**webLikeURL** :: [string](TODO) = **httpURL** | **httpsURL** | **ftpURL**
+**webLikeURL** :: [string]() = **httpURL** | **httpsURL** | **ftpURL**
 
-**fileURL** :: [string](TODO) = `"file://"` + **fileURLPathPart**\
-**fileURLPathPart** = [string](TODO)\
+**fileURL** :: [string]() = `"file://"` + **fileURLPathPart**\
+**fileURLPathPart** = [string]()\
 &nbsp;&nbsp;**fileURLPathPart** is a shorthand for **fileURL** (i.e., it will be prefixed with `"file://"` during evaluation) therefore both need to conform to the `file://` URI scheme (see [the path syntax of RFC 8089](https://datatracker.ietf.org/doc/html/rfc8089#section-2)).
 <br>
 
-**path** = [Nix path](TODO) | **fileURLPathPart**\
+**path** = [Nix path]() | **fileURLPathPart**\
 <br>
 
-**gitArgs** :: [attribute set](TODO) =\
+**gitArgs** :: [attribute set]() =\
 &nbsp;&nbsp;{ `url` :: (**URL** | **path**);\
-&nbsp;&nbsp;&nbsp;&nbsp;[ `name` :: [string](TODO) ? `"source"` ];\
+&nbsp;&nbsp;&nbsp;&nbsp;[ `name` :: [string]() ? `"source"` ];\
 &nbsp;&nbsp;&nbsp;&nbsp;[ `ref` :: **gitReference** ? `"HEAD"` ];\
 &nbsp;&nbsp;&nbsp;&nbsp;[ `rev` :: **gitFullCommitHash** ? <`ref` dereferenced> ];\
-&nbsp;&nbsp;&nbsp;&nbsp;[ `submodules` :: [boolean](TODO) ? `false` ];\
-&nbsp;&nbsp;&nbsp;&nbsp;[ `shallow` :: [boolean](TODO) ? `false` ];\
-&nbsp;&nbsp;&nbsp;&nbsp;[ `allRefs` :: [boolean](TODO) ? `false` ];\
+&nbsp;&nbsp;&nbsp;&nbsp;[ `submodules` :: [boolean]() ? `false` ];\
+&nbsp;&nbsp;&nbsp;&nbsp;[ `shallow` :: [boolean]() ? `false` ];\
+&nbsp;&nbsp;&nbsp;&nbsp;[ `allRefs` :: [boolean]() ? `false` ];\
 &nbsp;&nbsp;}
 
-**webLikeGitArgs** :: [attribute set](TODO) = 
+**webLikeGitArgs** :: [attribute set]() = 
 &nbsp;&nbsp;(Erlang-y)&nbsp;&nbsp;**gitArgs**#{ `url` ::  **webLikeURL**; }
 &nbsp;&nbsp;(Haskell-y) **gitArgs** { `url` :: **webLikeURL**; }
 
-**pathLikeGitArgs** :: [attribute set](TODO) =
+**pathLikeGitArgs** :: [attribute set]() =
 &nbsp;&nbsp;(Erlang-y)&nbsp;&nbsp;**gitArgs**#{ `url` :: (**path** | **fileURL**); }
 &nbsp;&nbsp;(Haskell-y) **gitArgs**#{ `url` :: (**path** | **fileURL**); }
 
@@ -65,14 +77,14 @@ Fetch a Git repo.
 **pathLike** = **path** | **fileURL** | **pathLikeGitArgs**
 &nbsp;&nbsp;Argument that resolves or has a member that resolves to a file system path.
 
-**gitReference** = [string](TODO)\
+**gitReference** = [string]()\
 &nbsp;&nbsp;Needs to be valid [Git reference][Git-refs].
 
-**gitFullCommitHash** = [string](TODO)\
+**gitFullCommitHash** = [string]()\
 &nbsp;&nbsp;Has to be full SHA-1 ([for now](https://git-scm.com/docs/hash-function-transition/) object name (40-byte hexadecimal string) that refers to an existing commit in the repo.
 <br>
 
-**storeResult** :: [attribute set](TODO)  =\
+**storeResult** :: [attribute set]()  =\
 &nbsp;&nbsp;{ `lastModified` :: ?;\
 &nbsp;&nbsp;&nbsp;&nbsp;`lastModifiedDate` :: ?;\
 &nbsp;&nbsp;&nbsp;&nbsp;`narHash` :: ?;\
@@ -80,7 +92,7 @@ Fetch a Git repo.
 &nbsp;&nbsp;&nbsp;&nbsp;`rev` :: **gitFullCommitHash**;\
 &nbsp;&nbsp;&nbsp;&nbsp;`revCount` :: ?;\
 &nbsp;&nbsp;&nbsp;&nbsp;`shortRev` :: ?;\
-&nbsp;&nbsp;&nbsp;&nbsp;`submodules` :: [boolean](TODO);\
+&nbsp;&nbsp;&nbsp;&nbsp;`submodules` :: [boolean]();\
 &nbsp;&nbsp;}
 
 ## 1. Behaviour
@@ -91,15 +103,15 @@ Fetch a Git repo.
 
 These sections describe the behaviour of `builtins.fetchGit` when called with **webLike** arguments:
 
-+ [1.1.1 **webLikeURL** type argument](TODO): string that conforms to the `http://`, `https://`, and `ftp://` URI schemes.
++ [1.1.1 **webLikeURL** type argument](): string that conforms to the `http://`, `https://`, and `ftp://` URI schemes.
 
-+ [1.1.2 **webLikeGitArgs** type argument](TODO): same as **gitArgs** attribute set, except that the mandatory `url` attribute value is a **webLikeURL**
++ [1.1.2 **webLikeGitArgs** type argument](): same as **gitArgs** attribute set, except that the mandatory `url` attribute value is a **webLikeURL**
 
 #### 1.1.1 `webLikeURL` type argument
 
 > NOTE
 >
-> The `file://` URI scheme is omitted on purpose, and is discussed in section [1.2 "Path-like" semantics](TODO).
+> The `file://` URI scheme is omitted on purpose, and is discussed in section [1.2 "Path-like" semantics]().
 
 <table>
   <caption>Table 1.1.1-1 <code>builtins.fetchGit <a href="TODO">string</a></code></caption>
@@ -140,7 +152,7 @@ These sections describe the behaviour of `builtins.fetchGit` when called with **
 
 > NOTE
 >
-> [`gitArgs`](TODO) attributes [`rev`](TODO) and [`ref`](TODO) will only be discussed in subsequent sections, but they also needed to be addressed here because of the significant role they play regarding the call results.
+> [`gitArgs`]() attributes [`rev`]() and [`ref`]() will only be discussed in subsequent sections, but they also needed to be addressed here because of the significant role they play regarding the call results.
 
 <table>
   <caption>Table 1.1.2-1 <code>builtins.fetchGit <a href="TODO">attribute set</a></code></caption>
@@ -233,13 +245,13 @@ These sections describe the behaviour of `builtins.fetchGit` when called with **
   </tbody>
 </table>
 
-<sup>\[1.1.2-1]: See section [3.3 `rev`](TODO)
+<sup>\[1.1.2-1]: See section [3.3 `rev`]()
 
-<sup>\[1.1.2-2]: See section [3.4 `ref`](TODO)
+<sup>\[1.1.2-2]: See section [3.4 `ref`]()
 
 ### 1.2 "Path-like" semantics
 
-Calls with **pathLike** arguments  attempt to fetch a repo in a directory on a local or remote file system. The target repo may be a project under active development so their status and state may need to be determined before trying to copy the repo to the [Nix store](TODO).
+Calls with **pathLike** arguments  attempt to fetch a repo in a directory on a local or remote file system. The target repo may be a project under active development so their status and state may need to be determined before trying to copy the repo to the [Nix store]().
 
 #### 1.2.1 Git repository characteristics
 
@@ -265,10 +277,12 @@ The **state** of a Git repo is the specific commit where the [HEAD reference][HE
   <figcaption>1.2.1.2-1. State of a Git repo</figcaption>
 </figure>
 
+<sup>LEGEND: orange label = branch, blue label = tag</sup>
+
 [HEAD]: https://git-scm.com/book/sv/v2/Git-Internals-Git-References#ref_the_ref
 [Git-refs]: https://git-scm.com/book/sv/v2/Git-Internals-Git-References
 
-#### 1.2.2. Argument of type [`Nix path`](TODO), `fileURL`, or `fileURLPathPart`
+#### 1.2.2. Argument of type [`Nix path`](), `fileURL`, or `fileURLPathPart`
 
 <table>
   <caption>Table 1.2.2-1</caption>
@@ -305,11 +319,11 @@ The **state** of a Git repo is the specific commit where the [HEAD reference][HE
   </tbody>
 </table>
 
-In fact, the state rows could have easily been ignored as what matters is the specific commit at the end of the de-reference process.
+In fact, the 3 "STATE" rows could easily be collapsed into one as Git branches and tags are only labels to a Git object and what matters to `fetchGit` is the specific commit at the end of the de-reference process.
 
 Example calls:
 
-+ via [Nix path](TODO):\
++ via [Nix path]():\
   `builtins.fetchGit ~/clones/nix`
 
 + via **fileURL**:\
@@ -322,7 +336,7 @@ Example calls:
 
 This means one of the following:
 
-  + via { `url` :: [Nix path](TODO) }
+  + via { `url` :: [Nix path]() }
     `builtins.fetchGit { url = ~/clones/nix; ... }`
 
   + via { `url` :: **fileURLPathPart** }
@@ -331,11 +345,11 @@ This means one of the following:
   + via { `url` :: **fileURL** }
     `builtins.fetchGit { url = "file:///home/nix_user/clones/nix"; ... }`
 
-The following table takes advantage of the fact that [state](TODO) is simply determined by the current value of the [HEAD reference][HEAD]:
+The following table takes advantage of the fact that [state]() is simply determined by the current value of the [HEAD reference][HEAD]:
 
 > NOTE
 >
-> [`gitArgs`](TODO) attributes [`rev`](TODO) and [`ref`](TODO) will only be discussed in subsequent sections, but they also needed to be addressed here because of the significant role they play regarding the call results.
+> [`gitArgs`]() attributes [`rev`]() and [`ref`]() will only be discussed in subsequent sections, but they also needed to be addressed here because of the significant role they play regarding the call results.
 
 <table>
   <caption>Table 1.2.3-1.</caption>
@@ -399,30 +413,30 @@ The following table takes advantage of the fact that [state](TODO) is simply det
     </tr>
 </table>
 
-<sup>\[1.2.3-1]:  See section [3.3 `rev`](TODO)
+<sup>\[1.2.3-1]:  See section [3.3 `rev`]()
 
-<sup>\[1.2.3-2]: When `ref` or `rev` is present, the intention is probably to fetch a known state from the repo's past history, thus most recent changes are not relevant (neither the status of the repo).</sup>
+<sup>\[1.2.3-2]: When `ref` or `rev` is present, the intention is probably to fetch a known past state from the repo's history, thus the most recent changes are not relevant (neither the status of the repo).</sup>
 
-<sup>\[1.2.3-3]: See section [3.4 `ref`](TODO)
+<sup>\[1.2.3-3]: See section [3.4 `ref`]()
 
 As a corollary, here are some tips:
 
 + If you need to fetch a local repo, calling `builtins.fetchGit` with `ref` (branch or tag) or `rev` (commit hash) will make sure that a repo is fetched with a predictable content, ignoring any changes that may have been made since you last touched it.
 
-+ If you are packaging a project under active development and want to test changes without commiting, you'll probably want to call `builtins.fetchGit` with `{ url = ...; }` or the specified in [1.2.2. Argument of type [`Nix path`](TODO), `fileURL`, or `fileURLPathPart`](TODO). 
++ If you are packaging a project under active development and want to test changes without commiting, you'll probably want to call `builtins.fetchGit` with `{ url = ...; }` or the specified in [1.2.2. Argument of type `Nix path`, `fileURL`, or `fileURLPathPart`](). 
 
 ## 2. **gitArgs** attributes
 
 Reminder:
 
-**gitArgs** :: [attribute set](TODO) =\
+**gitArgs** :: [attribute set]() =\
 &nbsp;&nbsp;{ `url` :: (**URL** | **path**);\
-&nbsp;&nbsp;&nbsp;&nbsp;[ `name` :: [string](TODO) ? `"source"` ];\
+&nbsp;&nbsp;&nbsp;&nbsp;[ `name` :: [string]() ? `"source"` ];\
 &nbsp;&nbsp;&nbsp;&nbsp;[ `ref` :: **gitReference** ? `"HEAD"` ];\
 &nbsp;&nbsp;&nbsp;&nbsp;[ `rev` :: **gitFullCommitHash** ? <`ref` dereferenced> ];\
-&nbsp;&nbsp;&nbsp;&nbsp;[ `submodules` :: [boolean](TODO) ? `false` ];\
-&nbsp;&nbsp;&nbsp;&nbsp;[ `shallow` :: [boolean](TODO) ? `false` ];\
-&nbsp;&nbsp;&nbsp;&nbsp;[ `allRefs` :: [boolean](TODO) ? `false` ];\
+&nbsp;&nbsp;&nbsp;&nbsp;[ `submodules` :: [boolean]() ? `false` ];\
+&nbsp;&nbsp;&nbsp;&nbsp;[ `shallow` :: [boolean]() ? `false` ];\
+&nbsp;&nbsp;&nbsp;&nbsp;[ `allRefs` :: [boolean]() ? `false` ];\
 &nbsp;&nbsp;}
 
 ### 3.1 `url` (mandatory)
@@ -493,7 +507,7 @@ nix-repl> builtins.fetchGit { url = ./.; name = "miez"; }
     </tr>
 </table>
 
-Sections [1.1.2 **webLikeGitArgs** type argument](TODO) and [1.2.3 **pathLikeGitArgs** type argument](TODO)) in [1. Behaviour](TODO) describe the prevailing behaviour `builtins.fetchgit` when the `rev` attribute is used.
+Sections [1.1.2 **webLikeGitArgs** type argument]() and [1.2.3 **pathLikeGitArgs** type argument]()) in [1. Behaviour]() describe the prevailing behaviour `builtins.fetchgit` when the `rev` attribute is used.
 
 > NOTE
 >
@@ -526,10 +540,13 @@ Sections [1.1.2 **webLikeGitArgs** type argument](TODO) and [1.2.3 **pathLikeGit
 >
 > By default, the `ref` value is prefixed with `refs/heads/`. After Nix 2.3.0, it will not be prefixed with `refs/heads/` if `ref` starts with `refs/`.
 
-#### 3.3.1 [`ref` attribute](TODO) ignored when the `rev` attribute is provided
+#### 3.3.1 [`ref` attribute]() ignored when the `rev` attribute is provided
 
 The `rev` attribute (i.e., the commit hash) has higher specificity; a `ref` reference will need to be resolved and its value may change with time, but a commit hash will always point to the same exact commit object and thus to the same state of the the repo during the lifetime of a Git repo. (TODO: right?)
 
+## 4. Examples
+
+> TODO: Re-work original examples
 ---
 
 TODO/NOTE: Stopping here for now to wait for the resolution of [comment on Nix issue #5128](https://github.com/NixOS/nix/issues/5128#issuecomment-1198254451)
