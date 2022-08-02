@@ -2,18 +2,9 @@
 
 Eelco:It was a terrible choice of terms. Just replace "intensional" with "content-addressed" and "extensional" with "input-addressed".
 
-## done links
-+ 
-
-+ 
-
-+ 
-
-
-
-lecture: 
-
 ## TODOs
+
++ **architecture decision record** (ADR)
 
 ### "Nix path" and POSIX (`~` or tilde)
 
@@ -23,9 +14,11 @@ Bottom line is, `~` or tilde is not part of any specification and [it may be hav
 
 ### Nix manual re-organization
 
+See `attemp-manual-reorg` branch in `toraritte/nix`.
+
 > **The Nix manual should be more like a reference that the Nixpkgs manual builds upon**
 
-A different approach to `1b23ee60a9fb662792abd031d52317e866b94771` (unify).
+A different approach to `1b23ee60a9fb662792abd031d52317e866b94771` (standardize/make_uniformunify).
 
 + move "5.1. A Simple Nix Expression" from Nix manual to Nixpkgs manual
   reason: Nixpkgs is a set of conventions around Nix (what? core? language? what would you call Nix lang + CLI tools + Nix store together?) but it is not essential to introduce the concept. This section is more about how to build a package using the Nixpkgs conventions so it should be there instead of burdening the reader.
@@ -112,12 +105,22 @@ https://discourse.nixos.org/t/how-to-build-the-nix-manual-not-the-nix-man-pages/
 
 This is of utmost necessity! Guides, blog posts, man pages, manual sections etc. teem with ambiguities. Any new material should be started with a clean slate.
 
-Just the most recent post I found:
-+ https://discourse.nixos.org/t/attribute-set-or-set/14253
++ attribute set
+  Just the most recent post I found:
+  https://discourse.nixos.org/t/attribute-set-or-set/14253
 
-## Unify Nix/Nixpkgs/NixOS manuals/project (sha1 1b23ee60a9fb662792abd031d52317e866b94771)
++ package set (e.g., https://nixos.wiki/wiki/Alternative_Package_Sets)
 
-+ https://github.com/NixOS/nix-book/issues/12
+## Remove Nixpkgs references from Nix manual
+
+> https://github.com/NixOS/nix.dev/issues/290#issuecomment-1201862547
+> One could argue that Nix "core" and Nixpkgs are separate as well: Nix "core" works with [alternatiive package sets](https://nixos.wiki/wiki/Alternative_Package_Sets), and Nixpkgs also works with alternate implementations of the Nix core functionality (e.g., [hnix](https://github.com/haskell-nix/hnix)).
+
++ make a separate manual for Nix CLI commands (isn't that's what man pages are for?), or at least don't mix the two: Nix "core" is a reference/gentle-ish intro that don't depend on Nixpkgs (it's a set of conventions built on top of Nix "core") and Nix CLI (... lost my momentum here, because how much do Nix CLI commands depend - if at all - on Nixpkgs? Maybe not at all, because how would alternate package sets be used?)
+
+  + => it may still be prudent to separate the two, because the "lighthearted" intro sections showing of Nix CLI commands are built on Nix core so understanding would be crucial. So what about this:
+
+## standardize/make_uniform Nix/Nixpkgs/NixOS manuals/project (sha1 1b23ee60a9fb662792abd031d52317e866b94771)
 
 + a good summary of the [Nix ecosystem on the NixOS wiki](https://nixos.wiki/wiki/Nix_Ecosystem)
 
@@ -151,9 +154,133 @@ Just the most recent post I found:
 
   + When building the Nix manual, I just found two outputs with the same name (`result-doc`) but different timestamps and at different places (one at `nix/result-doc`, the other at `nix/doc/manual/result-doc` - I presume the location of the result symlinks depend on where `nix build` is called from.
 
+## see stuff above..
+
+`(new) Nix manual(s)
+   ┌──────────────────────────────────────────────────────────────────────┐
+   │                                                                      │
+   │                                                                      │
+   │  ┌──────────────────────────┐       ┌─────────────────────────────┐  │
+   │  │                          │       │                             │  │
+   │  │                          │       │                             │  │
+   │  │     Nix core reference   │       │  Nix CLI reference          │  │
+   │  │                          │       │     (a.k.a. man pages?)     │  │
+   │  │                          │       │                             │  │
+   │  │                          │       │                             │  │
+   │  └──────────────┬───────────┘       └─────────────────┬───────────┘  │
+   │                 │                                     │              │
+   └─────────────────┼─────────────────────────────────────┼──────────────┘
+                     │                                     │
+                     │                                     │
+                     │                                     │
+                     │   ┌───────────────────────────┐     │
+                     │   │                           │     │
+                     └───►    quick start guide      ◄─────┤
+   ┌─────────────┐       │                           │     │    ┌────────────┐
+   │             │       │    (parts of Nix manual   │     │    │            │
+   │    NixOS    │       │     already treated so)   ◄─────┼────┤  Nixpkgs   │
+   │    manual   │       │                           │     │    │  manual    │
+   │             │       └───────────────────────────┘     │    │            │
+   └─────────┬───┘                                         │    │            │
+             │                                             │    └────┬───────┘
+             │                                             │         │
+          ┌──▼─────────────────────────────────────────────▼─────────▼───┐
+          │                                                              │
+          │                                                              │
+          │    guides, more in-depth intros, advanced material, etc.     │
+          │                                                              │
+          │         that do make the connections in-between manuals      │
+          │                                                              │
+          │                                                              │
+          └──────────────────────────────────────────────────────────────┘
+
+
+
+          ?
+   ┌──────?──────┐
+   │      ?      │  Should these manuals be split as well?
+   │    Ni?OS    │  ======================================
+   │    ma?ual   │  There is certainly a lot of reference-y and
+   │      ?      │  guide-y stuff in both, resulting in a confusing
+   └──────?──────┘  mix, making it hard to find what is needed
+          ?
+   ┌──────?──────┐
+   │      ?      │  TODO: experiment with
+   │  Nixp?gs    │
+   │  manu?l     │        1. Nix/Nixpkgs/NixOS reference materials
+   │      ?      │
+   │      ?      │        2. Use the solid foundations of 1. create
+   └──────?──────┘           the guides (as they will inevitably
+          ?                  touch on the other parts of the eco-
+                             system)
+
+
+    How to keep reference materials "pure"?
+    ---------------------------------------
+
+    Nix manual
+    ==========
+    Nix "core" doesn't depend either on NixOS or Nixpkgs, and there
+    is no reason to be mentioned there. The Nix CLI tools may be an
+    exception as they need an example package set to be worked on
+    sometimes.
+
+    Only the notion of "package set" is intrinsic to Nix "core" and
+    not to a specific implementation of it (with all the inevitable
+    idiosyncrasies that come with such an implementation).
+
+    TODO: Experiment with a "toy" package set specifically created
+          for Nix CLI references. From there, guides can use Nixpkgs
+          in examples to their heart's content.
+
+          (The "toy" package set idea may be a good one because
+           there could be a guide linked to show HOW to make one's
+           own package set as an added benefit!)
+
+
+          Of course, this entirely depends on:
+
+    ┌──────────────────────────┐
+    │┼────────────────────────┼│
+    ││ Nix "core" =/= Nix CLI ││ ... or something along these lines.
+    │┼────────────────────────┼│ Needs to be proven; see TODO below.
+    └──────────────────────────┘
+
+     TODO: understand
+
+           + how to work with alternative package sets
+
+           + how deeply coupled are Nix CLI tools with Nixpkgs
+
+
+     Nixpkgs manual
+     ==============
+
+     The above section should(...) take care of Nix "core", and even
+     though Nixpkgs "houses" NixOS modules, that could be taken care
+     of with a link to the NixOS manual.
+
+     Another reason for removing NixOS references is because there
+     are other OSs that build on Nix "core" and package sets (maybe
+     even Nixpkgs). Examples include Triton, Spectrum-OS
+
+     Discussions that do require the mention of NixOS modules etc.
+     should definitely be in NixOS manual.Nix* manuals.
+
+     TODO Find a legitimate reason to ever mention NixOS besides that
+          link to the NixOS manual.
+
+     NixOS manual
+     ============
+
+     This is a trickier one - or is it? What is Nix's relationship
+     with alternative package sets? NixOS is a truly Nix community
+     thing, although it wouldn't hurt to explain hnix and alt sets.
+     (However, that may be for the guides?..)``
+
 ### WHAT ARE NIX FETCHERS?
 
-**TODO**: All the fetcher-stuff should be explained in a single place. This strucks a chord with `1b23ee60a9fb662792abd031d52317e866b94771` (unify). How?
+**TODO**: All the fetcher-stuff should be explained in a single place. This strucks a chord with `1b23ee60a9fb662792abd031d52317e866b94771` (standardize/make_uniform). How?
   + **step 1.** blog/discourse post
 
   what does "fetch" mean in the context of Nix lang builtins? Does it literally copies upon invocation or just signals intention? E.g., `builtins.fetchGit` return an attr set with an `outPath` attribute - does it mean that whatever we tried to fetch is already in the store?
@@ -446,4 +573,3 @@ nix-repl> builtins.fetchGit { url = "https://github.com/nixos/nix.git";  rev = "
 error: hash '841fcbd' has wrong length for hash type 'sha1'
 
 nix-repl> 
-```
