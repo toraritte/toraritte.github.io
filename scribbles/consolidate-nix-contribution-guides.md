@@ -278,6 +278,87 @@ This is of utmost necessity! Guides, blog posts, man pages, manual sections etc.
      thing, although it wouldn't hurt to explain hnix and alt sets.
      (However, that may be for the guides?..)``
 
+
+### Distill Nixpkgs questions from the chat during the Jon Ringer Nixpkgs architecture intro
+
+@room
+ Hey all, 👋
+
+Just a friendly reminder that the next Lecture by 
+jonringer
+ about The Architecture and History of Nixpkgs will begin soon!
+https://discourse.nixos.org/t/jon-ringer-the-architecture-and-history-of-nixpkgs-son2022-public-lecture-series/20626?u=bjth
+
+
+Jon Ringer - The Architecture and History of Nixpkgs (SoN2022 - public lecture series) - NixOS Discourse
+Hey all, 👋 @armijn Gave his lecture about the history of NIxOS last Tuesday, and I’m happy to announce the next Lecture! The next lecture will be about the architecture and history of Nixpkgs, given by @jonringer. We’ll go live on Tuesday, August 2, 2022 3:00 PM (UTC). As usual, don’t miss it. 😉 The lecture can be followed live on the following platforms: NixOS - YouTube LinkedIn Owncast Instance NixOS (@nixos_org) / Twitter Recordings of the broadcasts will be published on the Ni...
+Matthias Meschede changed the topic to "Owncast [https://summer.nixos.org/live/] or [https://live.nixos.org/] YouTube [https://youtu.be/TKgHazs3AMw] LinkedIn [https://www.linkedin.com/video/event/urn:li:ugcPost:6958498799543549952/] Twitter [on https://twitter.com/nixos_org come once it starts] ".
+Matthias Meschede
+As always: please post questions here during the talk (or on YouTube, Linkedin). We'll go through them in the end.
+vdot0x23 joined the room
+mightyiam
+Q: do you feel the absence of static types in nixpkgs?
+Matthias Meschede
+Q: Do you see something in between mono-repo or breaking up everything into individual packages? E.g. would composing two or three repos of similar size than nixpkgs together work well and be useful with the current architecture?
+Q: How far is flakes support on nixpkgs? What remains to be done?
+Q: How far would you go with testing on nixpkgs? As much as possible?
+or not 
+mightyiam
+ ? 😓
+mightyiam
+It's "mighty I am"
+Bryan Honof
+Ah, both 
+Matthias Meschede
+ and I were wrong then 😅, sorry.
+mightyiam
+Q: how do multiple versions of packages work at all?
+a-kenji
+Thanks for the talk Jon!
+Q: What is the major feature that Hydra has, that other CI/CD's don't support.
+mightyiam
+Q: why are there occasionally failures on Hydra and how can those be eliminated or reduced?
+Collin Arnett
+Q: How would you improve the experience of python developers working with ML/Data science libraries in Nix? Eg. I have read your experience on onnxruntime
+Matthias Meschede
+Q: What resources do you need to run nixpkgs? Build machines, storage, ....
+Kranzes
+a-kenji
+Q: What is the major feature that Hydra has, that other CI/CD's don't support.
+Check out Hercules-CI!
+fufexan
+Q: is there anything you'd change if you were to start a Nixpkgs again?
+ctem
+(ctem can be pronounced "stem" :)
+Q: Assuming internationalization functionality in Nix tooling, in its current form, how hospitable do you feel Nixpkgs would be to localization?
+Bryan Honof
+Sorry for killing the names 😅
+fufexan
+hey no problem 😄 also you can just call me "mihai" (pronounced me high)
+infinisil
+I recently started up the Nixpkgs Architecture Team, which will take a look at larger issues and design decisions in nixpkgs :D Matrix channel is 
+#nixpkgs-architecture:nixos.org
+
+Nixpkgs Architecture Team - GitHub
+Nixpkgs Architecture Team has 4 repositories available. Follow their code on GitHub.
+Kranzes
+Q: pwease rewview my pw-awre 🥺
+infinisil
+Thanks for the shoutout :)
+vdot0x23
+Q: What upcoming feature/change to nixpkgs are you most excited about in the near future?
+a-kenji
+Thanks jon, it was an awesome talk!
+billewanick
+Since Jon brought up reviewing PRs, what goes into reviewing a PR on Nixpkgs? What things should be done, what commands run, what to look for in code, etc? A guide on how to review PRs might go a long way to get more people involved.
+vdot0x23
+billewanick
+Since Jon brought up reviewing PRs, what goes into reviewing a PR on Nixpkgs? What things should be done, what commands run, what to look for in code, etc? A guide on how to review PRs might go a long way to get more people involved.
+For common changes I have found this helpful https://nixos.org/manual/nixpkgs/stable/#chap-reviewing-contributions
+
+NixOS - Nixpkgs 22.05 manual
+Nixpkgs Manual Version 22.05 Table of Contents 1. Preface I. Using Nixpkgs 2. Global configuration 3. Overlays 4. Overriding 5. Functions reference II. Standard environment 6. The Standard Environment
+
 ### WHAT ARE NIX FETCHERS?
 
 **TODO**: All the fetcher-stuff should be explained in a single place. This strucks a chord with `1b23ee60a9fb662792abd031d52317e866b94771` (standardize/make_uniform). How?
