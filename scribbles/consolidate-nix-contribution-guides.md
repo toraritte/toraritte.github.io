@@ -111,6 +111,21 @@ This is of utmost necessity! Guides, blog posts, man pages, manual sections etc.
 
 + package set (e.g., https://nixos.wiki/wiki/Alternative_Package_Sets)
 
++ eelco: https://github.com/NixOS/nix/pull/6420#issuecomment-1105299320
++ [output vs build result](https://github.com/NixOS/nix/pull/6420#discussion_r919904245)
++ [store object?](https://github.com/NixOS/nix/pull/6420#discussion_r920010720)
+
+[concept map of Nix stuff](https://github.com/NixOS/nix/pull/6420#issuecomment-1161690195)
+
+## Documentation "layers"
+
+Justification:
+
++ https://github.com/NixOS/nix/pull/6420#discussion_r918426004
++ https://github.com/NixOS/nix/pull/6420#discussion_r918432510
++ https://github.com/NixOS/nix/pull/6420#discussion_r920007881
++ 
+
 ## Remove Nixpkgs references from Nix manual
 
 > https://github.com/NixOS/nix.dev/issues/290#issuecomment-1201862547
@@ -130,6 +145,24 @@ This is of utmost necessity! Guides, blog posts, man pages, manual sections etc.
 
 > See [this](https://discourse.nixos.org/t/ideas-to-make-it-easier-to-contribute-to-the-documentation/20312) Discourse thread first.
 
++ important file: [`nix.dev/CONTRIBUTING.md`](https://github.com/NixOS/nix.dev/pull/265/files#diff-eca12c0a30e25b4b46522ebf89465a03ba72a03f540796c979137931d8f92055)
+
+
++ Make prominent that there are [explicit requirements for contributing](https://github.com/NixOS/nix.dev/pull/265/files#diff-eca12c0a30e25b4b46522ebf89465a03ba72a03f540796c979137931d8f92055), and for anything else, contributors may only expect a best effort from the community
+
+  > > fricklerhandwerk
+  > > Ah, that makes total sense. Actually I strongly empathize with that stance.
+  > > 
+  > > We should at least state the relevant skills as prerequisites (e.g. git and GitHub workflow in the prerequisites for a guide to contribute to nixpkgs). A PR to the relevant manual section is highly welcome!
+  > 
+  > Finding and recommending good material is another can of worms, and much less important. We could try and say the Git project is responsible to onboard new people, and reference the relevant resource that appears to do this job.
+  > 
+  > Love this about being explicit about requirements needed to be able to "officially" contribute!
+  > 
+  > It might be prudent to add that we don't discourage other ways, but we should set their expectations straight: non-PR/issue suggestions can only be expected to be resolved on a best effort basis (i.e., someone finds the time and effort "champion" these reports, or they buddy up with a more experienced member, etc.)
+
+  A case in point:
+
 + From the Matrix wiki channel:
   > > nixos-wiki-rcbot
   > > [[NixOS Wiki talk:Contributing]] https://nixos.wiki/wiki/index.php?diff=7848&oldid=2946 * Toraritte * (+297) Add TODO section for article
@@ -137,6 +170,7 @@ This is of utmost necessity! Guides, blog posts, man pages, manual sections etc.
   > : the rust manual link is not valid and the Rust nightly overlay points to Mozilla's nixpkgs fork
 
   I have no clue which page and link in particular this refers to (because the linked log in the reply has no rust stuff), so **encourage drive-by comments** but define a process (for each documentation entity...) on where to track this progress (issues?)
+
 
 ### [nixos.org: How to contribute](https://nixos.org/guides/contributing.html)
 
