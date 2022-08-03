@@ -126,7 +126,17 @@ This is of utmost necessity! Guides, blog posts, man pages, manual sections etc.
 
 ## Notes on consolidating Nix\* contribution guides
 
+### How to make it easier to contribute
+
 > See [this](https://discourse.nixos.org/t/ideas-to-make-it-easier-to-contribute-to-the-documentation/20312) Discourse thread first.
+
++ From the Matrix wiki channel:
+  > > nixos-wiki-rcbot
+  > > [[NixOS Wiki talk:Contributing]] https://nixos.wiki/wiki/index.php?diff=7848&oldid=2946 * Toraritte * (+297) Add TODO section for article
+  > toraritte
+  > : the rust manual link is not valid and the Rust nightly overlay points to Mozilla's nixpkgs fork
+
+  I have no clue which page and link in particular this refers to (because the linked log in the reply has no rust stuff), so **encourage drive-by comments** but define a process (for each documentation entity...) on where to track this progress (issues?)
 
 ### [nixos.org: How to contribute](https://nixos.org/guides/contributing.html)
 
