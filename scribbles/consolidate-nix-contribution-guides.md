@@ -143,6 +143,10 @@ Justification:
 
 ### How to make it easier to contribute
 
++ Add videos/GIFs of how to a workflow looks like with git (I use terminal, vim, etc. so other perspectives would also help)
+  + Add a SCRIPT so that others can reproduce the same steps but in their own workflow
+  + (just remembered the tweag youtube channel)
+
 > See [this](https://discourse.nixos.org/t/ideas-to-make-it-easier-to-contribute-to-the-documentation/20312) Discourse thread first.
 
 + important file: [`nix.dev/CONTRIBUTING.md`](https://github.com/NixOS/nix.dev/pull/265/files#diff-eca12c0a30e25b4b46522ebf89465a03ba72a03f540796c979137931d8f92055)
