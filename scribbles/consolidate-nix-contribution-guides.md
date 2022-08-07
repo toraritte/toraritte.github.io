@@ -702,3 +702,4 @@ nix-repl> builtins.fetchGit { url = "https://github.com/nixos/nix.git";  rev = "
 error: hash '841fcbd' has wrong length for hash type 'sha1'
 
 nix-repl> 
+
