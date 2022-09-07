@@ -2,6 +2,9 @@
 
 Been down this road before so picking up the thread (or more like re-tracing my steps) from [NixOS images on Azure](https://discourse.nixos.org/t/nixos-images-on-azure/7062).
 
+## 2022
+### 2022-09-06: NixOS on Azure
+
 The premise was to use configure TR2 (FreeSWITCH + Erlang script) on NixOS, and deploy it on Azure, but that is put on hold because
 
 > The Azure platform SLA applies to virtual machines running the Linux OS only when one of the [endorsed distributions](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/endorsed-distros) is used.
@@ -32,3 +35,12 @@ The premise was to use configure TR2 (FreeSWITCH + Erlang script) on NixOS, and 
 > + [sauryadas/NixOS_Azure](https://github.com/sauryadas/NixOS_Azure)
 >
 > + [Awesome Nix](https://nix-community.github.io/awesome-nix/)
+
+### 2022-09-07: Use Nix on Linux to deploy TR2
+
+Current choice is Debian, because
+
+> Debian (preferred) The development team uses and builds against Debian. They recommend Debian because of its operationally stable, yet updated, kernel and wide library support. 
+> <sup>[from FreeSWITCH docs](https://freeswitch.org/confluence/display/FREESWITCH/Installation)</sup>
+
+
