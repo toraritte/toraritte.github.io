@@ -1,5 +1,11 @@
 <sup>[Scientific Breakthrough of the Afternoon](https://medium.com/scientific-breakthrough-of-the-afternoon) - posts that haven't been migrated here yet.</sup>
 
+## Progress notes
+
+Notes following the form of the [Nix user studies](https://discourse.nixos.org/t/usability-studies/21404).
+
++ SFTB: [How to properly deploy TR2?](progress-notes/how-to-properly-deploy-TR2.md)
+
 ## Works of others only available in HTML format here
 
 + [Eelco Dolstra](https://edolstra.github.io/)'s [PhD thesis, "_The Purely Functional SoftwareDeployment Model_"](https://edolstra.github.io/pubs/phd-thesis.pdf):
