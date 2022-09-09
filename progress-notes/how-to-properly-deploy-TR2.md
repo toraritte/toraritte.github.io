@@ -38,9 +38,21 @@ The premise was to use configure TR2 (FreeSWITCH + Erlang script) on NixOS, and 
 
 ### 2022-09-07: Use Nix on Linux to deploy TR2
 
-Current choice is Debian, because
+Current Linux choice is Debian, because
 
-> Debian (preferred) The development team uses and builds against Debian. They recommend Debian because of its operationally stable, yet updated, kernel and wide library support. 
+> Debian (preferred) The development team uses and builds against Debian. They recommend Debian because of its operationally stable, yet updated, kernel and wide library support.\
 > <sup>[from FreeSWITCH docs](https://freeswitch.org/confluence/display/FREESWITCH/Installation)</sup>
 
+Did [a search for `manage system services with nix`](https://www.google.com/search?q=manage+system+services+with+nix&oq=manage+system+services+with+nix+&aqs=chrome..69i57j33i160l4j33i299.10263j0j4&sourceid=chrome&ie=UTF-8), and the first result was [How does Nix manage SystemD modules on a non-NixOS?](https://unix.stackexchange.com/questions/349199/how-does-nix-manage-systemd-modules-on-a-non-nixos) on UNIX & Linux Stackexchange.
 
+### 2022-09-08: systemd, Disnix
+
+Tons of great info in there that I'm unable to absorb yet, so created the Discourse thread [How does Nix manage SystemD modules on a non-NixOS?](https://discourse.nixos.org/t/how-does-nix-manage-systemd-modules-on-a-non-nixos/21499) to track similar topics from Discourse which, surprisingly, have very little information on this matter.
+
+Opened as many tabs as I could from the search (obviously..), and one of the results was from Sander van der Burg's blog, an article titled [Using the Nix process management framework as an infrastructure deployment solution for Disnix](http://sandervanderburg.blogspot.com/2021/03/using-nix-process-management-framework.html). ([annotations](./assets/2021-03-12_Using-the-Nix-process-management-framework-as-an-infrastructure-deployment-solution-for-Disnix.pdf))<sup><b>♠</b></sup>
+
+<sup>\[♠]: First, here's the [JavaScript snippet](https://gist.github.com/toraritte/419f9012e62fc05486acdf7b1e272341) used to format Sander's blogspot articles to be properly print them to PDF to do annotations with Xodo. Second, there may be no annotation in there because I accidentally deleted the file, and syncthing diligently propagated that change across every devices. (TODO: set up versioning and/or add a crontab entry to back up periodically.)</sup>
+
+Got stuck quickly because I'm missing the basics, so jumped over to [Disnix: A toolset for distributed deployment](https://sandervanderburg.blogspot.com/2011/02/disnix-toolset-for-distributed.html), where Sander first announced Disnix ([annotations](./assets/2011-02-16_Disnix--A-toolset-for-distributed-deployment.pdf)).
+
+The Disnix intro article above doesn't mention systemd (it was written only a couple months after systemd was announced), but services come up a lot, and most other posts I skimmed talk heavily about systemd. That is another topic I know little about, so switched again to learn it.
