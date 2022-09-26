@@ -1,0 +1,39 @@
+
+
+
+.. and to make sure that I understand the concepts involved, here are my definitions:
+
+**build inputs** are
+
++ sources
++ dependencies
++ [and controls](https://discourse.nixos.org/t/are-controls-considered-build-inputs-when-building-a-software-project/15285)
+
+where
+
+A **source** is a build input for a *Nix build expression*.
+
+A **dependency** is a build input for a source.
+
+A **control** is a build input that affects the characteristics (behaviour, feature set, etc.) of the built artifact.
+
+A **Nix expression** is a set of expressions<sup>1</sup> using the Nix expression language<sup>2</sup>  that does not produce a derivation (and ultimately, a build artifact/package) when evaluated. (E.g., an `import`ed Nix file, a snippet in a `nix-shell -E` oneliner)
+
+<sup>\[1]: I don't think the word "instructions" would cut it here.</sup>
+<sup>\[2]: Is there a better source for here than [Part IV. Writing Nix Expressions](https://nixos.org/manual/nix/stable/#chap-writing-nix-expressions) of the Nix manual? ([related Nix issue to rename it](https://github.com/NixOS/nix/issues/835))</sup>
+
+A **Nix build expression** is a *Nix expression* that produces a derivation (and ultimately, a build artifact/package) when evaluated. These expressions call specific builders (such as [`stdenv.mkDerivation`](https://github.com/NixOS/nixpkgs/blob/7017a662007a2d7becd3b0298b341bcaea2d36d3/pkgs/build-support/trivial-builders.nix#L72)), usually on the last line.
+
+<sup>[Part IV. Writing Nix Expressions](https://nixos.org/manual/nix/stable/#chap-writing-nix-expressions) of the Nix manual does not make such distinctions, but this helped me though.</sup>
+
+An **ingress method** is one way a build input ends up being declared/present in a flox expression.
+
+
+Some of the ingress methods I can think of:
+
+* sources, dependencies
+  + `fetch*` functions
+
+* dependencies
+  + derivation path (e.g., from the Nix store)
+

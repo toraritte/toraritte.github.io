@@ -56,3 +56,16 @@ Opened as many tabs as I could from the search (obviously..), and one of the res
 Got stuck quickly because I'm missing the basics, so jumped over to [Disnix: A toolset for distributed deployment](https://sandervanderburg.blogspot.com/2011/02/disnix-toolset-for-distributed.html), where Sander first announced Disnix ([annotations](./assets/2011-02-16_Disnix--A-toolset-for-distributed-deployment.pdf)).
 
 The Disnix intro article above doesn't mention systemd (it was written only a couple months after systemd was announced), but services come up a lot, and most other posts I skimmed talk heavily about systemd. That is another topic I know little about, so switched again to learn it.
+
+### 2022-09-26: systemd still, and tr2-dev
+
+#### systemd
+
+Finished reading and annotating the (only) systemd book I could find, [Linux Service Management Made Easy with systemd](https://www.amazon.com/Linux-Service-Management-Made-systemd/dp/1801811644); it has tons of good info, but the style made me almost quit, and clarity is not it's strongest suit.
+
+There's still plenty of good resources, will continue there.
+
+#### tr2-dev
+
+Finally summoned the courage to create a development server for TR2, and hoping to nixify the whole process - and maybe even create a NixOS counterpart. 
+
