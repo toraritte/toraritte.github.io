@@ -67,5 +67,89 @@ There's still plenty of good resources, will continue there.
 
 #### tr2-dev
 
-Finally summoned the courage to create a development server for TR2, and hoping to nixify the whole process - and maybe even create a NixOS counterpart. 
+Finally summoned the courage to re-create the TR2 service to use it as a backup and as a development server; it will nice not to hack on the production server:) Hoping to nixify the whole process, and maybe even to create a NixOS counterpart (as it is currently running on Debian).
+
+##### Step 1. Re-create TR2
+
+1. Set up new Debian VM.
+
+2. [Install Nix](https://nixos.org/download.html) by using the multi-user installation.
+
+  > QUESTION Why does SELinux need to be disabled? And how does one check if it is enabled?
+
+3. `nix-shell -pv git`
+
+4. Clone the [access-news/phone-service](https://github.com/access-news/phone-service) GitHub repo.
+
+  ```text
+  mkdir clones
+  cd clones
+  git clone https://github.com/access-news/phone-service.git
+  ```
+
+5. Follow the [FreeSWITCH wiki's Debian install instructions](https://freeswitch.org/confluence/display/FREESWITCH/Debian) up to the installation, but stop before that because:
+
+  > WARNING: Use `sudo su` to execute the commands in the root shell; at least, prefixing these with `sudo` doesn't always seem to work because of all the redirections going on. While this is not ideal (no logs, etc.), this way it **will** work, and only doing this to re-establish understanding of the project anyway before trying to nixify it.
+
+  > ```text
+  > TOKEN=YOURSIGNALWIRETOKEN
+  > ```
+  >
+  > (Go [here](https://freeswitch.org/confluence/display/FREESWITCH/HOWTO+Create+a+SignalWire+Personal+Access+Token) to get the token.)
+  >
+  > ```text
+  > apt-get update && apt-get install -y gnupg2 wget lsb-release
+  >
+  > wget --http-user=signalwire --http-password=$TOKEN -O /usr/share/keyrings/signalwire-freeswitch-repo.gpg https://freeswitch.signalwire.com/repo/deb/debian-release/signalwire-freeswitch-repo.gpg
+  >
+  > echo "machine freeswitch.signalwire.com login signalwire password $TOKEN" > /etc/apt/auth.conf
+  > chmod 600 /etc/apt/auth.conf
+  > echo "deb [signed-by=/usr/share/keyrings/signalwire-freeswitch-repo.gpg] https://freeswitch.signalwire.com/repo/deb/debian-release/ `lsb_release -sc` main" > /etc/apt/sources.list.d/freeswitch.list
+  > echo "deb-src [signed-by=/usr/share/keyrings/signalwire-freeswitch-repo.gpg] https://freeswitch.signalwire.com/repo/deb/debian-release/ `lsb_release -sc` main" >> /etc/apt/sources.list.d/freeswitch.list
+  > ```
+
+  Didn't bother with the warning below, just went ahead and installed it, because this is what I did in the past apparently based on [`deploy.bash`](https://github.com/access-news/phone-service/blob/6b49f27a8d6831aa917d59e632694d135966f937/deploy.bash) (which renames the vanilla config in `/etc/freeswitch` to `/etc/freeswitch_old`).
+
+  > ```text
+  > # you may want to populate /etc/freeswitch at this point.
+  > # if /etc/freeswitch does not exist, the standard vanilla configuration is deployed
+  > apt-get update && apt-get install -y freeswitch-meta-all
+  > ```
+
+c("outbound_erl2/content"), c("outbound_erl2/filog"), c("outbound_erl2/fs"), c("outbound_erl2/futil"), c("outbound_erl2/ivr"), c("outbound_erl2/menus"), c("outbound_erl2/tts"), c("outbound_erl2/user_db"), filog:start(), user_db:start(), content:start
+().
+
+6. Test out the install
+
+  ```text
+  sudo service freeswitch start
+  fs_cli
+  ```
+  > NOTE / QUESTION: The `freeswitch` group and user are added by the installer automatically. Does the Nix package takes care of this too? Probably does because there is a systemd service for it in Nixpgks, and it is probably (and hopefully) not started as root.
+
+7. Copy the config from TR2 to TR2-DEV
+
+   That would mostly mean `/etc/freeswitch`, but it is more nuanced than that, because Google's TTS is also used in the service at the moment, so there is a JSON file for authenticating for that, and some Lua stuff. The latter was supposed to be dropped, but forgot if I already did, and never updated to docs, so...
+
+   QUESTION: How are the phone numbers 916.732.4000 and 800.665.4667 configured? (This part is crucial, because I didn't want to set up a backup that disrupts the service in production.)
+
+   ANSWER: Will annotate the relevant config files and document it here as well, but the real answer is that this is set up in the SignalWire Dashboard (i.e., in our case, at [sftb.signalwire.com](https://sftb.signalwire.com)); the [`mod_signalwire`](https://sftb.signalwire.com/phone_numbers) explains this in details, but re-iterating here just in case:
+
+  1. Generate a token in `fs_cli` with the `signalwire token` command.
+
+  2. Create a new SignalWire integration (go to "Integrations" on the [Dashboard](https://sftb.signalwire.com)); enter the token when asked for it, and fill out the forms. (NOTE: An outgoing phone number needs to be specified even if there will be no outgoing calls.)
+
+  3. Go to "Phone Numbers" > (click on number) > "Edit Settings", and add the connector/integration for the desired FreeSWITCH instance.
+
+  The config files seem to play little role here for TR2 at the moment, but will dive into them just in case.
+
+  ---
+
+  QUESTION: Started looking at the API, and was wondering if a FreeSWITCH instance is necessary at all? Could it be recreated in JavaScript/TypeScript, and just done with it?
+
+  ---
+
+  QUESTION: How to send texts? Would probably be a good thing for authentication purposes later on.
+
+  ---
 
