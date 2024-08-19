@@ -1,5 +1,8 @@
 # `callPackage`
 
+> [CAVEAT LECTOR](https://en.wikipedia.org/wiki/Caveat_emptor#Caveat_lector)  
+> I'm not a `Nix(OS|pkgs)?` expert, and none of this has been reviewed by anyone who is. Please consider [creating an issue or pull request](https://github.com/toraritte/toraritte.github.io), if you have any suggestions or corrections. Thank you!
+
 Officially, `callPackage` is only [indirectly documented][1] in the [Nixpkgs manual][2], but there are efforts to get this rectified.<sup><b>0</b></sup> The closest to an official documentation is the [Package parameters and overrides with callPackage][3] article on [nix.dev][4].
 
 <sup>\[0]: See [`nix.dev` issue #651](https://github.com/NixOS/nix.dev/issues/651), [Nixpkgs issue #36354](https://github.com/NixOS/nixpkgs/issues/36354), and [Nixpkgs PR #270696](https://github.com/NixOS/nixpkgs/pull/270696).</sup>
