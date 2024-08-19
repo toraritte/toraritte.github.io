@@ -11,7 +11,7 @@ Below are just my notes:
 `callPackage f attr_set` will
 
 1. call function `f` by **automatically populating its input [attribute set][5]**  
-   <sup>from [attribute set][5] `attr_set` and [Nixpkgs][6] ( which contains all the available Nix packages, convenience functions, etc.)</sup>
+   <sup>from [attribute set][5] `attr_set` and [Nixpkgs][6] ( which contains all the available <a href="#def-package">Nix package</a>s, convenience functions, etc.)</sup>
 
 2. return an **overridable [attribute set][5]**
 
@@ -19,14 +19,14 @@ Below are just my notes:
 
 ### 1.1 General usage
 
-`callPackage` is used overwhelmingly on functions that produce derivations (a build recipe for a Nix package). Creating a Nix package can require a lot of dependencies that won't have to be supplied manually to the function this way.
+`callPackage` is used overwhelmingly on functions that produce derivations (a build recipe for a <a href="#def-package">Nix package</a>). Creating a <a href="#def-package">Nix package</a> can require a lot of dependencies that won't have to be supplied manually to the function this way.
 
-> DEFINITION  
+> "DEFINITION"  
 > "_<dfn id="def-package">Nix package</dfn>_" can mean anything digital that requires assembly from one or more sources. A Nix package can be a software, a dataset, a document, a piece of configuration, etc. (The term "package" is quite overloaded, so it may mean something else entirely in other contexts.)
 
 ### 1.2 A common example use case from [Nixpkgs][6]
 
-An important part of [Nixpkgs][6] is [`pkgs/top-level/all-packages.nix`][7] where all the available packages are listed. When the Nixpkgs repo (which is "just" a huge Nix expression) is [`import`][8]ed, all these packages (and some extra attributes) will be composed into one huge [attribute set][5]<sup><b>footnum</b></sup>. The majority of its ~40k lines either are or boil down to a `callPackage` call, such as [this][9]:
+An important part of [Nixpkgs][6] is [`pkgs/top-level/all-packages.nix`][7] where all the available <a href="#def-package">package</a>s are listed. When the Nixpkgs repo (which is "just" a huge <a href="#def-nix-expression">Nix expression</a>) is [`import`][8]ed, all these <a href="#def-package">package</a>s (and some extra attributes) will be composed into one huge [attribute set][5]<sup><b>footnum</b></sup>. The majority of its ~40k lines either are or boil down to a `callPackage` call, such as [this][9]:
 
 <sup>\[footnum]: ... in [here in `pkgs/top-level/stage.nix`](https://github.com/NixOS/nixpkgs/blob/b7d9ab22adfc67600328d42aa6552326be486393/pkgs/top-level/stage.nix#L149-L153). See [comment at the top](https://github.com/NixOS/nixpkgs/blob/b7d9ab22adfc67600328d42aa6552326be486393/pkgs/top-level/stage.nix#L1-L9).</sup>
 
@@ -49,11 +49,11 @@ godot_4 = callPackage ┌godot_4_nix┐ ┌{         }┐ ;
 #
 ```
 
-where `"NIXPKGS"`<sup><b>1</b></sup> stands for the resulting [attribute set][5] when the huge Nix expression that is the [Nixpkgs repo][6] is evaluated (e.g., with `import <nixpkgs> {}`).
+where `"NIXPKGS"`<sup><b>1</b></sup> stands for the resulting [attribute set][5] when the huge <a href="#def-nix-expression">Nix expression</a> that is the [Nixpkgs repo][6] is evaluated (e.g., with `import <nixpkgs> {}`).
 
 <sup>\[1]: I used quotes because [some attributes are actually omitted][11].</sup>
 
-> ASIDE  
+> "DEFINITION"  
 > A "<dfn id="def-nix-expression">Nix expression</dfn>" is any piece of code written using the [Nix language][10].
 
 The [`godot_4_nix` function][12] has 30+ input parameters; most are dependecies (the ones with **no** default values) and some are options (the ones **with** default values, [provided with the `?` operator][13]). This means that to build the Godot 4 application, one would have to write out all the input dependencies manually - unless it is called with `callPackage`.
@@ -67,7 +67,7 @@ Thus, extensive use of `callPackage` when "pre-evaluating" package definitions (
 > 
 > What I mean by "_pre-evaluation_" is to call (or, because of Nix's laziness, schedule a call of) a "_derivation-returning function_" with the arguments it needs. This was already the practice before [`callPackage` was introduced][17], it just took up way more space and time.
 
-Because of pre-evaluation, invoking `callPackage` on a Nixpkgs package produces a "_derivation attribute set_" right away - but this is where **overridability** comes in the picture: `callPackage` will also add two extra attributes<sup><b>footnum</b></sup> to the produced [attribute set][5], `override`  and `overrideDerivation`<sup><b>footnum</b></sup>, making it possible to tweak the future derivation(e.g., by specifying a different source, change the options, etc.) instead of accepting the defaults.
+Because of pre-evaluation, invoking `callPackage` on a Nixpkgs <a href="#def-package">package</a> produces a "_derivation attribute set_" right away - but this is where **overridability** comes in the picture: `callPackage` will also add two extra attributes<sup><b>footnum</b></sup> to the produced [attribute set][5], `override`  and `overrideDerivation`<sup><b>footnum</b></sup>, making it possible to tweak the future derivation(e.g., by specifying a different source, change the options, etc.) instead of accepting the defaults.
 
 <sup>\[footnum]: ... by eventually calling [`makeOverridable`](https://github.com/NixOS/nixpkgs/blob/1ad352fd9ea96cebc7862782fa8d0d295c68ff15/lib/customisation.nix#L131C3-L160).</sup>
 
@@ -106,7 +106,7 @@ f.override { lofa = 27; miez = 9; }
 #=> ; override = { ... }; overrideDerivation = ... ; }
 ```
 
-This means that when the Nix expression comprising Nixpkgs is evaluated (e.g,. with `import <nixpkgs> {}`), then every(?) package definition (i.e., "_derivation-returning function_") in there will be called with `callPackage`. Users then either accept the defaults and build the packages as is, or create their own Nix expression and override the inputs to their heart's desire.
+This means that when the <a href="#def-nix-expression">Nix expression</a> comprising Nixpkgs is evaluated (e.g,. with `import <nixpkgs> {}`), then every(?) package definition (i.e., "_derivation-returning function_") in there will be called with `callPackage`. Users then either accept the defaults and build the <a href="#def-package">package</a>s as is, or create their own <a href="#def-nix-expression">Nix expression</a> and override the inputs to their heart's desire.
 
 TODO: derivation attribute sets vs store derivations!
 
@@ -160,11 +160,11 @@ The `callPackage` function accepts two arguments:
 
 ### 2.1 What is `attr_set_function`?
 
-Most often, `attr_set_function` tends to be a "_derivation-returning function_" to build a package where
+Most often, `attr_set_function` tends to be a "_derivation-returning function_" to build a <a href="#def-package">package</a> where
 
 + the **function parameters** (in this case, `initial_attr_set`) contain the dependencies and options for building and configuring it,  and
 
-+ the **function body** will (most often) call a Nix expression that will ultimately invoke the [`derivation` primitive](https://nix.dev/manual/nix/2.18/language/derivations).<sup><b>footnum</b></sup> The skeleton of `attr_set_function`'s body  usually looks along the lines of
++ the **function body** will (most often) call a <a href="#def-nix-expression">Nix expression</a> that will ultimately invoke the [`derivation` primitive](https://nix.dev/manual/nix/2.18/language/derivations).<sup><b>footnum</b></sup> The skeleton of `attr_set_function`'s body  usually looks along the lines of
 
   ```
   { stdenv
@@ -377,7 +377,7 @@ The term `pkgs` below will refer to the [Nixpkgs][6] package set. Such as the re
 
 * ... and so on
 
-(The semicolon is missing from the end of the Nix expressions to make it easier to try them out in `nix repl`.)
+(The semicolon is missing from the end of the <a href="#def-nix-expression">Nix expression</a>s to make it easier to try them out in `nix repl`.)
 
 
 TODO: put the texts BEFORE the examples
@@ -447,7 +447,7 @@ TODO: put the texts BEFORE the examples
   nix-repl> pkgs = import <nixpkgs> {}
   nix-repl> pkgs.callPackage ./f.nix {}
   ```
-  Providing a valid file system path containing a Nix expression (that conforms to what `callPackage` is accepting) works too as the file will be automatically imported first.
+  Providing a valid file system path containing a <a href="#def-nix-expression">Nix expression</a> (that conforms to what `callPackage` is accepting) works too as the file will be automatically imported first.
 
 nix-repl> pkgs.callPackage ({ stdenv, lib, lofa ? 27 }: lofa) {}
 27
