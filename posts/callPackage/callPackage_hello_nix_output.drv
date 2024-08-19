@@ -1,0 +1,61 @@
+ /nix/store/61x2hja9pz2jmm9c7ini2hd0898k4awl-hello-2.12.1.drv
+{
+  "/nix/store/61x2hja9pz2jmm9c7ini2hd0898k4awl-hello-2.12.1.drv": {
+    "args": [
+      "-e",
+      "/nix/store/6xg259477c90a229xwmb53pdfkn6ig3g-default-builder.sh"
+    ],
+    "builder": "/nix/store/pj1hnyxhcsw1krmhnbb9rjvqssbzliw8-bash-5.2-p15/bin/bash",
+    "env": {
+      "__structuredAttrs": "",
+      "buildInputs": "",
+      "builder": "/nix/store/pj1hnyxhcsw1krmhnbb9rjvqssbzliw8-bash-5.2-p15/bin/bash",
+      "cmakeFlags": "",
+      "configureFlags": "",
+      "depsBuildBuild": "",
+      "depsBuildBuildPropagated": "",
+      "depsBuildTarget": "",
+      "depsBuildTargetPropagated": "",
+      "depsHostHost": "",
+      "depsHostHostPropagated": "",
+      "depsTargetTarget": "",
+      "depsTargetTargetPropagated": "",
+      "doCheck": "",
+      "doInstallCheck": "",
+      "mesonFlags": "",
+      "name": "hello-2.12.1",
+      "nativeBuildInputs": "",
+      "out": "/nix/store/gmywycpzlbzz3y3qlcb0ssxgkvvlsfa1-hello-2.12.1",
+      "outputs": "out",
+      "patches": "",
+      "pname": "hello",
+      "propagatedBuildInputs": "",
+      "propagatedNativeBuildInputs": "",
+      "src": "/nix/store/xdbysilxxgbs55rrdxniglqg9m1v61h4-source",
+      "stdenv": "/nix/store/chilfhdcsnmwjl7igrw26j1lrc0zar35-stdenv-linux",
+      "strictDeps": "",
+      "system": "x86_64-linux",
+      "version": "2.12.1"
+    },
+    "inputDrvs": {
+      "/nix/store/8xiy49msk7nv3k3rmqzjxsspk3ssdmx8-bash-5.2-p15.drv": [
+        "out"
+      ],
+      "/nix/store/kh9inglxgaqj5098maivgy9iljbxpjww-stdenv-linux.drv": [
+        "out"
+      ],
+      "/nix/store/kzlyzfihyzl307fpnym5gxp7fwi03xyi-source.drv": [
+        "out"
+      ]
+    },
+    "inputSrcs": [
+      "/nix/store/6xg259477c90a229xwmb53pdfkn6ig3g-default-builder.sh"
+    ],
+    "outputs": {
+      "out": {
+        "path": "/nix/store/gmywycpzlbzz3y3qlcb0ssxgkvvlsfa1-hello-2.12.1"
+      }
+    },
+    "system": "x86_64-linux"
+  }
+}

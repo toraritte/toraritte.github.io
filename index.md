@@ -1,6 +1,6 @@
 <sup>[Scientific Breakthrough of the Afternoon](https://medium.com/scientific-breakthrough-of-the-afternoon) - posts that haven't been migrated here yet.</sup>
 
-+ 2024-08-18 \[`nixpkgs`] [`callPackage`](posts/2024-08-18-callPackage.md)
++ 2024-08-18 \[`nixpkgs`] [`callPackage`](posts/callPackage/2024-08-18-callPackage.md)
 
 ## Progress notes
 
