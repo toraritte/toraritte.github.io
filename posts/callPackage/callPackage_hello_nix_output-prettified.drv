@@ -1,0 +1,57 @@
+Derive(
+        [
+          ( "out"
+          , "/nix/store/4ry7bghf1z1y31bndcjjdzx24r04nvm6-name_orig_2024_08_13-2.12.1"
+          , ""
+          , ""
+          )
+        ]
+      , [
+          ( "/nix/store/0bqc7a8ijr9ry686i3f42my8nhx6gj4w-source.drv",        [ "out" ] )
+        , ( "/nix/store/0wn8fp5l7n9r3gqpkxxhkrcgv12bq3i7-stdenv-darwin.drv", [ "out" ] )
+        , ( "/nix/store/fgq0hj7c8h8gzvzh1vcl9hhinqpzaml0-bash-5.2-p15.drv",  [ "out" ] )
+        ]
+      , [ "/nix/store/6xg259477c90a229xwmb53pdfkn6ig3g-default-builder.sh" ]
+      , "aarch64-darwin"
+      , "/nix/store/ncw57j62jmhsi8l019anl1k8a13g0ykw-bash-5.2-p15/bin/bash"
+      , [ "-e"
+        , "/nix/store/6xg259477c90a229xwmb53pdfkn6ig3g-default-builder.sh" ]
+        , [
+            ( "__darwinAllowLocalNetworking", "" )
+          , ( "__impureHostDeps"
+            , "/bin/sh /usr/lib/libSystem.B.dylib /usr/lib/system/libunc.dylib /dev/zero /dev/random /dev/urandom /bin/sh"
+            )
+          , ( "__propagatedImpureHostDeps",   "" )
+          , ( "__propagatedSandboxProfile",   "" )
+          , ( "__sandboxProfile",             "" )
+          , ( "__structuredAttrs",            "" )
+          , ( "buildInputs",                  "" )
+          , ( "builder", "/nix/store/ncw57j62jmhsi8l019anl1k8a13g0ykw-bash-5.2-p15/bin/bash" )
+          , ( "cmakeFlags",                   "" )
+          , ( "configureFlags",               "" )
+          , ( "depsBuildBuild",               "" )
+          , ( "depsBuildBuildPropagated",     "" )
+          , ( "depsBuildTarget",              "" )
+          , ( "depsBuildTargetPropagated",    "" )
+          , ( "depsHostHost",                 "" )
+          , ( "depsHostHostPropagated",       "" )
+          , ( "depsTargetTarget",             "" )
+          , ( "depsTargetTargetPropagated",   "" )
+          , ( "doCheck",                      "" )
+          , ( "doInstallCheck",               "" )
+          , ( "mesonFlags",                   "" )
+          , ( "name",    "name_orig_2024_08_13- 2.12.1" )
+          , ( "nativeBuildInputs",            "" )
+          , ( "out",     "/nix/store/4ry7bghf1z1y31bndcjjdzx24r04nvm6-name_orig_2024_08_13-2.12.1" )
+          , ( "outputs", "out" )
+          , ( "patches",                      "" )
+          , ( "pname",   "name_orig_2024_08_13" )
+          , ( "propagatedBuildInputs",        "" )
+          , ( "propagatedNativeBuildInputs",  "" )
+          , ( "src",     "/nix/store/bqfq4db6nwycmkdrql9igsbrayqsw3g2-source" )
+          , ( "stdenv",  "/nix/store/mymsi43djixs7aiqfb9gpms4jllszfrg-stdenv-darwin" )
+          , ( "strictDeps",                   "" )
+          , ( "system",  "aarch64-darwin" )
+          , ( "version", "2.12.1" )
+        ]
+      )

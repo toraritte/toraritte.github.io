@@ -9,7 +9,7 @@ Officially, `callPackage` is only [indirectly documented][1] in the [Nixpkgs man
 
 Below are just my notes:
 
-## 0. Executive summary
+## 0. Executive summary <!-- [[- -->
 
 `callPackage f attr_set` will
 
@@ -18,16 +18,29 @@ Below are just my notes:
 
 2. return an **overridable [attribute set][5]**
 
-## 1. Context
+<!-- ]]- -->
 
-### 1.1 General usage
+## 1. Context <!-- [[- -->
+
+### 1.1 General usage <!-- [[- -->
 
 `callPackage` is used overwhelmingly on functions that produce derivations (a build recipe for a <a href="#def-package">Nix package</a>). Creating a <a href="#def-package">Nix package</a> can require a lot of dependencies that won't have to be supplied manually to the function this way.
 
 > "DEFINITION"  
-> "_<dfn id="def-package">Nix package</dfn>_" can mean anything digital that requires assembly from one or more sources. A Nix package can be a software, a dataset, a document, a piece of configuration, etc. (The term "package" is quite overloaded, so it may mean something else entirely in other contexts.)
+> _<dfn id="def-package">Nix package</dfn>_ can mean anything digital that requires assembly from one or more sources. A Nix package can be a software, a dataset, a document, a piece of configuration, etc. (The term "package" is quite overloaded, so it may mean something else entirely in other contexts.)
 
-### 1.2 A common example use case from [Nixpkgs][6]
+> "DEFINITION"  
+> A _<dfn id="def-derivation">derivation</dfn>_ is a "build recipe" for a <a href="#def-package">Nix package</a>. The term "_derivation_" can either refer to a "_store derivation_" or a "_derivation attribute set_", depending on the context. They can be used interchangeably most of the time, but there is a fundamental difference between the two: a "_store derivation_" is produced from a "_derivation attribute set_" during "_instantiation_", and the former is a <a href="#def-nix-expression">Nix expression</a> while the latter is "_stored on-disk in [ATerm](https://homepages.cwi.nl/~daybuild/daily-books/technology/aterm-guide/aterm-guide.html) format_" ([from Nix manual](https://nix.dev/manual/nix/2.22/protocols/derivation-aterm)).
+
+> "DEFINITION"  
+> _<dfn id="def-store-derivation">store derivation</dfn>_ TODO finish this. Meanwhile, here's the [store derivation](https://github.com/toraritte/toraritte.github.io/blob/master/posts/callPackage/callPackage_hello_nix_output.drv) (and [its prettified counterpart](https://github.com/toraritte/toraritte.github.io/blob/master/posts/callPackage/callPackage_hello_nix_output-prettified.drv)) of [`hello.nix`](https://github.com/toraritte/toraritte.github.io/blob/master/posts/callPackage/hello.nix), produced with `callPackage ./hello.nix {}`.
+
+> "DEFINITION"  
+> _<dfn id="def-derivation-attribute-set">derivation attribute set</dfn>_ TODO finish this. Meanwhile, here's the [derivation attribute set](https://github.com/toraritte/toraritte.github.io/blob/master/posts/callPackage/callPackage_hello_nix_output.nix) (~95k lines, so here's the [short version](https://github.com/toraritte/toraritte.github.io/blob/master/posts/callPackage/callPackage_hello_nix_output-short.nix)) of [`hello.nix`](https://github.com/toraritte/toraritte.github.io/blob/master/posts/callPackage/hello.nix), produced with `callPackage ./hello.nix {}`.
+
+  <!-- ]]- -->
+
+### 1.2 A common example use case from [Nixpkgs][6] <!-- [[- -->
 
 An important part of [Nixpkgs][6] is [`pkgs/top-level/all-packages.nix`][7] where all the available <a href="#def-package">package</a>s are listed. When the Nixpkgs repo (which is "just" a huge <a href="#def-nix-expression">Nix expression</a>) is [`import`][8]ed, all these <a href="#def-package">package</a>s (and some extra attributes) will be composed into one huge [attribute set][5]<sup><b>footnum</b></sup>. The majority of its ~40k lines either are or boil down to a `callPackage` call, such as [this][9]:
 
@@ -113,8 +126,11 @@ This means that when the <a href="#def-nix-expression">Nix expression</a> compri
 
 TODO: derivation attribute sets vs store derivations!
 
+  <!-- ]]- -->
 
-## 2. An informal specification
+<!-- ]]- -->
+
+## 2. An informal specification <!-- [[- -->
 
 One way to write `callPackage`'s type signature:
 ```
@@ -161,7 +177,7 @@ The `callPackage` function accepts two arguments:
    ```
    ```
 
-### 2.1 What is `attr_set_function`?
+### 2.1 What is `attr_set_function`? <!-- [[- -->
 
 Most often, `attr_set_function` tends to be a "_derivation-returning function_" to build a <a href="#def-package">package</a> where
 
@@ -221,7 +237,9 @@ The input for `attr_set_function` is
 
   <sup>\[5]: It is actually a limited subset of [Nixpkgs][6]; see [here](https://github.com/NixOS/nixpkgs/blame/e7f2456df49b39e816e9ed71622c09a42446a581/pkgs/top-level/splice.nix#L125-L144).</sup>
 
-### 2.2 How does `callPackage` call `attr_set_function`?
+  <!-- ]]- -->
+
+### 2.2 How does `callPackage` call `attr_set_function`? <!-- [[- -->
 
 Here's the visual representation of what is happening at a very high level:
 
@@ -301,8 +319,9 @@ PKGS.callPackageWith PKGS     ATTR_SET_FUNCTION    OVERRIDING_ATTR_SET
 
  See Nix Pill chapters [14](https://nixos.org/guides/nix-pills/14-override-design-pattern) and [17](https://nixos.org/guides/nix-pills/17-nixpkgs-overriding-packages). (The latter introduces the concept of "fixed point" which is used - but not mentioned - in the former.)
 
+  <!-- ]]- -->
 
-### 2.3 Why is the output `maybe_overridable_attr_set`?
+### 2.3 Why is the output `maybe_overridable_attr_set`? <!-- [[- -->
 
 + `maybe`, because
 
@@ -311,9 +330,9 @@ PKGS.callPackageWith PKGS     ATTR_SET_FUNCTION    OVERRIDING_ATTR_SET
 + `attr_set`, because
 
 
+  <!-- ]]- -->
 
-
-
+<!-- ]]- -->
 
 
 ### Level 2. More precise but also more abstruse
@@ -539,3 +558,8 @@ The result of `attr_set_function` is usually a Nix derivation expression (which 
   [16]: https://github.com/NixOS/nixpkgs/blob/7370c67890fb6ae18bad28496a684294ec1b3f88/lib/customisation.nix#L212-L269
   [17]: https://www.mail-archive.com/nix-dev@cs.uu.nl/msg02624.html
   [18]: https://nix.dev/manual/nix/2.18/command-ref/new-cli/nix3-repl
+
+<!--
+vim: set fdm=marker:
+vim: set foldmarker=[[-,]]-:
+-->
