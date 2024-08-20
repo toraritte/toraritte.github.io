@@ -1,7 +1,7 @@
 # `callPackage`
 
 > [CAVEAT LECTOR](https://en.wikipedia.org/wiki/Caveat_emptor#Caveat_lector)  
-> I'm not a `Nix(OS|pkgs)?` expert, and none of this has been reviewed by anyone who is. Please consider [creating an issue or pull request](https://github.com/toraritte/toraritte.github.io), if you have any suggestions or corrections. Thank you!
+> I'm not a `Nix(OS|pkgs)?` expert, and none of this has been reviewed by anyone who is. Please consider [creating an issue or pull request](https://github.com/toraritte/toraritte.github.io) if you have any suggestions or corrections. Thank you!
 
 Officially, `callPackage` is only [indirectly documented][1] in the [Nixpkgs manual][2], but there are efforts to get this rectified.<sup><b>0</b></sup> The closest to an official documentation is the [Package parameters and overrides with callPackage][3] article on [nix.dev][4].
 
@@ -42,9 +42,11 @@ Below are just my notes:
 
 ### 1.2 A common example use case from [Nixpkgs][6] <!-- [[- -->
 
-An important part of [Nixpkgs][6] is [`pkgs/top-level/all-packages.nix`][7] where all the available <a href="#def-package">package</a>s are listed. When the Nixpkgs repo (which is "just" a huge <a href="#def-nix-expression">Nix expression</a>) is [`import`][8]ed, all these <a href="#def-package">package</a>s (and some extra attributes) will be composed into one huge [attribute set][5]<sup><b>footnum</b></sup>. The majority of its ~40k lines either are or boil down to a `callPackage` call, such as [this][9]:
+An important part of [Nixpkgs][6] is [`pkgs/top-level/all-packages.nix`][7], where all the available <a href="#def-package">package</a>s are listed. When the Nixpkgs repo (which is "just" a huge <a href="#def-nix-expression">Nix expression</a>) is [`import`][8]ed, all these <a href="#def-package">package</a>s (and some extra attributes) will be composed into one huge [attribute set][5]<sup><b>1</b></sup>.
 
-<sup>\[footnum]: ... in [here in `pkgs/top-level/stage.nix`](https://github.com/NixOS/nixpkgs/blob/b7d9ab22adfc67600328d42aa6552326be486393/pkgs/top-level/stage.nix#L149-L153). See [comment at the top](https://github.com/NixOS/nixpkgs/blob/b7d9ab22adfc67600328d42aa6552326be486393/pkgs/top-level/stage.nix#L1-L9).</sup>
+<sup>\[1]: ... in [here in `pkgs/top-level/stage.nix`](https://github.com/NixOS/nixpkgs/blob/b7d9ab22adfc67600328d42aa6552326be486393/pkgs/top-level/stage.nix#L149-L153). See [comment at the top](https://github.com/NixOS/nixpkgs/blob/b7d9ab22adfc67600328d42aa6552326be486393/pkgs/top-level/stage.nix#L1-L9).</sup>
+
+The majority of its ~40k lines either are or boil down to a `callPackage` call, such as [this][9]:
 
 ```
 godot_4 = callPackage ../development/tools/godot/4 { };
@@ -61,13 +63,15 @@ godot_4 = callPackage ┌godot_4_nix┐ ┌{         }┐ ;
 #                     └─ FUNCTION ┘ └ ATTRIBUTE ┘
 #                         ▲    ▲         SET
 #                         │    │          │
-#      "NIXPKGS"¹ ────────┘ // └──────────┘
+#      "NIXPKGS"² ────────┘ //³└──────────┘
 #
 ```
 
-where `"NIXPKGS"`<sup><b>1</b></sup> stands for the resulting [attribute set][5] when the huge <a href="#def-nix-expression">Nix expression</a> that is the [Nixpkgs repo][6] is evaluated (e.g., with `import <nixpkgs> {}`).
+where `"NIXPKGS"`<sup><b>2</b></sup> stands for the resulting [attribute set][5] when the huge <a href="#def-nix-expression">Nix expression</a> that is the [Nixpkgs repo][6] is evaluated (e.g., with `import <nixpkgs> {}`).
 
-<sup>\[1]: I used quotes because [some attributes are actually omitted][11].</sup>
+<sup>\[2]: I used quotes because [some attributes are actually omitted][11].</sup>
+
+<sup>\[3]: See the [`//` operator](https://nix.dev/manual/nix/2.18/language/operators#update).</sup>
 
 > "DEFINITION"  
 > A "<dfn id="def-nix-expression">Nix expression</dfn>" is any piece of code written using the [Nix language][10].
@@ -76,20 +80,23 @@ The [`godot_4_nix` function][12] has 30+ input parameters; most are dependecies 
 
 Thus, extensive use of `callPackage` when "pre-evaluating" package definitions (i.e., "_derivation-returning functions_") in [`pkgs/top-level/all-packages.nix`][7] cuts down on a lot of space and reduces manual labour.
 
-> IMPORTANT  
-> "_Pre-evaluation_" here does not mean that **all** attributes in [`pkgs/top-level/all-packages.nix`][7] will be evaluated on the spot when importing [Nixpkgs][6]! The [Nix language][10] uses lazy evaluation, therefore these attributes will only get evaluated when they are acutally used (e.g., in [`nix repl`][18], a Nix shell, system configuration in NixOS, etc.). 
+> NOTE  
+> TODO this section needs to be clearer...
+> "_Pre-evaluation_" here does not mean that **all** attributes in [`pkgs/top-level/all-packages.nix`][7] will be evaluated on the spot when evaluating [Nixpkgs][6]! The [Nix language][10] uses lazy evaluation, therefore these attributes will only get evaluated when they are actually used (in e.g., the [`nix repl`][18], a Nix shell, system configuration in NixOS, etc.). 
 > 
 > TODO: example
 > 
 > What I mean by "_pre-evaluation_" is to call (or, because of Nix's laziness, schedule a call of) a "_derivation-returning function_" with the arguments it needs. This was already the practice before [`callPackage` was introduced][17], it just took up way more space and time.
 
-Because of pre-evaluation, invoking `callPackage` on a Nixpkgs <a href="#def-package">package</a> produces a "_derivation attribute set_" right away - but this is where **overridability** comes in the picture: `callPackage` will also add two extra attributes<sup><b>footnum</b></sup> to the produced [attribute set][5], `override`  and `overrideDerivation`<sup><b>footnum</b></sup>, making it possible to tweak the future derivation(e.g., by specifying a different source, change the options, etc.) instead of accepting the defaults.
+> TODO add links to the functions in the Nixpkgs manual
 
-<sup>\[footnum]: ... by eventually calling [`makeOverridable`](https://github.com/NixOS/nixpkgs/blob/1ad352fd9ea96cebc7862782fa8d0d295c68ff15/lib/customisation.nix#L131C3-L160).</sup>
+Because of pre-evaluation, invoking `callPackage` on a Nixpkgs <a href="#def-package">package</a> produces a "_derivation attribute set_" right away - but this is where **overridability** comes in the picture: `callPackage` will also add two extra attributes<sup><b>4</b></sup> to the produced [attribute set][5], `override`  and `overrideDerivation`<sup><b>5</b></sup>, making it possible to tweak the future derivation(e.g., by specifying a different source, change the options, etc.) instead of accepting the defaults.
 
-<sup>\[footnum]: It is officially recommended to use `overrideAttrs`<sup><b>footnum</b></sup> over `overrideDerivation`; see [`<pkg>.overrideDerivation`](https://nixos.org/manual/nixpkgs/stable/#sec-pkg-overrideDerivation) in the Nixpkgs manual.
+<sup>\[4]: ... by eventually calling [`makeOverridable`](https://github.com/NixOS/nixpkgs/blob/1ad352fd9ea96cebc7862782fa8d0d295c68ff15/lib/customisation.nix#L131C3-L160).</sup>
 
-<sup>\[footnum]: Here's a beautifully simple explanation [how `override` and `overrideAttrs`/`overrideDerivation` differ](https://www.reddit.com/r/NixOS/comments/cn6nt4/comment/ew7bjhz/).</sup>
+<sup>\[5]: It is officially recommended to use `overrideAttrs`<sup><b>6</b></sup> over `overrideDerivation`; see [`<pkg>.overrideDerivation`](https://nixos.org/manual/nixpkgs/stable/#sec-pkg-overrideDerivation) in the Nixpkgs manual.
+
+<sup>\[6]: Here's a beautifully simple explanation [how `override` and `overrideAttrs`/`overrideDerivation` differ](https://www.reddit.com/r/NixOS/comments/cn6nt4/comment/ew7bjhz/).</sup>
 
 > TODO: override hell
 > 1. see "override vs overlay nix" tab
@@ -104,6 +111,8 @@ Because of pre-evaluation, invoking `callPackage` on a Nixpkgs <a href="#def-pac
 
 
 Here's an example that proves all the points above:
+
+> TODO: quite a bad example here and it should be in the Examples section as a counter-example for the "rule" that `callPackage`'s 2nd input can only have parameters that are either declared in Nixpkgs or in the head of `attr_set_function`.
 
 ```
 # No semicolons because of `nix repl`.
