@@ -1,6 +1,7 @@
 <sup>[Scientific Breakthrough of the Afternoon](https://medium.com/scientific-breakthrough-of-the-afternoon) - posts that haven't been migrated here yet.</sup>
 
 + 2024-08-18 \[`nixpkgs`] [`callPackage`](posts/callPackage/2024-08-18-callPackage.md)
++ 2025-05-14 \[`c doxygen freeswitch`] [How to generate documentation for the FreeSWITCH source code with Doxygen](posts/2025-05-14-generate-freeswitch-docs-with-doxygen.md)
 
 ## Progress notes
 
