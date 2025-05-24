@@ -36,7 +36,9 @@ nix-shell -I nixpkgs=https://github.com/NixOS/nixpkgs/archive/865c1cb0e921c173e8
    # listed:
    FILE_PATTERNS = *.c *.h
 
-   INPUT = src
+   INPUT =
+   OUTPUT_DIRECTORY = ../<your-dir>
+
    RECURSIVE = YES
    EXTRACT_ALL = YES
    EXTRACT_PRIVATE = YES
@@ -46,6 +48,17 @@ nix-shell -I nixpkgs=https://github.com/NixOS/nixpkgs/archive/865c1cb0e921c173e8
    GENERATE_LATEX = NO
    GENERATE_XML = NO
    ```
+
+   Leaving [`INPUT`][2] empty means to scan the current directory (i.e., the [FreeSWITCH repo][1]'s root). `src` holds the main code, but `libs` has all the supporting data structures and functions FreeSWITCH is built on.
+
+   It is recommended to set [`OUTPUT_DIRECTORY`][3] somewhere outside the [FreeSWITCH repo][1], because code editors such as VS Code can start scanning it and might even crash (just the generated graphs alone are around 70,000).
+
+   Here is the [reference documentation of the Doxygen configuration options][4].
+
+[1]: https://github.com/signalwire/freeswitch
+[2]: https://www.doxygen.nl/manual/config.html#cfg_input
+[3]: https://www.doxygen.nl/manual/config.html#cfg_output_directory
+[4]: https://www.doxygen.nl/manual/config.html
 
 ## 3. Run Doxygen
 
